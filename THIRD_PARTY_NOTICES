@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Fifty upstream OpenSCAD libraries are vendored unmodified under
+Fifty-four upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -379,6 +379,53 @@ License:   CC0-1.0. Christian Lutz; CC0 1.0 Universal dedicates the work to the 
            domain, so no attribution is required - it is given here anyway.
 Vendored:  openscad/vendor/christianlutz-3d-inserts-5a9976a9/ - the card tray and
            resources tray sources plus the upstream LICENSE.
+
+holgerlembke-openscad-modelle
+-----------------------------
+Upstream:  https://github.com/holgerlembke/OpenSCAD-Modelle
+Pinned at: b48f4ea0a3c11ae1b0e538a567b954c682798d5b
+License:   MIT. Copyright (c) 2021 Holger Lembke.
+Vendored:  openscad/vendor/holgerlembke-openscad-modelle-b48f4ea0/ - the eight
+           printer-accessory models (spoolholder.scad, spoolholder3.scad,
+           ender3v3kefilamentguide.scad, ender3v3kefilamentguide2.scad,
+           Bed_Levelling.scad, Schaberklingenhalter.scad, Kabel Knickschutz.scad,
+           halteklammer.scad) plus the upstream LICENSE.
+
+splice3d (dmhernandez2525)
+--------------------------
+Upstream:  https://github.com/dmhernandez2525/splice3d
+Pinned at: 1b9233f1b07b923ec7b08eaba5db74e2b7fa6790
+License:   MIT. Copyright (c) 2026 Splice3D Contributors.
+Vendored:  openscad/vendor/splice3d-1b9233f1/ - the shared common.scad library
+           and the spool holder, filament guide, guide jig, tool accessory and
+           cable management cad sources under hardware/f1_1/cad and
+           hardware/f1_4/cad, plus the upstream LICENSE. Upstream's layout is
+           kept so the relative `use <../../f1_1/cad/common.scad>` includes
+           resolve.
+
+gchristopher-3dprinting
+-----------------------
+Upstream:  https://github.com/gchristopher/3dprinting
+Pinned at: 8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf
+License:   Apache-2.0. Copyright (c) 2015-2017 Gregg Christopher.
+Vendored:  openscad/vendor/gchristopher-3dprinting-8fdb722c/ - the five Rostock
+           MAX V2 "Single-Dual Wider Effector Platform" sources (dual_tool_holder,
+           dual_tool_clamp, fan_shroud_bottom, wider_effector_platform and
+           effector_constants), flat under rostock-effector/, plus the upstream
+           LICENSE. Every file carries upstream's own "This file is public
+           domain" header. The repository's "Rostock Max V2 Dual Extruder
+           Holder" sources are not vendored: extruder_holders.scad states it is
+           GPL v3 and that the SeeMeCNC-derived geometry is most likely
+           noncommercial.
+
+ewc3-test-hole-generator (EWC3 Labs)
+------------------------------------
+Upstream:  https://github.com/ewc3labs/ewc3-test-hole-generator
+Pinned at: c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b
+License:   MIT. Copyright (c) 2026 EWC3 Labs.
+Vendored:  openscad/vendor/ewc3-test-hole-generator-c4b7bfdc/ - the current
+           src/test-hole-generator-v2.scad and the archived rectangular
+           _ARCHIVE/src/test-hole-generator.scad, plus the upstream LICENSE.
 
 Third-party frontend notices
 ============================

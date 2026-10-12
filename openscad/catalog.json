@@ -387,6 +387,38 @@
       "license": "CC0-1.0",
       "repository": "https://github.com/ChristianLutz/3d-inserts",
       "author": "Christian Lutz and contributors (public domain dedication)"
+    },
+    "holgerlembke-openscad-modelle": {
+      "label": "OpenSCAD Models (holgerlembke)",
+      "root": "vendor/holgerlembke-openscad-modelle-b48f4ea0",
+      "revision": "b48f4ea0a3c11ae1b0e538a567b954c682798d5b",
+      "license": "MIT",
+      "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle",
+      "author": "Holger Lembke"
+    },
+    "splice3d": {
+      "label": "Splice3D (dmhernandez2525)",
+      "root": "vendor/splice3d-1b9233f1",
+      "revision": "1b9233f1b07b923ec7b08eaba5db74e2b7fa6790",
+      "license": "MIT",
+      "repository": "https://github.com/dmhernandez2525/splice3d",
+      "author": "Splice3D Contributors"
+    },
+    "gchristopher-3dprinting": {
+      "label": "3D Printing (gchristopher)",
+      "root": "vendor/gchristopher-3dprinting-8fdb722c",
+      "revision": "8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf",
+      "license": "Apache-2.0",
+      "repository": "https://github.com/gchristopher/3dprinting",
+      "author": "Gregg Christopher"
+    },
+    "ewc3-test-hole-generator": {
+      "label": "Test Hole Generator (EWC3 Labs)",
+      "root": "vendor/ewc3-test-hole-generator-c4b7bfdc",
+      "revision": "c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b",
+      "license": "MIT",
+      "repository": "https://github.com/ewc3labs/ewc3-test-hole-generator",
+      "author": "EWC3 Labs (Wilson Cook)"
     }
   },
   "quality_profiles": {
@@ -25578,6 +25610,1830 @@
           }
         }
       ]
+    },
+    "spool_hook_holder": {
+      "label": "Filament Spool Wall Hook",
+      "short": "Spool hook",
+      "category": "3D printing",
+      "icon": "cylinder",
+      "source": "objects/wrappers/spool_hook_holder.scad",
+      "description": "Pair of shelf hooks that carry 608-bearing axles for a filament spool, sized to a Lundia upright.",
+      "tags": [
+        "spool",
+        "holder",
+        "filament",
+        "wall",
+        "hook",
+        "bearing",
+        "608",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "armlaenge",
+          "label": "Arm length",
+          "type": "number",
+          "default": 120,
+          "min": 60,
+          "max": 260,
+          "step": 1,
+          "group": "Arm",
+          "unit": "mm",
+          "help": "Length of the two load-bearing arms."
+        },
+        {
+          "variable": "rundscheibeh",
+          "label": "Arm thickness",
+          "type": "number",
+          "default": 14,
+          "min": 5,
+          "max": 30,
+          "step": 0.5,
+          "group": "Arm",
+          "unit": "mm",
+          "help": "Thickness of the disc and arms."
+        },
+        {
+          "variable": "kugellagerdi",
+          "label": "Bearing bore",
+          "type": "number",
+          "default": 7.9,
+          "min": 5,
+          "max": 12,
+          "step": 0.1,
+          "group": "Bearing",
+          "unit": "mm",
+          "help": "Bore for the 608 bearing spindle."
+        },
+        {
+          "variable": "kugelofs",
+          "label": "Spindle offset",
+          "type": "number",
+          "default": 10,
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "group": "Bearing",
+          "unit": "mm",
+          "help": "Clearance between spindle and wall."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default pair",
+          "description": "Upstream's 120 mm arms.",
+          "params": {}
+        },
+        {
+          "name": "Deep shelf arm",
+          "description": "Reaches further past the shelf edge.",
+          "params": {
+            "armlaenge": 180
+          }
+        },
+        {
+          "name": "Thin arms",
+          "description": "Saves filament.",
+          "params": {
+            "rundscheibeh": 8
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "spool_arm_v3": {
+      "label": "Filament Spool Arm v3",
+      "short": "Spool arm",
+      "category": "3D printing",
+      "icon": "bracket",
+      "source": "objects/wrappers/spool_arm_v3.scad",
+      "description": "Shelf arm with a tipping guard and a bearing roller for a filament spool, version 3 of the hook.",
+      "tags": [
+        "spool",
+        "holder",
+        "filament",
+        "arm",
+        "roller",
+        "bearing",
+        "shelf",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "rundscheibeh",
+          "label": "Arm thickness",
+          "type": "number",
+          "default": 8,
+          "min": 4,
+          "max": 20,
+          "step": 0.5,
+          "group": "Arm",
+          "unit": "mm",
+          "help": "Thickness of the arm disc."
+        },
+        {
+          "variable": "arml",
+          "label": "Roller length",
+          "type": "number",
+          "default": 65,
+          "min": 30,
+          "max": 140,
+          "step": 1,
+          "group": "Roller",
+          "unit": "mm",
+          "help": "Length of the spool roller."
+        },
+        {
+          "variable": "armda",
+          "label": "Roller outer diameter",
+          "type": "number",
+          "default": 25,
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "group": "Roller",
+          "unit": "mm",
+          "help": "Outer diameter of the roller."
+        },
+        {
+          "variable": "armdi",
+          "label": "Roller bore",
+          "type": "number",
+          "default": 20,
+          "min": 8,
+          "max": 55,
+          "step": 1,
+          "group": "Roller",
+          "unit": "mm",
+          "help": "Inner diameter of the roller."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default arm",
+          "params": {}
+        },
+        {
+          "name": "Long roller",
+          "description": "Fits wider spools.",
+          "params": {
+            "arml": 90
+          }
+        },
+        {
+          "name": "Slim roller",
+          "params": {
+            "armda": 20,
+            "armdi": 16
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "filament_guide_ender3": {
+      "label": "Ender 3 Filament Guide",
+      "short": "Ender guide",
+      "category": "3D printing",
+      "icon": "tube",
+      "source": "objects/wrappers/filament_guide_ender3.scad",
+      "description": "Side-mount filament guide and runout-sensor bracket with a push-fit coupling for an Ender 3 V3 KE.",
+      "tags": [
+        "filament",
+        "guide",
+        "ender",
+        "bracket",
+        "sensor",
+        "ptfe",
+        "coupling",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "winkelh",
+          "label": "Bracket height",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "Height of the mounting bracket."
+        },
+        {
+          "variable": "winkell",
+          "label": "Bracket length",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "Length of the mounting bracket."
+        },
+        {
+          "variable": "winkelb",
+          "label": "Bracket width",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "Width of the mounting bracket."
+        },
+        {
+          "variable": "kupplungaussen",
+          "label": "Coupling size",
+          "type": "number",
+          "default": 25,
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "group": "Coupling",
+          "unit": "mm",
+          "help": "Outer size of the coupling block."
+        },
+        {
+          "variable": "kupplungh",
+          "label": "Coupling height",
+          "type": "number",
+          "default": 18,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Coupling",
+          "unit": "mm",
+          "help": "Height of the coupling block."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default guide",
+          "params": {}
+        },
+        {
+          "name": "Tall bracket",
+          "params": {
+            "winkelh": 80
+          }
+        },
+        {
+          "name": "Wide coupling",
+          "description": "For a larger bowden fitting.",
+          "params": {
+            "kupplungaussen": 32
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "filament_guide_ender3_v2": {
+      "label": "Ender 3 Filament Guide v2",
+      "short": "Ender guide v2",
+      "category": "3D printing",
+      "icon": "fit",
+      "source": "objects/wrappers/filament_guide_ender3_v2.scad",
+      "description": "Version 2 of the Ender 3 V3 KE guide, adding a grooved roller in front of the sensor coupling.",
+      "tags": [
+        "filament",
+        "guide",
+        "ender",
+        "roller",
+        "bracket",
+        "sensor",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "winkelh",
+          "label": "Bracket height",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "Height of the mounting bracket."
+        },
+        {
+          "variable": "winkell",
+          "label": "Bracket length",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "Length of the mounting bracket."
+        },
+        {
+          "variable": "winkelb",
+          "label": "Bracket width",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 100,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "Width of the mounting bracket."
+        },
+        {
+          "variable": "rollrdm",
+          "label": "Roller diameter",
+          "type": "number",
+          "default": 24,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "group": "Roller",
+          "unit": "mm",
+          "help": "Outer diameter of the roller."
+        },
+        {
+          "variable": "rollrb",
+          "label": "Roller thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Roller",
+          "unit": "mm",
+          "help": "Thickness of the roller."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default guide",
+          "params": {}
+        },
+        {
+          "name": "Big roller",
+          "params": {
+            "rollrdm": 36
+          }
+        },
+        {
+          "name": "Thick roller",
+          "params": {
+            "rollrb": 5
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "bed_level_test": {
+      "label": "Bed Level Test",
+      "short": "Bed level test",
+      "category": "3D printing",
+      "icon": "grid",
+      "source": "objects/wrappers/bed_level_test.scad",
+      "description": "Nine small squares spread over the printable area; print one set in each corner and the middle to check level and adhesion.",
+      "tags": [
+        "bed",
+        "level",
+        "calibration",
+        "test",
+        "first layer",
+        "adhesion",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "X_MAX_LENGTH",
+          "label": "Build plate X",
+          "type": "number",
+          "default": 230,
+          "min": 100,
+          "max": 500,
+          "step": 5,
+          "group": "Build plate",
+          "unit": "mm",
+          "help": "Printable width of the printer."
+        },
+        {
+          "variable": "Y_MAX_LENGTH",
+          "label": "Build plate Y",
+          "type": "number",
+          "default": 230,
+          "min": 100,
+          "max": 500,
+          "step": 5,
+          "group": "Build plate",
+          "unit": "mm",
+          "help": "Printable depth of the printer."
+        },
+        {
+          "variable": "SIZE",
+          "label": "Square size",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 60,
+          "step": 1,
+          "group": "Squares",
+          "unit": "mm",
+          "help": "Edge length of one test square."
+        },
+        {
+          "variable": "OFFSET",
+          "label": "Edge offset",
+          "type": "number",
+          "default": 25,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "group": "Squares",
+          "unit": "mm",
+          "help": "Distance from the plate edge."
+        },
+        {
+          "variable": "THICKNESS",
+          "label": "Square thickness",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.2,
+          "max": 5,
+          "step": 0.1,
+          "group": "Squares",
+          "unit": "mm",
+          "help": "Printed thickness of a square."
+        }
+      ],
+      "presets": [
+        {
+          "name": "230 mm bed",
+          "params": {}
+        },
+        {
+          "name": "220 mm bed",
+          "params": {
+            "X_MAX_LENGTH": 220,
+            "Y_MAX_LENGTH": 220
+          }
+        },
+        {
+          "name": "Large bed",
+          "params": {
+            "X_MAX_LENGTH": 300,
+            "Y_MAX_LENGTH": 300
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "scraper_blade_holder": {
+      "label": "Scraper Blade Holder",
+      "short": "Blade holder",
+      "category": "3D printing",
+      "icon": "wrench",
+      "source": "objects/wrappers/scraper_blade_holder.scad",
+      "description": "Grip that carries a replaceable trapezoid scraper blade for lifting prints off the bed.",
+      "tags": [
+        "scraper",
+        "blade",
+        "holder",
+        "bed",
+        "tool",
+        "handle",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "griffbreite",
+          "label": "Grip width",
+          "type": "number",
+          "default": 25,
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "group": "Grip",
+          "unit": "mm",
+          "help": "Width of the grip."
+        },
+        {
+          "variable": "grifflaenge",
+          "label": "Grip length",
+          "type": "number",
+          "default": 120,
+          "min": 60,
+          "max": 220,
+          "step": 1,
+          "group": "Grip",
+          "unit": "mm",
+          "help": "Length of the grip."
+        },
+        {
+          "variable": "griffhoehe",
+          "label": "Grip height",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 15,
+          "step": 0.5,
+          "group": "Grip",
+          "unit": "mm",
+          "help": "Height of the grip."
+        },
+        {
+          "variable": "holderdm",
+          "label": "Blade seat",
+          "type": "number",
+          "default": 6.5,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "group": "Blade",
+          "unit": "mm",
+          "help": "Diameter of the blade seat."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default grip",
+          "params": {}
+        },
+        {
+          "name": "Short grip",
+          "params": {
+            "grifflaenge": 80
+          }
+        },
+        {
+          "name": "Thick grip",
+          "params": {
+            "griffhoehe": 8
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "cable_strain_relief": {
+      "label": "Cable Strain Relief",
+      "short": "Strain relief",
+      "category": "3D printing",
+      "icon": "wireframe",
+      "source": "objects/wrappers/cable_strain_relief.scad",
+      "description": "Tapered segmented sleeve that takes the bend out of a hot-end or bed cable where it leaves the frame.",
+      "tags": [
+        "cable",
+        "strain",
+        "relief",
+        "sleeve",
+        "bend",
+        "protection",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "ringda",
+          "label": "Outer diameter",
+          "type": "number",
+          "default": 12,
+          "min": 6,
+          "max": 30,
+          "step": 0.5,
+          "group": "Sleeve",
+          "unit": "mm",
+          "help": "Outer diameter of the first ring."
+        },
+        {
+          "variable": "ringdi",
+          "label": "Cable bore",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "group": "Sleeve",
+          "unit": "mm",
+          "help": "Inner cable channel diameter."
+        },
+        {
+          "variable": "ringanzahl",
+          "label": "Ring count",
+          "type": "integer",
+          "default": 12,
+          "min": 3,
+          "max": 30,
+          "step": 1,
+          "group": "Sleeve",
+          "help": "Number of stacked rings."
+        },
+        {
+          "variable": "ringabstand",
+          "label": "Ring gap",
+          "type": "number",
+          "default": 0.8,
+          "min": 0.2,
+          "max": 4,
+          "step": 0.1,
+          "group": "Sleeve",
+          "unit": "mm",
+          "help": "Gap between rings."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default sleeve",
+          "params": {}
+        },
+        {
+          "name": "Long sleeve",
+          "params": {
+            "ringanzahl": 20
+          }
+        },
+        {
+          "name": "Thick cable",
+          "params": {
+            "ringda": 18,
+            "ringdi": 10
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "vslot_clamp": {
+      "label": "V-Slot Clamp Plate",
+      "short": "V-slot clamp",
+      "category": "3D printing",
+      "icon": "fit",
+      "source": "objects/wrappers/vslot_clamp.scad",
+      "description": "Clamp plate that grips a 40 mm V-slot extrusion and carries a strap and screws for a sensor or tool.",
+      "tags": [
+        "v-slot",
+        "clamp",
+        "extrusion",
+        "mount",
+        "printer",
+        "strap",
+        "profile"
+      ],
+      "parameters": [
+        {
+          "variable": "laenge",
+          "label": "Plate length",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 80,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm",
+          "help": "Length along the extrusion slot."
+        },
+        {
+          "variable": "breite",
+          "label": "Plate width",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 160,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm",
+          "help": "Width across the extrusion."
+        },
+        {
+          "variable": "dicke",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 7,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm",
+          "help": "Thickness of the plate."
+        },
+        {
+          "variable": "stegbreite",
+          "label": "Slot rib width",
+          "type": "number",
+          "default": 6.2,
+          "min": 4,
+          "max": 12,
+          "step": 0.1,
+          "group": "Slot",
+          "unit": "mm",
+          "help": "Width of the ribs that grip the slot."
+        }
+      ],
+      "presets": [
+        {
+          "name": "40 mm plate",
+          "params": {}
+        },
+        {
+          "name": "Wide plate",
+          "params": {
+            "breite": 100
+          }
+        },
+        {
+          "name": "Thick plate",
+          "params": {
+            "dicke": 10
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (holgerlembke)",
+        "license": "MIT",
+        "author": "Holger Lembke",
+        "repository": "https://github.com/holgerlembke/OpenSCAD-Modelle"
+      }
+    },
+    "spool_stand_row": {
+      "label": "Filament Spool Stand Row",
+      "short": "Spool stand",
+      "category": "3D printing",
+      "icon": "cylinder",
+      "source": "objects/wrappers/spool_stand_row.scad",
+      "description": "Cradle walls for a 1 kg spool with an 8 mm axle slot, laid out as a row at a settable pitch.",
+      "tags": [
+        "spool",
+        "stand",
+        "cradle",
+        "filament",
+        "holder",
+        "row",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "stand_count",
+          "label": "Stand count",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "group": "Layout",
+          "help": "Number of cradle walls in the row."
+        },
+        {
+          "variable": "stand_pitch",
+          "label": "Stand pitch",
+          "type": "number",
+          "default": 100,
+          "min": 95,
+          "max": 140,
+          "step": 1,
+          "group": "Layout",
+          "unit": "mm",
+          "help": "Centre distance between the walls."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Two stands",
+          "params": {}
+        },
+        {
+          "name": "Single stand",
+          "params": {
+            "stand_count": 1
+          }
+        },
+        {
+          "name": "Four stands",
+          "params": {
+            "stand_count": 4
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Splice3D (dmhernandez2525)",
+        "license": "MIT",
+        "author": "Splice3D Contributors",
+        "repository": "https://github.com/dmhernandez2525/splice3d"
+      }
+    },
+    "filament_guide_block": {
+      "label": "Filament Guide Block",
+      "short": "Guide block",
+      "category": "3D printing",
+      "icon": "box",
+      "source": "objects/wrappers/filament_guide_block.scad",
+      "description": "Entry fitting with a smooth internal filament channel and a PC4-M6 coupler port.",
+      "tags": [
+        "filament",
+        "guide",
+        "block",
+        "fitting",
+        "ptfe",
+        "coupler",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "guide_length",
+          "label": "Block length",
+          "type": "number",
+          "default": 28,
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "group": "Block",
+          "unit": "mm",
+          "help": "Length of the guide block."
+        },
+        {
+          "variable": "guide_width",
+          "label": "Block width",
+          "type": "number",
+          "default": 16,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Block",
+          "unit": "mm",
+          "help": "Width of the guide block."
+        },
+        {
+          "variable": "guide_height",
+          "label": "Block height",
+          "type": "number",
+          "default": 14,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Block",
+          "unit": "mm",
+          "help": "Height of the guide block."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default block",
+          "params": {}
+        },
+        {
+          "name": "Long block",
+          "params": {
+            "guide_length": 40
+          }
+        },
+        {
+          "name": "Tall block",
+          "params": {
+            "guide_height": 20
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Splice3D (dmhernandez2525)",
+        "license": "MIT",
+        "author": "Splice3D Contributors",
+        "repository": "https://github.com/dmhernandez2525/splice3d"
+      }
+    },
+    "filament_guide_jig": {
+      "label": "Filament Guide Jig",
+      "short": "Guide jig",
+      "category": "3D printing",
+      "icon": "fit",
+      "source": "objects/wrappers/filament_guide_jig.scad",
+      "description": "Alignment jig the filament guide fittings are assembled around, with the same channel and coupler port.",
+      "tags": [
+        "filament",
+        "guide",
+        "jig",
+        "alignment",
+        "assembly",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "jig_length",
+          "label": "Jig length",
+          "type": "number",
+          "default": 20,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "group": "Jig",
+          "unit": "mm",
+          "help": "Length of the alignment jig."
+        },
+        {
+          "variable": "jig_width",
+          "label": "Jig width",
+          "type": "number",
+          "default": 14,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Jig",
+          "unit": "mm",
+          "help": "Width of the alignment jig."
+        },
+        {
+          "variable": "jig_height",
+          "label": "Jig height",
+          "type": "number",
+          "default": 12,
+          "min": 6,
+          "max": 40,
+          "step": 1,
+          "group": "Jig",
+          "unit": "mm",
+          "help": "Height of the alignment jig."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default jig",
+          "params": {}
+        },
+        {
+          "name": "Long jig",
+          "params": {
+            "jig_length": 36
+          }
+        },
+        {
+          "name": "Tall jig",
+          "params": {
+            "jig_height": 18
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Splice3D (dmhernandez2525)",
+        "license": "MIT",
+        "author": "Splice3D Contributors",
+        "repository": "https://github.com/dmhernandez2525/splice3d"
+      }
+    },
+    "hex_key_rack": {
+      "label": "Hex Key Holder Rack",
+      "short": "Hex key rack",
+      "category": "3D printing",
+      "icon": "screw",
+      "source": "objects/wrappers/hex_key_rack.scad",
+      "description": "Drilled block that stands hex keys upright, laid out as a row at a settable pitch.",
+      "tags": [
+        "hex",
+        "key",
+        "holder",
+        "tool",
+        "rack",
+        "allen",
+        "workshop",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "holder_count",
+          "label": "Holder count",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Layout",
+          "help": "Number of holders in the row."
+        },
+        {
+          "variable": "holder_pitch",
+          "label": "Holder pitch",
+          "type": "number",
+          "default": 66,
+          "min": 60,
+          "max": 90,
+          "step": 1,
+          "group": "Layout",
+          "unit": "mm",
+          "help": "Centre distance between holders."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Three holders",
+          "params": {}
+        },
+        {
+          "name": "Single holder",
+          "params": {
+            "holder_count": 1
+          }
+        },
+        {
+          "name": "Six holders",
+          "params": {
+            "holder_count": 6
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Splice3D (dmhernandez2525)",
+        "license": "MIT",
+        "author": "Splice3D Contributors",
+        "repository": "https://github.com/dmhernandez2525/splice3d"
+      }
+    },
+    "cable_channel": {
+      "label": "Cable Channel Clip",
+      "short": "Cable channel",
+      "category": "3D printing",
+      "icon": "wireframe",
+      "source": "objects/wrappers/cable_channel.scad",
+      "description": "Snap-on cable trough with clip feet, laid out as a row of channels at a settable pitch.",
+      "tags": [
+        "cable",
+        "channel",
+        "clip",
+        "management",
+        "trough",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "channel_length",
+          "label": "Channel length",
+          "type": "number",
+          "default": 80,
+          "min": 40,
+          "max": 200,
+          "step": 1,
+          "group": "Channels",
+          "unit": "mm",
+          "help": "Length of one cable channel."
+        },
+        {
+          "variable": "channel_count",
+          "label": "Channel count",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "group": "Channels",
+          "help": "Number of parallel channels."
+        },
+        {
+          "variable": "channel_pitch",
+          "label": "Channel pitch",
+          "type": "number",
+          "default": 20,
+          "min": 14,
+          "max": 40,
+          "step": 1,
+          "group": "Channels",
+          "unit": "mm",
+          "help": "Spacing between channels."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Two channels",
+          "params": {}
+        },
+        {
+          "name": "Long channel",
+          "params": {
+            "channel_length": 140
+          }
+        },
+        {
+          "name": "Three channels",
+          "params": {
+            "channel_count": 3
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Splice3D (dmhernandez2525)",
+        "license": "MIT",
+        "author": "Splice3D Contributors",
+        "repository": "https://github.com/dmhernandez2525/splice3d"
+      }
+    },
+    "purge_duct": {
+      "label": "Purge Exhaust Duct",
+      "short": "Purge duct",
+      "category": "3D printing",
+      "icon": "tube",
+      "source": "objects/wrappers/purge_duct.scad",
+      "description": "Cooling and exhaust ducting for a purge bucket area, with an optional HEPA filter frame.",
+      "tags": [
+        "purge",
+        "duct",
+        "exhaust",
+        "fan",
+        "hepa",
+        "filter",
+        "cooling",
+        "printer",
+        "bucket"
+      ],
+      "parameters": [
+        {
+          "variable": "hepa_enabled",
+          "label": "HEPA frame",
+          "type": "boolean",
+          "default": true,
+          "group": "Duct",
+          "help": "Also print the HEPA filter frame."
+        }
+      ],
+      "presets": [
+        {
+          "name": "With HEPA frame",
+          "params": {}
+        },
+        {
+          "name": "Duct only",
+          "params": {
+            "hepa_enabled": false
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Splice3D (dmhernandez2525)",
+        "license": "MIT",
+        "author": "Splice3D Contributors",
+        "repository": "https://github.com/dmhernandez2525/splice3d"
+      }
+    },
+    "hotend_tool_plate": {
+      "label": "Dual Hotend Tool Plate",
+      "short": "Hotend plate",
+      "category": "3D printing",
+      "icon": "plate",
+      "source": "objects/wrappers/hotend_tool_plate.scad",
+      "description": "Delta effector plate with a wider centre opening that holds two E3D V6 hot ends and the fan shroud.",
+      "tags": [
+        "hotend",
+        "effector",
+        "plate",
+        "delta",
+        "printer",
+        "dual",
+        "tool"
+      ],
+      "parameters": [
+        {
+          "variable": "hotend_height",
+          "label": "Hotend height",
+          "type": "number",
+          "default": 27.3,
+          "min": 15,
+          "max": 45,
+          "step": 0.1,
+          "group": "Hotend",
+          "unit": "mm",
+          "help": "Height of the hot-end stack."
+        },
+        {
+          "variable": "offset",
+          "label": "Hotend spacing",
+          "type": "number",
+          "default": 13,
+          "min": 8,
+          "max": 25,
+          "step": 0.5,
+          "group": "Hotend",
+          "unit": "mm",
+          "help": "Hot-end distance from the centre."
+        },
+        {
+          "variable": "fan_rot",
+          "label": "Fan slot angle",
+          "type": "number",
+          "default": 170,
+          "min": 90,
+          "max": 270,
+          "step": 5,
+          "group": "Fan",
+          "unit": "deg",
+          "help": "Rotation of the fan slot."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default plate",
+          "params": {}
+        },
+        {
+          "name": "Wide tool spacing",
+          "params": {
+            "offset": 16
+          }
+        },
+        {
+          "name": "Rotated fan slot",
+          "params": {
+            "fan_rot": 200
+          }
+        }
+      ],
+      "attribution": {
+        "label": "3D Printing (gchristopher)",
+        "license": "Apache-2.0",
+        "author": "Gregg Christopher",
+        "repository": "https://github.com/gchristopher/3dprinting"
+      }
+    },
+    "hotend_top_clamp": {
+      "label": "Hotend Top Clamp",
+      "short": "Hotend clamp",
+      "category": "3D printing",
+      "icon": "fit",
+      "source": "objects/wrappers/hotend_top_clamp.scad",
+      "description": "Top clamp that traps two E3D V6 hot ends in the delta effector plate.",
+      "tags": [
+        "hotend",
+        "clamp",
+        "effector",
+        "delta",
+        "printer",
+        "dual",
+        "mount"
+      ],
+      "parameters": [
+        {
+          "variable": "top_clamp_outer_r",
+          "label": "Clamp outer radius",
+          "type": "number",
+          "default": 12,
+          "min": 6,
+          "max": 25,
+          "step": 0.5,
+          "group": "Clamp",
+          "unit": "mm",
+          "help": "Outer radius of the clamp."
+        },
+        {
+          "variable": "top_clamp_inner_r",
+          "label": "Clamp inner radius",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Clamp",
+          "unit": "mm",
+          "help": "Inner hot-end opening radius."
+        },
+        {
+          "variable": "top_clamp_screw_offset",
+          "label": "Screw offset",
+          "type": "number",
+          "default": 23,
+          "min": 10,
+          "max": 40,
+          "step": 0.5,
+          "group": "Clamp",
+          "unit": "mm",
+          "help": "Distance between the clamp screws."
+        },
+        {
+          "variable": "hotend_height",
+          "label": "Hotend height",
+          "type": "number",
+          "default": 27.3,
+          "min": 15,
+          "max": 45,
+          "step": 0.1,
+          "group": "Hotend",
+          "unit": "mm",
+          "help": "Height of the hot-end stack."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default clamp",
+          "params": {}
+        },
+        {
+          "name": "Large clamp",
+          "params": {
+            "top_clamp_outer_r": 16
+          }
+        },
+        {
+          "name": "Tall hotend",
+          "params": {
+            "hotend_height": 35
+          }
+        }
+      ],
+      "attribution": {
+        "label": "3D Printing (gchristopher)",
+        "license": "Apache-2.0",
+        "author": "Gregg Christopher",
+        "repository": "https://github.com/gchristopher/3dprinting"
+      }
+    },
+    "hotend_fan_shroud": {
+      "label": "Hotend Fan Shroud",
+      "short": "Fan shroud",
+      "category": "3D printing",
+      "icon": "gear",
+      "source": "objects/wrappers/hotend_fan_shroud.scad",
+      "description": "Lower fan-shroud piece that keeps the layer fan blowing across the hot-end cooling fins only.",
+      "tags": [
+        "fan",
+        "shroud",
+        "hotend",
+        "cooling",
+        "effector",
+        "delta",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "fan_rot2",
+          "label": "Fan rotation",
+          "type": "number",
+          "default": 45,
+          "min": 10,
+          "max": 170,
+          "step": 5,
+          "group": "Fan",
+          "unit": "deg",
+          "help": "Rotation of the fan section."
+        },
+        {
+          "variable": "fan_dy",
+          "label": "Fan offset",
+          "type": "number",
+          "default": 18,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "group": "Fan",
+          "unit": "mm",
+          "help": "Lateral offset of the fan."
+        },
+        {
+          "variable": "fan_screw_attachment_h",
+          "label": "Screw boss height",
+          "type": "number",
+          "default": 4,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Fan",
+          "unit": "mm",
+          "help": "Height of the fan screw bosses."
+        },
+        {
+          "variable": "arm_attachment_height",
+          "label": "Arm height",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 25,
+          "step": 0.5,
+          "group": "Arms",
+          "unit": "mm",
+          "help": "Height of the delta arm attachments."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default shroud",
+          "params": {}
+        },
+        {
+          "name": "Offset duct",
+          "params": {
+            "fan_dy": 26
+          }
+        },
+        {
+          "name": "Tall arms",
+          "params": {
+            "arm_attachment_height": 16
+          }
+        }
+      ],
+      "attribution": {
+        "label": "3D Printing (gchristopher)",
+        "license": "Apache-2.0",
+        "author": "Gregg Christopher",
+        "repository": "https://github.com/gchristopher/3dprinting"
+      }
+    },
+    "effector_platform": {
+      "label": "Delta Effector Platform",
+      "short": "Effector plate",
+      "category": "3D printing",
+      "icon": "plate",
+      "source": "objects/wrappers/effector_platform.scad",
+      "description": "Wider delta effector platform with replaceable arm attachment blocks around a large centre opening.",
+      "tags": [
+        "effector",
+        "platform",
+        "delta",
+        "arm",
+        "plate",
+        "printer",
+        "rostock"
+      ],
+      "parameters": [
+        {
+          "variable": "arm_attachment_width",
+          "label": "Arm block width",
+          "type": "number",
+          "default": 37,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "group": "Arms",
+          "unit": "mm",
+          "help": "Width of the arm attachment blocks."
+        },
+        {
+          "variable": "arm_attachment_height",
+          "label": "Arm block height",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 25,
+          "step": 0.5,
+          "group": "Arms",
+          "unit": "mm",
+          "help": "Height of the arm attachment blocks."
+        },
+        {
+          "variable": "arm_screw_r",
+          "label": "Arm screw radius",
+          "type": "number",
+          "default": 1.5,
+          "min": 1,
+          "max": 4,
+          "step": 0.1,
+          "group": "Arms",
+          "unit": "mm",
+          "help": "Radius of the arm screw holes."
+        },
+        {
+          "variable": "offset",
+          "label": "Hotend spacing",
+          "type": "number",
+          "default": 13,
+          "min": 8,
+          "max": 25,
+          "step": 0.5,
+          "group": "Hotend",
+          "unit": "mm",
+          "help": "Hot-end distance from the centre."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default platform",
+          "params": {}
+        },
+        {
+          "name": "Wide arms",
+          "params": {
+            "arm_attachment_width": 45
+          }
+        },
+        {
+          "name": "Wide hotend spacing",
+          "params": {
+            "offset": 16
+          }
+        }
+      ],
+      "attribution": {
+        "label": "3D Printing (gchristopher)",
+        "license": "Apache-2.0",
+        "author": "Gregg Christopher",
+        "repository": "https://github.com/gchristopher/3dprinting"
+      }
+    },
+    "hole_size_test_plate": {
+      "label": "Hole Size Test Plate",
+      "short": "Hole test",
+      "category": "3D printing",
+      "icon": "grid",
+      "source": "objects/wrappers/hole_size_test_plate.scad",
+      "description": "Parametric plate of labelled, increasing holes; print it to find the size that fits a screw or shaft on this printer.",
+      "tags": [
+        "calibration",
+        "tolerance",
+        "test",
+        "hole",
+        "fit",
+        "clearance",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "hole_type",
+          "label": "Hole shape",
+          "type": "text",
+          "default": "circle",
+          "max_length": 12,
+          "max_lines": 1,
+          "rows": 1,
+          "placeholder": "circle",
+          "options": [
+            {
+              "value": "circle",
+              "label": "Round holes"
+            },
+            {
+              "value": "square",
+              "label": "Square holes"
+            },
+            {
+              "value": "hexagon",
+              "label": "Hex holes"
+            }
+          ],
+          "group": "Holes",
+          "help": "Shape of the test holes."
+        },
+        {
+          "variable": "initial_hole_size",
+          "label": "Smallest hole",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "step": 0.05,
+          "group": "Holes",
+          "unit": "mm",
+          "help": "Size of the first hole."
+        },
+        {
+          "variable": "final_hole_size",
+          "label": "Largest hole",
+          "type": "number",
+          "default": 6.75,
+          "min": 1,
+          "max": 30,
+          "step": 0.05,
+          "group": "Holes",
+          "unit": "mm",
+          "help": "Size the sweep runs up to."
+        },
+        {
+          "variable": "hole_step_size",
+          "label": "Step size",
+          "type": "number",
+          "default": 0.25,
+          "min": 0.05,
+          "max": 2,
+          "step": 0.05,
+          "group": "Holes",
+          "unit": "mm",
+          "help": "Growth from hole to hole."
+        },
+        {
+          "variable": "holes_per_row",
+          "label": "Holes per row",
+          "type": "integer",
+          "default": 4,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Holes",
+          "help": "Holes in each row."
+        },
+        {
+          "variable": "hole_spacing",
+          "label": "Hole spacing",
+          "type": "number",
+          "default": 3.0,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Layout",
+          "unit": "mm",
+          "help": "Web between holes."
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 5.0,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm",
+          "help": "Thickness of the plate."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Round 5-6.75 mm",
+          "params": {}
+        },
+        {
+          "name": "Hex sockets",
+          "params": {
+            "hole_type": "hexagon"
+          }
+        },
+        {
+          "name": "Wide sweep",
+          "params": {
+            "final_hole_size": 10,
+            "holes_per_row": 6
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Test Hole Generator (EWC3 Labs)",
+        "license": "MIT",
+        "author": "EWC3 Labs (Wilson Cook)",
+        "repository": "https://github.com/ewc3labs/ewc3-test-hole-generator"
+      }
+    },
+    "nut_fit_test_plate": {
+      "label": "Nut Fit Test Plate",
+      "short": "Nut fit test",
+      "category": "3D printing",
+      "icon": "screw",
+      "source": "objects/wrappers/nut_fit_test_plate.scad",
+      "description": "Rectangular test plate with fine steps; identifies which hex-nut or square-nut pocket fits a printed part.",
+      "tags": [
+        "calibration",
+        "tolerance",
+        "test",
+        "nut",
+        "hex",
+        "fit",
+        "pocket",
+        "printer"
+      ],
+      "parameters": [
+        {
+          "variable": "shape_type",
+          "label": "Pocket shape",
+          "type": "text",
+          "default": "hexagon",
+          "max_length": 12,
+          "max_lines": 1,
+          "rows": 1,
+          "placeholder": "hexagon",
+          "options": [
+            {
+              "value": "circle",
+              "label": "Round holes"
+            },
+            {
+              "value": "square",
+              "label": "Square holes"
+            },
+            {
+              "value": "hexagon",
+              "label": "Hex holes"
+            }
+          ],
+          "group": "Holes",
+          "help": "Shape of the test pockets."
+        },
+        {
+          "variable": "start_size",
+          "label": "Smallest pocket",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "step": 0.05,
+          "group": "Holes",
+          "unit": "mm",
+          "help": "Size of the first pocket."
+        },
+        {
+          "variable": "end_size",
+          "label": "Largest pocket",
+          "type": "number",
+          "default": 8.95,
+          "min": 1,
+          "max": 30,
+          "step": 0.05,
+          "group": "Holes",
+          "unit": "mm",
+          "help": "Size the sweep runs up to."
+        },
+        {
+          "variable": "step_size",
+          "label": "Step size",
+          "type": "number",
+          "default": 0.05,
+          "min": 0.05,
+          "max": 2,
+          "step": 0.05,
+          "group": "Holes",
+          "unit": "mm",
+          "help": "Growth from pocket to pocket."
+        },
+        {
+          "variable": "holes_per_row",
+          "label": "Holes per row",
+          "type": "integer",
+          "default": 10,
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "group": "Holes",
+          "help": "Pockets in each row."
+        },
+        {
+          "variable": "hole_spacing",
+          "label": "Hole spacing",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Layout",
+          "unit": "mm",
+          "help": "Web between pockets."
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm",
+          "help": "Thickness of the plate."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Hex nut sweep",
+          "params": {}
+        },
+        {
+          "name": "Square nut sweep",
+          "params": {
+            "shape_type": "square"
+          }
+        },
+        {
+          "name": "Wide sweep",
+          "params": {
+            "end_size": 14,
+            "holes_per_row": 14
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Test Hole Generator (EWC3 Labs)",
+        "license": "MIT",
+        "author": "EWC3 Labs (Wilson Cook)",
+        "repository": "https://github.com/ewc3labs/ewc3-test-hole-generator"
+      }
     }
   }
 }

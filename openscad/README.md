@@ -121,6 +121,10 @@ from the catalog.
 | `bike-mounts` | `bottle-cage.scad`, `handlebar.scad` | MIT | Maciej Malecki (mmalecki) | `55d636c45ec94d63732bd32591f42083e3099f09` |
 | `param-case` | the 12 case modules (defaults, fan, feet, front_panel, gpu, heatsink, mini-itx, motherboard, pci_bracket, power_switch, psu, vent) | BSD-2-Clause | Nirav Patel (eclecticc) | `b5f1ee43c1db93cac7657c52bcc5a97baa5df7c4` |
 | `rocket-fins` | `fins.scad` and the three ready-made fin sets | BSD-2-Clause | Adrian Schlatter | `57f2c9fd475be499aafb2655b12f20a75f135e60` |
+| `holgerlembke-openscad-modelle` | the eight printer-accessory models (spool holders, Ender 3 guides, bed-level test, scraper holder, cable strain relief, V-slot clamp) | MIT | Holger Lembke | `b48f4ea0a3c11ae1b0e538a567b954c682798d5b` |
+| `splice3d` | `common.scad` and the spool holder, filament guide, guide jig, tool accessory and cable management sources | MIT | Splice3D Contributors | `1b9233f1b07b923ec7b08eaba5db74e2b7fa6790` |
+| `gchristopher-3dprinting` | the five Rostock MAX V2 effector-platform sources (hot-end plate, clamp, fan shroud, wider platform) | Apache-2.0 | Gregg Christopher | `8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf` |
+| `ewc3-test-hole-generator` | the current V2 and archived V1 test-hole plate generators | MIT | EWC3 Labs | `c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b` |
 
 Upstream URLs are in the catalog and in each `REVISION` file; the full
 attribution is in `NOTICE` and `THIRD_PARTY_NOTICES` in the repository root.

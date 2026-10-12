@@ -1,0 +1,15 @@
+c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b
+
+Upstream: https://github.com/ewc3labs/ewc3-test-hole-generator
+License: MIT
+Copyright: Copyright (c) 2026 EWC3 Labs
+
+The two parametric test-hole plate generators below, copied verbatim from the pinned
+commit with the upstream LICENSE. V2 is the current src/ generator with the trapezoid
+and rectangle plates; V1 is the earlier rectangular generator upstream keeps under
+_ARCHIVE/src/. The generated STL exports, images and CI scripts are not vendored.
+
+Files:
+  LICENSE
+  _ARCHIVE/src/test-hole-generator.scad
+  src/test-hole-generator-v2.scad

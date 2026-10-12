@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Fifty upstream OpenSCAD libraries are vendored unmodified under
+Fifty-four upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -280,6 +280,29 @@ THIRD_PARTY_NOTICES.
   https://github.com/ChristianLutz/3d-inserts - commit
   5a9976a9469ad90ece2e94347ef616120302cd17. The card tray and resources tray
   sources plus the upstream LICENSE: the board game inserts.
+- holgerlembke/OpenSCAD-Modelle - MIT (Copyright (c) 2021 Holger Lembke) -
+  https://github.com/holgerlembke/OpenSCAD-Modelle - commit
+  b48f4ea0a3c11ae1b0e538a567b954c682798d5b. The eight printer-accessory models
+  (two shelf spool holders, two Ender 3 V3 KE filament guides, the bed-level
+  test, the scraper blade handle, the cable strain relief and the V-slot clamp)
+  plus the upstream LICENSE.
+- dmhernandez2525/splice3d - MIT (Copyright (c) 2026 Splice3D Contributors) -
+  https://github.com/dmhernandez2525/splice3d - commit
+  1b9233f1b07b923ec7b08eaba5db74e2b7fa6790. The shared common.scad library and
+  the spool holder, filament guide, guide jig, tool holder and cable management
+  cad sources plus the upstream LICENSE, kept in upstream's own
+  hardware/f1_1/cad and hardware/f1_4/cad layout.
+- gchristopher/3dprinting - Apache-2.0 (Copyright (c) 2015-2017 Gregg
+  Christopher) - https://github.com/gchristopher/3dprinting - commit
+  8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf. The five Rostock MAX V2 effector
+  platform sources (dual hot-end plate, top clamp, fan shroud and wider platform)
+  plus the upstream LICENSE; each file carries upstream's own public-domain
+  header. The repository's GPL-v3 dual extruder holder is not vendored.
+- ewc3labs/ewc3-test-hole-generator - MIT (Copyright (c) 2026 EWC3 Labs) -
+  https://github.com/ewc3labs/ewc3-test-hole-generator - commit
+  c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b. The two parametric test-hole plate
+  generators (the current trapezoid/rectangle V2 and the archived rectangular
+  V1) plus the upstream LICENSE.
 
 
 OpenSCAD bootstrap attribution

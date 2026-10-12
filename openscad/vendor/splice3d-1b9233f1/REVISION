@@ -1,0 +1,21 @@
+1b9233f1b07b923ec7b08eaba5db74e2b7fa6790
+
+Upstream: https://github.com/dmhernandez2525/splice3d
+License: MIT
+Copyright: Copyright (c) 2026 Splice3D Contributors
+
+The shared OpenSCAD library and the six printer-accessory cad sources below, copied
+verbatim from the pinned commit with the upstream LICENSE, keeping upstream's own
+hardware/f1_1/cad and hardware/f1_4/cad layout so the relative `use <../../f1_1/...>`
+includes keep resolving. The station, enclosure and assembly files of the Splice3D
+machine are not vendored.
+
+Files:
+  LICENSE
+  hardware/f1_1/cad/common.scad
+  hardware/f1_1/cad/filament_guides_jigs.scad
+  hardware/f1_4/cad/cable_management.scad
+  hardware/f1_4/cad/filament_guides.scad
+  hardware/f1_4/cad/spool_holder.scad
+  hardware/f1_4/cad/tool_accessory_mounts.scad
+  hardware/f1_4/cad/vent_ducts.scad
