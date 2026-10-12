@@ -19,6 +19,26 @@ export function groups(key) {
   return [...result].map(([name, params]) => ({ name, params }))
 }
 
+// A model that comes from a vendored library, or that carries an explicit
+// `attribution`, needs credit: its card shows an info button whose popover
+// names the source, its license, the copyright holder and the repository.
+// Original objects written for this plugin have neither and stay unmarked.
+export function attributionFor(object) {
+  if (!object) return null
+  const explicit = object.attribution
+  const source = object.source || ''
+  const library = source.startsWith('vendor/')
+    ? Object.values(catalog.libraries || {}).find((entry) => source.startsWith(`${entry.root}/`))
+    : null
+  if (!explicit?.label && !library) return null
+  return {
+    label: explicit?.label || library.label,
+    license: explicit?.license || library?.license || '',
+    author: explicit?.author || library?.author || '',
+    repository: explicit?.repository || library?.repository || '',
+  }
+}
+
 function normalize(text) {
   return String(text ?? '').trim().toLowerCase().replace(/\s+/g, ' ')
 }

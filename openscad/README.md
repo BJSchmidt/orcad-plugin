@@ -80,7 +80,7 @@ Three wrapper shapes cover the libraries that are not plain `use`-and-call:
 
 `catalog.json`'s `libraries` map is the registry: one entry per vendored tree
 with `label`, `root` (relative to `openscad/`), `revision` (the pinned commit),
-`license` and `repository`. `catalog.py` turns it into `LIBRARIES`,
+`license`, `repository` and an optional `author`. `catalog.py` turns it into `LIBRARIES`,
 `LIBRARY_DIRS` (absolute paths) and `LIBRARY_SEARCH_PATH`. The **first** root is
 Gridfinity Rebuilt, so `include <src/core/standard.scad>` written for it keeps
 resolving; `vendor/` is on the path too, so a wrapper can address one library
@@ -124,6 +124,18 @@ from the catalog.
 
 Upstream URLs are in the catalog and in each `REVISION` file; the full
 attribution is in `NOTICE` and `THIRD_PARTY_NOTICES` in the repository root.
+
+## Attribution on model cards
+
+Any object whose source lives under `vendor/` is credited in the UI: the model
+card shows a small **info** button whose popover names the library, its
+license, the author and the repository (in addition to `NOTICE` and
+`THIRD_PARTY_NOTICES`). An object may also carry its own
+`attribution: {label, license, author?, repository?}` entry, which overrides the
+library's values - use it when a wrapper is based on a specific upstream file
+or when the library entry alone is not specific enough (for example a
+CC-BY-4.0 model that requires naming its author in the product). Objects under
+`objects/` written for this plugin carry neither and show no button.
 
 **No font files are vendored.** The split-flap tree ships Roboto and Epilogue
 TTF files that `flap.scad` and `label.scad` `use` for their optional letter

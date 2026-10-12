@@ -608,6 +608,34 @@ html:root .card-title { color: var(--muted); }
 .console .is-echo { color: #22d3ee; }
 :root[data-orca-theme='light'] .console .is-echo { color: #0e7490; }
 
+/* --------------------------------------------------------- model credit -- */
+/* A model that needs attribution shows a small info button on its preview;
+   the popover names the source, license, copyright holder and repository. */
+.object-cell { position: relative; display: flex; min-width: 0; }
+.object-cell > .object-card { flex: 1; min-width: 0; }
+html:root .object-attrib {
+  position: absolute; top: 6px; right: 6px; display: grid; place-items: center;
+  width: 22px; height: 22px; padding: 0; cursor: pointer; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--raised-2); color: var(--muted);
+  opacity: .8; transition: opacity .15s, color .15s, border-color .15s;
+}
+html:root .object-attrib:hover,
+html:root .object-attrib:focus-visible,
+html:root .object-attrib[aria-expanded="true"] {
+  opacity: 1; color: var(--accent); border-color: var(--accent); outline: none;
+}
+.attrib-popover {
+  position: fixed; z-index: 60; display: grid; gap: 4px; padding: 12px 30px 12px 14px;
+  border-radius: var(--radius-sm); border: 1px solid var(--line-strong);
+  background: var(--raised-2); box-shadow: 0 16px 36px rgba(0, 0, 0, .45);
+  font-size: .78rem; line-height: 1.4;
+}
+.attrib-title { margin: 0; font-weight: 600; font-size: .82rem; }
+.attrib-line { margin: 0; color: var(--muted); }
+.attrib-link { color: var(--accent); word-break: break-all; text-decoration: none; }
+.attrib-link:hover { text-decoration: underline; }
+.attrib-close { position: absolute; top: 6px; right: 6px; }
+
 /* -------------------------------------------------------------- toasts -- */
 .toasts { position: fixed; right: 16px; bottom: 16px; z-index: 50; display: grid; gap: 8px; width: min(380px, calc(100vw - 32px)); pointer-events: none; }
 .toast {
