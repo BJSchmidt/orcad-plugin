@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Thirty-one upstream OpenSCAD libraries are vendored unmodified under
+Thirty-six upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -183,6 +183,31 @@ THIRD_PARTY_NOTICES.
   f01bb2fb5547c58b28208eee58dee0c5305aa73d. The compartment, tray, lid and
   tray-lid sources with the parameters, sizing, utils and common files they
   include, plus the upstream LICENSE.
+- BelfrySCAD/BOSL2 - BSD-2-Clause (Copyright (c) 2017-2019 Revar Desmera) -
+  https://github.com/BelfrySCAD/BOSL2 - commit
+  0c6f402bcb9ca968b7e623024335b55325635083. The top-level BOSL2 modules that
+  std.scad pulls in, plus the upstream LICENSE and README. The bench dog,
+  sanding block, drill guide, caliper stand, screw organizer, spring clamp,
+  slider jig and dovetail jig wrappers are built on it.
+- HopefulLlama/JointSCAD - MIT (Copyright (c) 2017 Jonathan Law) -
+  https://github.com/HopefulLlama/JointSCAD - commit
+  447888065b30721267db6011faeaf8e4e95ee5ff. The eight dist/ joint modules plus
+  the upstream LICENSE and README: the finger, dovetail, dowel,
+  mortise-and-tenon, scarf and bridle joint wrappers.
+- adgaudio/OpenSCAD_connectors - MIT (Copyright (c) 2017 Alex Gaudio) -
+  https://github.com/adgaudio/OpenSCAD_connectors - commit
+  643a09d799a0d3bd2e2380c02aa46a0dc9c6f62a. The connector, grid and default
+  files with the t-joint, endcap and corner-bracket modules plus the upstream
+  LICENSE and README.
+- mikeydotio/opengrid-scad - CC-BY-4.0 (Copyright (c) 2025 Mikey Ward) -
+  https://github.com/mikeydotio/opengrid-scad - commit
+  894a731f0dc6f487639dca8a91b6a3c8dfb76e8e. The openGrid wall-system peg and
+  snap sources plus the upstream LICENSE and README, used by the openGrid peg
+  and openGrid snap objects.
+- FozzTexx/pantorouter_tenon_template - CC0-1.0 (Chris Osborn; CC0 1.0
+  Universal dedication) - https://github.com/FozzTexx/pantorouter_tenon_template
+  - commit eccd45775104de24f1480a478f650d34205d00a7. The single Tenons.scad
+  template plus the upstream LICENSE and README.
 
 OpenSCAD bootstrap attribution
 -------------------------------

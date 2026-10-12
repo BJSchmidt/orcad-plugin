@@ -235,6 +235,46 @@
       "license": "MIT",
       "repository": "https://github.com/mmalecki/composable-organizer",
       "author": "Maciej Małecki (mmalecki)"
+    },
+    "belfryscad-bosl2": {
+      "label": "BOSL2 (BelfrySCAD)",
+      "root": "vendor/belfryscad-bosl2-0c6f402b",
+      "revision": "0c6f402bcb9ca968b7e623024335b55325635083",
+      "license": "BSD-2-Clause",
+      "repository": "https://github.com/BelfrySCAD/BOSL2",
+      "author": "Revar Desmera (revarbat) and the BOSL2 contributors"
+    },
+    "jointscad": {
+      "label": "JointSCAD (HopefulLlama)",
+      "root": "vendor/jointscad-44788806",
+      "revision": "447888065b30721267db6011faeaf8e4e95ee5ff",
+      "license": "MIT",
+      "repository": "https://github.com/HopefulLlama/JointSCAD",
+      "author": "Jonathan Law (HopefulLlama)"
+    },
+    "openscad-connectors": {
+      "label": "OpenSCAD connectors (adgaudio)",
+      "root": "vendor/openscad-connectors-643a09d7",
+      "revision": "643a09d799a0d3bd2e2380c02aa46a0dc9c6f62a",
+      "license": "MIT",
+      "repository": "https://github.com/adgaudio/OpenSCAD_connectors",
+      "author": "Alex Gaudio (adgaudio)"
+    },
+    "opengrid-scad": {
+      "label": "openGrid SCAD (mikeydotio)",
+      "root": "vendor/opengrid-scad-894a731f",
+      "revision": "894a731f0dc6f487639dca8a91b6a3c8dfb76e8e",
+      "license": "CC-BY-4.0",
+      "repository": "https://github.com/mikeydotio/opengrid-scad",
+      "author": "Mikey Ward (mikeydotio)"
+    },
+    "pantorouter-tenon-template": {
+      "label": "Pantorouter tenon template (FozzTexx)",
+      "root": "vendor/pantorouter-tenon-eccd4577",
+      "revision": "eccd45775104de24f1480a478f650d34205d00a7",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/FozzTexx/pantorouter_tenon_template",
+      "author": "Chris Osborn (FozzTexx)"
     }
   },
   "quality_profiles": {
@@ -19653,6 +19693,1877 @@
         "author": "Maciej Małecki (mmalecki)",
         "repository": "https://github.com/mmalecki/composable-organizer"
       }
+    },
+    "bosl2_bench_dog": {
+      "label": "Bench Dog",
+      "short": "Bench dog",
+      "category": "Workshop",
+      "icon": "cylinder",
+      "source": "objects/wrappers/bosl2_bench_dog.scad",
+      "description": "Bench dog with a wide flat head and a side hole for a spring, sized to a 3/4 inch dog hole.",
+      "tags": [
+        "bench",
+        "dog",
+        "workbench",
+        "woodworking",
+        "holdfast",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "dog_d",
+          "label": "Shaft diameter",
+          "type": "number",
+          "default": 19.5,
+          "min": 10,
+          "max": 40,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Diameter of the shaft that enters the bench hole."
+        },
+        {
+          "variable": "dog_h",
+          "label": "Shaft length",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 150,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "How far the dog rises above the bench."
+        },
+        {
+          "variable": "head_d",
+          "label": "Head diameter",
+          "type": "number",
+          "default": 25,
+          "min": 12,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Diameter of the flat head that holds the work."
+        },
+        {
+          "variable": "head_h",
+          "label": "Head height",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the head."
+        },
+        {
+          "variable": "spring_hole_d",
+          "label": "Spring hole",
+          "type": "number",
+          "default": 6,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Hardware",
+          "unit": "mm",
+          "help": "Side hole for a wire spring or grub screw."
+        },
+        {
+          "variable": "chamf",
+          "label": "Chamfer",
+          "type": "number",
+          "default": 1,
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "group": "Style",
+          "help": "Chamfer on both ends of the shaft and head."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard 3/4",
+          "description": "Fits a 19 mm dog hole.",
+          "params": {
+            "dog_d": 19.5
+          }
+        },
+        {
+          "name": "Low profile",
+          "description": "Short 30 mm shaft.",
+          "params": {
+            "dog_h": 30
+          }
+        },
+        {
+          "name": "Heavy duty",
+          "description": "30 mm head for wide panels.",
+          "params": {
+            "head_d": 30,
+            "head_h": 12
+          }
+        }
+      ]
+    },
+    "bosl2_sanding_block": {
+      "label": "Sanding Block",
+      "short": "Sanding block",
+      "category": "Workshop",
+      "icon": "box",
+      "source": "objects/wrappers/bosl2_sanding_block.scad",
+      "description": "Rounded sanding block with a finger groove along each long face for wrapping a strip of abrasive.",
+      "tags": [
+        "sanding",
+        "block",
+        "woodworking",
+        "finishing",
+        "shop",
+        "abrasive"
+      ],
+      "parameters": [
+        {
+          "variable": "block_l",
+          "label": "Length",
+          "type": "number",
+          "default": 120,
+          "min": 40,
+          "max": 250,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "block_w",
+          "label": "Width",
+          "type": "number",
+          "default": 70,
+          "min": 30,
+          "max": 150,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "block_h",
+          "label": "Height",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 80,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "corner_r",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 5,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.5,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Rounding on the upright corners."
+        },
+        {
+          "variable": "grip_d",
+          "label": "Grip groove",
+          "type": "number",
+          "default": 22,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Diameter of the finger groove cut along the block."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Bench block",
+          "description": "Standard 120 mm block.",
+          "params": {}
+        },
+        {
+          "name": "Detail block",
+          "description": "Small 60 mm block.",
+          "params": {
+            "block_l": 60,
+            "block_w": 40,
+            "block_h": 20
+          }
+        },
+        {
+          "name": "Deep grip",
+          "description": "Wider finger groove.",
+          "params": {
+            "grip_d": 32
+          }
+        }
+      ]
+    },
+    "bosl2_drill_guide": {
+      "label": "Drill Guide",
+      "short": "Drill guide",
+      "category": "Workshop",
+      "icon": "grid",
+      "source": "objects/wrappers/bosl2_drill_guide.scad",
+      "description": "Drill guide block with an evenly spaced row of bushing holes for repeatable hole placement.",
+      "tags": [
+        "drill",
+        "guide",
+        "jig",
+        "bushing",
+        "woodworking",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "guide_l",
+          "label": "Length",
+          "type": "number",
+          "default": 90,
+          "min": 30,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "guide_w",
+          "label": "Width",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "guide_h",
+          "label": "Thickness",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "bushing_d",
+          "label": "Bushing hole",
+          "type": "number",
+          "default": 8,
+          "min": 1,
+          "max": 25,
+          "step": 0.1,
+          "group": "Cutouts",
+          "unit": "mm",
+          "help": "Drill bushing or bit diameter."
+        },
+        {
+          "variable": "hole_count",
+          "label": "Holes",
+          "type": "integer",
+          "default": 6,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Cutouts"
+        },
+        {
+          "variable": "hole_spacing",
+          "label": "Hole spacing",
+          "type": "number",
+          "default": 13,
+          "min": 4,
+          "max": 50,
+          "step": 0.5,
+          "group": "Cutouts",
+          "unit": "mm",
+          "help": "Centre-to-centre distance between holes."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Dowelling jig",
+          "description": "Six 8 mm holes at 13 mm.",
+          "params": {}
+        },
+        {
+          "name": "Shelf pins",
+          "description": "Five 5 mm holes at 32 mm.",
+          "params": {
+            "bushing_d": 5,
+            "hole_spacing": 32,
+            "hole_count": 5
+          }
+        },
+        {
+          "name": "Wide row",
+          "description": "Ten holes across.",
+          "params": {
+            "hole_count": 10,
+            "guide_l": 160
+          }
+        }
+      ]
+    },
+    "bosl2_caliper_stand": {
+      "label": "Caliper Stand",
+      "short": "Caliper stand",
+      "category": "Workshop",
+      "icon": "plate",
+      "source": "objects/wrappers/bosl2_caliper_stand.scad",
+      "description": "Desk stand that holds a vernier caliper upright, with a slot in the post for the beam and jaws.",
+      "tags": [
+        "caliper",
+        "stand",
+        "measuring",
+        "metrology",
+        "drawer",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "base_w",
+          "label": "Base width",
+          "type": "number",
+          "default": 90,
+          "min": 40,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "base_d",
+          "label": "Base depth",
+          "type": "number",
+          "default": 45,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "base_h",
+          "label": "Base thickness",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "post_w",
+          "label": "Post width",
+          "type": "number",
+          "default": 16,
+          "min": 5,
+          "max": 50,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "post_h",
+          "label": "Post height",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 150,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "jaw_gap",
+          "label": "Jaw gap",
+          "type": "number",
+          "default": 12,
+          "min": 3,
+          "max": 50,
+          "step": 0.5,
+          "group": "Cutouts",
+          "unit": "mm",
+          "help": "Slot height that cradles the caliper beam."
+        },
+        {
+          "variable": "jaw_depth",
+          "label": "Jaw depth",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "group": "Cutouts",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "150 mm caliper",
+          "description": "Standard stand.",
+          "params": {}
+        },
+        {
+          "name": "Tall post",
+          "description": "90 mm post for long calipers.",
+          "params": {
+            "post_h": 90
+          }
+        },
+        {
+          "name": "Wide base",
+          "description": "Stable 120 mm base.",
+          "params": {
+            "base_w": 120,
+            "base_d": 60
+          }
+        }
+      ]
+    },
+    "bosl2_screw_organizer": {
+      "label": "Screw Organizer",
+      "short": "Screw organizer",
+      "category": "Workshop",
+      "icon": "bin",
+      "source": "objects/wrappers/bosl2_screw_organizer.scad",
+      "description": "Open tray with a grid of square pockets that sorts screws, nuts and washers by size.",
+      "tags": [
+        "screw",
+        "organizer",
+        "tray",
+        "storage",
+        "fastener",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "rows",
+          "label": "Rows",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "cols",
+          "label": "Columns",
+          "type": "integer",
+          "default": 4,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "cell",
+          "label": "Pocket pitch",
+          "type": "number",
+          "default": 22,
+          "min": 10,
+          "max": 60,
+          "step": 0.5,
+          "group": "Layout",
+          "unit": "mm",
+          "help": "Centre-to-centre distance of the pockets."
+        },
+        {
+          "variable": "bin_h",
+          "label": "Wall height",
+          "type": "number",
+          "default": 14,
+          "min": 5,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 1.6,
+          "min": 0.4,
+          "max": 5,
+          "step": 0.2,
+          "group": "Layout"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Small parts",
+          "description": "3 x 4 tray.",
+          "params": {}
+        },
+        {
+          "name": "Parts cabinet",
+          "description": "5 x 6 tray.",
+          "params": {
+            "rows": 5,
+            "cols": 6,
+            "cell": 18
+          }
+        },
+        {
+          "name": "Deep tray",
+          "description": "Tall walls.",
+          "params": {
+            "bin_h": 30
+          }
+        }
+      ]
+    },
+    "bosl2_spring_clamp": {
+      "label": "Spring Clamp",
+      "short": "Spring clamp",
+      "category": "Workshop",
+      "icon": "fit",
+      "source": "objects/wrappers/bosl2_spring_clamp.scad",
+      "description": "Flexible double-sided spring clamp from BOSL2's rabbit_clip, printed flat as a light-duty shop clip.",
+      "tags": [
+        "clamp",
+        "clip",
+        "spring",
+        "holding",
+        "shop",
+        "jig"
+      ],
+      "parameters": [
+        {
+          "variable": "clip_length",
+          "label": "Length",
+          "type": "number",
+          "default": 8,
+          "min": 3,
+          "max": 40,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_width",
+          "label": "Width",
+          "type": "number",
+          "default": 7,
+          "min": 3,
+          "max": 40,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_thickness",
+          "label": "Thickness",
+          "type": "number",
+          "default": 0.8,
+          "min": 0.4,
+          "max": 4,
+          "step": 0.1,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Wall thickness of the flexible jaw."
+        },
+        {
+          "variable": "clip_snap",
+          "label": "Snap",
+          "type": "number",
+          "default": 0.75,
+          "min": 0.1,
+          "max": 5,
+          "step": 0.05,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Height of the snap ridge."
+        },
+        {
+          "variable": "clip_depth",
+          "label": "Depth",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_compression",
+          "label": "Compression",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "group": "Style"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Light clip",
+          "description": "Default 8 mm clip.",
+          "params": {}
+        },
+        {
+          "name": "Long clip",
+          "description": "20 mm jaws.",
+          "params": {
+            "clip_length": 20,
+            "clip_depth": 10
+          }
+        },
+        {
+          "name": "Stiff clip",
+          "description": "Thicker jaw.",
+          "params": {
+            "clip_thickness": 1.6,
+            "clip_snap": 1.2
+          }
+        }
+      ]
+    },
+    "bosl2_slider_jig": {
+      "label": "V-Groove Slider Jig",
+      "short": "Slider jig",
+      "category": "Workshop",
+      "icon": "edges",
+      "source": "objects/wrappers/bosl2_slider_jig.scad",
+      "description": "BOSL2 slider and rail printed as a test pair, a sliding shop jig for a V-groove track.",
+      "tags": [
+        "slider",
+        "rail",
+        "jig",
+        "v-groove",
+        "track",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "slider_l",
+          "label": "Length",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "slider_w",
+          "label": "Rail width",
+          "type": "number",
+          "default": 12,
+          "min": 4,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "slider_h",
+          "label": "Slide height",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "slider_base",
+          "label": "Base height",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "slider_wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 30,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "slider_ang",
+          "label": "V angle",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 60,
+          "step": 1,
+          "group": "Style",
+          "unit": "deg",
+          "help": "Overhang angle of the V walls."
+        },
+        {
+          "variable": "slider_chamfer",
+          "label": "Chamfer",
+          "type": "number",
+          "default": 1.5,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "group": "Style",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard pair",
+          "description": "40 mm jig.",
+          "params": {}
+        },
+        {
+          "name": "Long slide",
+          "description": "80 mm travel.",
+          "params": {
+            "slider_l": 80
+          }
+        },
+        {
+          "name": "Chunky",
+          "description": "Wider and taller.",
+          "params": {
+            "slider_w": 20,
+            "slider_h": 16,
+            "slider_base": 12
+          }
+        }
+      ]
+    },
+    "bosl2_dovetail_jig": {
+      "label": "Dovetail Slide Jig",
+      "short": "Dovetail jig",
+      "category": "Workshop",
+      "icon": "edges",
+      "source": "objects/wrappers/bosl2_dovetail_jig.scad",
+      "description": "Male and female BOSL2 dovetails printed side by side as a matching slide jig for a router table.",
+      "tags": [
+        "dovetail",
+        "jig",
+        "slide",
+        "router",
+        "woodworking",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "dv_width",
+          "label": "Width",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "dv_height",
+          "label": "Height",
+          "type": "number",
+          "default": 10,
+          "min": 3,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "dv_slide",
+          "label": "Slide length",
+          "type": "number",
+          "default": 40,
+          "min": 5,
+          "max": 150,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "dv_taper",
+          "label": "Taper",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 30,
+          "step": 1,
+          "group": "Style",
+          "unit": "deg",
+          "help": "Back-wall taper; 0 is a straight dovetail."
+        },
+        {
+          "variable": "dv_chamfer",
+          "label": "Chamfer",
+          "type": "number",
+          "default": 0.8,
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "group": "Style",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Straight pair",
+          "description": "Default straight dovetail.",
+          "params": {}
+        },
+        {
+          "name": "Tapered",
+          "description": "6 degree taper.",
+          "params": {
+            "dv_taper": 6
+          }
+        },
+        {
+          "name": "Wide slide",
+          "description": "40 mm dovetail.",
+          "params": {
+            "dv_width": 40,
+            "dv_slide": 80
+          }
+        }
+      ]
+    },
+    "wood_finger_joint": {
+      "label": "Finger Joint Pair",
+      "short": "Finger joint",
+      "category": "Workshop",
+      "icon": "edges",
+      "source": "objects/wrappers/wood_finger_joint.scad",
+      "description": "Matching finger-joint blocks from JointSCAD, printed as a router-table setup pair.",
+      "tags": [
+        "finger",
+        "joint",
+        "box",
+        "woodworking",
+        "router",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "joint_length",
+          "label": "Length",
+          "type": "number",
+          "default": 100,
+          "min": 20,
+          "max": 300,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_width",
+          "label": "Width",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_height",
+          "label": "Height",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "finger_count",
+          "label": "Fingers",
+          "type": "integer",
+          "default": 5,
+          "min": 2,
+          "max": 20,
+          "step": 1,
+          "group": "Style"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Five fingers",
+          "description": "Default pair.",
+          "params": {}
+        },
+        {
+          "name": "Small box",
+          "description": "60 mm joint.",
+          "params": {
+            "joint_length": 60,
+            "finger_count": 3
+          }
+        },
+        {
+          "name": "Fine fingers",
+          "description": "Nine fingers.",
+          "params": {
+            "finger_count": 9
+          }
+        }
+      ]
+    },
+    "wood_dovetail_joint": {
+      "label": "Dovetail Joint Pair",
+      "short": "Dovetail joint",
+      "category": "Workshop",
+      "icon": "edges",
+      "source": "objects/wrappers/wood_dovetail_joint.scad",
+      "description": "Matching dovetail-joint blocks from JointSCAD with a configurable number of tails.",
+      "tags": [
+        "dovetail",
+        "joint",
+        "woodworking",
+        "drawer",
+        "router",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "joint_length",
+          "label": "Length",
+          "type": "number",
+          "default": 100,
+          "min": 20,
+          "max": 300,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_width",
+          "label": "Width",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_height",
+          "label": "Height",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "dovetail_count",
+          "label": "Dovetails",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "group": "Style"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Three tails",
+          "description": "Default pair.",
+          "params": {}
+        },
+        {
+          "name": "Single tail",
+          "description": "One wide tail.",
+          "params": {
+            "dovetail_count": 1
+          }
+        },
+        {
+          "name": "Fine tails",
+          "description": "Six tails.",
+          "params": {
+            "dovetail_count": 6
+          }
+        }
+      ]
+    },
+    "wood_dowel_pin": {
+      "label": "Dowel Pin",
+      "short": "Dowel pin",
+      "category": "Workshop",
+      "icon": "cylinder",
+      "source": "objects/wrappers/wood_dowel_pin.scad",
+      "description": "Fluted dowel pin from JointSCAD's dowel module, sized for a drilled dowel hole.",
+      "tags": [
+        "dowel",
+        "pin",
+        "joint",
+        "woodworking",
+        "alignment",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "dowel_sides",
+          "label": "Flutes",
+          "type": "integer",
+          "default": 12,
+          "min": 3,
+          "max": 64,
+          "step": 1,
+          "group": "Style",
+          "help": "Number of flats around the pin."
+        },
+        {
+          "variable": "dowel_radius",
+          "label": "Radius",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 30,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "dowel_length",
+          "label": "Length",
+          "type": "number",
+          "default": 40,
+          "min": 5,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "8 mm dowel",
+          "description": "Standard 8 mm pin.",
+          "params": {
+            "dowel_radius": 4
+          }
+        },
+        {
+          "name": "10 mm dowel",
+          "description": "Default 10 mm pin.",
+          "params": {}
+        },
+        {
+          "name": "Long pin",
+          "description": "80 mm dowel.",
+          "params": {
+            "dowel_length": 80
+          }
+        }
+      ]
+    },
+    "wood_mortise_tenon": {
+      "label": "Mortise and Tenon",
+      "short": "Mortise tenon",
+      "category": "Workshop",
+      "icon": "fit",
+      "source": "objects/wrappers/wood_mortise_tenon.scad",
+      "description": "Tenon and matching mortise from JointSCAD, printed as a fit-test pair with a proportional tenon.",
+      "tags": [
+        "mortise",
+        "tenon",
+        "joint",
+        "woodworking",
+        "frame",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "joint_length",
+          "label": "Length",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_width",
+          "label": "Width",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 150,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_height",
+          "label": "Height",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "tenon_ratio",
+          "label": "Tenon ratio",
+          "type": "number",
+          "default": 0.4,
+          "min": 0.1,
+          "max": 0.9,
+          "step": 0.05,
+          "group": "Style",
+          "help": "Tenon size as a fraction of the stock."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard tenon",
+          "description": "40 percent tenon.",
+          "params": {}
+        },
+        {
+          "name": "Slim tenon",
+          "description": "25 percent tenon.",
+          "params": {
+            "tenon_ratio": 0.25
+          }
+        },
+        {
+          "name": "Beefy tenon",
+          "description": "60 percent tenon.",
+          "params": {
+            "tenon_ratio": 0.6
+          }
+        }
+      ]
+    },
+    "wood_scarf_joint": {
+      "label": "Scarf Joint",
+      "short": "Scarf joint",
+      "category": "Workshop",
+      "icon": "edges",
+      "source": "objects/wrappers/wood_scarf_joint.scad",
+      "description": "Matching shoulder halves of JointSCAD's scarf joint for splicing two boards into one length.",
+      "tags": [
+        "scarf",
+        "joint",
+        "splice",
+        "board",
+        "woodworking",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "joint_length",
+          "label": "Length",
+          "type": "number",
+          "default": 80,
+          "min": 20,
+          "max": 300,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_width",
+          "label": "Width",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_height",
+          "label": "Height",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard splice",
+          "description": "Default pair.",
+          "params": {}
+        },
+        {
+          "name": "Wide splice",
+          "description": "50 mm boards.",
+          "params": {
+            "joint_width": 50
+          }
+        },
+        {
+          "name": "Thick splice",
+          "description": "40 mm stock.",
+          "params": {
+            "joint_height": 40
+          }
+        }
+      ]
+    },
+    "wood_bridle_joint": {
+      "label": "Bridle Joint",
+      "short": "Bridle joint",
+      "category": "Workshop",
+      "icon": "fit",
+      "source": "objects/wrappers/wood_bridle_joint.scad",
+      "description": "Open mortise and matching tongue from JointSCAD's bridle joint, printed as a fit-test pair.",
+      "tags": [
+        "bridle",
+        "joint",
+        "mortise",
+        "woodworking",
+        "frame",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "joint_length",
+          "label": "Length",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_width",
+          "label": "Width",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "joint_height",
+          "label": "Height",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard pair",
+          "description": "Default pair.",
+          "params": {}
+        },
+        {
+          "name": "Wide rail",
+          "description": "50 mm rail.",
+          "params": {
+            "joint_width": 50
+          }
+        },
+        {
+          "name": "Square",
+          "description": "Equal 40 mm stock.",
+          "params": {
+            "joint_length": 40,
+            "joint_width": 40
+          }
+        }
+      ]
+    },
+    "extrusion_t_joint": {
+      "label": "Extrusion T-Joint",
+      "short": "T-joint",
+      "category": "Workshop",
+      "icon": "bracket",
+      "source": "objects/wrappers/extrusion_t_joint.scad",
+      "description": "T-joint plate that pulls two aluminium extrusions together at a set angle, from OpenSCAD_connectors.",
+      "tags": [
+        "extrusion",
+        "t-joint",
+        "bracket",
+        "2020",
+        "frame",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "joint_holes_a",
+          "label": "Holes on arm A",
+          "type": "integer",
+          "default": 4,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "joint_holes_b",
+          "label": "Holes on arm B",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "joint_angle",
+          "label": "Angle",
+          "type": "number",
+          "default": 90,
+          "min": 10,
+          "max": 170,
+          "step": 1,
+          "group": "Layout",
+          "unit": "deg"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Right angle",
+          "description": "Standard 90 degree joint.",
+          "params": {}
+        },
+        {
+          "name": "Forty-five",
+          "description": "Angled joint.",
+          "params": {
+            "joint_angle": 45
+          }
+        },
+        {
+          "name": "Long arms",
+          "description": "Five holes each side.",
+          "params": {
+            "joint_holes_a": 5,
+            "joint_holes_b": 5
+          }
+        }
+      ]
+    },
+    "extrusion_endcap": {
+      "label": "Extrusion End Cap",
+      "short": "End cap",
+      "category": "Workshop",
+      "icon": "plate",
+      "source": "objects/wrappers/extrusion_endcap.scad",
+      "description": "End cap that plugs an aluminium extrusion, optionally with a bolt hole for fastening.",
+      "tags": [
+        "endcap",
+        "extrusion",
+        "2020",
+        "cap",
+        "frame",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "cap_x",
+          "label": "Size X",
+          "type": "number",
+          "default": 20,
+          "min": 10,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_y",
+          "label": "Size Y",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_insert",
+          "label": "Insert depth",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_thickness",
+          "label": "Face thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_bolt_hole",
+          "label": "Bolt hole",
+          "type": "number",
+          "default": 5.1,
+          "min": 0,
+          "max": 12,
+          "step": 0.1,
+          "group": "Hardware",
+          "unit": "mm",
+          "help": "Bolt hole diameter; 0 leaves a plain cap."
+        }
+      ],
+      "presets": [
+        {
+          "name": "2020 cap",
+          "description": "20 x 20 cap.",
+          "params": {
+            "cap_x": 20,
+            "cap_y": 20
+          }
+        },
+        {
+          "name": "2040 cap",
+          "description": "20 x 40 cap.",
+          "params": {}
+        },
+        {
+          "name": "Bolted cap",
+          "description": "M5 bolt hole.",
+          "params": {
+            "cap_bolt_hole": 5.1
+          }
+        }
+      ]
+    },
+    "extrusion_corner_bracket": {
+      "label": "Extrusion Corner Bracket",
+      "short": "Corner bracket",
+      "category": "Workshop",
+      "icon": "bracket",
+      "source": "objects/wrappers/extrusion_corner_bracket.scad",
+      "description": "Three-axis corner bracket that joins up to three aluminium extrusions, from OpenSCAD_connectors.",
+      "tags": [
+        "extrusion",
+        "corner",
+        "bracket",
+        "2020",
+        "frame",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "bracket_x",
+          "label": "Holes X",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "bracket_y",
+          "label": "Holes Y",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "bracket_z",
+          "label": "Holes Z",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Layout"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Three-way",
+          "description": "Two holes per axis.",
+          "params": {}
+        },
+        {
+          "name": "Two-way",
+          "description": "Flat L bracket.",
+          "params": {
+            "bracket_z": 1
+          }
+        },
+        {
+          "name": "Long",
+          "description": "Four holes per axis.",
+          "params": {
+            "bracket_x": 4,
+            "bracket_y": 4,
+            "bracket_z": 4
+          }
+        }
+      ]
+    },
+    "opengrid_peg": {
+      "label": "openGrid Peg",
+      "short": "openGrid peg",
+      "category": "Workshop",
+      "icon": "fit",
+      "source": "objects/wrappers/opengrid_peg.scad",
+      "description": "Shelf peg for the openGrid wall system, with a capped pin that snaps into an openGrid base.",
+      "tags": [
+        "opengrid",
+        "peg",
+        "shelf",
+        "wall",
+        "storage",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "peg_body_diameter",
+          "label": "Peg diameter",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "peg_body_length",
+          "label": "Peg length",
+          "type": "number",
+          "default": 25,
+          "min": 5,
+          "max": 150,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "peg_cap_length",
+          "label": "Cap length",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 30,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "peg_cap_diameter",
+          "label": "Cap diameter",
+          "type": "number",
+          "default": 12,
+          "min": 3,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard peg",
+          "description": "25 mm peg.",
+          "params": {}
+        },
+        {
+          "name": "Long peg",
+          "description": "50 mm peg.",
+          "params": {
+            "peg_body_length": 50
+          }
+        },
+        {
+          "name": "Thick peg",
+          "description": "12 mm peg.",
+          "params": {
+            "peg_body_diameter": 12,
+            "peg_cap_diameter": 16
+          }
+        }
+      ]
+    },
+    "opengrid_snap": {
+      "label": "openGrid Snap",
+      "short": "openGrid snap",
+      "category": "Workshop",
+      "icon": "grid",
+      "source": "objects/wrappers/opengrid_snap.scad",
+      "description": "The snap clip that anchors every openGrid accessory to the wall panel.",
+      "tags": [
+        "opengrid",
+        "snap",
+        "clip",
+        "wall",
+        "storage",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "snap_fitment",
+          "label": "Fitment",
+          "type": "number",
+          "default": 0.66,
+          "min": 0,
+          "max": 2,
+          "step": 0.02,
+          "group": "Style",
+          "help": "Printer-fitment scaling; raise it for a looser snap."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard fit",
+          "description": "Default fitment.",
+          "params": {}
+        },
+        {
+          "name": "Loose fit",
+          "description": "Slightly larger clip.",
+          "params": {
+            "snap_fitment": 1.0
+          }
+        },
+        {
+          "name": "Tight fit",
+          "description": "Slightly smaller clip.",
+          "params": {
+            "snap_fitment": 0.4
+          }
+        }
+      ]
+    },
+    "pantorouter_tenon_template": {
+      "label": "Pantorouter Tenon Template",
+      "short": "Tenon template",
+      "category": "Workshop",
+      "icon": "plate",
+      "source": "objects/wrappers/pantorouter_tenon_template.scad",
+      "description": "Router template that cuts repeated floating tenons, from the Pantorouter tenon template project.",
+      "tags": [
+        "pantorouter",
+        "tenon",
+        "template",
+        "router",
+        "jig",
+        "shop"
+      ],
+      "parameters": [
+        {
+          "variable": "tenon_width",
+          "label": "Tenon width",
+          "type": "number",
+          "default": 25.4,
+          "min": 5,
+          "max": 150,
+          "step": 0.025,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "tenon_length",
+          "label": "Tenon length",
+          "type": "number",
+          "default": 50.8,
+          "min": 5,
+          "max": 250,
+          "step": 0.1,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "tenon_radius",
+          "label": "Tenon corner radius",
+          "type": "number",
+          "default": 3.175,
+          "min": 0.5,
+          "max": 40,
+          "step": 0.025,
+          "group": "Style",
+          "unit": "mm"
+        },
+        {
+          "variable": "template_taper",
+          "label": "Template taper",
+          "type": "number",
+          "default": 12,
+          "min": 0,
+          "max": 45,
+          "step": 1,
+          "group": "Style",
+          "unit": "deg"
+        },
+        {
+          "variable": "template_depth",
+          "label": "Template depth",
+          "type": "number",
+          "default": 12,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "base_depth",
+          "label": "Base depth",
+          "type": "number",
+          "default": 3.5,
+          "min": 1,
+          "max": 30,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "rows",
+          "label": "Rows",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "columns",
+          "label": "Columns",
+          "type": "integer",
+          "default": 1,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "row_gap",
+          "label": "Row gap",
+          "type": "number",
+          "default": 25.4,
+          "min": 0,
+          "max": 100,
+          "step": 0.1,
+          "group": "Layout",
+          "unit": "mm"
+        },
+        {
+          "variable": "column_gap",
+          "label": "Column gap",
+          "type": "number",
+          "default": 25.4,
+          "min": 0,
+          "max": 100,
+          "step": 0.1,
+          "group": "Layout",
+          "unit": "mm"
+        },
+        {
+          "variable": "screw_diameter",
+          "label": "Screw hole",
+          "type": "number",
+          "default": 4,
+          "min": 2,
+          "max": 12,
+          "step": 0.1,
+          "group": "Hardware",
+          "unit": "mm"
+        },
+        {
+          "variable": "center_diameter",
+          "label": "Centre hole",
+          "type": "number",
+          "default": 6,
+          "min": 0,
+          "max": 30,
+          "step": 0.1,
+          "group": "Hardware",
+          "unit": "mm",
+          "help": "Central relief hole; 0 omits it."
+        }
+      ],
+      "presets": [
+        {
+          "name": "One inch tenon",
+          "description": "Standard inch template.",
+          "params": {}
+        },
+        {
+          "name": "Small tenons",
+          "description": "3/4 inch rows.",
+          "params": {
+            "tenon_width": 19.05,
+            "tenon_length": 38.1
+          }
+        },
+        {
+          "name": "Single",
+          "description": "One template.",
+          "params": {
+            "rows": 1
+          }
+        },
+        {
+          "name": "Grid of four",
+          "description": "Two rows by two columns.",
+          "params": {
+            "rows": 2,
+            "columns": 2
+          }
+        }
+      ]
     }
   }
 }

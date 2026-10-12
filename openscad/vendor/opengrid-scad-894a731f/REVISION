@@ -1,0 +1,15 @@
+894a731f0dc6f487639dca8a91b6a3c8dfb76e8e
+
+Upstream: https://github.com/mikeydotio/opengrid-scad
+License: CC-BY-4.0
+Copyright: Copyright (c) 2025 Mikey Ward (mikeydotio)
+
+The openGrid wall-system peg and snap sources plus the upstream
+LICENSE and README.md, copied verbatim from the pinned commit. The shelf and
+bin drawings and the openGrid+heavy base are not vendored.
+
+Files:
+  LICENSE
+  README.md
+  opengrid-peg.scad
+  opengrid-snap.scad

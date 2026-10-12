@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Thirty-one upstream OpenSCAD libraries are vendored unmodified under
+Thirty-six upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -202,6 +202,55 @@ Vendored:  openscad/vendor/composable-organizer-f01bb2fb/ - the compartment,
 tray, lid and tray-lid sources with the parameters, sizing, utils and common
 files they include, plus the upstream LICENSE. The archived mockup, build
 scripts and documentation images are not vendored.
+
+BOSL2 (BelfrySCAD)
+------------------
+Upstream:  https://github.com/BelfrySCAD/BOSL2
+Pinned at: 0c6f402bcb9ca968b7e623024335b55325635083
+License:   BSD-2-Clause. Copyright (c) 2017-2019 Revar Desmera.
+Vendored:  openscad/vendor/belfryscad-bosl2-0c6f402b/ - the top-level .scad
+           modules that std.scad pulls in, plus the upstream LICENSE and
+           README.md. The examples, tests, images, resources, scripts and
+           tutorials directories are not vendored. The bench dog, sanding
+           block, drill guide, caliper stand, screw organizer, spring clamp,
+           slider jig and dovetail jig wrappers are built on it.
+
+JointSCAD (HopefulLlama)
+------------------------
+Upstream:  https://github.com/HopefulLlama/JointSCAD
+Pinned at: 447888065b30721267db6011faeaf8e4e95ee5ff
+License:   MIT. Copyright (c) 2017 Jonathan Law.
+Vendored:  openscad/vendor/jointscad-44788806/ - the eight dist/ joint modules
+           plus the upstream LICENSE and README.md. Supplies the finger,
+           dovetail, dowel, mortise-and-tenon, scarf and bridle joint wrappers.
+
+openscad-connectors (adgaudio)
+------------------------------
+Upstream:  https://github.com/adgaudio/OpenSCAD_connectors
+Pinned at: 643a09d799a0d3bd2e2380c02aa46a0dc9c6f62a
+License:   MIT. Copyright (c) 2017 Alex Gaudio.
+Vendored:  openscad/vendor/openscad-connectors-643a09d7/ - the connector, grid,
+           repeat-grid and default files with the corner-bracket, t-joint and
+           endcap modules, plus the upstream LICENSE and README.md.
+
+opengrid-scad (mikeydotio)
+--------------------------
+Upstream:  https://github.com/mikeydotio/opengrid-scad
+Pinned at: 894a731f0dc6f487639dca8a91b6a3c8dfb76e8e
+License:   CC-BY-4.0. Copyright (c) 2025 Mikey Ward (mikeydotio).
+Vendored:  openscad/vendor/opengrid-scad-894a731f/ - the openGrid peg and snap
+           sources plus the upstream LICENSE and README.md. Supplies the
+           openGrid peg and openGrid snap objects.
+
+pantorouter-tenon-template (FozzTexx)
+-------------------------------------
+Upstream:  https://github.com/FozzTexx/pantorouter_tenon_template
+Pinned at: eccd45775104de24f1480a478f650d34205d00a7
+License:   CC0-1.0. Chris Osborn (FozzTexx); CC0 1.0 Universal dedicates the
+           work to the public domain, so no attribution is required - it is
+           given here anyway.
+Vendored:  openscad/vendor/pantorouter-tenon-eccd4577/ - the single Tenons.scad
+           template plus the upstream LICENSE and README.md.
 
 Third-party frontend notices
 ============================

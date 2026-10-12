@@ -1,0 +1,71 @@
+0c6f402bcb9ca968b7e623024335b55325635083
+
+Upstream: https://github.com/BelfrySCAD/BOSL2
+License: BSD-2-Clause
+Copyright: Copyright (c) 2017-2019 Revar Desmera
+
+The Belfry OpenScad Library, v2.0: the top-level .scad modules that
+std.scad pulls in, plus the upstream LICENSE and README.md, copied verbatim
+from the pinned commit. The examples/, tests/, images/, resources/,
+scripts/ and tutorials/ directories are not vendored. The workshop wrappers
+use std.scad, joiners.scad and sliders.scad.
+
+Files:
+  LICENSE
+  README.md
+  affine.scad
+  attachments.scad
+  ball_bearings.scad
+  beziers.scad
+  bosl1compat.scad
+  bottlecaps.scad
+  builtins.scad
+  color.scad
+  comparisons.scad
+  constants.scad
+  coords.scad
+  cubetruss.scad
+  distributors.scad
+  drawing.scad
+  fnliterals.scad
+  gears.scad
+  geometry.scad
+  hinges.scad
+  hooks.scad
+  isosurface.scad
+  joiners.scad
+  linalg.scad
+  linear_bearings.scad
+  lists.scad
+  masks.scad
+  math.scad
+  metric_screws.scad
+  miscellaneous.scad
+  modular_hose.scad
+  nema_steppers.scad
+  nurbs.scad
+  partitions.scad
+  paths.scad
+  polyhedra.scad
+  regions.scad
+  rounding.scad
+  screw_drive.scad
+  screws.scad
+  shapes2d.scad
+  shapes3d.scad
+  skin.scad
+  sliders.scad
+  std.scad
+  strings.scad
+  structs.scad
+  threading.scad
+  transforms.scad
+  trigonometry.scad
+  tripod_mounts.scad
+  turtle3d.scad
+  utility.scad
+  vectors.scad
+  version.scad
+  vnf.scad
+  walls.scad
+  wiring.scad

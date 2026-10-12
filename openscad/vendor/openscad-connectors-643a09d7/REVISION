@@ -1,0 +1,21 @@
+643a09d799a0d3bd2e2380c02aa46a0dc9c6f62a
+
+Upstream: https://github.com/adgaudio/OpenSCAD_connectors
+License: MIT
+Copyright: Copyright (c) 2017 Alex Gaudio
+
+The connector, grid, repeat-grid and default files plus the
+corner-bracket, t-joint and endcap modules, with the upstream LICENSE and
+README.md, copied verbatim from the pinned commit. The generate_stl.scad
+demonstration script is not vendored; the wrappers call the modules directly.
+
+Files:
+  LICENSE
+  README.md
+  _defaults.scad
+  connector.scad
+  corner_bracket.scad
+  endcap.scad
+  grid.scad
+  repeat_grid.scad
+  tjoint.scad
