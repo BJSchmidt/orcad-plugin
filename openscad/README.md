@@ -86,13 +86,17 @@ Gridfinity Rebuilt, so `include <src/core/standard.scad>` written for it keeps
 resolving; `vendor/` is on the path too, so a wrapper can address one library
 unambiguously as `<rackstack-8e296e93/rack-mount/tray/tray.scad>`.
 
-Eleven of those trees were added for the Building, Technic, Mechanical, Rounded
-shapes, Smooth shapes, Cases, Fasteners, Controls, Cycling, Computer hardware
-and Rocketry categories. Two of them deliberately keep a layout that is not
-flat, because upstream's own includes expect it: `bosl-*` keeps a `BOSL/`
-subdirectory (`use <BOSL/involute_gears.scad>`), and `catchnhole-*` keeps a
-`catchnhole/` subdirectory (`use <catchnhole/catchnhole.scad>`), which is how
-the author's own projects consume it.
+Eighteen of those trees were added for the Building, Technic, Mechanical,
+Rounded shapes, Smooth shapes, Cases, Fasteners, Controls, Cycling, Computer
+hardware, Rocketry and Mounts categories. Two of them deliberately keep a
+layout that is not flat, because upstream's own includes expect it: `bosl-*`
+keeps a `BOSL/` subdirectory (`use <BOSL/involute_gears.scad>`), and
+`catchnhole-*` keeps a `catchnhole/` subdirectory
+(`use <catchnhole/catchnhole.scad>`), which is how the author's own projects
+consume it. The seven mobility trees (`bicycle-lights`, `cycling-wall-rack`,
+`ridercz-gopro`, `connector-adapter`, `bottlecage`, `triathlon-bike` and
+`clip-openscad`) keep upstream's own per-part or per-sample directories for the
+same reason.
 
 Nothing under `vendor/` is ever edited. Every tree keeps a `REVISION` file
 whose first line is the pinned commit and which also records the upstream URL,
@@ -125,6 +129,13 @@ from the catalog.
 | `splice3d` | `common.scad` and the spool holder, filament guide, guide jig, tool accessory and cable management sources | MIT | Splice3D Contributors | `1b9233f1b07b923ec7b08eaba5db74e2b7fa6790` |
 | `gchristopher-3dprinting` | the five Rostock MAX V2 effector-platform sources (hot-end plate, clamp, fan shroud, wider platform) | Apache-2.0 | Gregg Christopher | `8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf` |
 | `ewc3-test-hole-generator` | the current V2 and archived V1 test-hole plate generators | MIT | EWC3 Labs | `c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b` |
+| `bicycle-lights` | the five light housings under `Housings/` (two front lights, rear light, 18650 battery box, switch holder) | MIT | Guillaume Chauvat | `4d7effa69b957d27221d2b94aad71b3463367253` |
+| `cycling-wall-rack` | the four `scad/` parts (wall bracket, glasses holder, tray, S-hook) | MIT | Antoine CARON | `3ca19cc7ca0962809868cbd203be34b1a6f0e98a` |
+| `ridercz-gopro` | `GoPro.scad` and the extension-arm and phone-holder samples | MIT | Michal Altair Valasek | `98c0161e58d4d912481cdf280b573563e221b2a7` |
+| `connector-adapter` | `connector-adapter.scad` | MIT | regenschein71 | `80e4636ed2176e46106b748a2c26215a2e372f75` |
+| `bottlecage` | `bottlecage.scad`, `bottlecage-compact.scad` | CC0-1.0 | Markus Gutschke (public domain dedication) | `15484334e49ac12be6ac3d21a1f48207b739b3df` |
+| `triathlon-bike` | the gel clip, brake spacer and saddle bottle holder sources | MIT | joseph touzet | `1e55632a064bcac4068acec52910953fb0f49271` |
+| `clip-openscad` | `components/assembly.scad` with the constants, phone, mirror and rounded-cube files it uses | MIT | Standard Cyborg | `789c87dc951308470e7d9229527f154c237fb95e` |
 
 Upstream URLs are in the catalog and in each `REVISION` file; the full
 attribution is in `NOTICE` and `THIRD_PARTY_NOTICES` in the repository root.

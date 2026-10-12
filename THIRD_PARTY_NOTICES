@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Fifty-four upstream OpenSCAD libraries are vendored unmodified under
+Sixty-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -426,6 +426,83 @@ License:   MIT. Copyright (c) 2026 EWC3 Labs.
 Vendored:  openscad/vendor/ewc3-test-hole-generator-c4b7bfdc/ - the current
            src/test-hole-generator-v2.scad and the archived rectangular
            _ARCHIVE/src/test-hole-generator.scad, plus the upstream LICENSE.
+
+bicycle_lights (guillaumechauvat)
+---------------------------------
+Upstream:  https://github.com/guillaumechauvat/bicycle_lights
+Pinned at: 4d7effa69b957d27221d2b94aad71b3463367253
+License:   MIT. Copyright (c) 2021 Guillaume Chauvat.
+Vendored:  openscad/vendor/bicycle-lights-4d7effa6/ - the five light housings under
+           Housings/ (the two front-light generations, the rear light, the
+           three-cell 18650 battery box and the handlebar switch holder) plus
+           the upstream LICENSE. Supplies the Cycling light-holder objects. The
+           Arduino firmware and the acrylic lens script are not vendored.
+
+cycling-wall-rack (Slashgear)
+-----------------------------
+Upstream:  https://github.com/Slashgear/cycling-wall-rack
+Pinned at: 3ca19cc7ca0962809868cbd203be34b1a6f0e98a
+License:   MIT. Copyright (c) 2026 Antoine CARON.
+Vendored:  openscad/vendor/cycling-wall-rack-3ca19cc7/ - the four scad/ parts of the
+           wall-mounted bike accessory rack (wall bracket, glasses holder,
+           tray and S-hook) plus the upstream LICENSE, keeping upstream's scad/
+           layout. The rendered STL exports, images and documentation are not
+           vendored, and neither is the shoes holder.
+
+GoProScad (ridercz)
+-------------------
+Upstream:  https://github.com/ridercz/GoProScad
+Pinned at: 98c0161e58d4d912481cdf280b573563e221b2a7
+License:   MIT. Copyright (c) 2021 Michal Altair Valasek.
+Vendored:  openscad/vendor/ridercz-gopro-98c0161e/ - GoPro.scad (the male and female
+           quick-release connectors and the M5 screw handle) with the
+           extension-arm and phone-holder samples, plus the upstream LICENSE,
+           keeping upstream's Samples/ layout. The samples that need the
+           separate A2D library are not vendored. The handlebar clamp and the
+           screw handle are catalog objects built as wrappers around the
+           vendored modules.
+
+connector-adapter (justcoding-dev)
+----------------------------------
+Upstream:  https://github.com/justcoding-dev/connector-adapter
+Pinned at: 80e4636ed2176e46106b748a2c26215a2e372f75
+License:   MIT. Copyright (c) 2021 regenschein71.
+Vendored:  openscad/vendor/connector-adapter-80e4636e/ - the connector-adapter.scad
+           generator and the upstream LICENSE.
+
+bottlecage (gutschke)
+---------------------
+Upstream:  https://github.com/gutschke/bottlecage
+Pinned at: 15484334e49ac12be6ac3d21a1f48207b739b3df
+License:   CC0-1.0. Markus Gutschke; CC0 1.0 Universal dedicates the work to the
+           public domain, so no attribution is required - it is given here
+           anyway. The cage recreates Prusa Research's CC0 ASA bottle cage.
+Vendored:  openscad/vendor/bottlecage-15484334/ - the standard slotted bottle cage and
+           the compact cage plus the upstream CC0 LICENSE.
+
+triathlon-bike (jolatechno)
+---------------------------
+Upstream:  https://github.com/jolatechno/triathlon-bike
+Pinned at: 1e55632a064bcac4068acec52910953fb0f49271
+License:   MIT. Copyright (c) 2020 joseph touzet.
+Vendored:  openscad/vendor/triathlon-bike-1e55632a/ - the gel clip, the brake spacer
+           and the two-bolt saddle bottle holder with the upstream LICENSE,
+           keeping upstream's per-part directories. The derailleur,
+           chain-catcher, bar-end shifter, electronic-shifting and aerodrink
+           sources, the images and the README are not vendored.
+
+clip-openscad (Standard Cyborg)
+-------------------------------
+Upstream:  https://github.com/StandardCyborg/clip-openscad
+Pinned at: 789c87dc951308470e7d9229527f154c237fb95e
+License:   MIT. Copyright (c) 2022 Standard Cyborg.
+Vendored:  openscad/vendor/clip-openscad-789c87dc/ - the car rear-view-mirror phone
+           clip: components/assembly.scad and the constants, phone, mirror and
+           rounded-cube files it uses, plus the upstream LICENSE, keeping
+           upstream's components/ layout. The per-device dimension tables and
+           the archived clips are not vendored. The catalog object is a
+           wrapper that restates upstream's iPhone XS geometry with the device
+           size as a parameter.
 
 Third-party frontend notices
 ============================

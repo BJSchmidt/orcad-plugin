@@ -1,0 +1,19 @@
+1e55632a064bcac4068acec52910953fb0f49271
+
+Upstream: https://github.com/jolatechno/triathlon-bike
+License: MIT
+Copyright: Copyright (c) 2020 joseph touzet
+
+The aero-bar accessories of a self-built triathlon bike: the gel clip that
+clamps a gel flask to an aero extension, the brake spacer that fills the gap
+between a brake and a carbon rim, and the two-bolt saddle bottle holder that
+mounts behind the saddle. Copied verbatim from the pinned commit, keeping
+upstream's per-part directories. The derailleur, chain catcher, bar-end
+shifter, electronic-shifting and aerodrink sources, the images and the README
+are not vendored.
+
+Files:
+  LICENSE
+  gel_clip/gel_clip.scad
+  brake_spacer/brake_spacer.scad
+  saddle_bottle_holder/main_holder.scad

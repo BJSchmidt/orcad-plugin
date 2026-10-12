@@ -1,0 +1,14 @@
+80e4636ed2176e46106b748a2c26215a2e372f75
+
+Upstream: https://github.com/justcoding-dev/connector-adapter
+License: MIT
+Copyright: Copyright (c) 2021 regenschein71
+
+The configurable GoPro-style connector adapter: two stacks of legs, each side
+independently sized, joined by a base plate. The single upstream source plus
+the upstream LICENSE, copied verbatim from the pinned commit. The README and
+gitignore are not vendored.
+
+Files:
+  LICENSE
+  connector-adapter.scad

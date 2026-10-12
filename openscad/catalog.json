@@ -419,6 +419,62 @@
       "license": "MIT",
       "repository": "https://github.com/ewc3labs/ewc3-test-hole-generator",
       "author": "EWC3 Labs (Wilson Cook)"
+    },
+    "bicycle-lights": {
+      "label": "bicycle_lights (guillaumechauvat)",
+      "root": "vendor/bicycle-lights-4d7effa6",
+      "revision": "4d7effa69b957d27221d2b94aad71b3463367253",
+      "license": "MIT",
+      "repository": "https://github.com/guillaumechauvat/bicycle_lights",
+      "author": "Guillaume Chauvat"
+    },
+    "cycling-wall-rack": {
+      "label": "cycling-wall-rack (Slashgear)",
+      "root": "vendor/cycling-wall-rack-3ca19cc7",
+      "revision": "3ca19cc7ca0962809868cbd203be34b1a6f0e98a",
+      "license": "MIT",
+      "repository": "https://github.com/Slashgear/cycling-wall-rack",
+      "author": "Antoine CARON"
+    },
+    "ridercz-gopro": {
+      "label": "GoProScad (ridercz)",
+      "root": "vendor/ridercz-gopro-98c0161e",
+      "revision": "98c0161e58d4d912481cdf280b573563e221b2a7",
+      "license": "MIT",
+      "repository": "https://github.com/ridercz/GoProScad",
+      "author": "Michal Altair Valasek"
+    },
+    "connector-adapter": {
+      "label": "connector-adapter (justcoding-dev)",
+      "root": "vendor/connector-adapter-80e4636e",
+      "revision": "80e4636ed2176e46106b748a2c26215a2e372f75",
+      "license": "MIT",
+      "repository": "https://github.com/justcoding-dev/connector-adapter",
+      "author": "regenschein71"
+    },
+    "bottlecage": {
+      "label": "bottlecage (gutschke)",
+      "root": "vendor/bottlecage-15484334",
+      "revision": "15484334e49ac12be6ac3d21a1f48207b739b3df",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/gutschke/bottlecage",
+      "author": "Markus Gutschke"
+    },
+    "triathlon-bike": {
+      "label": "triathlon-bike (jolatechno)",
+      "root": "vendor/triathlon-bike-1e55632a",
+      "revision": "1e55632a064bcac4068acec52910953fb0f49271",
+      "license": "MIT",
+      "repository": "https://github.com/jolatechno/triathlon-bike",
+      "author": "joseph touzet"
+    },
+    "clip-openscad": {
+      "label": "clip-openscad (Standard Cyborg)",
+      "root": "vendor/clip-openscad-789c87dc",
+      "revision": "789c87dc951308470e7d9229527f154c237fb95e",
+      "license": "MIT",
+      "repository": "https://github.com/StandardCyborg/clip-openscad",
+      "author": "Standard Cyborg"
     }
   },
   "quality_profiles": {
@@ -27433,6 +27489,2419 @@
         "license": "MIT",
         "author": "EWC3 Labs (Wilson Cook)",
         "repository": "https://github.com/ewc3labs/ewc3-test-hole-generator"
+      }
+    },
+    "bike_front_light": {
+      "label": "Bike front light housing",
+      "short": "Front light",
+      "category": "Cycling",
+      "icon": "bike",
+      "source": "vendor/bicycle-lights-4d7effa6/Housings/front_light.scad",
+      "description": "Front bicycle light housing with a parabolic reflector cup and a clamp seat that hugs a handlebar.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "light",
+        "headlight",
+        "housing",
+        "handlebar",
+        "cycling",
+        "mount"
+      ],
+      "parameters": [
+        {
+          "variable": "dmax",
+          "label": "Lens aperture",
+          "type": "number",
+          "default": 58,
+          "min": 30,
+          "max": 90,
+          "step": 1,
+          "group": "Reflector",
+          "unit": "mm",
+          "help": "Outer diameter of the reflector cup, which sets the lens size."
+        },
+        {
+          "variable": "d0",
+          "label": "LED opening",
+          "type": "number",
+          "default": 18.5,
+          "min": 10,
+          "max": 30,
+          "step": 0.5,
+          "group": "Reflector",
+          "unit": "mm",
+          "help": "Diameter of the flat face where the LED board sits."
+        },
+        {
+          "variable": "w_led",
+          "label": "LED board width",
+          "type": "number",
+          "default": 17,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "group": "Reflector",
+          "unit": "mm"
+        },
+        {
+          "variable": "h_led",
+          "label": "LED board height",
+          "type": "number",
+          "default": 14,
+          "min": 5,
+          "max": 30,
+          "step": 1,
+          "group": "Reflector",
+          "unit": "mm"
+        },
+        {
+          "variable": "thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Housing",
+          "unit": "mm"
+        },
+        {
+          "variable": "d_lens",
+          "label": "Lens seat depth",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.5,
+          "group": "Housing",
+          "unit": "mm",
+          "help": "Depth of the recess the acrylic lens drops into."
+        },
+        {
+          "variable": "d_handlebar",
+          "label": "Handlebar diameter",
+          "type": "number",
+          "default": 22.5,
+          "min": 15,
+          "max": 40,
+          "step": 0.1,
+          "group": "Handlebar",
+          "unit": "mm",
+          "help": "Outside diameter of the bar the clamp wraps."
+        },
+        {
+          "variable": "theta",
+          "label": "Clamp opening angle",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 120,
+          "step": 5,
+          "group": "Handlebar",
+          "unit": "deg"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "31.8 mm bar",
+          "params": {
+            "d_handlebar": 31.8
+          },
+          "description": "Oversized bar tubes (31.8 mm)."
+        },
+        {
+          "name": "Compact",
+          "params": {
+            "dmax": 44,
+            "d0": 14,
+            "w_led": 12,
+            "h_led": 10
+          },
+          "description": "Smaller light for a helmet or a commuter bar."
+        }
+      ]
+    },
+    "bike_front_light_v2": {
+      "label": "Bike front light housing v2",
+      "short": "Front light v2",
+      "category": "Cycling",
+      "icon": "bike",
+      "source": "vendor/bicycle-lights-4d7effa6/Housings/front_light_v2.scad",
+      "description": "Second-generation front light housing: a rectangular body with a cylindrical LED bore, a curved lens slot and the same handlebar clamp.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "light",
+        "headlight",
+        "housing",
+        "handlebar",
+        "cycling",
+        "mount"
+      ],
+      "parameters": [
+        {
+          "variable": "lx",
+          "label": "Body depth",
+          "type": "number",
+          "default": 25,
+          "min": 15,
+          "max": 50,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm",
+          "help": "Depth of the box along the light axis."
+        },
+        {
+          "variable": "ly",
+          "label": "Body width",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 80,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "lz",
+          "label": "Body height",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 80,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "r_curv",
+          "label": "Lens radius",
+          "type": "number",
+          "default": 22,
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "group": "Lens",
+          "unit": "mm",
+          "help": "Radius of the curved acrylic lens the front face takes."
+        },
+        {
+          "variable": "d_handlebar",
+          "label": "Handlebar diameter",
+          "type": "number",
+          "default": 22.5,
+          "min": 15,
+          "max": 40,
+          "step": 0.1,
+          "group": "Handlebar",
+          "unit": "mm",
+          "help": "Outside diameter of the bar the clamp wraps."
+        },
+        {
+          "variable": "theta",
+          "label": "Clamp opening angle",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 120,
+          "step": 5,
+          "group": "Handlebar",
+          "unit": "deg"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "31.8 mm bar",
+          "params": {
+            "d_handlebar": 31.8
+          },
+          "description": "Oversized bar tubes (31.8 mm)."
+        },
+        {
+          "name": "Tall body",
+          "params": {
+            "lz": 56,
+            "r_curv": 28
+          },
+          "description": "Taller lens for a wider beam."
+        }
+      ]
+    },
+    "bike_rear_light": {
+      "label": "Bike rear light housing",
+      "short": "Rear light",
+      "category": "Cycling",
+      "icon": "bike",
+      "source": "vendor/bicycle-lights-4d7effa6/Housings/back_light.scad",
+      "description": "Rear bicycle light housing with rounded corners, an acrylic lens recess and the matching handlebar or seat-post clamp.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "light",
+        "taillight",
+        "rear",
+        "housing",
+        "cycling",
+        "mount"
+      ],
+      "parameters": [
+        {
+          "variable": "lx",
+          "label": "Body length",
+          "type": "number",
+          "default": 71,
+          "min": 40,
+          "max": 120,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "ly",
+          "label": "Body depth",
+          "type": "number",
+          "default": 27,
+          "min": 15,
+          "max": 60,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "lz",
+          "label": "Body height",
+          "type": "number",
+          "default": 16,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "h_acrylic",
+          "label": "Lens thickness",
+          "type": "number",
+          "default": 3.3,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Lens",
+          "unit": "mm",
+          "help": "Thickness of the red acrylic cover."
+        },
+        {
+          "variable": "fillet",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "d_handlebar",
+          "label": "Bar diameter",
+          "type": "number",
+          "default": 22.5,
+          "min": 15,
+          "max": 40,
+          "step": 0.1,
+          "group": "Clamp",
+          "unit": "mm",
+          "help": "Handlebar or seat-post tube the clamp grips."
+        },
+        {
+          "variable": "theta",
+          "label": "Clamp opening angle",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 120,
+          "step": 5,
+          "group": "Clamp",
+          "unit": "deg"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "31.8 mm bar",
+          "params": {
+            "d_handlebar": 31.8
+          },
+          "description": "Oversized bar tubes (31.8 mm)."
+        },
+        {
+          "name": "Seat post",
+          "params": {
+            "d_handlebar": 27.2
+          },
+          "description": "Fits a 27.2 mm seat post."
+        }
+      ]
+    },
+    "bike_light_battery_box": {
+      "label": "Bike light battery box",
+      "short": "Light battery box",
+      "category": "Cycling",
+      "icon": "box",
+      "source": "vendor/bicycle-lights-4d7effa6/Housings/battery_box.scad",
+      "description": "Watertight holder for three 18650 cells that screws onto the light housing, with an O-ring groove, wire gland and room for an engraved label.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "battery",
+        "18650",
+        "holder",
+        "box",
+        "light",
+        "cycling"
+      ],
+      "parameters": [
+        {
+          "variable": "d",
+          "label": "Cell diameter",
+          "type": "number",
+          "default": 18.5,
+          "min": 12,
+          "max": 30,
+          "step": 0.1,
+          "group": "Cells",
+          "unit": "mm",
+          "help": "Nominal cell diameter the pockets are cut for."
+        },
+        {
+          "variable": "h",
+          "label": "Cell length",
+          "type": "number",
+          "default": 70.5,
+          "min": 40,
+          "max": 100,
+          "step": 0.1,
+          "group": "Cells",
+          "unit": "mm",
+          "help": "Cell length including the button top."
+        },
+        {
+          "variable": "thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 4,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Box",
+          "unit": "mm"
+        },
+        {
+          "variable": "gap_h_bottom",
+          "label": "Bottom clearance",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "group": "Box",
+          "unit": "mm"
+        },
+        {
+          "variable": "gap_h_top",
+          "label": "Top clearance",
+          "type": "number",
+          "default": 5,
+          "min": 0,
+          "max": 15,
+          "step": 0.5,
+          "group": "Box",
+          "unit": "mm"
+        },
+        {
+          "variable": "text_size",
+          "label": "Label size",
+          "type": "number",
+          "default": 9,
+          "min": 4,
+          "max": 20,
+          "step": 0.5,
+          "group": "Label",
+          "unit": "mm"
+        },
+        {
+          "variable": "text_depth",
+          "label": "Label depth",
+          "type": "number",
+          "default": 0.2,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.1,
+          "group": "Label",
+          "unit": "mm",
+          "help": "How deep the engraved text cuts into the wall."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Protected cells",
+          "params": {
+            "d": 19.3,
+            "h": 69.5
+          },
+          "description": "Length and diameter of protected button-top cells."
+        },
+        {
+          "name": "Deep engraving",
+          "params": {
+            "text_depth": 0.6,
+            "text_size": 12
+          },
+          "description": "Deeper, larger label text."
+        }
+      ]
+    },
+    "bike_light_switch_holder": {
+      "label": "Bike light switch holder",
+      "short": "Light switch",
+      "category": "Cycling",
+      "icon": "chip",
+      "source": "vendor/bicycle-lights-4d7effa6/Housings/switch_holder.scad",
+      "description": "Handlebar-mounted cradle for the light's push button and wire gland, clamped with the same strap profile as the light housings.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "switch",
+        "button",
+        "holder",
+        "handlebar",
+        "light",
+        "cycling"
+      ],
+      "parameters": [
+        {
+          "variable": "lx",
+          "label": "Body length",
+          "type": "number",
+          "default": 13,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "ly",
+          "label": "Body depth",
+          "type": "number",
+          "default": 13,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "lz",
+          "label": "Body height",
+          "type": "number",
+          "default": 22,
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2.5,
+          "min": 1.5,
+          "max": 5,
+          "step": 0.5,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_d",
+          "label": "Button hole",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "group": "Button",
+          "unit": "mm"
+        },
+        {
+          "variable": "wire_d",
+          "label": "Wire gland",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Button",
+          "unit": "mm"
+        },
+        {
+          "variable": "d_handlebar",
+          "label": "Handlebar diameter",
+          "type": "number",
+          "default": 22.5,
+          "min": 15,
+          "max": 40,
+          "step": 0.1,
+          "group": "Handlebar",
+          "unit": "mm",
+          "help": "Outside diameter of the bar the clamp wraps."
+        },
+        {
+          "variable": "theta",
+          "label": "Clamp opening angle",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 120,
+          "step": 5,
+          "group": "Handlebar",
+          "unit": "deg"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "31.8 mm bar",
+          "params": {
+            "d_handlebar": 31.8
+          },
+          "description": "Oversized bar tubes (31.8 mm)."
+        },
+        {
+          "name": "Big button",
+          "params": {
+            "hole_d": 8,
+            "wire_d": 6
+          },
+          "description": "For a larger actuator and a thicker cable."
+        }
+      ]
+    },
+    "bike_rack_wall_bracket": {
+      "label": "Bike rack wall bracket",
+      "short": "Rack bracket",
+      "category": "Cycling",
+      "icon": "bracket",
+      "source": "vendor/cycling-wall-rack-3ca19cc7/scad/wall_mount_bracket.scad",
+      "description": "Tapered wall plate with a half-round notch that cradles a 24 mm wooden dowel, the backbone of the wall-mounted bike accessory rack.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "rack",
+        "wall",
+        "bracket",
+        "dowel",
+        "storage",
+        "mount"
+      ],
+      "parameters": [
+        {
+          "variable": "rod_diameter",
+          "label": "Rod diameter",
+          "type": "number",
+          "default": 24,
+          "min": 15,
+          "max": 40,
+          "step": 0.5,
+          "group": "Rod",
+          "unit": "mm",
+          "help": "Broom-handle dowel the rack is built around."
+        },
+        {
+          "variable": "rod_inset",
+          "label": "Rod inset",
+          "type": "number",
+          "default": -4,
+          "min": -10,
+          "max": 0,
+          "step": 0.5,
+          "group": "Rod",
+          "unit": "mm",
+          "help": "How deep the rod sinks into the notch; negative values sink it further."
+        },
+        {
+          "variable": "front_width",
+          "label": "Front width",
+          "type": "number",
+          "default": 30,
+          "min": 15,
+          "max": 60,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "front_height",
+          "label": "Front height",
+          "type": "number",
+          "default": 80,
+          "min": 40,
+          "max": 150,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "back_extra",
+          "label": "Wall extra",
+          "type": "number",
+          "default": 20,
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "How much wider the wall face is than the front face."
+        },
+        {
+          "variable": "wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "corner_radius",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Thick dowel",
+          "params": {
+            "rod_diameter": 28,
+            "rod_inset": -6
+          },
+          "description": "A chunkier rod than the usual broom handle."
+        },
+        {
+          "name": "Low profile",
+          "params": {
+            "front_height": 50,
+            "back_extra": 10
+          },
+          "description": "Shorter cradle for a tight space."
+        }
+      ]
+    },
+    "bike_rack_rod_hook": {
+      "label": "Bike rack S-hook",
+      "short": "Rack hook",
+      "category": "Cycling",
+      "icon": "bracket",
+      "source": "vendor/cycling-wall-rack-3ca19cc7/scad/s_hook.scad",
+      "description": "Double-loop S-hook that hangs off the rack's wooden rod and takes a helmet or a cable lock; the loops sit in perpendicular planes.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "rack",
+        "hook",
+        "organiser",
+        "helmet",
+        "wall",
+        "storage"
+      ],
+      "parameters": [
+        {
+          "variable": "wire",
+          "label": "Wire thickness",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Hook",
+          "unit": "mm"
+        },
+        {
+          "variable": "loop_r",
+          "label": "Top loop radius",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Hook",
+          "unit": "mm"
+        },
+        {
+          "variable": "loop_spacing",
+          "label": "Top loop spacing",
+          "type": "number",
+          "default": 20,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Hook",
+          "unit": "mm"
+        },
+        {
+          "variable": "middle_loop_r",
+          "label": "Lower loop radius",
+          "type": "number",
+          "default": 20,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Hook",
+          "unit": "mm"
+        },
+        {
+          "variable": "middle_loop_spacing",
+          "label": "Lower loop spacing",
+          "type": "number",
+          "default": 40,
+          "min": 15,
+          "max": 80,
+          "step": 1,
+          "group": "Hook",
+          "unit": "mm"
+        },
+        {
+          "variable": "middle_offset_y",
+          "label": "Lower loop offset",
+          "type": "number",
+          "default": -40,
+          "min": -80,
+          "max": 0,
+          "step": 1,
+          "group": "Hook",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Wide hook",
+          "params": {
+            "middle_loop_r": 30,
+            "middle_loop_spacing": 60
+          },
+          "description": "Bigger throat for a helmet strap."
+        },
+        {
+          "name": "Stiff wire",
+          "params": {
+            "wire": 5
+          },
+          "description": "Fatter wire for heavier loads."
+        }
+      ]
+    },
+    "bike_rack_tray": {
+      "label": "Bike rack tray",
+      "short": "Bike rack tray",
+      "category": "Cycling",
+      "icon": "box",
+      "source": "vendor/cycling-wall-rack-3ca19cc7/scad/tray.scad",
+      "description": "Clip-on tray for the bike rack rod that catches keys, tools and loose spares, with a raised rim on all four sides.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "rack",
+        "tray",
+        "storage",
+        "shelf",
+        "organiser",
+        "wall"
+      ],
+      "parameters": [
+        {
+          "variable": "rod_diameter",
+          "label": "Rod diameter",
+          "type": "number",
+          "default": 24,
+          "min": 15,
+          "max": 40,
+          "step": 0.5,
+          "group": "Rod",
+          "unit": "mm"
+        },
+        {
+          "variable": "collar_height",
+          "label": "Collar height",
+          "type": "number",
+          "default": 20,
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "group": "Collar",
+          "unit": "mm"
+        },
+        {
+          "variable": "collar_wall",
+          "label": "Collar wall",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Collar",
+          "unit": "mm"
+        },
+        {
+          "variable": "tray_length",
+          "label": "Tray length",
+          "type": "number",
+          "default": 125,
+          "min": 60,
+          "max": 200,
+          "step": 1,
+          "group": "Tray",
+          "unit": "mm"
+        },
+        {
+          "variable": "tray_width",
+          "label": "Tray width",
+          "type": "number",
+          "default": 70,
+          "min": 40,
+          "max": 140,
+          "step": 1,
+          "group": "Tray",
+          "unit": "mm"
+        },
+        {
+          "variable": "tray_rim",
+          "label": "Rim height",
+          "type": "number",
+          "default": 18,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "group": "Tray",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall",
+          "label": "Tray wall",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "group": "Tray",
+          "unit": "mm"
+        },
+        {
+          "variable": "corner_radius",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "group": "Tray",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Long tray",
+          "params": {
+            "tray_length": 180,
+            "tray_width": 90
+          },
+          "description": "Twice the footprint for tools."
+        },
+        {
+          "name": "Catch-all",
+          "params": {
+            "tray_rim": 30
+          },
+          "description": "Deep rim so nothing rolls off."
+        }
+      ]
+    },
+    "bike_rack_glasses_holder": {
+      "label": "Bike rack glasses holder",
+      "short": "Glasses holder",
+      "category": "Cycling",
+      "icon": "bracket",
+      "source": "vendor/cycling-wall-rack-3ca19cc7/scad/glasses_holder.scad",
+      "description": "Rod-mounted arm that carries two pairs of cycling glasses, with a long T arm and upturned lips so the frames cannot slide off.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "rack",
+        "glasses",
+        "holder",
+        "storage",
+        "wall",
+        "cycling"
+      ],
+      "parameters": [
+        {
+          "variable": "rod_diameter",
+          "label": "Rod diameter",
+          "type": "number",
+          "default": 24,
+          "min": 15,
+          "max": 40,
+          "step": 0.5,
+          "group": "Rod",
+          "unit": "mm"
+        },
+        {
+          "variable": "collar_height",
+          "label": "Collar height",
+          "type": "number",
+          "default": 20,
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "group": "Collar",
+          "unit": "mm"
+        },
+        {
+          "variable": "collar_wall",
+          "label": "Collar wall",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Collar",
+          "unit": "mm"
+        },
+        {
+          "variable": "arm_total_length",
+          "label": "Arm span",
+          "type": "number",
+          "default": 180,
+          "min": 80,
+          "max": 300,
+          "step": 1,
+          "group": "Arms",
+          "unit": "mm"
+        },
+        {
+          "variable": "arm_thickness_center",
+          "label": "Arm thickness",
+          "type": "number",
+          "default": 18,
+          "min": 6,
+          "max": 40,
+          "step": 1,
+          "group": "Arms",
+          "unit": "mm",
+          "help": "Depth of the arm where it meets the collar."
+        },
+        {
+          "variable": "lip_height",
+          "label": "Lip height",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 12,
+          "step": 0.5,
+          "group": "Arms",
+          "unit": "mm"
+        },
+        {
+          "variable": "perp_arm_length",
+          "label": "Rear arm length",
+          "type": "number",
+          "default": 100,
+          "min": 20,
+          "max": 200,
+          "step": 1,
+          "group": "Arms",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Wide arm",
+          "params": {
+            "arm_total_length": 240
+          },
+          "description": "Room for two pairs of large frames."
+        },
+        {
+          "name": "Deep lip",
+          "params": {
+            "lip_height": 8
+          },
+          "description": "Taller lip for rough workshop walls."
+        }
+      ]
+    },
+    "gopro_extension_arm": {
+      "label": "GoPro extension arm",
+      "short": "GoPro arm",
+      "category": "Mounts",
+      "icon": "bracket",
+      "source": "vendor/ridercz-gopro-98c0161e/Samples/extension_arm.scad",
+      "description": "Straight extension arm with a male GoPro connector on one end and a female one on the other, so a camera can be moved off the mount.",
+      "tags": [
+        "gopro",
+        "action camera",
+        "arm",
+        "extension",
+        "mount",
+        "adapter",
+        "camera"
+      ],
+      "parameters": [
+        {
+          "variable": "length",
+          "label": "Arm length",
+          "type": "number",
+          "default": 250,
+          "min": 60,
+          "max": 400,
+          "step": 5,
+          "group": "Arm",
+          "unit": "mm",
+          "help": "Centre-to-centre distance between the two connectors."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Short arm",
+          "params": {
+            "length": 100
+          },
+          "description": "Close to the mount."
+        },
+        {
+          "name": "Long arm",
+          "params": {
+            "length": 350
+          },
+          "description": "Far out on the bar."
+        }
+      ]
+    },
+    "gopro_phone_holder": {
+      "label": "GoPro phone holder",
+      "short": "GoPro phone",
+      "category": "Mounts",
+      "icon": "fit",
+      "source": "vendor/ridercz-gopro-98c0161e/Samples/phone_holder.scad",
+      "description": "Cradle that clips a phone into a GoPro male mount, sized to the phone and with an optional engraved signature on the face.",
+      "tags": [
+        "gopro",
+        "phone",
+        "holder",
+        "cradle",
+        "mount",
+        "handlebar",
+        "camera"
+      ],
+      "parameters": [
+        {
+          "variable": "phone_width",
+          "label": "Phone width",
+          "type": "number",
+          "default": 79,
+          "min": 50,
+          "max": 150,
+          "step": 0.5,
+          "group": "Phone",
+          "unit": "mm",
+          "help": "Width of the phone, measured across the screen."
+        },
+        {
+          "variable": "phone_depth",
+          "label": "Phone thickness",
+          "type": "number",
+          "default": 9,
+          "min": 5,
+          "max": 20,
+          "step": 0.5,
+          "group": "Phone",
+          "unit": "mm"
+        },
+        {
+          "variable": "use_radius",
+          "label": "Rounded slot",
+          "type": "boolean",
+          "default": true,
+          "group": "Phone",
+          "help": "Round the slot for phones with curved sides."
+        },
+        {
+          "variable": "holder_depth",
+          "label": "Holder depth",
+          "type": "number",
+          "default": 20,
+          "min": 15,
+          "max": 35,
+          "step": 0.5,
+          "group": "Holder",
+          "unit": "mm"
+        },
+        {
+          "variable": "holder_grip",
+          "label": "Grip overlap",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "group": "Holder",
+          "unit": "mm",
+          "help": "Extra lip that grabs the phone along its long edges."
+        },
+        {
+          "variable": "holder_extra_length",
+          "label": "Extra arm",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "group": "Holder",
+          "unit": "mm",
+          "help": "Length of the arm that reaches from the cradle to the mount."
+        },
+        {
+          "variable": "sig_text",
+          "label": "Signature",
+          "type": "text",
+          "default": "RIDER.CZ 2021",
+          "max_length": 40,
+          "max_lines": 1,
+          "rows": 1,
+          "placeholder": "RIDER.CZ 2021",
+          "group": "Signature",
+          "help": "Text embossed on the side of the cradle."
+        },
+        {
+          "variable": "sig_size",
+          "label": "Signature size",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "group": "Signature",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Large phone",
+          "params": {
+            "phone_width": 95,
+            "phone_depth": 12,
+            "holder_depth": 24
+          },
+          "description": "Cradle for a big phone in a case."
+        },
+        {
+          "name": "No grip",
+          "params": {
+            "holder_grip": 0,
+            "holder_extra_length": 0
+          },
+          "description": "Flush cradle without the extra arm."
+        }
+      ]
+    },
+    "gopro_screw_handle": {
+      "label": "GoPro screw handle",
+      "short": "GoPro screw",
+      "category": "Mounts",
+      "icon": "screw",
+      "source": "objects/wrappers/gopro_screw_handle.scad",
+      "description": "Knurled handle for the M5 screw that joins two GoPro quick-release halves, with a hex or round screw head.",
+      "tags": [
+        "gopro",
+        "screw",
+        "handle",
+        "m5",
+        "knurled",
+        "mount",
+        "hardware"
+      ],
+      "parameters": [
+        {
+          "variable": "screw_length",
+          "label": "Screw length",
+          "type": "number",
+          "default": 50,
+          "min": 25,
+          "max": 120,
+          "step": 1,
+          "group": "Screw",
+          "unit": "mm",
+          "help": "Length of the M5 screw the handle is made for."
+        },
+        {
+          "variable": "hex_head",
+          "label": "Hex head",
+          "type": "boolean",
+          "default": true,
+          "group": "Screw",
+          "help": "Fit a hex screw head instead of a round one."
+        },
+        {
+          "variable": "total_length",
+          "label": "Handle length",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "group": "Handle",
+          "unit": "mm",
+          "help": "Leave at zero to derive the handle from the screw length."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Long screw",
+          "params": {
+            "screw_length": 70
+          },
+          "description": "For a stack of arms and adapters."
+        },
+        {
+          "name": "Round head",
+          "params": {
+            "hex_head": false
+          },
+          "description": "For a socket-head screw."
+        }
+      ],
+      "attribution": {
+        "label": "GoProScad (ridercz)",
+        "license": "MIT",
+        "author": "Michal Altair Valasek",
+        "repository": "https://github.com/ridercz/GoProScad"
+      }
+    },
+    "gopro_handlebar_clamp": {
+      "label": "GoPro handlebar clamp",
+      "short": "GoPro bar clamp",
+      "category": "Mounts",
+      "icon": "bike",
+      "source": "objects/wrappers/gopro_handlebar_clamp.scad",
+      "description": "Split C-clamp that wraps a handlebar and carries a female GoPro quick-release mount on a raised boss, for cameras, lights and phones.",
+      "tags": [
+        "gopro",
+        "handlebar",
+        "clamp",
+        "bike",
+        "mount",
+        "camera",
+        "action camera"
+      ],
+      "parameters": [
+        {
+          "variable": "bar_diameter",
+          "label": "Handlebar diameter",
+          "type": "number",
+          "default": 31.8,
+          "min": 22,
+          "max": 40,
+          "step": 0.1,
+          "group": "Handlebar",
+          "unit": "mm"
+        },
+        {
+          "variable": "bar_clearance",
+          "label": "Bar clearance",
+          "type": "number",
+          "default": 0.3,
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+          "group": "Handlebar",
+          "unit": "mm",
+          "help": "Print clearance between the bore and the bar."
+        },
+        {
+          "variable": "clamp_wall",
+          "label": "Clamp wall",
+          "type": "number",
+          "default": 4,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "group": "Clamp",
+          "unit": "mm"
+        },
+        {
+          "variable": "clamp_width",
+          "label": "Clamp width",
+          "type": "number",
+          "default": 16,
+          "min": 8,
+          "max": 40,
+          "step": 1,
+          "group": "Clamp",
+          "unit": "mm"
+        },
+        {
+          "variable": "opening_angle",
+          "label": "Opening angle",
+          "type": "number",
+          "default": 80,
+          "min": 20,
+          "max": 150,
+          "step": 5,
+          "group": "Clamp",
+          "unit": "deg"
+        },
+        {
+          "variable": "mount_height",
+          "label": "Boss height",
+          "type": "number",
+          "default": 8,
+          "min": 3,
+          "max": 30,
+          "step": 1,
+          "group": "Mount",
+          "unit": "mm",
+          "help": "Raised boss between the clamp and the quick-release base."
+        },
+        {
+          "variable": "base_height",
+          "label": "Mount base",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 6,
+          "step": 0.5,
+          "group": "Mount",
+          "unit": "mm"
+        },
+        {
+          "variable": "base_width",
+          "label": "Mount width",
+          "type": "number",
+          "default": 20,
+          "min": 15,
+          "max": 40,
+          "step": 1,
+          "group": "Mount",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "22.2 mm bar",
+          "params": {
+            "bar_diameter": 22.2
+          },
+          "description": "Standard steel handlebar."
+        },
+        {
+          "name": "Tall boss",
+          "params": {
+            "mount_height": 20
+          },
+          "description": "Lifts the camera clear of the bar."
+        }
+      ],
+      "attribution": {
+        "label": "GoProScad (ridercz)",
+        "license": "MIT",
+        "author": "Michal Altair Valasek",
+        "repository": "https://github.com/ridercz/GoProScad"
+      }
+    },
+    "gopro_connector_adapter": {
+      "label": "GoPro connector adapter",
+      "short": "GoPro adapter",
+      "category": "Mounts",
+      "icon": "fit",
+      "source": "vendor/connector-adapter-80e4636e/connector-adapter.scad",
+      "description": "Adapter that joins two GoPro-style connectors whose leg counts, spacing and radii differ, with the two sides kept in line or turned a quarter turn apart.",
+      "tags": [
+        "gopro",
+        "adapter",
+        "connector",
+        "mount",
+        "action camera",
+        "camera",
+        "tripod"
+      ],
+      "parameters": [
+        {
+          "variable": "baseThickness",
+          "label": "Base thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Base",
+          "unit": "mm"
+        },
+        {
+          "variable": "rotate",
+          "label": "Quarter turn",
+          "type": "boolean",
+          "default": false,
+          "group": "Base",
+          "help": "Turn the second side a quarter turn and bridge it with a wider plate."
+        },
+        {
+          "variable": "numLegs1",
+          "label": "Legs on side one",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "group": "Side one"
+        },
+        {
+          "variable": "outerRadius1",
+          "label": "Leg radius one",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Side one",
+          "unit": "mm"
+        },
+        {
+          "variable": "innerRadius1",
+          "label": "Hole radius one",
+          "type": "number",
+          "default": 1.75,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.25,
+          "group": "Side one",
+          "unit": "mm"
+        },
+        {
+          "variable": "legThickness1",
+          "label": "Leg thickness one",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "group": "Side one",
+          "unit": "mm"
+        },
+        {
+          "variable": "legLength1",
+          "label": "Leg reach one",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 60,
+          "step": 1,
+          "group": "Side one",
+          "unit": "mm"
+        },
+        {
+          "variable": "legSpacing1",
+          "label": "Leg spacing one",
+          "type": "number",
+          "default": 3.5,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "group": "Side one",
+          "unit": "mm"
+        },
+        {
+          "variable": "numLegs2",
+          "label": "Legs on side two",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "group": "Side two"
+        },
+        {
+          "variable": "legLength2",
+          "label": "Leg reach two",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 60,
+          "step": 1,
+          "group": "Side two",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Quarter turn",
+          "params": {
+            "rotate": true
+          },
+          "description": "Sides a quarter turn apart, for a right-angle adapter."
+        },
+        {
+          "name": "Tripod side",
+          "params": {
+            "numLegs2": 1,
+            "legLength2": 12
+          },
+          "description": "Single narrow leg on the second side."
+        }
+      ]
+    },
+    "bottle_cage_standard": {
+      "label": "Bottle cage (standard)",
+      "short": "Cage std",
+      "category": "Cycling",
+      "icon": "tube",
+      "source": "vendor/bottlecage-15484334/bottlecage.scad",
+      "description": "OpenSCAD recreation of the Prusa ASA bottle cage: a helical spring cage with a slotted bracket, so the bottle can be slid along the frame.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "bottle",
+        "cage",
+        "holder",
+        "frame",
+        "cycling",
+        "bidon"
+      ],
+      "parameters": [
+        {
+          "variable": "diameterin",
+          "label": "Bottle diameter",
+          "type": "number",
+          "default": 2.875,
+          "min": 2,
+          "max": 4,
+          "step": 0.025,
+          "group": "Bottle",
+          "unit": "in"
+        },
+        {
+          "variable": "heightin",
+          "label": "Cage height",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "group": "Cage",
+          "unit": "in"
+        },
+        {
+          "variable": "bracketheightin",
+          "label": "Bracket height",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "in"
+        },
+        {
+          "variable": "bracketwidthin",
+          "label": "Bracket width",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "group": "Bracket",
+          "unit": "in"
+        },
+        {
+          "variable": "screwdistancein",
+          "label": "Screw spacing",
+          "type": "number",
+          "default": 2.5,
+          "min": 1,
+          "max": 5,
+          "step": 0.25,
+          "group": "Bracket",
+          "unit": "in",
+          "help": "Distance between the two frame bolts."
+        },
+        {
+          "variable": "framediameterin",
+          "label": "Frame tube",
+          "type": "number",
+          "default": 1.75,
+          "min": 1,
+          "max": 3,
+          "step": 0.25,
+          "group": "Bracket",
+          "unit": "in"
+        },
+        {
+          "variable": "wallthick",
+          "label": "Thick wall",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Walls",
+          "unit": "mm"
+        },
+        {
+          "variable": "wallthin",
+          "label": "Thin wall",
+          "type": "number",
+          "default": 3.4,
+          "min": 1,
+          "max": 8,
+          "step": 0.2,
+          "group": "Walls",
+          "unit": "mm"
+        },
+        {
+          "variable": "roundover",
+          "label": "Roundover",
+          "type": "number",
+          "default": 1.4,
+          "min": 0,
+          "max": 5,
+          "step": 0.2,
+          "group": "Walls",
+          "unit": "mm"
+        },
+        {
+          "variable": "screwdiameter",
+          "label": "Screw hole",
+          "type": "number",
+          "default": 5,
+          "min": 3,
+          "max": 10,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "M5 bottle cage bolts."
+        },
+        {
+          "variable": "hasslot",
+          "label": "Slotted bracket",
+          "type": "boolean",
+          "default": true,
+          "group": "Bracket",
+          "help": "Cut several mounting slots so the cage can slide up and down the frame."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Wide bottle",
+          "params": {
+            "diameterin": 3.0
+          },
+          "description": "Nalgene-sized bottle."
+        },
+        {
+          "name": "No slot",
+          "params": {
+            "hasslot": false
+          },
+          "description": "A single bolt position instead of a slot."
+        }
+      ]
+    },
+    "bottle_cage_compact": {
+      "label": "Bottle cage (compact)",
+      "short": "Cage slim",
+      "category": "Cycling",
+      "icon": "tube",
+      "source": "vendor/bottlecage-15484334/bottlecage-compact.scad",
+      "description": "Slim version of the Prusa-style bottle cage for narrower bottles and thinner frame tubes, printed as a single closed bracket.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "bottle",
+        "cage",
+        "holder",
+        "frame",
+        "cycling",
+        "bidon"
+      ],
+      "parameters": [
+        {
+          "variable": "diameterin",
+          "label": "Bottle diameter",
+          "type": "number",
+          "default": 2.6,
+          "min": 2,
+          "max": 4,
+          "step": 0.025,
+          "group": "Bottle",
+          "unit": "in"
+        },
+        {
+          "variable": "heightin",
+          "label": "Cage height",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "group": "Cage",
+          "unit": "in"
+        },
+        {
+          "variable": "bracketheightin",
+          "label": "Bracket height",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "in"
+        },
+        {
+          "variable": "bracketwidthin",
+          "label": "Bracket width",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "group": "Bracket",
+          "unit": "in"
+        },
+        {
+          "variable": "screwdistancein",
+          "label": "Screw spacing",
+          "type": "number",
+          "default": 2.5,
+          "min": 1,
+          "max": 5,
+          "step": 0.25,
+          "group": "Bracket",
+          "unit": "in",
+          "help": "Distance between the two frame bolts."
+        },
+        {
+          "variable": "framediameterin",
+          "label": "Frame tube",
+          "type": "number",
+          "default": 1.5,
+          "min": 1,
+          "max": 3,
+          "step": 0.25,
+          "group": "Bracket",
+          "unit": "in"
+        },
+        {
+          "variable": "wallthick",
+          "label": "Thick wall",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Walls",
+          "unit": "mm"
+        },
+        {
+          "variable": "wallthin",
+          "label": "Thin wall",
+          "type": "number",
+          "default": 3.4,
+          "min": 1,
+          "max": 8,
+          "step": 0.2,
+          "group": "Walls",
+          "unit": "mm"
+        },
+        {
+          "variable": "roundover",
+          "label": "Roundover",
+          "type": "number",
+          "default": 1.4,
+          "min": 0,
+          "max": 5,
+          "step": 0.2,
+          "group": "Walls",
+          "unit": "mm"
+        },
+        {
+          "variable": "screwdiameter",
+          "label": "Screw hole",
+          "type": "number",
+          "default": 5,
+          "min": 3,
+          "max": 10,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "M5 bottle cage bolts."
+        },
+        {
+          "variable": "hasslot",
+          "label": "Slotted bracket",
+          "type": "boolean",
+          "default": false,
+          "group": "Bracket"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Slotted",
+          "params": {
+            "hasslot": true
+          },
+          "description": "Add the slotted bolt positions."
+        },
+        {
+          "name": "Slim bottle",
+          "params": {
+            "diameterin": 2.5
+          },
+          "description": "For a narrow bidon."
+        }
+      ]
+    },
+    "aerobar_gel_clip": {
+      "label": "Aerobar gel clip",
+      "short": "Gel clip",
+      "category": "Cycling",
+      "icon": "bracket",
+      "source": "vendor/triathlon-bike-1e55632a/gel_clip/gel_clip.scad",
+      "description": "Two-finger clip that holds an energy gel flask on an aero extension bar and wraps around a standard aero tube.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "triathlon",
+        "aerobar",
+        "gel",
+        "clip",
+        "cycling",
+        "nutrition"
+      ],
+      "parameters": [
+        {
+          "variable": "r_clip",
+          "label": "Bar radius",
+          "type": "number",
+          "default": 16.7,
+          "min": 10,
+          "max": 30,
+          "step": 0.1,
+          "group": "Aerobar",
+          "unit": "mm"
+        },
+        {
+          "variable": "r_botlle",
+          "label": "Flask radius",
+          "type": "number",
+          "default": 15.9,
+          "min": 8,
+          "max": 30,
+          "step": 0.1,
+          "group": "Flask",
+          "unit": "mm"
+        },
+        {
+          "variable": "throat_a",
+          "label": "Throat angle",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 120,
+          "step": 5,
+          "group": "Clip",
+          "unit": "deg",
+          "help": "Angle of the slot the bar snaps through."
+        },
+        {
+          "variable": "width",
+          "label": "Clip width",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 30,
+          "step": 0.5,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "th",
+          "label": "Clip thickness",
+          "type": "number",
+          "default": 3.5,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "margen",
+          "label": "Bar gap",
+          "type": "number",
+          "default": 7,
+          "min": 0,
+          "max": 30,
+          "step": 0.5,
+          "group": "Clip",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Narrow flask",
+          "params": {
+            "r_botlle": 13.5,
+            "r_clip": 14
+          },
+          "description": "For a slim gel flask and a thin extension."
+        },
+        {
+          "name": "Stiff clip",
+          "params": {
+            "th": 5,
+            "width": 14
+          },
+          "description": "Thicker clip for a tight fit."
+        }
+      ]
+    },
+    "aerobar_brake_spacer": {
+      "label": "Aerobar brake spacer",
+      "short": "Brake spacer",
+      "category": "Cycling",
+      "icon": "cylinder",
+      "source": "vendor/triathlon-bike-1e55632a/brake_spacer/brake_spacer.scad",
+      "description": "Collar that takes up the gap between a brake calliper and a narrow carbon rim so the brake can be closed on a wide wheel.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "brake",
+        "spacer",
+        "rim",
+        "triathlon",
+        "cycling",
+        "carbon"
+      ],
+      "parameters": [
+        {
+          "variable": "r",
+          "label": "Bolt radius",
+          "type": "number",
+          "default": 3.1,
+          "min": 2,
+          "max": 8,
+          "step": 0.1,
+          "group": "Spacer",
+          "unit": "mm",
+          "help": "Radius of the brake bolt it slides over."
+        },
+        {
+          "variable": "th",
+          "label": "Spacer thickness",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 15,
+          "step": 0.5,
+          "group": "Spacer",
+          "unit": "mm"
+        },
+        {
+          "variable": "length",
+          "label": "Arm length",
+          "type": "number",
+          "default": 11,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "group": "Spacer",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Wide rim",
+          "params": {
+            "th": 9,
+            "length": 14
+          },
+          "description": "For a deeper rim section."
+        },
+        {
+          "name": "Short",
+          "params": {
+            "length": 7
+          },
+          "description": "Minimal reach."
+        }
+      ]
+    },
+    "saddle_bottle_holder": {
+      "label": "Saddle bottle holder",
+      "short": "Saddle cage",
+      "category": "Cycling",
+      "icon": "tube",
+      "source": "vendor/triathlon-bike-1e55632a/saddle_bottle_holder/main_holder.scad",
+      "description": "Two-bolt saddle bottle holder that sits behind the seat post, angled to keep the bottle level with the aero position.",
+      "tags": [
+        "bike",
+        "bicycle",
+        "saddle",
+        "bottle",
+        "holder",
+        "triathlon",
+        "cycling",
+        "cage"
+      ],
+      "parameters": [
+        {
+          "variable": "width",
+          "label": "Holder width",
+          "type": "number",
+          "default": 51,
+          "min": 30,
+          "max": 90,
+          "step": 0.5,
+          "group": "Holder",
+          "unit": "mm"
+        },
+        {
+          "variable": "length",
+          "label": "Holder length",
+          "type": "number",
+          "default": 63,
+          "min": 30,
+          "max": 120,
+          "step": 0.5,
+          "group": "Holder",
+          "unit": "mm"
+        },
+        {
+          "variable": "th",
+          "label": "Holder thickness",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Holder",
+          "unit": "mm"
+        },
+        {
+          "variable": "bottle_width",
+          "label": "Bottle width",
+          "type": "number",
+          "default": 15,
+          "min": 8,
+          "max": 30,
+          "step": 0.5,
+          "group": "Bottle",
+          "unit": "mm"
+        },
+        {
+          "variable": "angle",
+          "label": "Mount angle",
+          "type": "number",
+          "default": 20,
+          "min": 0,
+          "max": 60,
+          "step": 5,
+          "group": "Mount",
+          "unit": "deg"
+        },
+        {
+          "variable": "r_tube",
+          "label": "Tube radius",
+          "type": "number",
+          "default": 3.7,
+          "min": 2,
+          "max": 10,
+          "step": 0.1,
+          "group": "Mount",
+          "unit": "mm",
+          "help": "Radius of the saddle rails the holder hangs from."
+        },
+        {
+          "variable": "hole",
+          "label": "Bolt hole",
+          "type": "number",
+          "default": 2.3,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "group": "Mount",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Flat mount",
+          "params": {
+            "angle": 0,
+            "th": 6
+          },
+          "description": "Bottle parallel to the rails."
+        },
+        {
+          "name": "Steep mount",
+          "params": {
+            "angle": 35
+          },
+          "description": "Angled up behind the saddle."
+        }
+      ]
+    },
+    "car_mirror_phone_clip": {
+      "label": "Car mirror phone clip",
+      "short": "Mirror clip",
+      "category": "Mounts",
+      "icon": "fit",
+      "source": "objects/wrappers/car_mirror_phone_clip.scad",
+      "description": "Clip that holds a phone onto a car rear-view mirror: a slotted plate that grips the mirror and a pocket cut to the phone and its camera bump.",
+      "tags": [
+        "car",
+        "mirror",
+        "phone",
+        "clip",
+        "holder",
+        "dashcam",
+        "mount",
+        "vehicle"
+      ],
+      "parameters": [
+        {
+          "variable": "phone_width",
+          "label": "Phone width",
+          "type": "number",
+          "default": 71,
+          "min": 50,
+          "max": 120,
+          "step": 1,
+          "group": "Phone",
+          "unit": "mm"
+        },
+        {
+          "variable": "phone_length",
+          "label": "Phone length",
+          "type": "number",
+          "default": 144,
+          "min": 80,
+          "max": 200,
+          "step": 1,
+          "group": "Phone",
+          "unit": "mm"
+        },
+        {
+          "variable": "phone_thickness",
+          "label": "Phone thickness",
+          "type": "number",
+          "default": 8,
+          "min": 5,
+          "max": 15,
+          "step": 0.5,
+          "group": "Phone",
+          "unit": "mm"
+        },
+        {
+          "variable": "phone_edge_radius",
+          "label": "Edge radius",
+          "type": "number",
+          "default": 8,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "group": "Phone",
+          "unit": "mm"
+        },
+        {
+          "variable": "rounded_corners",
+          "label": "Rounded corners",
+          "type": "boolean",
+          "default": true,
+          "group": "Phone",
+          "help": "Round the pocket for phones with curved corners."
+        },
+        {
+          "variable": "clip_width",
+          "label": "Clip width",
+          "type": "number",
+          "default": 47,
+          "min": 30,
+          "max": 80,
+          "step": 1,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_length",
+          "label": "Clip length",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 90,
+          "step": 1,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "mirror_width",
+          "label": "Mirror width",
+          "type": "number",
+          "default": 36,
+          "min": 20,
+          "max": 60,
+          "step": 0.5,
+          "group": "Mirror",
+          "unit": "mm",
+          "help": "Width of the rear-view mirror the slot grips."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Default",
+          "params": {}
+        },
+        {
+          "name": "Small phone",
+          "params": {
+            "phone_width": 62,
+            "phone_length": 128,
+            "phone_thickness": 7,
+            "clip_width": 41
+          },
+          "description": "Compact phone in a slim case."
+        },
+        {
+          "name": "Large phone",
+          "params": {
+            "phone_width": 80,
+            "phone_length": 165,
+            "phone_thickness": 9,
+            "clip_width": 53
+          },
+          "description": "Big phone in a rugged case."
+        }
+      ],
+      "attribution": {
+        "label": "clip-openscad (Standard Cyborg)",
+        "license": "MIT",
+        "author": "Standard Cyborg",
+        "repository": "https://github.com/StandardCyborg/clip-openscad"
       }
     }
   }

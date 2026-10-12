@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Fifty-four upstream OpenSCAD libraries are vendored unmodified under
+Sixty-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -303,6 +303,52 @@ THIRD_PARTY_NOTICES.
   c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b. The two parametric test-hole plate
   generators (the current trapezoid/rectangle V2 and the archived rectangular
   V1) plus the upstream LICENSE.
+- guillaumechauvat/bicycle_lights - MIT (Copyright (c) 2021 Guillaume Chauvat) -
+  https://github.com/guillaumechauvat/bicycle_lights - commit
+  4d7effa69b957d27221d2b94aad71b3463367253. The five bicycle light housings
+  under Housings/ - the first- and second-generation front light, the rear
+  light, the three-cell 18650 battery box and the handlebar switch holder -
+  plus the upstream LICENSE. They carry the handlebar clamp that the Cycling
+  light-holder objects are built on. The Arduino firmware and the acrylic lens
+  script are not vendored.
+- Slashgear/cycling-wall-rack - MIT (Copyright (c) 2026 Antoine CARON) -
+  https://github.com/Slashgear/cycling-wall-rack - commit
+  3ca19cc7ca0962809868cbd203be34b1a6f0e98a. The wall-mounted bike accessory
+  rack under scad/: the wall bracket, the rod-mounted glasses holder and tray
+  and the S-hook, plus the upstream LICENSE. The rendered STL exports, images
+  and documentation are not vendored; the shoes holder is not vendored either.
+- ridercz/GoProScad - MIT (Copyright (c) 2021 Michal Altair Valasek) -
+  https://github.com/ridercz/GoProScad - commit
+  98c0161e58d4d912481cdf280b573563e221b2a7. Altair's GoPro mount library
+  (GoPro.scad: the male and female quick-release connectors and the M5 screw
+  handle) with the extension-arm and phone-holder samples, plus the upstream
+  LICENSE, keeping upstream's Samples/ layout. The samples that need the
+  separate A2D library are not vendored. The handlebar clamp and the screw
+  handle are exposed as wrappers around the vendored modules.
+- justcoding-dev/connector-adapter - MIT (Copyright (c) 2021 regenschein71) -
+  https://github.com/justcoding-dev/connector-adapter - commit
+  80e4636ed2176e46106b748a2c26215a2e372f75. The configurable GoPro-style
+  connector adapter plus the upstream LICENSE.
+- gutschke/bottlecage - CC0-1.0 (Markus Gutschke; CC0 1.0 Universal dedicates
+  the work to the public domain, and the cage recreates Prusa Research's
+  CC0 ASA bottle cage) - https://github.com/gutschke/bottlecage - commit
+  15484334e49ac12be6ac3d21a1f48207b739b3df. The standard slotted bottle cage
+  and the compact cage plus the upstream CC0 LICENSE.
+- jolatechno/triathlon-bike - MIT (Copyright (c) 2020 joseph touzet) -
+  https://github.com/jolatechno/triathlon-bike - commit
+  1e55632a064bcac4068acec52910953fb0f49271. Three of the aero-bar accessories:
+  the gel clip, the brake spacer and the two-bolt saddle bottle holder, plus
+  the upstream LICENSE, keeping upstream's per-part directories. The
+  derailleur, chain-catcher, bar-end shifter, electronic-shifting and
+  aerodrink sources are not vendored.
+- StandardCyborg/clip-openscad - MIT (Copyright (c) 2022 Standard Cyborg) -
+  https://github.com/StandardCyborg/clip-openscad - commit
+  789c87dc951308470e7d9229527f154c237fb95e. The car rear-view-mirror phone
+  clip: the assembly module and the constants, phone, mirror and rounded-cube
+  files it uses, plus the upstream LICENSE, keeping upstream's components/
+  layout. The per-device dimension tables and the archived clips are not
+  vendored; the clip is exposed through a wrapper that restates the geometry
+  with the device size as a parameter.
 
 
 OpenSCAD bootstrap attribution

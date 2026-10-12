@@ -1,0 +1,19 @@
+4d7effa69b957d27221d2b94aad71b3463367253
+
+Upstream: https://github.com/guillaumechauvat/bicycle_lights
+License: MIT
+Copyright: Copyright (c) 2021 Guillaume Chauvat
+
+The bicycle light housings that carry the handlebar interface: the first- and
+second-generation front light, the rear light, the 18650 battery box and the
+handlebar switch holder, plus the upstream LICENSE. Copied verbatim from the
+pinned commit. The Arduino firmware, the acrylic lens script and the remaining
+weight-optimisation box variants are not vendored.
+
+Files:
+  LICENSE
+  Housings/front_light.scad
+  Housings/front_light_v2.scad
+  Housings/back_light.scad
+  Housings/battery_box.scad
+  Housings/switch_holder.scad
