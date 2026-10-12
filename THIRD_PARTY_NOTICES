@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Thirty-six upstream OpenSCAD libraries are vendored unmodified under
+Forty-two upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -251,6 +251,59 @@ License:   CC0-1.0. Chris Osborn (FozzTexx); CC0 1.0 Universal dedicates the
            given here anyway.
 Vendored:  openscad/vendor/pantorouter-tenon-eccd4577/ - the single Tenons.scad
            template plus the upstream LICENSE and README.md.
+
+martmaiste-openscad-models
+--------------------------
+Upstream:  https://github.com/martmaiste/openscad-models
+Pinned at: aded4de5c1acc0ebccb86c1b22a341fbd7724e3a
+License:   MIT. Copyright (c) 2023 martmaiste.
+Vendored:  openscad/vendor/martmaiste-openscad-models-aded4de5/ - the cable comb, DIN
+           rail clip, WeMos Mini holder, energy-meter cover, D-Fruit USB hub holder,
+           USB cap, RJ45 boot and headphone hook sources plus the upstream LICENSE.
+
+nas-rack (istergiou)
+--------------------
+Upstream:  https://github.com/istergiou/nas-rack
+Pinned at: 8c5f15827c6c871172a4fa9bb259b6e4f21044e4
+License:   Apache-2.0. Copyright Ilias Stergiou (istergiou), 2017; the Apache License
+Vendored:  openscad/vendor/nas-rack-8c5f1582/ - the rack_item module, the Raspberry Pi
+           drive carrier and the upstream Apache-2.0 LICENSE. The drive tray, SATA
+           adapter caddy and connector lock wrappers and the Pi drive tray object are
+           built on it.
+
+fabz (otakup0pe)
+----------------
+Upstream:  https://github.com/otakup0pe/fabz
+Pinned at: 4efbc18e0bd137458d6a9b36da6c5f44e644c0de
+License:   CC0-1.0. Jonathan Freedman (otakup0pe); CC0 1.0 Universal dedicates the
+Vendored:  openscad/vendor/fabz-4efbc18e/ - the fan_grille.scad model and the upstream
+           CC0 LICENSE: the press-fit shelf fan grille object.
+
+nilskrause-cad
+--------------
+Upstream:  https://github.com/NilsKrause/cad
+Pinned at: 9c4d69e98e561e542ef9ca178dcafcef96db9b38
+License:   MIT. Copyright (c) 2023 NilsKrause.
+Vendored:  openscad/vendor/nilskrause-cad-9c4d69e9/ - the ESP8266 devboard case, the
+           adapter-board and connector-pin sources it includes, the micro-SD holder
+           source and the upstream LICENSE.
+
+pkoehlers-rpi-case
+------------------
+Upstream:  https://github.com/pkoehlers/rpi-case-openscad
+Pinned at: a19a32e5932638bef0882c65189a3dbc5447e313
+License:   MIT. Copyright (c) 2021 pkoehlers.
+Vendored:  openscad/vendor/pkoehlers-rpi-case-a19a32e5/ - the rpi_case.scad Raspberry
+           Pi 3/4 case model and the upstream LICENSE. The model descends from George
+           Onoufriou's RavenSCAD Raspberry Pi 4 case, credited in its source header.
+
+pcb-enclosure (rafaelmartins)
+-----------------------------
+Upstream:  https://github.com/rafaelmartins/pcb-enclosure
+Pinned at: ce261a389da419c767efd607159fe80f20f16d17
+License:   BSD-3-Clause. Copyright (c) 2020, Rafael G. Martins.
+Vendored:  openscad/vendor/pcb-enclosure-ce261a38/ - the pcb-enclosure library, its
+           assembly example and the upstream LICENSE.
 
 Third-party frontend notices
 ============================

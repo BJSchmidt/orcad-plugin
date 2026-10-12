@@ -1,0 +1,13 @@
+8c5f15827c6c871172a4fa9bb259b6e4f21044e4
+
+Upstream: https://github.com/istergiou/nas-rack
+License: Apache-2.0
+Copyright: Copyright Ilias Stergiou (istergiou), 2017
+
+The NAS-rack rack_item module, the Raspberry Pi drive carrier and the upstream
+Apache-2.0 LICENSE. The repo's STL imports and other rack parts are excluded.
+
+Files:
+  LICENSE
+  src/scad/inc/rack_item.scad
+  src/scad/rpiDrive.scad

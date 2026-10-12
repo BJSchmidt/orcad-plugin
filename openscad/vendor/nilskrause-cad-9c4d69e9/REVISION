@@ -1,0 +1,17 @@
+9c4d69e98e561e542ef9ca178dcafcef96db9b38
+
+Upstream: https://github.com/NilsKrause/cad
+License: MIT
+Copyright: Copyright (c) 2023 NilsKrause
+
+The ESP8266 devboard case plus the board/pin models it includes, the micro-SD
+holder and the upstream LICENSE. The repo's YAPP/NopSCADlib sub-libraries and the
+unused board STL are not vendored.
+
+Files:
+  LICENSE
+  esp_case.scad
+  azdelivery_esp8266_adapter_board.scad
+  esp_8266.scad
+  connector_pins.scad
+  microsdcard-holder.scad

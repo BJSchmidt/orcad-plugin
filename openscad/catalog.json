@@ -275,6 +275,54 @@
       "license": "CC0-1.0",
       "repository": "https://github.com/FozzTexx/pantorouter_tenon_template",
       "author": "Chris Osborn (FozzTexx)"
+    },
+    "martmaiste-openscad-models": {
+      "label": "OpenSCAD Models (martmaiste)",
+      "root": "vendor/martmaiste-openscad-models-aded4de5",
+      "revision": "aded4de5c1acc0ebccb86c1b22a341fbd7724e3a",
+      "license": "MIT",
+      "repository": "https://github.com/martmaiste/openscad-models",
+      "author": "martmaiste"
+    },
+    "nas-rack": {
+      "label": "nas-rack (istergiou)",
+      "root": "vendor/nas-rack-8c5f1582",
+      "revision": "8c5f15827c6c871172a4fa9bb259b6e4f21044e4",
+      "license": "Apache-2.0",
+      "repository": "https://github.com/istergiou/nas-rack",
+      "author": "Ilias Stergiou (istergiou)"
+    },
+    "fabz": {
+      "label": "Fabz (otakup0pe)",
+      "root": "vendor/fabz-4efbc18e",
+      "revision": "4efbc18e0bd137458d6a9b36da6c5f44e644c0de",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/otakup0pe/fabz",
+      "author": "Jonathan Freedman (otakup0pe)"
+    },
+    "nilskrause-cad": {
+      "label": "NilsKrause CAD",
+      "root": "vendor/nilskrause-cad-9c4d69e9",
+      "revision": "9c4d69e98e561e542ef9ca178dcafcef96db9b38",
+      "license": "MIT",
+      "repository": "https://github.com/NilsKrause/cad",
+      "author": "Nils Krause (NilsKrause)"
+    },
+    "pkoehlers-rpi-case": {
+      "label": "Raspberry Pi case (pkoehlers)",
+      "root": "vendor/pkoehlers-rpi-case-a19a32e5",
+      "revision": "a19a32e5932638bef0882c65189a3dbc5447e313",
+      "license": "MIT",
+      "repository": "https://github.com/pkoehlers/rpi-case-openscad",
+      "author": "pkoehlers"
+    },
+    "pcb-enclosure": {
+      "label": "PCB Enclosure (rafaelmartins)",
+      "root": "vendor/pcb-enclosure-ce261a38",
+      "revision": "ce261a389da419c767efd607159fe80f20f16d17",
+      "license": "BSD-3-Clause",
+      "repository": "https://github.com/rafaelmartins/pcb-enclosure",
+      "author": "Rafael G. Martins"
     }
   },
   "quality_profiles": {
@@ -21561,6 +21609,2451 @@
           "params": {
             "rows": 2,
             "columns": 2
+          }
+        }
+      ]
+    },
+    "cable_comb": {
+      "label": "Cable Comb",
+      "short": "Cable comb",
+      "category": "Cable management",
+      "icon": "grid",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/Cable-Comb/Cable-Comb.scad",
+      "description": "Circular cable comb that fans power, HDMI, Ethernet and USB cables into neat snap-in slots.",
+      "tags": [
+        "cable",
+        "comb",
+        "organizer",
+        "management",
+        "desk",
+        "wires",
+        "pc"
+      ],
+      "parameters": [
+        {
+          "variable": "use_custom_list",
+          "label": "Use custom sizes",
+          "type": "boolean",
+          "default": true,
+          "group": "Cables",
+          "help": "Keep upstream's 7/7/7/5 mm slot list instead of one uniform size."
+        },
+        {
+          "variable": "uniform_cable_count",
+          "label": "Uniform cable count",
+          "type": "integer",
+          "default": 3,
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "group": "Cables",
+          "help": "Number of identical slots when the custom list is off."
+        },
+        {
+          "variable": "uniform_cable_diameter",
+          "label": "Uniform cable diameter",
+          "type": "number",
+          "default": 7.0,
+          "min": 2,
+          "max": 25,
+          "step": 0.5,
+          "group": "Cables",
+          "unit": "mm"
+        },
+        {
+          "variable": "comb_height",
+          "label": "Comb height",
+          "type": "number",
+          "default": 5.0,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Size",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall_thickness",
+          "label": "Wall between slots",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Size",
+          "unit": "mm"
+        },
+        {
+          "variable": "outer_wall_thickness",
+          "label": "Outer wall",
+          "type": "number",
+          "default": 0.5,
+          "min": 0.2,
+          "max": 10,
+          "step": 0.1,
+          "group": "Size",
+          "unit": "mm"
+        },
+        {
+          "variable": "chamfer_size",
+          "label": "Edge chamfer",
+          "type": "number",
+          "default": 0.5,
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "group": "Edges",
+          "unit": "mm"
+        },
+        {
+          "variable": "entry_gap_ratio",
+          "label": "Entry gap ratio",
+          "type": "number",
+          "default": 0.75,
+          "min": 0.5,
+          "max": 1,
+          "step": 0.05,
+          "group": "Slots",
+          "help": "Slot opening as a fraction of the cable diameter; 1.0 is fully open."
+        },
+        {
+          "variable": "entry_flare_radius",
+          "label": "Entry flare",
+          "type": "number",
+          "default": 1.8,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "group": "Slots",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Four cables",
+          "description": "Upstream's 7/7/7/5 mm slots.",
+          "params": {
+            "use_custom_list": true
+          }
+        },
+        {
+          "name": "Six 4 mm cables",
+          "description": "Six thin USB cables.",
+          "params": {
+            "use_custom_list": false,
+            "uniform_cable_count": 6,
+            "uniform_cable_diameter": 4
+          }
+        },
+        {
+          "name": "Tall comb",
+          "description": "Thicker 12 mm comb.",
+          "params": {
+            "comb_height": 12,
+            "wall_thickness": 4
+          }
+        }
+      ]
+    },
+    "din_rail_mount": {
+      "label": "DIN Rail Clip",
+      "short": "DIN clip",
+      "category": "Electronics",
+      "icon": "bracket",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/DIN-Mount/DIN-Mount.scad",
+      "description": "Universal clip that snaps onto a 35 mm DIN rail and carries a small board or supply.",
+      "tags": [
+        "din",
+        "rail",
+        "clip",
+        "mount",
+        "panel",
+        "cabinet",
+        "enclosure"
+      ],
+      "parameters": [
+        {
+          "variable": "rail_width",
+          "label": "Rail width",
+          "type": "number",
+          "default": 34.9,
+          "min": 20,
+          "max": 50,
+          "step": 0.1,
+          "group": "Rail",
+          "unit": "mm"
+        },
+        {
+          "variable": "rail_thick",
+          "label": "Rail thickness",
+          "type": "number",
+          "default": 0.9,
+          "min": 0.4,
+          "max": 3,
+          "step": 0.1,
+          "group": "Rail",
+          "unit": "mm"
+        },
+        {
+          "variable": "tolerance",
+          "label": "Rail clearance",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "group": "Rail",
+          "unit": "mm"
+        },
+        {
+          "variable": "base_w",
+          "label": "Body width",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 80,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "base_d",
+          "label": "Body depth",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "base_h",
+          "label": "Body height",
+          "type": "number",
+          "default": 25,
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "dist_from_bottom",
+          "label": "Hook height",
+          "type": "number",
+          "default": 3,
+          "min": 0.5,
+          "max": 15,
+          "step": 0.5,
+          "group": "Body",
+          "unit": "mm"
+        },
+        {
+          "variable": "slit_width",
+          "label": "Slit width",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.1,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "slit_length",
+          "label": "Slit length",
+          "type": "number",
+          "default": 15,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "hook_size",
+          "label": "Hook size",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "screw_d",
+          "label": "Screw hole",
+          "type": "number",
+          "default": 3.4,
+          "min": 2,
+          "max": 6,
+          "step": 0.1,
+          "group": "Mounting",
+          "unit": "mm"
+        },
+        {
+          "variable": "enable_ears",
+          "label": "Mounting ears",
+          "type": "boolean",
+          "default": true,
+          "group": "Mounting"
+        },
+        {
+          "variable": "ear_l",
+          "label": "Ear length",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "group": "Mounting",
+          "unit": "mm"
+        },
+        {
+          "variable": "ear_h",
+          "label": "Ear height",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "group": "Mounting",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wide base",
+          "description": "60 mm body with a deeper foot.",
+          "params": {
+            "base_w": 60,
+            "base_d": 12
+          }
+        },
+        {
+          "name": "No ears",
+          "description": "Plain body without mounting ears.",
+          "params": {
+            "enable_ears": false
+          }
+        },
+        {
+          "name": "Low profile",
+          "description": "Shorter body.",
+          "params": {
+            "base_h": 18,
+            "slit_length": 12
+          }
+        }
+      ]
+    },
+    "din_rail_holder": {
+      "label": "DIN Rail Board Holder",
+      "short": "DIN holder",
+      "category": "Electronics",
+      "icon": "chip",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/DIN-Mount/WeMos-Mini.scad",
+      "description": "Clip-in DIN rail carrier for a WeMos Mini ESP board, with a snap clip and screw hole.",
+      "tags": [
+        "din",
+        "rail",
+        "wemos",
+        "esp",
+        "board",
+        "holder",
+        "electronics"
+      ],
+      "parameters": [
+        {
+          "variable": "pcb_width",
+          "label": "Board width",
+          "type": "number",
+          "default": 25.6,
+          "min": 10,
+          "max": 80,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_length",
+          "label": "Board length",
+          "type": "number",
+          "default": 34.2,
+          "min": 10,
+          "max": 120,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_thickness",
+          "label": "Board thickness",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.4,
+          "max": 4,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 15,
+          "step": 0.5,
+          "group": "Holder",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_resting_height",
+          "label": "Resting height",
+          "type": "number",
+          "default": 3,
+          "min": 0.5,
+          "max": 15,
+          "step": 0.5,
+          "group": "Holder",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_width",
+          "label": "Clip width",
+          "type": "number",
+          "default": 3.5,
+          "min": 1,
+          "max": 12,
+          "step": 0.5,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_wall_thickness",
+          "label": "Clip wall",
+          "type": "number",
+          "default": 2.9,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "snap_dia",
+          "label": "Snap diameter",
+          "type": "number",
+          "default": 2.0,
+          "min": 0.5,
+          "max": 8,
+          "step": 0.1,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "mount_hole_dia",
+          "label": "Mount hole",
+          "type": "number",
+          "default": 3.4,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Mounting",
+          "unit": "mm"
+        },
+        {
+          "variable": "mount_hole_spacing_y",
+          "label": "Mount spacing",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "group": "Mounting",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wide board",
+          "description": "Fits a wider carrier board.",
+          "params": {
+            "pcb_width": 32,
+            "pcb_length": 40
+          }
+        },
+        {
+          "name": "Thick plate",
+          "description": "Stiffer 8 mm plate.",
+          "params": {
+            "plate_thickness": 8
+          }
+        },
+        {
+          "name": "Small clip",
+          "description": "Lighter snap clip.",
+          "params": {
+            "clip_wall_thickness": 2,
+            "snap_dia": 1.5
+          }
+        }
+      ]
+    },
+    "din_energy_meter_cover": {
+      "label": "DIN Meter Cover",
+      "short": "Meter cover",
+      "category": "Electronics",
+      "icon": "box",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/DIN-Mount/Serial-Energy-Meter-PCB-Cover.scad",
+      "description": "Snap-on cover for a DIN rail energy meter PCB, with ribs that grip the board.",
+      "tags": [
+        "din",
+        "rail",
+        "energy",
+        "meter",
+        "cover",
+        "pcb",
+        "electronics"
+      ],
+      "parameters": [
+        {
+          "variable": "pcb_width",
+          "label": "Board width",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 120,
+          "step": 0.5,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_length",
+          "label": "Board length",
+          "type": "number",
+          "default": 58,
+          "min": 10,
+          "max": 200,
+          "step": 0.5,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_thickness",
+          "label": "Board thickness",
+          "type": "number",
+          "default": 1.6,
+          "min": 0.4,
+          "max": 4,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "inner_height",
+          "label": "Inner height",
+          "type": "number",
+          "default": 15,
+          "min": 3,
+          "max": 60,
+          "step": 0.5,
+          "group": "Cover",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall_thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2.5,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Cover",
+          "unit": "mm"
+        },
+        {
+          "variable": "bump_radius",
+          "label": "Grip bump radius",
+          "type": "number",
+          "default": 0.8,
+          "min": 0.1,
+          "max": 5,
+          "step": 0.1,
+          "group": "Grip",
+          "unit": "mm"
+        },
+        {
+          "variable": "bump_length",
+          "label": "Grip bump length",
+          "type": "number",
+          "default": 5,
+          "min": 0.5,
+          "max": 30,
+          "step": 0.5,
+          "group": "Grip",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_offset",
+          "label": "Grip offset",
+          "type": "number",
+          "default": 5,
+          "min": 0,
+          "max": 30,
+          "step": 0.5,
+          "group": "Grip",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Tall cover",
+          "description": "Clears taller components.",
+          "params": {
+            "inner_height": 25
+          }
+        },
+        {
+          "name": "Thick wall",
+          "description": "Heavier snap fit.",
+          "params": {
+            "wall_thickness": 3.5
+          }
+        },
+        {
+          "name": "Thin PCB",
+          "description": "For a 1 mm board.",
+          "params": {
+            "pcb_thickness": 1.0
+          }
+        }
+      ]
+    },
+    "usb_hub_holder": {
+      "label": "USB Hub Holder",
+      "short": "USB hub holder",
+      "category": "Computer hardware",
+      "icon": "chip",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/D-Fruit-USB-HUB-Holder/D-Fruit-USB-HUB-Holder.scad",
+      "description": "Under-desk cradle for a D-Fruit USB hub, with a cable slot and countersunk screw holes.",
+      "tags": [
+        "usb",
+        "hub",
+        "holder",
+        "desk",
+        "cable",
+        "mount",
+        "dock"
+      ],
+      "parameters": [
+        {
+          "variable": "hub_width",
+          "label": "Hub width",
+          "type": "number",
+          "default": 15.8,
+          "min": 5,
+          "max": 60,
+          "step": 0.1,
+          "group": "Hub",
+          "unit": "mm"
+        },
+        {
+          "variable": "hub_thickness",
+          "label": "Hub thickness",
+          "type": "number",
+          "default": 8.4,
+          "min": 2,
+          "max": 40,
+          "step": 0.1,
+          "group": "Hub",
+          "unit": "mm"
+        },
+        {
+          "variable": "hub_length",
+          "label": "Hub length",
+          "type": "number",
+          "default": 145,
+          "min": 30,
+          "max": 300,
+          "step": 1,
+          "group": "Hub",
+          "unit": "mm"
+        },
+        {
+          "variable": "hub_corner_radius",
+          "label": "Hub corner radius",
+          "type": "number",
+          "default": 2.0,
+          "min": 0.5,
+          "max": 15,
+          "step": 0.1,
+          "group": "Hub",
+          "unit": "mm"
+        },
+        {
+          "variable": "hub_face_radius",
+          "label": "Hub face radius",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 400,
+          "step": 1,
+          "group": "Hub",
+          "unit": "mm"
+        },
+        {
+          "variable": "clearance_bottom",
+          "label": "Bottom clearance",
+          "type": "number",
+          "default": 0.3,
+          "min": 0,
+          "max": 3,
+          "step": 0.05,
+          "group": "Fit",
+          "unit": "mm"
+        },
+        {
+          "variable": "shell_wall_thickness",
+          "label": "Shell wall",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Fit",
+          "unit": "mm"
+        },
+        {
+          "variable": "bottom_depth",
+          "label": "Cradle depth",
+          "type": "number",
+          "default": 15,
+          "min": 5,
+          "max": 60,
+          "step": 0.5,
+          "group": "Cradle",
+          "unit": "mm"
+        },
+        {
+          "variable": "bottom_wall_thickness",
+          "label": "Floor thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 15,
+          "step": 0.5,
+          "group": "Cradle",
+          "unit": "mm"
+        },
+        {
+          "variable": "cable_slot_width",
+          "label": "Cable slot width",
+          "type": "number",
+          "default": 8.5,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Cradle",
+          "unit": "mm"
+        },
+        {
+          "variable": "top_height",
+          "label": "Lip height",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "group": "Cradle",
+          "unit": "mm"
+        },
+        {
+          "variable": "top_entry_flare",
+          "label": "Lip flare",
+          "type": "number",
+          "default": 2.5,
+          "min": 0,
+          "max": 15,
+          "step": 0.5,
+          "group": "Cradle",
+          "unit": "mm"
+        },
+        {
+          "variable": "screw_diameter",
+          "label": "Screw hole",
+          "type": "number",
+          "default": 3.5,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Mounting",
+          "unit": "mm"
+        },
+        {
+          "variable": "back_wall_thickness",
+          "label": "Back wall",
+          "type": "number",
+          "default": 6,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Mounting",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Compact hub",
+          "description": "Shorter hub.",
+          "params": {
+            "hub_length": 100,
+            "hub_width": 14
+          }
+        },
+        {
+          "name": "Deep cradle",
+          "description": "Deeper hold.",
+          "params": {
+            "bottom_depth": 25,
+            "top_height": 30
+          }
+        },
+        {
+          "name": "Wide cable slot",
+          "description": "Room for a fat cable.",
+          "params": {
+            "cable_slot_width": 14
+          }
+        }
+      ]
+    },
+    "usb_plug_cap": {
+      "label": "USB Plug Cap",
+      "short": "USB cap",
+      "category": "Electronics",
+      "icon": "fit",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/USB-Cap/USB-Cap.scad",
+      "description": "Push-on cap that covers a bare USB-A plug, with chamfered edges and side ears.",
+      "tags": [
+        "usb",
+        "cap",
+        "cover",
+        "plug",
+        "dust",
+        "electronics"
+      ],
+      "parameters": [
+        {
+          "variable": "plug_width",
+          "label": "Plug width",
+          "type": "number",
+          "default": 12.5,
+          "min": 5,
+          "max": 30,
+          "step": 0.1,
+          "group": "Plug",
+          "unit": "mm"
+        },
+        {
+          "variable": "plug_thickness",
+          "label": "Plug thickness",
+          "type": "number",
+          "default": 2.1,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.1,
+          "group": "Plug",
+          "unit": "mm"
+        },
+        {
+          "variable": "plug_length",
+          "label": "Plug length",
+          "type": "number",
+          "default": 10,
+          "min": 3,
+          "max": 40,
+          "step": 0.5,
+          "group": "Plug",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_thickness",
+          "label": "Cap thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 8,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        },
+        {
+          "variable": "ear_leg_x",
+          "label": "Ear leg X",
+          "type": "number",
+          "default": 5,
+          "min": 0,
+          "max": 30,
+          "step": 0.5,
+          "group": "Ears",
+          "unit": "mm"
+        },
+        {
+          "variable": "ear_leg_y",
+          "label": "Ear leg Y",
+          "type": "number",
+          "default": 8,
+          "min": 0,
+          "max": 40,
+          "step": 0.5,
+          "group": "Ears",
+          "unit": "mm"
+        },
+        {
+          "variable": "round_radius",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 1,
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        },
+        {
+          "variable": "chamfer_size",
+          "label": "Chamfer",
+          "type": "number",
+          "default": 1,
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Tight cap",
+          "description": "Thin-walled cap.",
+          "params": {
+            "cap_thickness": 1.5
+          }
+        },
+        {
+          "name": "Thin plug",
+          "description": "For a thin PCB plug.",
+          "params": {
+            "plug_thickness": 1.6
+          }
+        },
+        {
+          "name": "Big chamfer",
+          "description": "Softer back edges.",
+          "params": {
+            "chamfer_size": 1.5
+          }
+        }
+      ]
+    },
+    "rj45_plug": {
+      "label": "RJ45 Plug Boot",
+      "short": "RJ45 boot",
+      "category": "Cable management",
+      "icon": "terminal",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/RJ45-Plug/RJ45-Plug.scad",
+      "description": "Cap that protects an RJ45 plug and its clip, with a contact cutout and a chamfered nose.",
+      "tags": [
+        "rj45",
+        "ethernet",
+        "plug",
+        "boot",
+        "network",
+        "cap",
+        "cable"
+      ],
+      "parameters": [
+        {
+          "variable": "plug_width",
+          "label": "Plug width",
+          "type": "number",
+          "default": 11.6,
+          "min": 5,
+          "max": 30,
+          "step": 0.1,
+          "group": "Plug",
+          "unit": "mm"
+        },
+        {
+          "variable": "plug_height",
+          "label": "Plug height",
+          "type": "number",
+          "default": 6.6,
+          "min": 3,
+          "max": 25,
+          "step": 0.1,
+          "group": "Plug",
+          "unit": "mm"
+        },
+        {
+          "variable": "plug_depth",
+          "label": "Plug depth",
+          "type": "number",
+          "default": 8.0,
+          "min": 3,
+          "max": 40,
+          "step": 0.5,
+          "group": "Plug",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_thickness",
+          "label": "Cap thickness",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_overhang",
+          "label": "Cap overhang",
+          "type": "number",
+          "default": 1.5,
+          "min": 0,
+          "max": 6,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_cover_width",
+          "label": "Clip cover width",
+          "type": "number",
+          "default": 6.5,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "clip_cover_height",
+          "label": "Clip cover height",
+          "type": "number",
+          "default": 4.0,
+          "min": 1,
+          "max": 15,
+          "step": 0.5,
+          "group": "Clip",
+          "unit": "mm"
+        },
+        {
+          "variable": "contact_cutout_depth",
+          "label": "Contact cutout depth",
+          "type": "number",
+          "default": 2.0,
+          "min": 0.5,
+          "max": 8,
+          "step": 0.1,
+          "group": "Contacts",
+          "unit": "mm"
+        },
+        {
+          "variable": "contact_cutout_width",
+          "label": "Contact cutout width",
+          "type": "number",
+          "default": 8.0,
+          "min": 4,
+          "max": 20,
+          "step": 0.5,
+          "group": "Contacts",
+          "unit": "mm"
+        },
+        {
+          "variable": "tip_chamfer",
+          "label": "Tip chamfer",
+          "type": "number",
+          "default": 1.2,
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Long boot",
+          "description": "Covers more of the cable.",
+          "params": {
+            "plug_depth": 12
+          }
+        },
+        {
+          "name": "Tight cap",
+          "description": "Thin-walled cap.",
+          "params": {
+            "cap_thickness": 1.2
+          }
+        },
+        {
+          "name": "Wide clip cover",
+          "description": "Roomier clip guard.",
+          "params": {
+            "clip_cover_width": 9
+          }
+        }
+      ]
+    },
+    "cable_hook": {
+      "label": "Headphone Cable Hook",
+      "short": "Cable hook",
+      "category": "Cable management",
+      "icon": "bracket",
+      "source": "vendor/martmaiste-openscad-models-aded4de5/Headphone-Hook/Headphone-Hook.scad",
+      "description": "Under-desk hook that holds a rolled headphone or charging cable, sized by the bundle.",
+      "tags": [
+        "headphone",
+        "hook",
+        "cable",
+        "hanger",
+        "desk",
+        "storage",
+        "wire"
+      ],
+      "parameters": [
+        {
+          "variable": "tube_size",
+          "label": "Bundle size",
+          "type": "number",
+          "default": 40.5,
+          "min": 10,
+          "max": 100,
+          "step": 0.5,
+          "group": "Bundle",
+          "unit": "mm"
+        },
+        {
+          "variable": "bracket_depth",
+          "label": "Bracket depth",
+          "type": "number",
+          "default": 25,
+          "min": 10,
+          "max": 80,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "material_thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 10,
+          "min": 3,
+          "max": 30,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "left_side_internal",
+          "label": "Left opening",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 60,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "hook_base_internal",
+          "label": "Hook opening",
+          "type": "number",
+          "default": 26,
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "group": "Hook",
+          "unit": "mm"
+        },
+        {
+          "variable": "hook_lip_internal",
+          "label": "Hook lip",
+          "type": "number",
+          "default": 12.5,
+          "min": 2,
+          "max": 50,
+          "step": 0.5,
+          "group": "Hook",
+          "unit": "mm"
+        },
+        {
+          "variable": "chamfer_size",
+          "label": "Edge chamfer",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "group": "Edges",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Large bundle",
+          "description": "For a fat coiled cable.",
+          "params": {
+            "tube_size": 60,
+            "hook_base_internal": 40
+          }
+        },
+        {
+          "name": "Deep bracket",
+          "description": "Reaches further under the desk.",
+          "params": {
+            "bracket_depth": 40
+          }
+        },
+        {
+          "name": "Big chamfer",
+          "description": "Softer edges.",
+          "params": {
+            "chamfer_size": 4
+          }
+        }
+      ]
+    },
+    "nas_pi_tray": {
+      "label": "Raspberry Pi Drive Tray",
+      "short": "Pi drive tray",
+      "category": "Computer hardware",
+      "icon": "server",
+      "source": "vendor/nas-rack-8c5f1582/src/scad/rpiDrive.scad",
+      "description": "Stackable NAS shelf that screws a Raspberry Pi and a 2.5-inch drive into the rack.",
+      "tags": [
+        "raspberry pi",
+        "nas",
+        "tray",
+        "drive",
+        "rack",
+        "shelf",
+        "sbc"
+      ],
+      "parameters": [
+        {
+          "variable": "th",
+          "label": "Panel thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "group": "Tray",
+          "unit": "mm"
+        },
+        {
+          "variable": "ra",
+          "label": "Standoff height",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 12,
+          "step": 0.5,
+          "group": "Tray",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Thick tray",
+          "description": "Heavier 4 mm tray.",
+          "params": {
+            "th": 4
+          }
+        },
+        {
+          "name": "Tall standoff",
+          "description": "Lifts the board further.",
+          "params": {
+            "ra": 8
+          }
+        }
+      ]
+    },
+    "nas_drive_tray": {
+      "label": "NAS Drive Tray",
+      "short": "Drive tray",
+      "category": "Computer hardware",
+      "icon": "server",
+      "source": "objects/wrappers/nas_drive_tray.scad",
+      "description": "Mirrored rack halves that clamp a 3.5-inch drive between threaded rods.",
+      "tags": [
+        "nas",
+        "drive",
+        "hdd",
+        "tray",
+        "rack",
+        "storage",
+        "3.5"
+      ],
+      "parameters": [
+        {
+          "variable": "threadedRodHoleD",
+          "label": "Rod hole",
+          "type": "number",
+          "default": 4.4,
+          "min": 3,
+          "max": 8,
+          "step": 0.1,
+          "group": "Rods",
+          "unit": "mm"
+        },
+        {
+          "variable": "threadedRodNutD",
+          "label": "Rod nut pocket",
+          "type": "number",
+          "default": 7.7,
+          "min": 5,
+          "max": 14,
+          "step": 0.1,
+          "group": "Rods",
+          "unit": "mm"
+        },
+        {
+          "variable": "threadedRodHoleOuterDiameter",
+          "label": "Rod boss",
+          "type": "number",
+          "default": 6,
+          "min": 4,
+          "max": 12,
+          "step": 0.5,
+          "group": "Rods",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "M5 rods",
+          "description": "Fits M5 threaded rod.",
+          "params": {
+            "threadedRodHoleD": 5.2,
+            "threadedRodNutD": 8.5
+          }
+        },
+        {
+          "name": "M6 rods",
+          "description": "Fits M6 threaded rod.",
+          "params": {
+            "threadedRodHoleD": 6.4,
+            "threadedRodNutD": 10.2
+          }
+        }
+      ]
+    },
+    "nas_sata_caddy": {
+      "label": "SATA Adapter Caddy",
+      "short": "SATA caddy",
+      "category": "Computer hardware",
+      "icon": "server",
+      "source": "objects/wrappers/nas_sata_caddy.scad",
+      "description": "Snap-on rack caddy that houses a USB-to-SATA adapter next to the drive bay.",
+      "tags": [
+        "nas",
+        "sata",
+        "adapter",
+        "caddy",
+        "rack",
+        "drive",
+        "usb"
+      ],
+      "parameters": [
+        {
+          "variable": "caddy_offset",
+          "label": "Adapter offset",
+          "type": "number",
+          "default": 10,
+          "min": 0,
+          "max": 40,
+          "step": 0.5,
+          "group": "Caddy",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Raised caddy",
+          "description": "Sits the adapter higher.",
+          "params": {
+            "caddy_offset": 16
+          }
+        }
+      ]
+    },
+    "nas_connector_lock": {
+      "label": "SATA Connector Lock",
+      "short": "SATA lock",
+      "category": "Cable management",
+      "icon": "fit",
+      "source": "objects/wrappers/nas_connector_lock.scad",
+      "description": "Tie-down that keeps a USB-to-SATA adapter seated in its NAS rack slot.",
+      "tags": [
+        "nas",
+        "sata",
+        "lock",
+        "clamp",
+        "rack",
+        "cable",
+        "adapter"
+      ],
+      "parameters": [
+        {
+          "variable": "lock_width",
+          "label": "Lock width",
+          "type": "number",
+          "default": 54.5,
+          "min": 20,
+          "max": 120,
+          "step": 0.5,
+          "group": "Lock",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Narrow lock",
+          "description": "For a smaller adapter.",
+          "params": {
+            "lock_width": 40
+          }
+        }
+      ]
+    },
+    "fan_grille": {
+      "label": "Fan Grille",
+      "short": "Fan grille",
+      "category": "Computer hardware",
+      "icon": "grid",
+      "source": "vendor/fabz-4efbc18e/fan-grille/fan_grille.scad",
+      "description": "Circular fan grille with a hex pattern and M3 posts, press-fit into a shelf cutout.",
+      "tags": [
+        "fan",
+        "grille",
+        "guard",
+        "vent",
+        "finger",
+        "cooling",
+        "pc"
+      ],
+      "parameters": [
+        {
+          "variable": "cutout_diameter",
+          "label": "Cutout diameter",
+          "type": "number",
+          "default": 90,
+          "min": 30,
+          "max": 200,
+          "step": 1,
+          "group": "Grille",
+          "unit": "mm"
+        },
+        {
+          "variable": "shelf_thickness",
+          "label": "Shelf thickness",
+          "type": "number",
+          "default": 19,
+          "min": 5,
+          "max": 60,
+          "step": 0.5,
+          "group": "Grille",
+          "unit": "mm"
+        },
+        {
+          "variable": "grille_plate_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Grille",
+          "unit": "mm"
+        },
+        {
+          "variable": "border_width",
+          "label": "Border width",
+          "type": "number",
+          "default": 6,
+          "min": 1,
+          "max": 40,
+          "step": 0.5,
+          "group": "Grille",
+          "unit": "mm"
+        },
+        {
+          "variable": "tab_grip_depth",
+          "label": "Tab grip depth",
+          "type": "number",
+          "default": 12,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Grille",
+          "unit": "mm"
+        },
+        {
+          "variable": "friction_clearance",
+          "label": "Friction clearance",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "group": "Grille",
+          "unit": "mm"
+        },
+        {
+          "variable": "tab_count",
+          "label": "Tab count",
+          "type": "integer",
+          "default": 6,
+          "min": 0,
+          "max": 16,
+          "step": 1,
+          "group": "Tabs"
+        },
+        {
+          "variable": "tab_arc_deg",
+          "label": "Tab arc",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 90,
+          "step": 1,
+          "group": "Tabs",
+          "unit": "°"
+        },
+        {
+          "variable": "tab_wall_thickness",
+          "label": "Tab wall",
+          "type": "number",
+          "default": 2.5,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.1,
+          "group": "Tabs",
+          "unit": "mm"
+        },
+        {
+          "variable": "hex_cell_radius",
+          "label": "Hex cell radius",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 30,
+          "step": 0.5,
+          "group": "Pattern",
+          "unit": "mm"
+        },
+        {
+          "variable": "hex_wall",
+          "label": "Hex wall",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.4,
+          "max": 10,
+          "step": 0.1,
+          "group": "Pattern",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_size",
+          "label": "Fan size",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 200,
+          "step": 1,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_hole_spacing",
+          "label": "Fan hole spacing",
+          "type": "number",
+          "default": 32,
+          "min": 5,
+          "max": 180,
+          "step": 1,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_screw_dia",
+          "label": "Fan screw hole",
+          "type": "number",
+          "default": 3.2,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_post_dia",
+          "label": "Post diameter",
+          "type": "number",
+          "default": 8,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_post_height",
+          "label": "Post height",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "cable_channel",
+          "label": "Cable notch",
+          "type": "boolean",
+          "default": true,
+          "group": "Cable"
+        },
+        {
+          "variable": "cable_channel_width",
+          "label": "Notch width",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Cable",
+          "unit": "mm"
+        },
+        {
+          "variable": "cable_channel_depth",
+          "label": "Notch depth",
+          "type": "number",
+          "default": 12,
+          "min": 0,
+          "max": 60,
+          "step": 0.5,
+          "group": "Cable",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "120 mm fan",
+          "description": "Bigger cutout for a 120 mm fan.",
+          "params": {
+            "cutout_diameter": 130,
+            "fan_size": 120,
+            "fan_hole_spacing": 105
+          }
+        },
+        {
+          "name": "Coarse hex",
+          "description": "Chunkier pattern.",
+          "params": {
+            "hex_cell_radius": 8,
+            "hex_wall": 2
+          }
+        },
+        {
+          "name": "No cable notch",
+          "description": "Closed border.",
+          "params": {
+            "cable_channel": false
+          }
+        }
+      ]
+    },
+    "esp8266_case": {
+      "label": "ESP8266 Devboard Case",
+      "short": "ESP8266 case",
+      "category": "Electronics",
+      "icon": "chip",
+      "source": "vendor/nilskrause-cad-9c4d69e9/esp_case.scad",
+      "description": "Two-part snap case for an AZDelivery ESP8266 adapter board, base and lid together.",
+      "tags": [
+        "esp8266",
+        "esp",
+        "devboard",
+        "case",
+        "enclosure",
+        "wifi",
+        "electronics"
+      ],
+      "parameters": [
+        {
+          "variable": "wall_thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "group": "Case",
+          "unit": "mm"
+        },
+        {
+          "variable": "esp_bottom_margin",
+          "label": "Bottom margin",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "group": "Case",
+          "unit": "mm"
+        },
+        {
+          "variable": "inside_margin_x",
+          "label": "Side margin",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "group": "Case",
+          "unit": "mm"
+        },
+        {
+          "variable": "tolerance",
+          "label": "Fit tolerance",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "group": "Fit",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Snug fit",
+          "description": "Tighter board fit.",
+          "params": {
+            "tolerance": 0.1
+          }
+        },
+        {
+          "name": "Thick walls",
+          "description": "Sturdier shell.",
+          "params": {
+            "wall_thickness": 2.5
+          }
+        },
+        {
+          "name": "Wide margin",
+          "description": "More room either side.",
+          "params": {
+            "inside_margin_x": 4
+          }
+        }
+      ]
+    },
+    "sd_card_holder": {
+      "label": "Micro-SD Card Holder",
+      "short": "SD card holder",
+      "category": "Electronics",
+      "icon": "box",
+      "source": "objects/wrappers/sd_card_holder.scad",
+      "description": "Open micro-SD card tray, laid out as a row of holders at a settable pitch.",
+      "tags": [
+        "sd",
+        "microsd",
+        "card",
+        "holder",
+        "tray",
+        "storage",
+        "electronics"
+      ],
+      "parameters": [
+        {
+          "variable": "holder_count",
+          "label": "Holder count",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "holder_pitch",
+          "label": "Holder pitch",
+          "type": "number",
+          "default": 32,
+          "min": 25,
+          "max": 80,
+          "step": 1,
+          "group": "Layout",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Single holder",
+          "description": "One card tray.",
+          "params": {
+            "holder_count": 1
+          }
+        },
+        {
+          "name": "Four holders",
+          "description": "A row of four.",
+          "params": {
+            "holder_count": 4
+          }
+        },
+        {
+          "name": "Wide pitch",
+          "description": "Leaves room to grip each tray.",
+          "params": {
+            "holder_pitch": 40
+          }
+        }
+      ]
+    },
+    "raspberry_pi_case": {
+      "label": "Raspberry Pi Case",
+      "short": "Pi case",
+      "category": "Computer hardware",
+      "icon": "box",
+      "source": "vendor/pkoehlers-rpi-case-a19a32e5/rpi_case.scad",
+      "description": "Screw-together Raspberry Pi 3/4 case with a fan mount, antenna holder and optional cutouts.",
+      "tags": [
+        "raspberry pi",
+        "case",
+        "enclosure",
+        "rpi",
+        "fan",
+        "sbc",
+        "electronics"
+      ],
+      "parameters": [
+        {
+          "variable": "rpi_model",
+          "label": "Raspberry Pi model",
+          "type": "integer",
+          "default": 4,
+          "options": [
+            {
+              "value": 3,
+              "label": "Raspberry Pi 3"
+            },
+            {
+              "value": 4,
+              "label": "Raspberry Pi 4"
+            }
+          ],
+          "group": "Model"
+        },
+        {
+          "variable": "render_part",
+          "label": "Part to render",
+          "type": "text",
+          "default": "top",
+          "max_length": 8,
+          "max_lines": 1,
+          "rows": 1,
+          "placeholder": "top, bottom or all",
+          "group": "Model",
+          "help": "top, bottom or all."
+        },
+        {
+          "variable": "tolerance",
+          "label": "Fit tolerance",
+          "type": "number",
+          "default": 1.2,
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "group": "Fit",
+          "unit": "mm"
+        },
+        {
+          "variable": "board_thickness",
+          "label": "Board thickness",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.5,
+          "max": 4,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pin_space",
+          "label": "Pin space",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 15,
+          "step": 0.5,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "case_thickness",
+          "label": "Case thickness",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "group": "Case",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_pin_diam",
+          "label": "Fan screw hole",
+          "type": "number",
+          "default": 3.5,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_position_x",
+          "label": "Fan position X",
+          "type": "number",
+          "default": 44.3,
+          "min": 0,
+          "max": 100,
+          "step": 0.1,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_position_y",
+          "label": "Fan position Y",
+          "type": "number",
+          "default": 17,
+          "min": 0,
+          "max": 80,
+          "step": 0.1,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "fan_pin_distance",
+          "label": "Fan hole spacing",
+          "type": "number",
+          "default": 32,
+          "min": 5,
+          "max": 80,
+          "step": 0.5,
+          "group": "Fan",
+          "unit": "mm"
+        },
+        {
+          "variable": "antenna_connector_enabled",
+          "label": "Antenna holder",
+          "type": "boolean",
+          "default": true,
+          "group": "Antenna"
+        },
+        {
+          "variable": "antenna_connector_diameter",
+          "label": "Antenna diameter",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 25,
+          "step": 0.5,
+          "group": "Antenna",
+          "unit": "mm"
+        },
+        {
+          "variable": "antenna_holder_length",
+          "label": "Antenna holder length",
+          "type": "number",
+          "default": 27,
+          "min": 5,
+          "max": 60,
+          "step": 0.5,
+          "group": "Antenna",
+          "unit": "mm"
+        },
+        {
+          "variable": "poe_cutout_enabled",
+          "label": "PoE cutout",
+          "type": "boolean",
+          "default": false,
+          "group": "Cutouts"
+        },
+        {
+          "variable": "camera_cutout_enabled",
+          "label": "Camera cutout",
+          "type": "boolean",
+          "default": false,
+          "group": "Cutouts"
+        },
+        {
+          "variable": "display_cutout_enabled",
+          "label": "Display cutout",
+          "type": "boolean",
+          "default": false,
+          "group": "Cutouts"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Full case",
+          "description": "Base and lid.",
+          "params": {
+            "render_part": "all"
+          }
+        },
+        {
+          "name": "Raspberry Pi 3",
+          "description": "Fits a Pi 3B.",
+          "params": {
+            "rpi_model": 3
+          }
+        },
+        {
+          "name": "PoE and camera",
+          "description": "Extra openings.",
+          "params": {
+            "poe_cutout_enabled": true,
+            "camera_cutout_enabled": true
+          }
+        },
+        {
+          "name": "No antenna",
+          "description": "Plain side wall.",
+          "params": {
+            "antenna_connector_enabled": false
+          }
+        }
+      ]
+    },
+    "pcb_enclosure": {
+      "label": "PCB Enclosure",
+      "short": "PCB enclosure",
+      "category": "Electronics",
+      "icon": "box",
+      "source": "vendor/pcb-enclosure-ce261a38/pcb-enclosure-test.scad",
+      "description": "Two end caps and a slotted body that enclose a bare PCB, with bolt holes and feet.",
+      "tags": [
+        "pcb",
+        "enclosure",
+        "case",
+        "board",
+        "electronics",
+        "project",
+        "housing"
+      ],
+      "parameters": [
+        {
+          "variable": "pcb_length",
+          "label": "Board length",
+          "type": "number",
+          "default": 76.7,
+          "min": 20,
+          "max": 200,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_width",
+          "label": "Board width",
+          "type": "number",
+          "default": 41.5,
+          "min": 10,
+          "max": 200,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_height",
+          "label": "Board height",
+          "type": "number",
+          "default": 18,
+          "min": 3,
+          "max": 80,
+          "step": 0.5,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_thickness",
+          "label": "Board thickness",
+          "type": "number",
+          "default": 1.6,
+          "min": 0.4,
+          "max": 4,
+          "step": 0.1,
+          "group": "Board",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_clearance",
+          "label": "Board clearance",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "group": "Fit",
+          "unit": "mm"
+        },
+        {
+          "variable": "pcb_holder_size",
+          "label": "Holder size",
+          "type": "number",
+          "default": 1,
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "group": "Fit",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall_thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.8,
+          "max": 6,
+          "step": 0.1,
+          "group": "Case",
+          "unit": "mm"
+        },
+        {
+          "variable": "foot_margin",
+          "label": "Foot margin",
+          "type": "number",
+          "default": 5,
+          "min": 0,
+          "max": 30,
+          "step": 0.5,
+          "group": "Case",
+          "unit": "mm"
+        },
+        {
+          "variable": "foot_radius",
+          "label": "Foot radius",
+          "type": "number",
+          "default": 4,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "group": "Case",
+          "unit": "mm"
+        },
+        {
+          "variable": "bolt_size",
+          "label": "Bolt size",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 0.5,
+          "group": "Bolts",
+          "unit": "mm"
+        },
+        {
+          "variable": "bolt_hole_ratio_body",
+          "label": "Body hole ratio",
+          "type": "number",
+          "default": 0.95,
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.05,
+          "group": "Bolts"
+        },
+        {
+          "variable": "bolt_hole_ratio_end_cap",
+          "label": "Cap hole ratio",
+          "type": "number",
+          "default": 1.1,
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.05,
+          "group": "Bolts"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Small board",
+          "description": "Compact case.",
+          "params": {
+            "pcb_length": 60,
+            "pcb_width": 30,
+            "pcb_height": 12
+          }
+        },
+        {
+          "name": "M3 bolts",
+          "description": "Sized for M3 hardware.",
+          "params": {
+            "bolt_size": 3
+          }
+        },
+        {
+          "name": "Thick walls",
+          "description": "More robust shell.",
+          "params": {
+            "wall_thickness": 2.5
+          }
+        }
+      ]
+    },
+    "pcie_bracket": {
+      "label": "PCIe Slot Bracket",
+      "short": "PCIe bracket",
+      "category": "Computer hardware",
+      "icon": "bracket",
+      "source": "objects/wrappers/pcie_bracket.scad",
+      "description": "Blank PCIe slot bracket with the standard screw hole and I/O opening, GPU-style.",
+      "tags": [
+        "pcie",
+        "pci",
+        "bracket",
+        "gpu",
+        "support",
+        "slot",
+        "pc"
+      ],
+      "parameters": [
+        {
+          "variable": "pci_bracket_hole",
+          "label": "Screw hole",
+          "type": "number",
+          "default": 4.42,
+          "min": 2,
+          "max": 8,
+          "step": 0.01,
+          "group": "Hole",
+          "unit": "mm"
+        },
+        {
+          "variable": "pci_bracket_hole_offset",
+          "label": "Hole offset",
+          "type": "number",
+          "default": 5.08,
+          "min": 2,
+          "max": 12,
+          "step": 0.01,
+          "group": "Hole",
+          "unit": "mm"
+        },
+        {
+          "variable": "pci_bracket_width",
+          "label": "Bracket width",
+          "type": "number",
+          "default": 18.42,
+          "min": 10,
+          "max": 30,
+          "step": 0.01,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "pci_bracket_thickness",
+          "label": "Bracket thickness",
+          "type": "number",
+          "default": 0.86,
+          "min": 0.4,
+          "max": 3,
+          "step": 0.01,
+          "group": "Bracket",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Thick bracket",
+          "description": "Printable sheet-metal substitute.",
+          "params": {
+            "pci_bracket_thickness": 1.5
+          }
+        },
+        {
+          "name": "Narrow bracket",
+          "description": "For a tighter slot.",
+          "params": {
+            "pci_bracket_width": 16
+          }
+        }
+      ]
+    },
+    "cable_wrap_holder": {
+      "label": "Cable Wrap Holder",
+      "short": "Cable wrap",
+      "category": "Cable management",
+      "icon": "fit",
+      "source": "objects/wrappers/cable_wrap_holder.scad",
+      "description": "Small loop that ties a hook-and-loop cable wrap to a case wall.",
+      "tags": [
+        "cable",
+        "wrap",
+        "holder",
+        "loop",
+        "tie",
+        "management",
+        "case"
+      ],
+      "parameters": [
+        {
+          "variable": "wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2.5,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "group": "Wall",
+          "unit": "mm"
+        },
+        {
+          "variable": "extra",
+          "label": "Fit clearance",
+          "type": "number",
+          "default": 1.0,
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "group": "Wall",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Thin wall",
+          "description": "For a thin panel.",
+          "params": {
+            "wall": 1.5
+          }
+        },
+        {
+          "name": "Thick wall",
+          "description": "For a thick panel.",
+          "params": {
+            "wall": 4
+          }
+        }
+      ]
+    },
+    "motherboard_standoffs": {
+      "label": "Motherboard Standoffs",
+      "short": "Board standoffs",
+      "category": "Electronics",
+      "icon": "screw",
+      "source": "objects/wrappers/motherboard_standoffs.scad",
+      "description": "Set of Mini-ITX motherboard standoffs tapped for M3 threaded inserts.",
+      "tags": [
+        "motherboard",
+        "standoff",
+        "mini-itx",
+        "pcb",
+        "mount",
+        "electronics",
+        "insert"
+      ],
+      "parameters": [
+        {
+          "variable": "miniitx_bottom_keepout",
+          "label": "Standoff height",
+          "type": "number",
+          "default": 6.35,
+          "min": 2,
+          "max": 15,
+          "step": 0.05,
+          "group": "Standoff",
+          "unit": "mm"
+        },
+        {
+          "variable": "insert_r",
+          "label": "Insert radius",
+          "type": "number",
+          "default": 2.75,
+          "min": 1,
+          "max": 6,
+          "step": 0.05,
+          "group": "Insert",
+          "unit": "mm"
+        },
+        {
+          "variable": "insert_h",
+          "label": "Insert depth",
+          "type": "number",
+          "default": 5.0,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "group": "Insert",
+          "unit": "mm"
+        },
+        {
+          "variable": "standoff_count",
+          "label": "Standoff count",
+          "type": "integer",
+          "default": 4,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "group": "Layout"
+        },
+        {
+          "variable": "standoff_pitch",
+          "label": "Standoff pitch",
+          "type": "number",
+          "default": 12,
+          "min": 8,
+          "max": 60,
+          "step": 1,
+          "group": "Layout",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Long standoffs",
+          "description": "Lifts the board.",
+          "params": {
+            "miniitx_bottom_keepout": 8
+          }
+        },
+        {
+          "name": "Deep inserts",
+          "description": "Holds longer inserts.",
+          "params": {
+            "insert_h": 7
+          }
+        },
+        {
+          "name": "Six standoffs",
+          "description": "A longer strip.",
+          "params": {
+            "standoff_count": 6,
+            "standoff_pitch": 14
           }
         }
       ]
