@@ -1,0 +1,12 @@
+aef1b9b51967fc1b24e1891ebd3dfad582100f62
+
+Upstream: https://github.com/erellaz/Telescope-ring
+License: MIT
+Copyright: Copyright (c) 2023 erellaz
+
+The parametric ring that clamps a telescope tube to an equatorial mount,
+copied verbatim from the pinned commit.
+
+Files:
+  LICENSE
+  Esprit100_ring_v5.scad

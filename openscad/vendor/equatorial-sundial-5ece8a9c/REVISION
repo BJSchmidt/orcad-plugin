@@ -1,0 +1,14 @@
+5ece8a9cdabb0969b9534ca3c5d1009226347e4e
+
+Upstream: https://github.com/RyanDMott/equatorial-sundial
+License: MIT
+Copyright: Copyright (c) 2026 RyanDMott
+
+The educational equatorial sundial and the analemma figure-of-eight groove it
+uses (with the analemma data table), copied verbatim from the pinned commit.
+
+Files:
+  LICENSE
+  equatorial_sundial.scad
+  analemma_groove.scad
+  analemma_2030.scad

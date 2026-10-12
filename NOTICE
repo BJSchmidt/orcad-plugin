@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Sixty-seven upstream OpenSCAD libraries are vendored unmodified under
+Seventy-five upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -378,6 +378,48 @@ THIRD_PARTY_NOTICES.
   Guerreiro) - https://github.com/lgg1303/parametric-openscad-generators -
   commit e91cfac6a96dfe2513489d62b670d768c19f7378. The mounting plate generator
   and the shared toolbox module it includes, plus the upstream LICENSE.
+- whosawhatsis/Geometry - CC-BY-4.0 (Copyright (c) 2020 Joan Horvath and Rich
+  Cameron; the license requires attribution, which is also given on the model
+  cards) - https://github.com/whosawhatsis/Geometry - commit
+  0aaf3e49385d07b08e03564476bae8124e284138. Six geometry teaching models from
+  the book Make:Geometry (the Platonic solid set, a solid sized by its edge, a
+  folding Platonic net, a Meissner/Reuleaux tetrahedron, a Reuleaux polygon
+  with its enclosure and a sundial gnomon) plus the upstream LICENSE and
+  README, with upstream's own directory names.
+- CGrassin/rocketry - MIT (Copyright (c) 2020 Charles Grassin) -
+  https://github.com/CGrassin/rocketry - commit
+  7b7783a369f8496e1e0b4fc6bd2372f3161ea0b3. The Haack-series nose cone library
+  (based on Garrett Goss's public-domain NOSE CONE LIBRARY) and the gimbal test
+  stand plus the upstream LICENSE: the two rocket nose cones and the
+  motor-mount test stand.
+- erellaz/Spider - MIT (Copyright (c) 2020 erellaz) -
+  https://github.com/erellaz/Spider - commit
+  ee9711effbcb949e20f4f52fdde4bbbde37c7574. The three-vane and four-vane
+  secondary-mirror hubs for a Newtonian telescope spider plus the upstream
+  LICENSE.
+- erellaz/Telescope-ring - MIT (Copyright (c) 2023 erellaz) -
+  https://github.com/erellaz/Telescope-ring - commit
+  aef1b9b51967fc1b24e1891ebd3dfad582100f62. The parametric ring that clamps a
+  telescope tube to an equatorial mount plus the upstream LICENSE.
+- wivy1/nikon-diaphot-tmd - MIT (Copyright (c) 2026 Will Ivy) -
+  https://github.com/wivy1/nikon-diaphot-tmd - commit
+  d86aeaaa0edbd100c16ab3f61799bd4820c0d16f. The 45 mm filter holder and the
+  universal objective holders (tapered and clamped) for the Nikon Diaphot TMD
+  stage frame plus the upstream LICENSE.
+- RyanDMott/equatorial-sundial - MIT (Copyright (c) 2026 RyanDMott) -
+  https://github.com/RyanDMott/equatorial-sundial - commit
+  5ece8a9cdabb0969b9534ca3c5d1009226347e4e. The educational equatorial sundial
+  and the analemma figure-of-eight groove with its data table plus the upstream
+  LICENSE.
+- hongming/OpenSCAD_Astro_Replicas - MIT (Copyright (c) 2024 Hongming) -
+  https://github.com/hongming/OpenSCAD_Astro_Replicas - commit
+  363b6388f06b337deb8de44bc2d657833eb4cfd6. The Losmandy-style dovetail bar
+  and the dovetail saddle that carry a telescope tube plus the upstream
+  LICENSE.
+- groverlab/giguere-3D-periodic-table - MIT (Copyright (c) 2022 William H.
+  Grover) - https://github.com/groverlab/giguere-3D-periodic-table - commit
+  c1b07199ec36a11a75f1a7bd54531bfbe12365ae. The 3D-printable periodic table of
+  the elements plus the upstream LICENSE.
 
 
 OpenSCAD bootstrap attribution

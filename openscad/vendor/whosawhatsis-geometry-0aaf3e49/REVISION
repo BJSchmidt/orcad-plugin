@@ -1,0 +1,21 @@
+0aaf3e49385d07b08e03564476bae8124e284138
+
+Upstream: https://github.com/whosawhatsis/Geometry
+License: CC-BY-4.0
+Copyright: Copyright (c) 2020 Joan Horvath and Rich Cameron
+
+The geometry teaching models written for the book Make:Geometry, copied verbatim
+from the pinned commit. Upstream ships the license as LICENSE.md; it is vendored
+here as LICENSE with the bytes unchanged. README.md is kept for its attribution
+statement. Only the six models the catalog exposes are vendored; the rest of the
+upstream tree is not needed.
+
+Files:
+  LICENSE
+  README.md
+  Polygons+Polyhedrons/platonicSolids.scad
+  Polygons+Polyhedrons/edge_platonic_solids.scad
+  Nets/platonic_net.scad
+  Reuleaux/meissner.scad
+  Reuleaux/reuleaux-n-gon.scad
+  Gnomon/sun_dial_gnomon.scad

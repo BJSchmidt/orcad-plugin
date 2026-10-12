@@ -523,6 +523,70 @@
       "license": "MIT",
       "repository": "https://github.com/lgg1303/parametric-openscad-generators",
       "author": "Lourenço Guerreiro"
+    },
+    "whosawhatsis-geometry": {
+      "label": "Make:Geometry Models (whosawhatsis)",
+      "root": "vendor/whosawhatsis-geometry-0aaf3e49",
+      "revision": "0aaf3e49385d07b08e03564476bae8124e284138",
+      "license": "CC-BY-4.0",
+      "repository": "https://github.com/whosawhatsis/Geometry",
+      "author": "Joan Horvath and Rich Cameron"
+    },
+    "cg-rassin-rocketry": {
+      "label": "Rocketry (CGrassin)",
+      "root": "vendor/cg-rassin-rocketry-7b7783a3",
+      "revision": "7b7783a369f8496e1e0b4fc6bd2372f3161ea0b3",
+      "license": "MIT",
+      "repository": "https://github.com/CGrassin/rocketry",
+      "author": "Charles Grassin"
+    },
+    "erellaz-spider": {
+      "label": "Telescope Spider (erellaz)",
+      "root": "vendor/erellaz-spider-ee9711ef",
+      "revision": "ee9711effbcb949e20f4f52fdde4bbbde37c7574",
+      "license": "MIT",
+      "repository": "https://github.com/erellaz/Spider",
+      "author": "erellaz"
+    },
+    "erellaz-telescope-ring": {
+      "label": "Telescope Ring (erellaz)",
+      "root": "vendor/erellaz-telescope-ring-aef1b9b5",
+      "revision": "aef1b9b51967fc1b24e1891ebd3dfad582100f62",
+      "license": "MIT",
+      "repository": "https://github.com/erellaz/Telescope-ring",
+      "author": "erellaz"
+    },
+    "nikon-diaphot-tmd": {
+      "label": "Diaphot TMD Holders (wivy1)",
+      "root": "vendor/nikon-diaphot-tmd-d86aeaaa",
+      "revision": "d86aeaaa0edbd100c16ab3f61799bd4820c0d16f",
+      "license": "MIT",
+      "repository": "https://github.com/wivy1/nikon-diaphot-tmd",
+      "author": "Will Ivy"
+    },
+    "equatorial-sundial": {
+      "label": "Equatorial Sundial (RyanDMott)",
+      "root": "vendor/equatorial-sundial-5ece8a9c",
+      "revision": "5ece8a9cdabb0969b9534ca3c5d1009226347e4e",
+      "license": "MIT",
+      "repository": "https://github.com/RyanDMott/equatorial-sundial",
+      "author": "RyanDMott"
+    },
+    "astro-replicas": {
+      "label": "Astronomy Replicas (hongming)",
+      "root": "vendor/astro-replicas-363b6388",
+      "revision": "363b6388f06b337deb8de44bc2d657833eb4cfd6",
+      "license": "MIT",
+      "repository": "https://github.com/hongming/OpenSCAD_Astro_Replicas",
+      "author": "Hongming"
+    },
+    "giguere-periodic-table": {
+      "label": "3D Periodic Table (groverlab)",
+      "root": "vendor/giguere-periodic-table-c1b07199",
+      "revision": "c1b07199ec36a11a75f1a7bd54531bfbe12365ae",
+      "license": "MIT",
+      "repository": "https://github.com/groverlab/giguere-3D-periodic-table",
+      "author": "William H. Grover"
     }
   },
   "quality_profiles": {
@@ -32066,6 +32130,2008 @@
         "license": "MIT",
         "author": "Lourenço Guerreiro",
         "repository": "https://github.com/lgg1303/parametric-openscad-generators"
+      }
+    },
+    "geometry_platonic_solids": {
+      "label": "Platonic Solids Set",
+      "short": "Platonic solids",
+      "category": "Geometry",
+      "icon": "sphere",
+      "source": "objects/wrappers/geometry_platonic_solids.scad",
+      "description": "The five Platonic solids - tetrahedron, cube, octahedron, dodecahedron and icosahedron - laid out on one bed so a class can compare their faces, edges and vertices.",
+      "tags": [
+        "platonic",
+        "polyhedron",
+        "solid",
+        "geometry",
+        "maths",
+        "teaching",
+        "classroom"
+      ],
+      "parameters": [
+        {
+          "variable": "size",
+          "label": "Circumradius",
+          "type": "number",
+          "default": 35,
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Radius of the sphere that touches every vertex; also drives the width of the cube."
+        },
+        {
+          "variable": "spacing",
+          "label": "Spacing",
+          "type": "number",
+          "default": 1.2,
+          "min": 0.8,
+          "max": 3,
+          "step": 0.05,
+          "group": "Layout",
+          "help": "Gap between the solids as a multiple of the size; 1.2 leaves room to cut them apart."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Display set",
+          "description": "The default 35 mm solids.",
+          "params": {}
+        },
+        {
+          "name": "Close-packed",
+          "description": "Tighter ring for a small print bed.",
+          "params": {
+            "spacing": 0.9
+          }
+        },
+        {
+          "name": "Large set",
+          "description": "50 mm solids for handling.",
+          "params": {
+            "size": 50,
+            "spacing": 1.1
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Make:Geometry Models (whosawhatsis)",
+        "license": "CC-BY-4.0",
+        "author": "Joan Horvath and Rich Cameron",
+        "repository": "https://github.com/whosawhatsis/Geometry"
+      }
+    },
+    "geometry_solid_edges": {
+      "label": "Platonic Solid by Edge",
+      "short": "Edge solid",
+      "category": "Geometry",
+      "icon": "edges",
+      "source": "objects/wrappers/geometry_solid_edges.scad",
+      "description": "One Platonic solid sized by its edge length instead of its circumradius, so several solids can be printed with edges that line up exactly.",
+      "tags": [
+        "platonic",
+        "polyhedron",
+        "edge",
+        "tetrahedron",
+        "octahedron",
+        "dodecahedron",
+        "icosahedron",
+        "geometry"
+      ],
+      "parameters": [
+        {
+          "variable": "edge",
+          "label": "Edge length",
+          "type": "number",
+          "default": 35,
+          "min": 10,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Length of one edge of the chosen solid."
+        },
+        {
+          "variable": "solid",
+          "label": "Solid",
+          "type": "integer",
+          "default": 1,
+          "min": 0,
+          "max": 3,
+          "step": 1,
+          "group": "Style",
+          "help": "Which of the four solids to build.",
+          "options": [
+            {
+              "value": 0,
+              "label": "Tetrahedron"
+            },
+            {
+              "value": 1,
+              "label": "Octahedron"
+            },
+            {
+              "value": 2,
+              "label": "Dodecahedron"
+            },
+            {
+              "value": 3,
+              "label": "Icosahedron"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Octahedron",
+          "description": "The default 35 mm octahedron.",
+          "params": {}
+        },
+        {
+          "name": "Dodecahedron",
+          "description": "The pentagonal solid.",
+          "params": {
+            "solid": 2
+          }
+        },
+        {
+          "name": "Icosahedron",
+          "description": "The twenty-faced solid.",
+          "params": {
+            "solid": 3
+          }
+        },
+        {
+          "name": "Large tetrahedron",
+          "description": "80 mm edges.",
+          "params": {
+            "solid": 0,
+            "edge": 80
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Make:Geometry Models (whosawhatsis)",
+        "license": "CC-BY-4.0",
+        "author": "Joan Horvath and Rich Cameron",
+        "repository": "https://github.com/whosawhatsis/Geometry"
+      }
+    },
+    "geometry_platonic_net": {
+      "label": "Platonic Solid Net",
+      "short": "Platonic net",
+      "category": "Geometry",
+      "icon": "grid",
+      "source": "objects/wrappers/geometry_platonic_net.scad",
+      "description": "A flat folding net for any of the five Platonic solids, with living hinges along the fold lines so the printed net folds up into the solid.",
+      "tags": [
+        "platonic",
+        "net",
+        "folding",
+        "hinge",
+        "geometry",
+        "teaching",
+        "papercraft"
+      ],
+      "parameters": [
+        {
+          "variable": "faces",
+          "label": "Solid",
+          "type": "integer",
+          "default": 20,
+          "min": 4,
+          "max": 20,
+          "step": 1,
+          "group": "Solid",
+          "help": "The Schlafli symbol follows from this count.",
+          "options": [
+            {
+              "value": 4,
+              "label": "Tetrahedron"
+            },
+            {
+              "value": 6,
+              "label": "Cube"
+            },
+            {
+              "value": 8,
+              "label": "Octahedron"
+            },
+            {
+              "value": 12,
+              "label": "Dodecahedron"
+            },
+            {
+              "value": 20,
+              "label": "Icosahedron"
+            }
+          ]
+        },
+        {
+          "variable": "edge",
+          "label": "Edge length",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Edge of each face; the whole net scales with it."
+        },
+        {
+          "variable": "printheight",
+          "label": "Face height",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 150,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Height of the truncated pyramidal faces before folding."
+        },
+        {
+          "variable": "hinge",
+          "label": "Hinge thickness",
+          "type": "number",
+          "default": 0.6,
+          "min": 0.2,
+          "max": 2,
+          "step": 0.1,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Thickness of the living hinge; thinner folds more easily."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Icosahedron net",
+          "description": "The default 20-face net.",
+          "params": {}
+        },
+        {
+          "name": "Cube net",
+          "description": "A six-square cube net.",
+          "params": {
+            "faces": 6,
+            "edge": 40
+          }
+        },
+        {
+          "name": "Dodecahedron net",
+          "description": "Pentagon faces at 25 mm.",
+          "params": {
+            "faces": 12,
+            "edge": 25
+          }
+        },
+        {
+          "name": "Thicker hinges",
+          "description": "A stiffer net for small hands.",
+          "params": {
+            "hinge": 1
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Make:Geometry Models (whosawhatsis)",
+        "license": "CC-BY-4.0",
+        "author": "Joan Horvath and Rich Cameron",
+        "repository": "https://github.com/whosawhatsis/Geometry"
+      }
+    },
+    "geometry_meissner_tetrahedron": {
+      "label": "Meissner Tetrahedron",
+      "short": "Meissner solid",
+      "category": "Geometry",
+      "icon": "sphere",
+      "source": "objects/wrappers/geometry_meissner_tetrahedron.scad",
+      "description": "A solid of constant width built by rounding the edges of a tetrahedron: either Meissner body or the plain Reuleaux tetrahedron that is not quite constant width.",
+      "tags": [
+        "meissner",
+        "reuleaux",
+        "constant width",
+        "solid",
+        "geometry",
+        "maths",
+        "rolling"
+      ],
+      "parameters": [
+        {
+          "variable": "size",
+          "label": "Sphere radius",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 80,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Radius of the three spherical surfaces that form the solid."
+        },
+        {
+          "variable": "meissner",
+          "label": "Body",
+          "type": "integer",
+          "default": 1,
+          "min": 0,
+          "max": 2,
+          "step": 1,
+          "group": "Style",
+          "help": "Type 1 and 2 are the true solids of constant width.",
+          "options": [
+            {
+              "value": 0,
+              "label": "Reuleaux tetrahedron"
+            },
+            {
+              "value": 1,
+              "label": "Meissner type 1"
+            },
+            {
+              "value": 2,
+              "label": "Meissner type 2"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Meissner type 1",
+          "description": "The default constant-width body.",
+          "params": {}
+        },
+        {
+          "name": "Reuleaux tetrahedron",
+          "description": "The sharp-edged relative.",
+          "params": {
+            "meissner": 0
+          }
+        },
+        {
+          "name": "Type 2",
+          "description": "The mirror rounding.",
+          "params": {
+            "meissner": 2
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Make:Geometry Models (whosawhatsis)",
+        "license": "CC-BY-4.0",
+        "author": "Joan Horvath and Rich Cameron",
+        "repository": "https://github.com/whosawhatsis/Geometry"
+      }
+    },
+    "geometry_reuleaux_polygon": {
+      "label": "Reuleaux Polygon",
+      "short": "Reuleaux n-gon",
+      "category": "Geometry",
+      "icon": "iso",
+      "source": "objects/wrappers/geometry_reuleaux_polygon.scad",
+      "description": "A Reuleaux polygon of constant width with the matching enclosure, so the roller and the hole it fits show that a curve of constant width need not be a circle.",
+      "tags": [
+        "reuleaux",
+        "polygon",
+        "constant width",
+        "rolling",
+        "geometry",
+        "maths",
+        "enclosure"
+      ],
+      "parameters": [
+        {
+          "variable": "width",
+          "label": "Width",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Constant width of the polygon across its flat sides."
+        },
+        {
+          "variable": "sides",
+          "label": "Sides",
+          "type": "integer",
+          "default": 3,
+          "min": 3,
+          "max": 9,
+          "step": 2,
+          "group": "Style",
+          "help": "Reuleaux polygons need an odd number of sides.",
+          "options": [
+            {
+              "value": 3,
+              "label": "Triangle"
+            },
+            {
+              "value": 5,
+              "label": "Pentagon"
+            },
+            {
+              "value": 7,
+              "label": "Heptagon"
+            },
+            {
+              "value": 9,
+              "label": "Nonagon"
+            }
+          ]
+        },
+        {
+          "variable": "height",
+          "label": "Height",
+          "type": "number",
+          "default": 10,
+          "min": 3,
+          "max": 40,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Printed height of the roller and its enclosure."
+        },
+        {
+          "variable": "wall",
+          "label": "Wall",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the enclosure walls."
+        },
+        {
+          "variable": "base",
+          "label": "Base",
+          "type": "number",
+          "default": 0.6,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Solid floor left under both parts."
+        },
+        {
+          "variable": "clearance",
+          "label": "Clearance",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "group": "Fit",
+          "unit": "mm",
+          "help": "Gap between the roller and the enclosure."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Triangle",
+          "description": "The classic Reuleaux triangle.",
+          "params": {}
+        },
+        {
+          "name": "Pentagon",
+          "description": "Five-sided constant-width shape.",
+          "params": {
+            "sides": 5
+          }
+        },
+        {
+          "name": "Heptagon",
+          "description": "A larger seven-sided roller.",
+          "params": {
+            "sides": 7,
+            "width": 70
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Make:Geometry Models (whosawhatsis)",
+        "license": "CC-BY-4.0",
+        "author": "Joan Horvath and Rich Cameron",
+        "repository": "https://github.com/whosawhatsis/Geometry"
+      }
+    },
+    "geometry_sundial_gnomon": {
+      "label": "Sundial Gnomon",
+      "short": "Sundial gnomon",
+      "category": "Astronomy",
+      "icon": "dial",
+      "source": "objects/wrappers/geometry_sundial_gnomon.scad",
+      "description": "The triangular shadow caster for a horizontal sundial, angled for the observer latitude so its edge is parallel to the Earth axis and the hour lines come out even.",
+      "tags": [
+        "sundial",
+        "gnomon",
+        "sun",
+        "time",
+        "latitude",
+        "astronomy",
+        "measurement",
+        "teaching"
+      ],
+      "parameters": [
+        {
+          "variable": "length",
+          "label": "Base length",
+          "type": "number",
+          "default": 100,
+          "min": 40,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Length of the triangle along the dial plate."
+        },
+        {
+          "variable": "base",
+          "label": "Foot width",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Width of the foot that stands on the plate."
+        },
+        {
+          "variable": "latitude",
+          "label": "Latitude",
+          "type": "number",
+          "default": 34.1,
+          "min": -66,
+          "max": 66,
+          "step": 0.1,
+          "group": "Location",
+          "unit": "degrees",
+          "help": "Observer latitude; the sign selects the hemisphere."
+        },
+        {
+          "variable": "thickness",
+          "label": "Thickness",
+          "type": "number",
+          "default": 2.2,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the printed plate."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Mid-latitude",
+          "description": "The default 34.1 degree gnomon.",
+          "params": {}
+        },
+        {
+          "name": "Tropic",
+          "description": "Cut for the Tropic of Cancer.",
+          "params": {
+            "latitude": 23.4
+          }
+        },
+        {
+          "name": "Equatorial",
+          "description": "A nearly upright gnomon.",
+          "params": {
+            "latitude": 5
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Make:Geometry Models (whosawhatsis)",
+        "license": "CC-BY-4.0",
+        "author": "Joan Horvath and Rich Cameron",
+        "repository": "https://github.com/whosawhatsis/Geometry"
+      }
+    },
+    "rocket_nose_cone": {
+      "label": "Rocket Nose Cone (Haack)",
+      "short": "Nose cone",
+      "category": "Rocketry",
+      "icon": "rocket",
+      "source": "objects/wrappers/rocket_nose_cone.scad",
+      "description": "A Haack-series model rocket nose cone on a short cylindrical shoulder: pick the von Karman, LV-Haack or any in-between profile with the drag factor.",
+      "tags": [
+        "rocket",
+        "nose cone",
+        "haack",
+        "von karman",
+        "model rocket",
+        "aerospace",
+        "fins"
+      ],
+      "parameters": [
+        {
+          "variable": "cone_diameter",
+          "label": "Body diameter",
+          "type": "number",
+          "default": 73,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Outside diameter of the body tube the cone fits."
+        },
+        {
+          "variable": "cone_length",
+          "label": "Total length",
+          "type": "number",
+          "default": 100,
+          "min": 30,
+          "max": 400,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Length of the shoulder plus the curved nose."
+        },
+        {
+          "variable": "base_length",
+          "label": "Shoulder length",
+          "type": "number",
+          "default": 8,
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Straight cylindrical section that slides into the tube."
+        },
+        {
+          "variable": "c_factor",
+          "label": "Haack factor",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "group": "Profile",
+          "help": "0 is the von Karman (LD-Haack) shape and 0.35 is the LV-Haack shape."
+        },
+        {
+          "variable": "resolution",
+          "label": "Resolution",
+          "type": "integer",
+          "default": 200,
+          "min": 40,
+          "max": 400,
+          "step": 20,
+          "group": "Style",
+          "help": "Facets around the cone; lower prints faster."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Von Karman",
+          "description": "Minimum-drag LD-Haack profile.",
+          "params": {}
+        },
+        {
+          "name": "LV-Haack",
+          "description": "Minimum-drag for a given volume.",
+          "params": {
+            "c_factor": 0.35
+          }
+        },
+        {
+          "name": "Long ogive",
+          "description": "A 280 mm slender cone.",
+          "params": {
+            "cone_length": 280
+          }
+        },
+        {
+          "name": "29 mm cone",
+          "description": "Small model rocket size.",
+          "params": {
+            "cone_diameter": 29,
+            "cone_length": 120
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Rocketry (CGrassin)",
+        "license": "MIT",
+        "author": "Charles Grassin",
+        "repository": "https://github.com/CGrassin/rocketry"
+      }
+    },
+    "rocket_nose_cone_biconic": {
+      "label": "Rocket Nose Cone (Biconic)",
+      "short": "Biconic cone",
+      "category": "Rocketry",
+      "icon": "rocket",
+      "source": "objects/wrappers/rocket_nose_cone_biconic.scad",
+      "description": "A biconic nose cone built from two stacked cones, with a narrow pointed tip over a wide base cone for a simple low-drag student rocket.",
+      "tags": [
+        "rocket",
+        "nose cone",
+        "biconic",
+        "model rocket",
+        "aerospace",
+        "education"
+      ],
+      "parameters": [
+        {
+          "variable": "cone_diameter",
+          "label": "Body diameter",
+          "type": "number",
+          "default": 73,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Base diameter that matches the body tube."
+        },
+        {
+          "variable": "nose_diameter",
+          "label": "Tip diameter",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 100,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Diameter where the two cones meet."
+        },
+        {
+          "variable": "length_upper",
+          "label": "Tip length",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Length of the narrow tip cone."
+        },
+        {
+          "variable": "length_lower",
+          "label": "Base length",
+          "type": "number",
+          "default": 60,
+          "min": 10,
+          "max": 300,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Length of the wide base cone."
+        },
+        {
+          "variable": "resolution",
+          "label": "Resolution",
+          "type": "integer",
+          "default": 200,
+          "min": 40,
+          "max": 400,
+          "step": 20,
+          "group": "Style",
+          "help": "Facets around the cone; lower prints faster."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "The default proportions.",
+          "params": {}
+        },
+        {
+          "name": "Long nose",
+          "description": "A stretched base cone.",
+          "params": {
+            "length_lower": 160
+          }
+        },
+        {
+          "name": "Blunt tip",
+          "description": "A wider, stubbier tip.",
+          "params": {
+            "nose_diameter": 50
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Rocketry (CGrassin)",
+        "license": "MIT",
+        "author": "Charles Grassin",
+        "repository": "https://github.com/CGrassin/rocketry"
+      }
+    },
+    "rocket_gimbal_test_stand": {
+      "label": "Rocket Gimbal Test Stand",
+      "short": "Gimbal stand",
+      "category": "Rocketry",
+      "icon": "wrench",
+      "source": "objects/wrappers/rocket_gimbal_test_stand.scad",
+      "description": "A truncated cone stand that cradles a rocket motor mount on gimbal screws for thrust-vector tests, with cut-outs for the servo arms and screw holes in the base.",
+      "tags": [
+        "rocket",
+        "gimbal",
+        "test stand",
+        "thrust vector",
+        "model rocket",
+        "lab",
+        "education"
+      ],
+      "parameters": [
+        {
+          "variable": "rocket_diameter",
+          "label": "Motor mount",
+          "type": "number",
+          "default": 70,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Inside diameter that grips the motor mount tube."
+        },
+        {
+          "variable": "stand_height",
+          "label": "Stand height",
+          "type": "number",
+          "default": 55,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Height of the cone above the base flange."
+        },
+        {
+          "variable": "base_screw_holes",
+          "label": "Base screw holes",
+          "type": "boolean",
+          "default": true,
+          "group": "Mounting",
+          "help": "Drill four screw holes through the base flange."
+        }
+      ],
+      "presets": [
+        {
+          "name": "70 mm stand",
+          "description": "The default test stand.",
+          "params": {}
+        },
+        {
+          "name": "38 mm stand",
+          "description": "For a smaller motor mount.",
+          "params": {
+            "rocket_diameter": 38,
+            "stand_height": 45
+          }
+        },
+        {
+          "name": "No base holes",
+          "description": "Clamp or glue it down instead.",
+          "params": {
+            "base_screw_holes": false
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Rocketry (CGrassin)",
+        "license": "MIT",
+        "author": "Charles Grassin",
+        "repository": "https://github.com/CGrassin/rocketry"
+      }
+    },
+    "telescope_spider_120": {
+      "label": "Telescope Spider, 3-Vane",
+      "short": "Spider 3-vane",
+      "category": "Astronomy",
+      "icon": "iso",
+      "source": "objects/wrappers/telescope_spider_120.scad",
+      "description": "The three-vane hub of a Newtonian secondary-mirror spider, cut from a round disc with clearance for the collimation screws.",
+      "tags": [
+        "telescope",
+        "spider",
+        "newtonian",
+        "secondary mirror",
+        "astronomy",
+        "optics",
+        "mount"
+      ],
+      "parameters": [
+        {
+          "variable": "dm",
+          "label": "Outer diameter",
+          "type": "number",
+          "default": 78,
+          "min": 40,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Diameter of the round hub."
+        },
+        {
+          "variable": "hm",
+          "label": "Hub height",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 80,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the hub along the optical axis."
+        },
+        {
+          "variable": "dh",
+          "label": "Centre hole",
+          "type": "number",
+          "default": 9.5,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Clearance hole for the central mirror-holder screw."
+        },
+        {
+          "variable": "hlh",
+          "label": "Vane hole depth",
+          "type": "number",
+          "default": 50,
+          "min": 5,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Depth of the through holes that take the vane rods."
+        },
+        {
+          "variable": "fi",
+          "label": "Cut-out fillet",
+          "type": "number",
+          "default": 12,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Radius of the rounded corners of the three cut-outs."
+        },
+        {
+          "variable": "vane_spacing",
+          "label": "Vane spacing",
+          "type": "number",
+          "default": 12,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Gap between the two parallel vanes of each arm."
+        }
+      ],
+      "presets": [
+        {
+          "name": "3-vane hub",
+          "description": "The default 78 mm hub.",
+          "params": {}
+        },
+        {
+          "name": "Compact",
+          "description": "A smaller 60 mm hub.",
+          "params": {
+            "dm": 60,
+            "hm": 22
+          }
+        },
+        {
+          "name": "Wide vanes",
+          "description": "Roomier vane slots.",
+          "params": {
+            "vane_spacing": 18,
+            "fi": 18
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Telescope Spider (erellaz)",
+        "license": "MIT",
+        "author": "erellaz",
+        "repository": "https://github.com/erellaz/Spider"
+      }
+    },
+    "telescope_spider_90": {
+      "label": "Telescope Spider, 4-Vane",
+      "short": "Spider 4-vane",
+      "category": "Astronomy",
+      "icon": "iso",
+      "source": "objects/wrappers/telescope_spider_90.scad",
+      "description": "The four-vane hub of a Newtonian secondary-mirror spider, cut from a square block with round collimation reliefs in every corner.",
+      "tags": [
+        "telescope",
+        "spider",
+        "newtonian",
+        "secondary mirror",
+        "astronomy",
+        "optics",
+        "mount"
+      ],
+      "parameters": [
+        {
+          "variable": "dm",
+          "label": "Hub size",
+          "type": "number",
+          "default": 78,
+          "min": 40,
+          "max": 200,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Width of the square hub block."
+        },
+        {
+          "variable": "hm",
+          "label": "Hub height",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 80,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the hub along the optical axis."
+        },
+        {
+          "variable": "dh",
+          "label": "Centre hole",
+          "type": "number",
+          "default": 9.5,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Clearance hole for the central mirror-holder screw."
+        },
+        {
+          "variable": "hlh",
+          "label": "Vane hole depth",
+          "type": "number",
+          "default": 12,
+          "min": 5,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Depth of the through holes that take the vane rods."
+        },
+        {
+          "variable": "fi",
+          "label": "Corner relief",
+          "type": "number",
+          "default": 14,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Radius of the rounded relief at each corner."
+        },
+        {
+          "variable": "vane_spacing",
+          "label": "Vane spacing",
+          "type": "number",
+          "default": 11,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Gap between the two parallel vanes of each arm."
+        }
+      ],
+      "presets": [
+        {
+          "name": "4-vane hub",
+          "description": "The default 78 mm hub.",
+          "params": {}
+        },
+        {
+          "name": "Compact",
+          "description": "A smaller 60 mm hub.",
+          "params": {
+            "dm": 60,
+            "hm": 22
+          }
+        },
+        {
+          "name": "Wide vanes",
+          "description": "Roomier vane slots.",
+          "params": {
+            "vane_spacing": 17,
+            "fi": 18
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Telescope Spider (erellaz)",
+        "license": "MIT",
+        "author": "erellaz",
+        "repository": "https://github.com/erellaz/Spider"
+      }
+    },
+    "telescope_tube_ring": {
+      "label": "Telescope Tube Ring",
+      "short": "Tube ring",
+      "category": "Astronomy",
+      "icon": "tube",
+      "source": "objects/wrappers/telescope_tube_ring.scad",
+      "description": "A clamp ring that bolts a telescope tube onto an equatorial mount, with a dovetail foot, hinge ear and axial screw holes.",
+      "tags": [
+        "telescope",
+        "tube ring",
+        "clamp",
+        "equatorial mount",
+        "astronomy",
+        "optics",
+        "dovetail"
+      ],
+      "parameters": [
+        {
+          "variable": "sun_screen_diam",
+          "label": "Tube diameter",
+          "type": "number",
+          "default": 146,
+          "min": 60,
+          "max": 300,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Outside diameter of the telescope tube it clamps."
+        },
+        {
+          "variable": "width",
+          "label": "Ring width",
+          "type": "number",
+          "default": 15,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Wall thickness added around the tube."
+        },
+        {
+          "variable": "hh",
+          "label": "Ring height",
+          "type": "number",
+          "default": 25,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Width of the ring along the tube axis."
+        }
+      ],
+      "presets": [
+        {
+          "name": "146 mm tube",
+          "description": "The default ring for a 146 mm tube.",
+          "params": {}
+        },
+        {
+          "name": "100 mm tube",
+          "description": "A ring for an 80 mm refractor.",
+          "params": {
+            "sun_screen_diam": 100,
+            "width": 12
+          }
+        },
+        {
+          "name": "Wide ring",
+          "description": "A taller, wider clamp.",
+          "params": {
+            "width": 25,
+            "hh": 35
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Telescope Ring (erellaz)",
+        "license": "MIT",
+        "author": "erellaz",
+        "repository": "https://github.com/erellaz/Telescope-ring"
+      }
+    },
+    "microscope_filter_holder": {
+      "label": "Microscope Filter Holder",
+      "short": "Filter holder",
+      "category": "Lab",
+      "icon": "cylinder",
+      "source": "objects/wrappers/microscope_filter_holder.scad",
+      "description": "A 45 mm filter holder that drops into a Nikon Diaphot TMD stage frame, with a recessed glass seat and a barbed seat for a gel filter.",
+      "tags": [
+        "microscope",
+        "filter",
+        "holder",
+        "optics",
+        "lab",
+        "microscopy",
+        "diaphot"
+      ],
+      "parameters": [
+        {
+          "variable": "glass_diameter",
+          "label": "Glass diameter",
+          "type": "number",
+          "default": 45,
+          "min": 20,
+          "max": 80,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Diameter of the round filter or glass."
+        },
+        {
+          "variable": "glass_thickness",
+          "label": "Glass thickness",
+          "type": "number",
+          "default": 1.28,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.01,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the glass, used for the seat depth."
+        },
+        {
+          "variable": "body_thickness",
+          "label": "Holder thickness",
+          "type": "number",
+          "default": 8,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the holder through the optics."
+        }
+      ],
+      "presets": [
+        {
+          "name": "45 mm filter",
+          "description": "The default holder.",
+          "params": {}
+        },
+        {
+          "name": "25 mm filter",
+          "description": "A smaller filter.",
+          "params": {
+            "glass_diameter": 25,
+            "body_thickness": 6
+          }
+        },
+        {
+          "name": "Thicker body",
+          "description": "More material around the filter.",
+          "params": {
+            "body_thickness": 12
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Diaphot TMD Holders (wivy1)",
+        "license": "MIT",
+        "author": "Will Ivy",
+        "repository": "https://github.com/wivy1/nikon-diaphot-tmd"
+      }
+    },
+    "microscope_objective_holder": {
+      "label": "Microscope Objective Holder",
+      "short": "Objective holder",
+      "category": "Lab",
+      "icon": "cylinder",
+      "source": "objects/wrappers/microscope_objective_holder.scad",
+      "description": "The tapered universal objective holder that sits in the Nikon Diaphot TMD stage frame, with slide pockets, a dish recess and a support lip.",
+      "tags": [
+        "microscope",
+        "objective",
+        "slide holder",
+        "optics",
+        "lab",
+        "microscopy",
+        "diaphot"
+      ],
+      "parameters": [
+        {
+          "variable": "frame_inner_span_x",
+          "label": "Frame span",
+          "type": "number",
+          "default": 141.85,
+          "min": 80,
+          "max": 250,
+          "step": 0.05,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Inner span of the microscope stage frame it slides into."
+        },
+        {
+          "variable": "holder_depth_y",
+          "label": "Holder depth",
+          "type": "number",
+          "default": 63,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Front-to-rear depth of the holder."
+        },
+        {
+          "variable": "holder_body_height_z",
+          "label": "Plate height",
+          "type": "number",
+          "default": 3.5,
+          "min": 1,
+          "max": 10,
+          "step": 0.25,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Height of the holder plate above the frame."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Diaphot TMD",
+          "description": "The default holder.",
+          "params": {}
+        },
+        {
+          "name": "Narrow frame",
+          "description": "For a narrower stage frame.",
+          "params": {
+            "frame_inner_span_x": 120
+          }
+        },
+        {
+          "name": "Thicker plate",
+          "description": "A more rigid holder.",
+          "params": {
+            "holder_body_height_z": 5
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Diaphot TMD Holders (wivy1)",
+        "license": "MIT",
+        "author": "Will Ivy",
+        "repository": "https://github.com/wivy1/nikon-diaphot-tmd"
+      }
+    },
+    "microscope_holder_clamp": {
+      "label": "Microscope Stage Clamp",
+      "short": "Stage clamp",
+      "category": "Lab",
+      "icon": "wrench",
+      "source": "objects/wrappers/microscope_holder_clamp.scad",
+      "description": "The universal objective holder fitted with spring clamp tabs that grip the Nikon Diaphot TMD stage frame so it cannot slide while focusing.",
+      "tags": [
+        "microscope",
+        "clamp",
+        "objective",
+        "optics",
+        "lab",
+        "microscopy",
+        "diaphot"
+      ],
+      "parameters": [
+        {
+          "variable": "frame_inner_span_x",
+          "label": "Frame span",
+          "type": "number",
+          "default": 141.85,
+          "min": 80,
+          "max": 250,
+          "step": 0.05,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Inner span of the microscope stage frame it clips onto."
+        },
+        {
+          "variable": "holder_height_y",
+          "label": "Holder depth",
+          "type": "number",
+          "default": 63,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Front-to-rear depth of the holder."
+        },
+        {
+          "variable": "holder_body_height_z",
+          "label": "Plate height",
+          "type": "number",
+          "default": 4.75,
+          "min": 1,
+          "max": 10,
+          "step": 0.25,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Height of the holder plate above the frame."
+        },
+        {
+          "variable": "clamp_tab_thickness_z",
+          "label": "Tab thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.25,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the clamp tabs above the plate."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Diaphot TMD",
+          "description": "The default clamped holder.",
+          "params": {}
+        },
+        {
+          "name": "Narrow frame",
+          "description": "For a narrower stage frame.",
+          "params": {
+            "frame_inner_span_x": 120
+          }
+        },
+        {
+          "name": "Taller tabs",
+          "description": "A firmer grip on the frame.",
+          "params": {
+            "clamp_tab_thickness_z": 3
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Diaphot TMD Holders (wivy1)",
+        "license": "MIT",
+        "author": "Will Ivy",
+        "repository": "https://github.com/wivy1/nikon-diaphot-tmd"
+      }
+    },
+    "equatorial_sundial": {
+      "label": "Equatorial Sundial",
+      "short": "Sundial",
+      "category": "Astronomy",
+      "icon": "dial",
+      "source": "objects/wrappers/equatorial_sundial.scad",
+      "description": "A latitude-adjustable equatorial sundial with an embossed hour ring, a support arc and a base disc, showing how a gnomon parallel to the Earth axis reads solar time.",
+      "tags": [
+        "sundial",
+        "equatorial",
+        "sun",
+        "time",
+        "latitude",
+        "longitude",
+        "astronomy",
+        "measurement"
+      ],
+      "parameters": [
+        {
+          "variable": "latitude",
+          "label": "Latitude",
+          "type": "number",
+          "default": 50.11,
+          "min": -66,
+          "max": 66,
+          "step": 0.01,
+          "group": "Location",
+          "unit": "degrees",
+          "help": "Observer latitude; the sign selects the hemisphere."
+        },
+        {
+          "variable": "longitude",
+          "label": "Longitude",
+          "type": "number",
+          "default": 14.44,
+          "min": -180,
+          "max": 180,
+          "step": 0.01,
+          "group": "Location",
+          "unit": "degrees",
+          "help": "Observer longitude, used for the hour offset."
+        },
+        {
+          "variable": "inner_radius",
+          "label": "Ring radius",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Inner radius of the hour annulus."
+        },
+        {
+          "variable": "annulus_thickness",
+          "label": "Ring width",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Radial width of the hour ring."
+        },
+        {
+          "variable": "segments",
+          "label": "Segments",
+          "type": "integer",
+          "default": 24,
+          "min": 4,
+          "max": 48,
+          "step": 4,
+          "group": "Style",
+          "help": "Number of hour segments around the ring."
+        },
+        {
+          "variable": "text_size",
+          "label": "Number size",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "group": "Style",
+          "unit": "mm",
+          "help": "Height of the embossed hour numbers."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Prague",
+          "description": "The default 50.11 N dial.",
+          "params": {}
+        },
+        {
+          "name": "Near the equator",
+          "description": "A nearly flat dial.",
+          "params": {
+            "latitude": 5
+          }
+        },
+        {
+          "name": "Large dial",
+          "description": "An 80 mm ring.",
+          "params": {
+            "inner_radius": 80,
+            "text_size": 8
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Equatorial Sundial (RyanDMott)",
+        "license": "MIT",
+        "author": "RyanDMott",
+        "repository": "https://github.com/RyanDMott/equatorial-sundial"
+      }
+    },
+    "sundial_analemma": {
+      "label": "Sundial Analemma Groove",
+      "short": "Analemma",
+      "category": "Astronomy",
+      "icon": "wireframe",
+      "source": "objects/wrappers/sundial_analemma.scad",
+      "description": "The figure-of-eight analemma groove for an equatorial sundial, shown cut into a demo slab so the equation of time can be traced as the year passes.",
+      "tags": [
+        "analemma",
+        "sundial",
+        "equation of time",
+        "sun",
+        "astronomy",
+        "measurement",
+        "education"
+      ],
+      "parameters": [
+        {
+          "variable": "ANALEMMA_R",
+          "label": "Projection radius",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Radius the analemma is projected onto."
+        },
+        {
+          "variable": "GROOVE_WIDTH",
+          "label": "Groove width",
+          "type": "number",
+          "default": 0.5,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Width of the cut groove."
+        },
+        {
+          "variable": "GROOVE_DEPTH",
+          "label": "Groove depth",
+          "type": "number",
+          "default": 0.3,
+          "min": 0.1,
+          "max": 2,
+          "step": 0.1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Depth of the cut groove."
+        },
+        {
+          "variable": "SLAB_THICK",
+          "label": "Slab thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the demo slab the groove is cut into."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Demo slab",
+          "description": "The default slab with the groove.",
+          "params": {}
+        },
+        {
+          "name": "Deep groove",
+          "description": "An easier-to-feel groove.",
+          "params": {
+            "GROOVE_DEPTH": 0.8,
+            "GROOVE_WIDTH": 1
+          }
+        },
+        {
+          "name": "Large",
+          "description": "An 80 mm projection.",
+          "params": {
+            "ANALEMMA_R": 80
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Equatorial Sundial (RyanDMott)",
+        "license": "MIT",
+        "author": "RyanDMott",
+        "repository": "https://github.com/RyanDMott/equatorial-sundial"
+      }
+    },
+    "astro_dovetail_bar": {
+      "label": "Telescope Dovetail Bar",
+      "short": "Dovetail bar",
+      "category": "Astronomy",
+      "icon": "plate",
+      "source": "objects/wrappers/astro_dovetail_bar.scad",
+      "description": "A Losmandy-style dovetail bar that bolts to a telescope tube and clamps into a mount saddle, with the tapered sides cut to the standard profile.",
+      "tags": [
+        "telescope",
+        "dovetail",
+        "bar",
+        "equatorial mount",
+        "astronomy",
+        "mount",
+        "losmandy"
+      ],
+      "parameters": [
+        {
+          "variable": "main_tube_lenght",
+          "label": "Bar length",
+          "type": "number",
+          "default": 100,
+          "min": 50,
+          "max": 400,
+          "step": 5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Length of the dovetail bar; the variable keeps the upstream spelling."
+        }
+      ],
+      "presets": [
+        {
+          "name": "100 mm bar",
+          "description": "The default bar.",
+          "params": {}
+        },
+        {
+          "name": "200 mm bar",
+          "description": "A longer bar for a bigger tube.",
+          "params": {
+            "main_tube_lenght": 200
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Astronomy Replicas (hongming)",
+        "license": "MIT",
+        "author": "Hongming",
+        "repository": "https://github.com/hongming/OpenSCAD_Astro_Replicas"
+      }
+    },
+    "astro_dovetail_saddle": {
+      "label": "Telescope Dovetail Saddle",
+      "short": "Dovetail saddle",
+      "category": "Astronomy",
+      "icon": "bracket",
+      "source": "objects/wrappers/astro_dovetail_saddle.scad",
+      "description": "The dovetail saddle that clamps a telescope bar onto an equatorial mount, with a knurled locking knob and a tapered dovetail channel.",
+      "tags": [
+        "telescope",
+        "dovetail",
+        "saddle",
+        "equatorial mount",
+        "astronomy",
+        "mount",
+        "clamp"
+      ],
+      "parameters": [
+        {
+          "variable": "tail_for_telescope_width",
+          "label": "Saddle width",
+          "type": "number",
+          "default": 63,
+          "min": 30,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Width of the dovetail channel."
+        },
+        {
+          "variable": "tail_for_telescope_thickness",
+          "label": "Saddle thickness",
+          "type": "number",
+          "default": 20,
+          "min": 8,
+          "max": 60,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Overall thickness of the saddle block."
+        },
+        {
+          "variable": "tail_for_telescope_cut1_length",
+          "label": "Upper cut width",
+          "type": "number",
+          "default": 38,
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Width of the upper dovetail cut."
+        },
+        {
+          "variable": "tail_for_telescope_cut2_length",
+          "label": "Lower cut width",
+          "type": "number",
+          "default": 54,
+          "min": 10,
+          "max": 120,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Width of the lower dovetail cut."
+        },
+        {
+          "variable": "tail_for_telescope_cut3_thickness",
+          "label": "Dovetail lip",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the lip the bar slides behind."
+        }
+      ],
+      "presets": [
+        {
+          "name": "63 mm saddle",
+          "description": "The default saddle.",
+          "params": {}
+        },
+        {
+          "name": "Wide saddle",
+          "description": "For a wider dovetail bar.",
+          "params": {
+            "tail_for_telescope_width": 90
+          }
+        },
+        {
+          "name": "Deep cuts",
+          "description": "A deeper dovetail channel.",
+          "params": {
+            "tail_for_telescope_cut3_thickness": 14
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Astronomy Replicas (hongming)",
+        "license": "MIT",
+        "author": "Hongming",
+        "repository": "https://github.com/hongming/OpenSCAD_Astro_Replicas"
+      }
+    },
+    "periodic_table_model": {
+      "label": "3D Periodic Table",
+      "short": "Periodic table",
+      "category": "Lab",
+      "icon": "library",
+      "source": "objects/wrappers/periodic_table_model.scad",
+      "description": "Paul Giguere's three-dimensional periodic table, printed as one teaching model with every element block labelled and arranged by orbital block.",
+      "tags": [
+        "periodic table",
+        "chemistry",
+        "elements",
+        "science",
+        "education",
+        "teaching",
+        "atoms"
+      ],
+      "parameters": [
+        {
+          "variable": "width",
+          "label": "Block width",
+          "type": "number",
+          "default": 16,
+          "min": 8,
+          "max": 30,
+          "step": 0.5,
+          "group": "Blocks",
+          "unit": "mm",
+          "help": "Width of each element block."
+        },
+        {
+          "variable": "height",
+          "label": "Block height",
+          "type": "number",
+          "default": 16,
+          "min": 8,
+          "max": 30,
+          "step": 0.5,
+          "group": "Blocks",
+          "unit": "mm",
+          "help": "Height of each element block."
+        },
+        {
+          "variable": "depth",
+          "label": "Block depth",
+          "type": "number",
+          "default": 8,
+          "min": 4,
+          "max": 20,
+          "step": 0.5,
+          "group": "Blocks",
+          "unit": "mm",
+          "help": "Depth of each element block."
+        },
+        {
+          "variable": "vspace",
+          "label": "Vertical gap",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 8,
+          "step": 0.5,
+          "group": "Blocks",
+          "unit": "mm",
+          "help": "Gap between element blocks vertically."
+        },
+        {
+          "variable": "hspace",
+          "label": "Horizontal gap",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 8,
+          "step": 0.5,
+          "group": "Blocks",
+          "unit": "mm",
+          "help": "Gap between element blocks horizontally."
+        },
+        {
+          "variable": "fontsize",
+          "label": "Text size",
+          "type": "number",
+          "default": 7,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "group": "Text",
+          "unit": "mm",
+          "help": "Height of the element symbols."
+        },
+        {
+          "variable": "textheight",
+          "label": "Text relief",
+          "type": "number",
+          "default": 0.7,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "group": "Text",
+          "unit": "mm",
+          "help": "How far the symbols stand off the blocks."
+        },
+        {
+          "variable": "core",
+          "label": "Core thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Thickness of the connecting core wall."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Desk model",
+          "description": "The default 16 mm blocks.",
+          "params": {}
+        },
+        {
+          "name": "Small blocks",
+          "description": "A compact classroom-sized model.",
+          "params": {
+            "width": 12,
+            "height": 12,
+            "depth": 6,
+            "fontsize": 5
+          }
+        },
+        {
+          "name": "Large blocks",
+          "description": "A big display model.",
+          "params": {
+            "width": 22,
+            "height": 22,
+            "depth": 12,
+            "fontsize": 9,
+            "textheight": 1
+          }
+        }
+      ],
+      "attribution": {
+        "label": "3D Periodic Table (groverlab)",
+        "license": "MIT",
+        "author": "William H. Grover",
+        "repository": "https://github.com/groverlab/giguere-3D-periodic-table"
       }
     }
   }

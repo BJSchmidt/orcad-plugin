@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Sixty-seven upstream OpenSCAD libraries are vendored unmodified under
+Seventy-five upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -569,6 +569,89 @@ Vendored:  openscad/vendor/parametric-openscad-generators-e91cfac6/ - the
            plus the upstream LICENSE, keeping upstream's Projects/ layout. The
            progress notebooks, the electronics and flange generators and the
            enclosure sources are not vendored.
+
+whosawhatsis-geometry (whosawhatsis/Geometry)
+---------------------------------------------
+Upstream:  https://github.com/whosawhatsis/Geometry
+Pinned at: 0aaf3e49385d07b08e03564476bae8124e284138
+License:   CC-BY-4.0. Copyright (c) 2020 Joan Horvath and Rich Cameron; the license
+           requires attribution, which the model cards, NOTICE and README also give.
+Vendored:  openscad/vendor/whosawhatsis-geometry-0aaf3e49/ - the six geometry teaching models
+           (Polygons+Polyhedrons/platonicSolids.scad,
+           Polygons+Polyhedrons/edge_platonic_solids.scad, Nets/platonic_net.scad,
+           Reuleaux/meissner.scad, Reuleaux/reuleaux-n-gon.scad and
+           Gnomon/sun_dial_gnomon.scad), the upstream LICENSE (shipped upstream as
+           LICENSE.md) and README.md, keeping upstream's own directory names. The
+           rest of the Make:Geometry tree is not vendored.
+
+cg-rassin-rocketry (CGrassin/rocketry)
+--------------------------------------
+Upstream:  https://github.com/CGrassin/rocketry
+Pinned at: 7b7783a369f8496e1e0b4fc6bd2372f3161ea0b3
+License:   MIT. Copyright (c) 2020 Charles Grassin.
+Vendored:  openscad/vendor/cg-rassin-rocketry-7b7783a3/ - the Haack-series nose cone library
+           (KeplerMK1_NoseCone.scad, itself based on Garrett Goss's public-domain
+           NOSE CONE LIBRARY) and KeplerMK1_GimbalTestStand.scad plus the upstream
+           LICENSE: the two nose cones and the motor-mount test stand.
+
+erellaz-spider (erellaz/Spider)
+-------------------------------
+Upstream:  https://github.com/erellaz/Spider
+Pinned at: ee9711effbcb949e20f4f52fdde4bbbde37c7574
+License:   MIT. Copyright (c) 2020 erellaz.
+Vendored:  openscad/vendor/erellaz-spider-ee9711ef/ - the three-vane and four-vane
+           secondary-mirror hubs (vane_support_120_degrees_double_v0.scad and
+           vane_support_90_degrees_double_v0.scad) plus the upstream LICENSE.
+
+erellaz-telescope-ring (erellaz/Telescope-ring)
+-----------------------------------------------
+Upstream:  https://github.com/erellaz/Telescope-ring
+Pinned at: aef1b9b51967fc1b24e1891ebd3dfad582100f62
+License:   MIT. Copyright (c) 2023 erellaz.
+Vendored:  openscad/vendor/erellaz-telescope-ring-aef1b9b5/ - Esprit100_ring_v5.scad, the
+           parametric ring that clamps a telescope tube to an equatorial mount, plus
+           the upstream LICENSE.
+
+nikon-diaphot-tmd (wivy1/nikon-diaphot-tmd)
+-------------------------------------------
+Upstream:  https://github.com/wivy1/nikon-diaphot-tmd
+Pinned at: d86aeaaa0edbd100c16ab3f61799bd4820c0d16f
+License:   MIT. Copyright (c) 2026 Will Ivy.
+Vendored:  openscad/vendor/nikon-diaphot-tmd-d86aeaaa/ - the 45 mm filter holder and the
+           universal objective holders with the tapered frame and with clamp tabs
+           (nikon_diaphot_45mm_filter_holder.scad,
+           nikon_diaphot_universal_holder_taper.scad and
+           nikon_diaphot_universal_holder_clamp.scad) plus the upstream LICENSE.
+           The 4x and 10x objective adapters are not vendored.
+
+equatorial-sundial (RyanDMott/equatorial-sundial)
+-------------------------------------------------
+Upstream:  https://github.com/RyanDMott/equatorial-sundial
+Pinned at: 5ece8a9cdabb0969b9534ca3c5d1009226347e4e
+License:   MIT. Copyright (c) 2026 RyanDMott.
+Vendored:  openscad/vendor/equatorial-sundial-5ece8a9c/ - the latitude-adjustable equatorial
+           sundial (equatorial_sundial.scad), the analemma figure-of-eight groove
+           (analemma_groove.scad) and the analemma data table it includes
+           (analemma_2030.scad) plus the upstream LICENSE. The analemma and solar
+           helper scripts and the sample renders are not vendored.
+
+astro-replicas (hongming/OpenSCAD_Astro_Replicas)
+-------------------------------------------------
+Upstream:  https://github.com/hongming/OpenSCAD_Astro_Replicas
+Pinned at: 363b6388f06b337deb8de44bc2d657833eb4cfd6
+License:   MIT. Copyright (c) 2024 Hongming.
+Vendored:  openscad/vendor/astro-replicas-363b6388/ - the Losmandy-style dovetail bar and the
+           dovetail saddle under Accessories/ plus the upstream LICENSE. The camera,
+           mount and lens-cover replicas are not vendored.
+
+giguere-periodic-table (groverlab/giguere-3D-periodic-table)
+------------------------------------------------------------
+Upstream:  https://github.com/groverlab/giguere-3D-periodic-table
+Pinned at: c1b07199ec36a11a75f1a7bd54531bfbe12365ae
+License:   MIT. Copyright (c) 2022 William H. Grover.
+Vendored:  openscad/vendor/giguere-periodic-table-c1b07199/ - giguere3d.scad, the
+           3D-printable periodic table of the elements, plus the upstream LICENSE.
+           The reference PDF and photographs are not vendored.
 
 Third-party frontend notices
 ============================
