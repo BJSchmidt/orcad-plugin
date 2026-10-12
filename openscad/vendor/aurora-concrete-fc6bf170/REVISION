@@ -1,0 +1,15 @@
+fc6bf17038d55c76fa27962c94933f6064fc3324
+
+Upstream: https://github.com/AuroraRoboticsLab/Concrete
+License: Unlicense
+Copyright: AuroraRoboticsLab (Dr. Orion Lawlor), released into the public domain
+
+The two self-contained concrete test-mold generators, the ASTM C39 cylinder mold
+and the honeycomb mold, plus the upstream LICENSE, copied verbatim from the pinned
+commit. The AVALON printer sources, the BOSL2-dependent block and cinderblock
+molds, the compression test caps, and the STL and PNG exports are not vendored.
+
+Files:
+  LICENSE
+  honeycomb_mold/honeycomb_mold.scad
+  mold_ASTM_C39_cylinder.scad

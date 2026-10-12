@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Sixty-one upstream OpenSCAD libraries are vendored unmodified under
+Sixty-seven upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -503,6 +503,72 @@ Vendored:  openscad/vendor/clip-openscad-789c87dc/ - the car rear-view-mirror ph
            the archived clips are not vendored. The catalog object is a
            wrapper that restates upstream's iPhone XS geometry with the device
            size as a parameter.
+
+corrugated-pipe-clamp (agjendem)
+--------------------------------
+Upstream:  https://github.com/agjendem/corrugated-pipe-clamp
+Pinned at: f85ac05dca676f67dd6591add7f6e5ab35981062
+License:   MIT. Copyright (c) 2026 agjendem.
+Vendored:  openscad/vendor/corrugated-pipe-clamp-f85ac05d/ - the clamp, snap
+           collar, corner elbow, clear corner elbow, corner bend and panel
+           spigot sources for corrugated electrical conduit, the shared
+           corrugation, brim and thread helpers they include, and the upstream
+           LICENSE. The render and dimension helpers, the build scripts, the
+           JSON dimension dumps and the images are not vendored.
+
+matrixflow (szrudi)
+-------------------
+Upstream:  https://github.com/szrudi/MatrixFlow
+Pinned at: 2938da2202df1a993cda6c920cc9d1d891703236
+License:   MIT. Copyright (c) 2026 Rudi Szabó.
+Vendored:  openscad/vendor/matrixflow-2938da22/ - matrixflow.scad, the
+           self-contained sweep engine that morphs between round and
+           rectangular duct cross-sections, plus the upstream LICENSE. The
+           MakerWorld example wrappers and the archived adapter are not
+           vendored.
+
+pythocrates-openscad-models (Pythocrates)
+-----------------------------------------
+Upstream:  https://github.com/Pythocrates/openscad-models
+Pinned at: 85e20833292a19d51bc617a6ea98f308ad541cb9
+License:   CC0-1.0. Pythocrates dedicates the work to the public domain.
+Vendored:  openscad/vendor/pythocrates-openscad-models-85e20833/ - the garage
+           ventilation grille, the satellite speaker wall mount, the shower
+           rail mount, the curtain rod caps, the hinge tolerance test and the
+           shared lock-plate module, plus the upstream LICENSE. These sources
+           include the separately vendored BOSL library.
+
+aurora-concrete (AuroraRoboticsLab)
+-----------------------------------
+Upstream:  https://github.com/AuroraRoboticsLab/Concrete
+Pinned at: fc6bf17038d55c76fa27962c94933f6064fc3324
+License:   Unlicense. AuroraRoboticsLab released the work into the public
+           domain.
+Vendored:  openscad/vendor/aurora-concrete-fc6bf170/ - the self-contained ASTM
+           C39 concrete cylinder mold and the honeycomb concrete mold, plus the
+           upstream LICENSE. The AVALON printer sources, the BOSL2-dependent
+           block and cinderblock molds, the compression test caps and the STL
+           and PNG exports are not vendored.
+
+parametric-hinge (HarkonenBade)
+-------------------------------
+Upstream:  https://github.com/HarkonenBade/parametric_hinge
+Pinned at: 6195704fe34b5f249a3a067f1808ea0c467b46e3
+License:   MIT. Copyright (c) 2022 Tom.
+Vendored:  openscad/vendor/parametric-hinge-6195704f/ - parametric_hinges.scad,
+           the self-contained print-in-place hinge library, plus the upstream
+           LICENSE. The example and render artifacts are not vendored.
+
+parametric-openscad-generators (lgg1303)
+----------------------------------------
+Upstream:  https://github.com/lgg1303/parametric-openscad-generators
+Pinned at: e91cfac6a96dfe2513489d62b670d768c19f7378
+License:   MIT. Copyright (c) 2026 Lourenço Guerreiro.
+Vendored:  openscad/vendor/parametric-openscad-generators-e91cfac6/ - the
+           mounting plate generator and the shared toolbox module it includes,
+           plus the upstream LICENSE, keeping upstream's Projects/ layout. The
+           progress notebooks, the electronics and flange generators and the
+           enclosure sources are not vendored.
 
 Third-party frontend notices
 ============================

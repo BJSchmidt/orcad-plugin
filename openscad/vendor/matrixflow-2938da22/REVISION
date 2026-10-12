@@ -1,0 +1,14 @@
+2938da2202df1a993cda6c920cc9d1d891703236
+
+Upstream: https://github.com/szrudi/MatrixFlow
+License: MIT
+Copyright: Copyright (c) 2026 Rudi Szabó
+
+The self-contained MatrixFlow sweep engine that morphs between round and
+rectangular duct cross-sections, one file with no includes, plus the upstream
+LICENSE, copied verbatim from the pinned commit. The MakerWorld example
+wrappers and the archived adapter are not vendored.
+
+Files:
+  LICENSE
+  matrixflow.scad

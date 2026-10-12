@@ -475,6 +475,54 @@
       "license": "MIT",
       "repository": "https://github.com/StandardCyborg/clip-openscad",
       "author": "Standard Cyborg"
+    },
+    "corrugated-pipe-clamp": {
+      "label": "Corrugated Pipe Clamp (agjendem)",
+      "root": "vendor/corrugated-pipe-clamp-f85ac05d",
+      "revision": "f85ac05dca676f67dd6591add7f6e5ab35981062",
+      "license": "MIT",
+      "repository": "https://github.com/agjendem/corrugated-pipe-clamp",
+      "author": "agjendem"
+    },
+    "matrixflow": {
+      "label": "MatrixFlow (szrudi)",
+      "root": "vendor/matrixflow-2938da22",
+      "revision": "2938da2202df1a993cda6c920cc9d1d891703236",
+      "license": "MIT",
+      "repository": "https://github.com/szrudi/MatrixFlow",
+      "author": "Rudi Szabó"
+    },
+    "pythocrates-openscad-models": {
+      "label": "OpenSCAD Models (Pythocrates)",
+      "root": "vendor/pythocrates-openscad-models-85e20833",
+      "revision": "85e20833292a19d51bc617a6ea98f308ad541cb9",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/Pythocrates/openscad-models",
+      "author": "Pythocrates"
+    },
+    "aurora-concrete": {
+      "label": "Concrete Molds (AuroraRoboticsLab)",
+      "root": "vendor/aurora-concrete-fc6bf170",
+      "revision": "fc6bf17038d55c76fa27962c94933f6064fc3324",
+      "license": "Unlicense",
+      "repository": "https://github.com/AuroraRoboticsLab/Concrete",
+      "author": "AuroraRoboticsLab"
+    },
+    "parametric-hinge": {
+      "label": "Parametric Hinge (HarkonenBade)",
+      "root": "vendor/parametric-hinge-6195704f",
+      "revision": "6195704fe34b5f249a3a067f1808ea0c467b46e3",
+      "license": "MIT",
+      "repository": "https://github.com/HarkonenBade/parametric_hinge",
+      "author": "Tom (HarkonenBade)"
+    },
+    "parametric-openscad-generators": {
+      "label": "Parametric Generators (lgg1303)",
+      "root": "vendor/parametric-openscad-generators-e91cfac6",
+      "revision": "e91cfac6a96dfe2513489d62b670d768c19f7378",
+      "license": "MIT",
+      "repository": "https://github.com/lgg1303/parametric-openscad-generators",
+      "author": "Lourenço Guerreiro"
     }
   },
   "quality_profiles": {
@@ -29902,6 +29950,2122 @@
         "license": "MIT",
         "author": "Standard Cyborg",
         "repository": "https://github.com/StandardCyborg/clip-openscad"
+      }
+    },
+    "conduit_pipe_clamp": {
+      "label": "Corrugated conduit clamp",
+      "short": "Conduit clamp",
+      "category": "Plumbing",
+      "icon": "tube",
+      "source": "objects/wrappers/conduit_pipe_clamp.scad",
+      "description": "Split clamp that wraps corrugated electrical conduit, with axial grip teeth and an end flange that anchors it in a wall hole.",
+      "tags": [
+        "conduit",
+        "pipe",
+        "clamp",
+        "corrugated",
+        "electrical",
+        "plumbing",
+        "wall"
+      ],
+      "parameters": [
+        {
+          "variable": "pipe_diameter",
+          "label": "Conduit diameter",
+          "type": "number",
+          "default": 15.8,
+          "min": 5,
+          "max": 110,
+          "step": 0.1,
+          "group": "Conduit",
+          "unit": "mm",
+          "help": "Outer (crest) diameter of the corrugated conduit."
+        },
+        {
+          "variable": "bore_diameter",
+          "label": "Hole diameter",
+          "type": "number",
+          "default": 18,
+          "min": 6,
+          "max": 130,
+          "step": 0.1,
+          "group": "Conduit",
+          "unit": "mm",
+          "help": "Drilled hole the clamp body passes through; must exceed the conduit diameter."
+        },
+        {
+          "variable": "corr_count",
+          "label": "Corrugation count",
+          "type": "integer",
+          "default": 6,
+          "min": 2,
+          "max": 40,
+          "step": 1,
+          "group": "Conduit",
+          "help": "Number of grip teeth along the pipe axis."
+        },
+        {
+          "variable": "coverage_deg",
+          "label": "Wrap angle",
+          "type": "number",
+          "default": 200,
+          "min": 90,
+          "max": 359,
+          "step": 5,
+          "group": "Clamp",
+          "unit": "deg"
+        },
+        {
+          "variable": "flange_overhang",
+          "label": "Flange overhang",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "group": "Flange",
+          "unit": "mm"
+        },
+        {
+          "variable": "flange_thickness",
+          "label": "Flange thickness",
+          "type": "number",
+          "default": 1,
+          "min": 0.4,
+          "max": 10,
+          "step": 0.1,
+          "group": "Flange",
+          "unit": "mm"
+        },
+        {
+          "variable": "screw_count",
+          "label": "Screw holes",
+          "type": "integer",
+          "default": 0,
+          "min": 0,
+          "max": 3,
+          "step": 1,
+          "group": "Screw brim"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wall entry",
+          "description": "Screwed brim for a wall or stud.",
+          "params": {
+            "screw_count": 2,
+            "flange_thickness": 3,
+            "flange_overhang": 6
+          }
+        },
+        {
+          "name": "Long grip",
+          "description": "Twelve teeth for a deeper hold.",
+          "params": {
+            "corr_count": 12
+          }
+        },
+        {
+          "name": "20 mm conduit",
+          "params": {
+            "pipe_diameter": 20,
+            "bore_diameter": 22.5
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Corrugated Pipe Clamp (agjendem)",
+        "license": "MIT",
+        "author": "agjendem",
+        "repository": "https://github.com/agjendem/corrugated-pipe-clamp"
+      }
+    },
+    "conduit_snap_collar": {
+      "label": "Conduit snap collar",
+      "short": "Snap collar",
+      "category": "Plumbing",
+      "icon": "cylinder",
+      "source": "objects/wrappers/conduit_snap_collar.scad",
+      "description": "Snap-in collar that holds corrugated conduit in a drilled panel hole and grips the corrugation axially.",
+      "tags": [
+        "conduit",
+        "pipe",
+        "collar",
+        "snap",
+        "gland",
+        "electrical",
+        "panel",
+        "plumbing"
+      ],
+      "parameters": [
+        {
+          "variable": "pipe_diameter",
+          "label": "Conduit diameter",
+          "type": "number",
+          "default": 15.8,
+          "min": 5,
+          "max": 110,
+          "step": 0.1,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "valley_diameter",
+          "label": "Groove diameter",
+          "type": "number",
+          "default": 13.0,
+          "min": 4,
+          "max": 100,
+          "step": 0.1,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "corr_pitch",
+          "label": "Corrugation pitch",
+          "type": "number",
+          "default": 3.79,
+          "min": 1,
+          "max": 20,
+          "step": 0.01,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "coverage_deg",
+          "label": "Snap angle",
+          "type": "number",
+          "default": 240,
+          "min": 180,
+          "max": 330,
+          "step": 5,
+          "group": "Collar",
+          "unit": "deg"
+        },
+        {
+          "variable": "panel_hole",
+          "label": "Panel hole",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 120,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        },
+        {
+          "variable": "panel_thickness",
+          "label": "Panel thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Thin panel",
+          "params": {
+            "panel_thickness": 1
+          }
+        },
+        {
+          "name": "25 mm hole",
+          "params": {
+            "panel_hole": 25
+          }
+        },
+        {
+          "name": "Wide grip",
+          "params": {
+            "coverage_deg": 270
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Corrugated Pipe Clamp (agjendem)",
+        "license": "MIT",
+        "author": "agjendem",
+        "repository": "https://github.com/agjendem/corrugated-pipe-clamp"
+      }
+    },
+    "conduit_corner_elbow": {
+      "label": "Conduit corner elbow",
+      "short": "Conduit elbow",
+      "category": "Plumbing",
+      "icon": "tube",
+      "source": "objects/wrappers/conduit_corner_elbow.scad",
+      "description": "Corner mount that takes corrugated conduit through a panel and turns it through ninety degrees on a threaded neck.",
+      "tags": [
+        "conduit",
+        "pipe",
+        "elbow",
+        "corner",
+        "fitting",
+        "electrical",
+        "plumbing"
+      ],
+      "parameters": [
+        {
+          "variable": "pipe_diameter",
+          "label": "Conduit diameter",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 110,
+          "step": 0.5,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "mount_flange_d",
+          "label": "Mount flange",
+          "type": "number",
+          "default": 94,
+          "min": 20,
+          "max": 200,
+          "step": 0.5,
+          "group": "Mount",
+          "unit": "mm"
+        },
+        {
+          "variable": "bore",
+          "label": "Elbow bore",
+          "type": "number",
+          "default": 34,
+          "min": 8,
+          "max": 100,
+          "step": 0.5,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_diameter",
+          "label": "Panel hole",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 150,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Panel thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall",
+          "label": "Duct wall",
+          "type": "number",
+          "default": 2.5,
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "group": "Conduit",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "25 mm conduit",
+          "params": {
+            "pipe_diameter": 25,
+            "bore": 20,
+            "mount_flange_d": 70
+          }
+        },
+        {
+          "name": "Thick panel",
+          "params": {
+            "plate_thickness": 12
+          }
+        },
+        {
+          "name": "Wide bore",
+          "params": {
+            "bore": 42
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Corrugated Pipe Clamp (agjendem)",
+        "license": "MIT",
+        "author": "agjendem",
+        "repository": "https://github.com/agjendem/corrugated-pipe-clamp"
+      }
+    },
+    "conduit_corner_elbow_clear": {
+      "label": "Conduit corner elbow, clear",
+      "short": "Clear elbow",
+      "category": "Plumbing",
+      "icon": "tube",
+      "source": "objects/wrappers/conduit_corner_elbow_clear.scad",
+      "description": "Corner mount like the standard elbow but with an unobstructed bore, for pulling a cable through the turn.",
+      "tags": [
+        "conduit",
+        "pipe",
+        "elbow",
+        "corner",
+        "clear",
+        "cable",
+        "plumbing"
+      ],
+      "parameters": [
+        {
+          "variable": "pipe_diameter",
+          "label": "Conduit diameter",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 110,
+          "step": 0.5,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "mount_flange_d",
+          "label": "Mount flange",
+          "type": "number",
+          "default": 94,
+          "min": 20,
+          "max": 200,
+          "step": 0.5,
+          "group": "Mount",
+          "unit": "mm"
+        },
+        {
+          "variable": "bore",
+          "label": "Elbow bore",
+          "type": "number",
+          "default": 34,
+          "min": 8,
+          "max": 100,
+          "step": 0.5,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_diameter",
+          "label": "Panel hole",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 150,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Panel thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall",
+          "label": "Duct wall",
+          "type": "number",
+          "default": 2.5,
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "group": "Conduit",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "25 mm conduit",
+          "params": {
+            "pipe_diameter": 25,
+            "bore": 20,
+            "mount_flange_d": 70
+          }
+        },
+        {
+          "name": "Cable pull",
+          "params": {
+            "bore": 44,
+            "wall": 3
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Corrugated Pipe Clamp (agjendem)",
+        "license": "MIT",
+        "author": "agjendem",
+        "repository": "https://github.com/agjendem/corrugated-pipe-clamp"
+      }
+    },
+    "conduit_corner_bend": {
+      "label": "Conduit corner bend",
+      "short": "Conduit bend",
+      "category": "Plumbing",
+      "icon": "tube",
+      "source": "objects/wrappers/conduit_corner_bend.scad",
+      "description": "Swept corner bend that carries corrugated conduit around a right-angled panel corner into a threaded neck.",
+      "tags": [
+        "conduit",
+        "pipe",
+        "bend",
+        "corner",
+        "fitting",
+        "electrical",
+        "plumbing"
+      ],
+      "parameters": [
+        {
+          "variable": "pipe_diameter",
+          "label": "Conduit diameter",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 110,
+          "step": 0.5,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "mount_flange_d",
+          "label": "Mount flange",
+          "type": "number",
+          "default": 94,
+          "min": 20,
+          "max": 200,
+          "step": 0.5,
+          "group": "Mount",
+          "unit": "mm"
+        },
+        {
+          "variable": "inlet_bore",
+          "label": "Inlet bore",
+          "type": "number",
+          "default": 34,
+          "min": 8,
+          "max": 100,
+          "step": 0.5,
+          "group": "Conduit",
+          "unit": "mm"
+        },
+        {
+          "variable": "outlet_x",
+          "label": "Reach",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 150,
+          "step": 0.5,
+          "group": "Layout",
+          "unit": "mm",
+          "help": "Distance from the glue face to the outlet axis."
+        },
+        {
+          "variable": "hole_diameter",
+          "label": "Panel hole",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 150,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Panel thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 20,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Long reach",
+          "params": {
+            "outlet_x": 70
+          }
+        },
+        {
+          "name": "25 mm conduit",
+          "params": {
+            "pipe_diameter": 25,
+            "inlet_bore": 20,
+            "mount_flange_d": 70
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Corrugated Pipe Clamp (agjendem)",
+        "license": "MIT",
+        "author": "agjendem",
+        "repository": "https://github.com/agjendem/corrugated-pipe-clamp"
+      }
+    },
+    "conduit_panel_spigot": {
+      "label": "Conduit panel spigot",
+      "short": "Panel spigot",
+      "category": "Plumbing",
+      "icon": "plate",
+      "source": "objects/wrappers/conduit_panel_spigot.scad",
+      "description": "Panel spigot with a flanged collar and a threaded neck that locks corrugated conduit to a cabinet wall.",
+      "tags": [
+        "conduit",
+        "pipe",
+        "spigot",
+        "gland",
+        "flange",
+        "electrical",
+        "panel",
+        "plumbing"
+      ],
+      "parameters": [
+        {
+          "variable": "tube_od",
+          "label": "Tube diameter",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 150,
+          "step": 0.5,
+          "group": "Spigot",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall",
+          "label": "Tube wall",
+          "type": "number",
+          "default": 2,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.1,
+          "group": "Spigot",
+          "unit": "mm"
+        },
+        {
+          "variable": "tube_len",
+          "label": "Tube length",
+          "type": "number",
+          "default": 45,
+          "min": 5,
+          "max": 200,
+          "step": 1,
+          "group": "Spigot",
+          "unit": "mm"
+        },
+        {
+          "variable": "collar_over",
+          "label": "Collar overhang",
+          "type": "number",
+          "default": 4,
+          "min": 0,
+          "max": 30,
+          "step": 0.5,
+          "group": "Collar",
+          "unit": "mm"
+        },
+        {
+          "variable": "collar_t",
+          "label": "Collar thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Collar",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_diameter",
+          "label": "Panel hole",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 150,
+          "step": 0.5,
+          "group": "Panel",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "32 mm spigot",
+          "params": {
+            "tube_od": 32,
+            "hole_diameter": 32
+          }
+        },
+        {
+          "name": "Long spigot",
+          "params": {
+            "tube_len": 80
+          }
+        },
+        {
+          "name": "Deep collar",
+          "params": {
+            "collar_t": 8
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Corrugated Pipe Clamp (agjendem)",
+        "license": "MIT",
+        "author": "agjendem",
+        "repository": "https://github.com/agjendem/corrugated-pipe-clamp"
+      }
+    },
+    "duct_reducer": {
+      "label": "Round duct reducer",
+      "short": "Duct reducer",
+      "category": "HVAC",
+      "icon": "tube",
+      "source": "objects/wrappers/duct_reducer.scad",
+      "description": "Straight airflow adapter that steps one round duct diameter down to another, with constant wall thickness.",
+      "tags": [
+        "duct",
+        "reducer",
+        "hvac",
+        "ventilation",
+        "adapter",
+        "pipe",
+        "airflow"
+      ],
+      "parameters": [
+        {
+          "variable": "reducer_height",
+          "label": "Height",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 200,
+          "step": 1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "reducer_wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2.0,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "top_diameter",
+          "label": "Top diameter",
+          "type": "number",
+          "default": 110,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Duct",
+          "unit": "mm"
+        },
+        {
+          "variable": "bottom_diameter",
+          "label": "Bottom diameter",
+          "type": "number",
+          "default": 120,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Duct",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Hose step-down",
+          "params": {
+            "top_diameter": 100,
+            "bottom_diameter": 125
+          }
+        },
+        {
+          "name": "Tall reducer",
+          "params": {
+            "reducer_height": 60
+          }
+        }
+      ],
+      "attribution": {
+        "label": "MatrixFlow (szrudi)",
+        "license": "MIT",
+        "author": "Rudi Szabó",
+        "repository": "https://github.com/szrudi/MatrixFlow"
+      }
+    },
+    "duct_funnel": {
+      "label": "Duct funnel",
+      "short": "Duct funnel",
+      "category": "HVAC",
+      "icon": "tube",
+      "source": "objects/wrappers/duct_funnel.scad",
+      "description": "Funnel that opens a narrow duct throat out to a wide round mouth without ovalising the airflow.",
+      "tags": [
+        "duct",
+        "funnel",
+        "hvac",
+        "ventilation",
+        "adapter",
+        "airflow",
+        "extractor"
+      ],
+      "parameters": [
+        {
+          "variable": "funnel_height",
+          "label": "Height",
+          "type": "number",
+          "default": 60,
+          "min": 5,
+          "max": 300,
+          "step": 1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "funnel_wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2.0,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "funnel_mouth",
+          "label": "Mouth diameter",
+          "type": "number",
+          "default": 120,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Duct",
+          "unit": "mm"
+        },
+        {
+          "variable": "funnel_throat",
+          "label": "Throat diameter",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 300,
+          "step": 1,
+          "group": "Duct",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Extractor hood",
+          "params": {
+            "funnel_mouth": 150,
+            "funnel_throat": 100
+          }
+        },
+        {
+          "name": "Short funnel",
+          "params": {
+            "funnel_height": 30
+          }
+        }
+      ],
+      "attribution": {
+        "label": "MatrixFlow (szrudi)",
+        "license": "MIT",
+        "author": "Rudi Szabó",
+        "repository": "https://github.com/szrudi/MatrixFlow"
+      }
+    },
+    "duct_offset_adapter": {
+      "label": "Offset duct adapter",
+      "short": "Offset adapter",
+      "category": "HVAC",
+      "icon": "tube",
+      "source": "objects/wrappers/duct_offset_adapter.scad",
+      "description": "S-bend adapter that shifts a round duct sideways while easing one diameter into another, without kinking.",
+      "tags": [
+        "duct",
+        "offset",
+        "s-bend",
+        "hvac",
+        "ventilation",
+        "adapter",
+        "airflow"
+      ],
+      "parameters": [
+        {
+          "variable": "adapter_height",
+          "label": "Height",
+          "type": "number",
+          "default": 100,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "adapter_wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2.0,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "duct_diameter",
+          "label": "Duct diameter",
+          "type": "number",
+          "default": 120,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Duct",
+          "unit": "mm"
+        },
+        {
+          "variable": "spigot_diameter",
+          "label": "Spigot diameter",
+          "type": "number",
+          "default": 30,
+          "min": 5,
+          "max": 300,
+          "step": 1,
+          "group": "Duct",
+          "unit": "mm"
+        },
+        {
+          "variable": "offset_x",
+          "label": "Offset X",
+          "type": "number",
+          "default": 60,
+          "min": -500,
+          "max": 500,
+          "step": 1,
+          "group": "Offsets",
+          "unit": "mm"
+        },
+        {
+          "variable": "offset_y",
+          "label": "Offset Y",
+          "type": "number",
+          "default": 60,
+          "min": -500,
+          "max": 500,
+          "step": 1,
+          "group": "Offsets",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Small jog",
+          "params": {
+            "offset_x": 20,
+            "offset_y": 20
+          }
+        },
+        {
+          "name": "Wide duct",
+          "params": {
+            "duct_diameter": 150
+          }
+        },
+        {
+          "name": "Long shift",
+          "params": {
+            "adapter_height": 200,
+            "offset_y": 120
+          }
+        }
+      ],
+      "attribution": {
+        "label": "MatrixFlow (szrudi)",
+        "license": "MIT",
+        "author": "Rudi Szabó",
+        "repository": "https://github.com/szrudi/MatrixFlow"
+      }
+    },
+    "duct_rect_adapter": {
+      "label": "Round-to-rectangle vent adapter",
+      "short": "Vent adapter",
+      "category": "HVAC",
+      "icon": "front",
+      "source": "objects/wrappers/duct_rect_adapter.scad",
+      "description": "Bathroom extractor adapter that morphs a round duct into a rectangular louvre opening, with a slip-over spigot.",
+      "tags": [
+        "duct",
+        "rectangle",
+        "vent",
+        "hvac",
+        "bathroom",
+        "extractor",
+        "adapter"
+      ],
+      "parameters": [
+        {
+          "variable": "duct_height",
+          "label": "Height",
+          "type": "number",
+          "default": 160,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "duct_wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 3.0,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.1,
+          "group": "Adapter",
+          "unit": "mm"
+        },
+        {
+          "variable": "pipe_diameter",
+          "label": "Pipe diameter",
+          "type": "number",
+          "default": 100,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Duct",
+          "unit": "mm"
+        },
+        {
+          "variable": "vent_width",
+          "label": "Vent width",
+          "type": "number",
+          "default": 90,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Vent",
+          "unit": "mm"
+        },
+        {
+          "variable": "vent_depth",
+          "label": "Vent height",
+          "type": "number",
+          "default": 80,
+          "min": 10,
+          "max": 500,
+          "step": 1,
+          "group": "Vent",
+          "unit": "mm"
+        },
+        {
+          "variable": "vent_radius",
+          "label": "Vent corner radius",
+          "type": "number",
+          "default": 10,
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "group": "Vent",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Square vent",
+          "params": {
+            "vent_width": 100,
+            "vent_depth": 100,
+            "vent_radius": 12
+          }
+        },
+        {
+          "name": "Short adapter",
+          "params": {
+            "duct_height": 80
+          }
+        },
+        {
+          "name": "110 mm pipe",
+          "params": {
+            "pipe_diameter": 110,
+            "vent_width": 110
+          }
+        }
+      ],
+      "attribution": {
+        "label": "MatrixFlow (szrudi)",
+        "license": "MIT",
+        "author": "Rudi Szabó",
+        "repository": "https://github.com/szrudi/MatrixFlow"
+      }
+    },
+    "garage_vent_grille": {
+      "label": "Garage ventilation grille",
+      "short": "Vent grille",
+      "category": "HVAC",
+      "icon": "grid",
+      "source": "objects/wrappers/garage_vent_grille.scad",
+      "description": "Replacement garage ventilation grille: a round face plate on a short tube, closed by six hinged flaps.",
+      "tags": [
+        "vent",
+        "grille",
+        "garage",
+        "ventilation",
+        "hvac",
+        "air",
+        "grille"
+      ],
+      "parameters": [
+        {
+          "variable": "PLATE_DIAMETER",
+          "label": "Plate diameter",
+          "type": "number",
+          "default": 125,
+          "min": 20,
+          "max": 400,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "PLATE_THICKNESS",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 2.5,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "TUBE_OUTER_DIAMETER",
+          "label": "Tube diameter",
+          "type": "number",
+          "default": 95,
+          "min": 10,
+          "max": 300,
+          "step": 1,
+          "group": "Tube",
+          "unit": "mm"
+        },
+        {
+          "variable": "TUBE_LENGTH",
+          "label": "Tube length",
+          "type": "number",
+          "default": 25,
+          "min": 1,
+          "max": 200,
+          "step": 1,
+          "group": "Tube",
+          "unit": "mm"
+        },
+        {
+          "variable": "GRILLE_THICKNESS",
+          "label": "Flap thickness",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.6,
+          "max": 10,
+          "step": 0.1,
+          "group": "Flaps",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Small vent",
+          "params": {
+            "PLATE_DIAMETER": 100,
+            "TUBE_OUTER_DIAMETER": 75
+          }
+        },
+        {
+          "name": "Long duct",
+          "params": {
+            "TUBE_LENGTH": 60
+          }
+        },
+        {
+          "name": "Stiff flaps",
+          "params": {
+            "GRILLE_THICKNESS": 3
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (Pythocrates)",
+        "license": "CC0-1.0",
+        "author": "Pythocrates",
+        "repository": "https://github.com/Pythocrates/openscad-models"
+      }
+    },
+    "door_lock_plate": {
+      "label": "Door lock plate",
+      "short": "Lock plate",
+      "category": "Home hardware",
+      "icon": "plate",
+      "source": "objects/wrappers/door_lock_plate.scad",
+      "description": "Rectangular door lock plate with a recessed cavity and a keyway slot, sized to cover a mortise lock body.",
+      "tags": [
+        "door",
+        "lock",
+        "plate",
+        "wall plate",
+        "hardware",
+        "doorstop",
+        "home"
+      ],
+      "parameters": [
+        {
+          "variable": "plate_length",
+          "label": "Plate length",
+          "type": "number",
+          "default": 150,
+          "min": 40,
+          "max": 500,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_height",
+          "label": "Plate height",
+          "type": "number",
+          "default": 18,
+          "min": 8,
+          "max": 100,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "cavity_length",
+          "label": "Cavity length",
+          "type": "number",
+          "default": 48,
+          "min": 10,
+          "max": 300,
+          "step": 1,
+          "group": "Cavity",
+          "unit": "mm"
+        },
+        {
+          "variable": "cavity_height",
+          "label": "Cavity height",
+          "type": "number",
+          "default": 15,
+          "min": 3,
+          "max": 80,
+          "step": 0.5,
+          "group": "Cavity",
+          "unit": "mm"
+        },
+        {
+          "variable": "cavity_depth",
+          "label": "Cavity depth",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 25,
+          "step": 0.5,
+          "group": "Cavity",
+          "unit": "mm"
+        },
+        {
+          "variable": "keyway_height",
+          "label": "Keyway height",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 60,
+          "step": 0.5,
+          "group": "Cavity",
+          "unit": "mm"
+        },
+        {
+          "variable": "offset",
+          "label": "Offset",
+          "type": "number",
+          "default": 16,
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "group": "Cavity",
+          "unit": "mm",
+          "help": "Distance from the plate centre to the cavity centre."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Bathroom plate",
+          "params": {
+            "cavity_length": 40,
+            "keyway_height": 8
+          }
+        },
+        {
+          "name": "Wide plate",
+          "params": {
+            "plate_length": 200
+          }
+        },
+        {
+          "name": "Thick plate",
+          "params": {
+            "plate_thickness": 10,
+            "cavity_depth": 8
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (Pythocrates)",
+        "license": "CC0-1.0",
+        "author": "Pythocrates",
+        "repository": "https://github.com/Pythocrates/openscad-models"
+      }
+    },
+    "speaker_wall_mount": {
+      "label": "Speaker wall mount",
+      "short": "Speaker mount",
+      "category": "Home hardware",
+      "icon": "bracket",
+      "source": "objects/wrappers/speaker_wall_mount.scad",
+      "description": "Wall bracket for a satellite speaker with a ball joint and a screw-on adapter ring.",
+      "tags": [
+        "speaker",
+        "wall",
+        "mount",
+        "bracket",
+        "audio",
+        "ball joint",
+        "home"
+      ],
+      "parameters": [
+        {
+          "variable": "ARM_DIAMETER",
+          "label": "Ball diameter",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 120,
+          "step": 1,
+          "group": "Joint",
+          "unit": "mm"
+        },
+        {
+          "variable": "BASE_PLATE_THICKNESS",
+          "label": "Base plate thickness",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "group": "Base",
+          "unit": "mm"
+        },
+        {
+          "variable": "CONNECTOR_THICKNESS",
+          "label": "Connector thickness",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Joint",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Compact mount",
+          "params": {
+            "ARM_DIAMETER": 20
+          }
+        },
+        {
+          "name": "Heavy speaker",
+          "params": {
+            "ARM_DIAMETER": 45,
+            "CONNECTOR_THICKNESS": 12
+          }
+        },
+        {
+          "name": "Thick base",
+          "params": {
+            "BASE_PLATE_THICKNESS": 8
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (Pythocrates)",
+        "license": "CC0-1.0",
+        "author": "Pythocrates",
+        "repository": "https://github.com/Pythocrates/openscad-models"
+      }
+    },
+    "hinge_test_plate": {
+      "label": "Hinge tolerance plate",
+      "short": "Hinge test",
+      "category": "Home hardware",
+      "icon": "fit",
+      "source": "objects/wrappers/hinge_test_plate.scad",
+      "description": "Print-in-place hinge sample plate for dialling in the joint clearance before printing a cabinet door.",
+      "tags": [
+        "hinge",
+        "tolerance",
+        "clearance",
+        "test",
+        "print in place",
+        "cabinet",
+        "hardware"
+      ],
+      "parameters": [
+        {
+          "variable": "hinge_length",
+          "label": "Plate size",
+          "type": "number",
+          "default": 10,
+          "min": 3,
+          "max": 60,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "hinge_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "hinge_tolerance",
+          "label": "Joint clearance",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "group": "Joint",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Tight fit",
+          "params": {
+            "hinge_tolerance": 0.1
+          }
+        },
+        {
+          "name": "Loose fit",
+          "params": {
+            "hinge_tolerance": 0.4
+          }
+        },
+        {
+          "name": "Big plate",
+          "params": {
+            "hinge_length": 20,
+            "hinge_thickness": 6
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (Pythocrates)",
+        "license": "CC0-1.0",
+        "author": "Pythocrates",
+        "repository": "https://github.com/Pythocrates/openscad-models"
+      }
+    },
+    "shower_rail_mount": {
+      "label": "Shower rail mount",
+      "short": "Rail mount",
+      "category": "Home hardware",
+      "icon": "bracket",
+      "source": "objects/wrappers/shower_rail_mount.scad",
+      "description": "Screw-on bracket that clamps a shower curtain rail against the bathroom wall.",
+      "tags": [
+        "shower",
+        "rail",
+        "mount",
+        "bracket",
+        "bathroom",
+        "curtain",
+        "home"
+      ],
+      "parameters": [
+        {
+          "variable": "MOUNT_LENGTH",
+          "label": "Mount length",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 100,
+          "step": 0.5,
+          "group": "Mount",
+          "unit": "mm"
+        },
+        {
+          "variable": "PLATE_THICKNESS",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Mount",
+          "unit": "mm"
+        },
+        {
+          "variable": "PLATE_HEIGHT",
+          "label": "Plate height",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 200,
+          "step": 1,
+          "group": "Mount",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Thick wall plate",
+          "params": {
+            "PLATE_THICKNESS": 4
+          }
+        },
+        {
+          "name": "Tall mount",
+          "params": {
+            "PLATE_HEIGHT": 70
+          }
+        },
+        {
+          "name": "Long mount",
+          "params": {
+            "MOUNT_LENGTH": 40
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (Pythocrates)",
+        "license": "CC0-1.0",
+        "author": "Pythocrates",
+        "repository": "https://github.com/Pythocrates/openscad-models"
+      }
+    },
+    "curtain_rod_cap": {
+      "label": "Curtain rod end cap",
+      "short": "Rod cap",
+      "category": "Home hardware",
+      "icon": "cylinder",
+      "source": "objects/wrappers/curtain_rod_cap.scad",
+      "description": "Push-on end cap that closes the open end of a curtain rod, with a rounded cap face.",
+      "tags": [
+        "curtain",
+        "rod",
+        "cap",
+        "end cap",
+        "home",
+        "hardware",
+        "trim"
+      ],
+      "parameters": [
+        {
+          "variable": "cap_radial",
+          "label": "Radial wall",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_longitudinal",
+          "label": "Cap thickness",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.1,
+          "group": "Cap",
+          "unit": "mm"
+        },
+        {
+          "variable": "rod_diameter",
+          "label": "Rod diameter",
+          "type": "number",
+          "default": 16.5,
+          "min": 5,
+          "max": 60,
+          "step": 0.1,
+          "group": "Rod",
+          "unit": "mm"
+        },
+        {
+          "variable": "cap_length",
+          "label": "Sleeve length",
+          "type": "number",
+          "default": 15,
+          "min": 2,
+          "max": 100,
+          "step": 1,
+          "group": "Rod",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "16 mm rod",
+          "params": {
+            "rod_diameter": 16
+          }
+        },
+        {
+          "name": "Thick cap",
+          "params": {
+            "cap_radial": 2.5,
+            "cap_longitudinal": 2.5
+          }
+        },
+        {
+          "name": "Deep sleeve",
+          "params": {
+            "cap_length": 30
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Models (Pythocrates)",
+        "license": "CC0-1.0",
+        "author": "Pythocrates",
+        "repository": "https://github.com/Pythocrates/openscad-models"
+      }
+    },
+    "concrete_cylinder_mold": {
+      "label": "Concrete cylinder mold",
+      "short": "Cylinder mold",
+      "category": "Masonry & concrete",
+      "icon": "cylinder",
+      "source": "objects/wrappers/concrete_cylinder_mold.scad",
+      "description": "Two-piece split mold for casting an ASTM C39 concrete test cylinder, bolted shut around a clamping flange.",
+      "tags": [
+        "concrete",
+        "mold",
+        "cylinder",
+        "astm",
+        "casting",
+        "masonry",
+        "test"
+      ],
+      "parameters": [
+        {
+          "variable": "diameter_full",
+          "label": "Specimen diameter",
+          "type": "number",
+          "default": 150,
+          "min": 50,
+          "max": 400,
+          "step": 1,
+          "group": "Specimen",
+          "unit": "mm"
+        },
+        {
+          "variable": "height_full",
+          "label": "Specimen height",
+          "type": "number",
+          "default": 300,
+          "min": 50,
+          "max": 600,
+          "step": 1,
+          "group": "Specimen",
+          "unit": "mm"
+        },
+        {
+          "variable": "flange",
+          "label": "Clamping flange",
+          "type": "number",
+          "default": 12,
+          "min": 2,
+          "max": 50,
+          "step": 0.5,
+          "group": "Mold",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall",
+          "label": "Mold wall",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.1,
+          "group": "Mold",
+          "unit": "mm"
+        },
+        {
+          "variable": "floor",
+          "label": "Base thickness",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.1,
+          "group": "Mold",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "100 mm mold",
+          "params": {
+            "diameter_full": 100,
+            "height_full": 200
+          }
+        },
+        {
+          "name": "Thick wall",
+          "params": {
+            "wall": 2.5,
+            "floor": 2.5
+          }
+        },
+        {
+          "name": "Wide flange",
+          "params": {
+            "flange": 20
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Concrete Molds (AuroraRoboticsLab)",
+        "license": "Unlicense",
+        "author": "AuroraRoboticsLab",
+        "repository": "https://github.com/AuroraRoboticsLab/Concrete"
+      }
+    },
+    "honeycomb_concrete_mold": {
+      "label": "Honeycomb concrete mold",
+      "short": "Honeycomb mold",
+      "category": "Masonry & concrete",
+      "icon": "grid",
+      "source": "objects/wrappers/honeycomb_concrete_mold.scad",
+      "description": "Honeycomb mold that casts a cluster of small concrete cylinders at once, aligned by skewer rods.",
+      "tags": [
+        "concrete",
+        "mold",
+        "honeycomb",
+        "cylinder",
+        "casting",
+        "masonry",
+        "cluster"
+      ],
+      "parameters": [
+        {
+          "variable": "R",
+          "label": "Core radius",
+          "type": "number",
+          "default": 7.5,
+          "min": 3,
+          "max": 50,
+          "step": 0.5,
+          "group": "Cores",
+          "unit": "mm"
+        },
+        {
+          "variable": "wall",
+          "label": "Core wall",
+          "type": "number",
+          "default": 1.65,
+          "min": 0.8,
+          "max": 10,
+          "step": 0.05,
+          "group": "Cores",
+          "unit": "mm"
+        },
+        {
+          "variable": "copies",
+          "label": "Core count",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Cores"
+        },
+        {
+          "variable": "skewer",
+          "label": "Alignment rod",
+          "type": "number",
+          "default": 3.4,
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "group": "Alignment",
+          "unit": "mm"
+        },
+        {
+          "variable": "skewW",
+          "label": "Rod clearance",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.1,
+          "group": "Alignment",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Single core",
+          "params": {
+            "copies": 1
+          }
+        },
+        {
+          "name": "Thick wall",
+          "params": {
+            "wall": 2.5
+          }
+        },
+        {
+          "name": "Large cores",
+          "params": {
+            "R": 12
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Concrete Molds (AuroraRoboticsLab)",
+        "license": "Unlicense",
+        "author": "AuroraRoboticsLab",
+        "repository": "https://github.com/AuroraRoboticsLab/Concrete"
+      }
+    },
+    "cabinet_hinge": {
+      "label": "Print-in-place cabinet hinge",
+      "short": "Cabinet hinge",
+      "category": "Home hardware",
+      "icon": "wrench",
+      "source": "objects/wrappers/cabinet_hinge.scad",
+      "description": "Parametric print-in-place cabinet hinge with interleaved fingers, countersunk screw holes and a printed pin.",
+      "tags": [
+        "hinge",
+        "cabinet",
+        "door",
+        "print in place",
+        "hardware",
+        "furniture",
+        "home"
+      ],
+      "parameters": [
+        {
+          "variable": "hinge_height",
+          "label": "Hinge length",
+          "type": "number",
+          "default": 39,
+          "min": 10,
+          "max": 300,
+          "step": 1,
+          "group": "Hinge",
+          "unit": "mm"
+        },
+        {
+          "variable": "hinge_width",
+          "label": "Plate width",
+          "type": "number",
+          "default": 21,
+          "min": 8,
+          "max": 120,
+          "step": 0.5,
+          "group": "Hinge",
+          "unit": "mm"
+        },
+        {
+          "variable": "hinge_thick",
+          "label": "Hinge thickness",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Hinge",
+          "unit": "mm"
+        },
+        {
+          "variable": "hinge_fingers",
+          "label": "Fingers",
+          "type": "integer",
+          "default": 7,
+          "min": 3,
+          "max": 21,
+          "step": 2,
+          "group": "Hinge",
+          "help": "Must be odd so the two leaves interleave."
+        },
+        {
+          "variable": "corner_radius",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 7.5,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "group": "Hinge",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_drill",
+          "label": "Screw hole",
+          "type": "number",
+          "default": 4.5,
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "group": "Mounting",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_number",
+          "label": "Holes per leaf",
+          "type": "integer",
+          "default": 3,
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "group": "Mounting"
+        },
+        {
+          "variable": "clearance",
+          "label": "Print clearance",
+          "type": "number",
+          "default": 0.3,
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "group": "Joint",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Small hinge",
+          "params": {
+            "hinge_height": 25,
+            "hinge_width": 15,
+            "hinge_fingers": 5
+          }
+        },
+        {
+          "name": "Wide hinge",
+          "params": {
+            "hinge_width": 35
+          }
+        },
+        {
+          "name": "No holes",
+          "params": {
+            "hole_number": 0
+          }
+        },
+        {
+          "name": "Loose joint",
+          "params": {
+            "clearance": 0.5
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Parametric Hinge (HarkonenBade)",
+        "license": "MIT",
+        "author": "Tom (HarkonenBade)",
+        "repository": "https://github.com/HarkonenBade/parametric_hinge"
+      }
+    },
+    "mounting_plate": {
+      "label": "Mounting plate",
+      "short": "Mount plate",
+      "category": "Home hardware",
+      "icon": "plate",
+      "source": "objects/wrappers/mounting_plate.scad",
+      "description": "Rounded mounting plate with four slotted screw holes, for switches, sockets and wall anchors.",
+      "tags": [
+        "plate",
+        "mount",
+        "wall plate",
+        "bracket",
+        "screw",
+        "hardware",
+        "home"
+      ],
+      "parameters": [
+        {
+          "variable": "plate_width",
+          "label": "Plate width",
+          "type": "number",
+          "default": 80,
+          "min": 20,
+          "max": 400,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_length",
+          "label": "Plate length",
+          "type": "number",
+          "default": 55,
+          "min": 20,
+          "max": 400,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "plate_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "corner_radius",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 6,
+          "min": 0,
+          "max": 50,
+          "step": 0.5,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_diameter",
+          "label": "Hole diameter",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 40,
+          "step": 0.1,
+          "group": "Holes",
+          "unit": "mm"
+        },
+        {
+          "variable": "slot_length",
+          "label": "Slot length",
+          "type": "number",
+          "default": 10,
+          "min": 0,
+          "max": 100,
+          "step": 0.5,
+          "group": "Holes",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_offset_x",
+          "label": "Hole inset X",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 200,
+          "step": 0.5,
+          "group": "Holes",
+          "unit": "mm"
+        },
+        {
+          "variable": "hole_offset_y",
+          "label": "Hole inset Y",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 200,
+          "step": 0.5,
+          "group": "Holes",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Switch plate",
+          "params": {
+            "plate_width": 120,
+            "plate_length": 80
+          }
+        },
+        {
+          "name": "Round holes",
+          "params": {
+            "slot_length": 0
+          }
+        },
+        {
+          "name": "Wide margins",
+          "params": {
+            "hole_offset_x": 20,
+            "hole_offset_y": 20
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Parametric Generators (lgg1303)",
+        "license": "MIT",
+        "author": "Lourenço Guerreiro",
+        "repository": "https://github.com/lgg1303/parametric-openscad-generators"
       }
     }
   }

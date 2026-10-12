@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Sixty-one upstream OpenSCAD libraries are vendored unmodified under
+Sixty-seven upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -349,6 +349,35 @@ THIRD_PARTY_NOTICES.
   layout. The per-device dimension tables and the archived clips are not
   vendored; the clip is exposed through a wrapper that restates the geometry
   with the device size as a parameter.
+- agjendem/corrugated-pipe-clamp - MIT (Copyright (c) 2026 agjendem) -
+  https://github.com/agjendem/corrugated-pipe-clamp - commit
+  f85ac05dca676f67dd6591add7f6e5ab35981062. The parametric clamp, snap collar,
+  corner elbow, clear corner elbow, corner bend and panel spigot for corrugated
+  electrical conduit, plus the shared corrugation, brim and thread helpers they
+  include and the upstream LICENSE.
+- szrudi/MatrixFlow - MIT (Copyright (c) 2026 Rudi Szabó) -
+  https://github.com/szrudi/MatrixFlow - commit
+  2938da2202df1a993cda6c920cc9d1d891703236. The self-contained MatrixFlow sweep
+  engine plus the upstream LICENSE: the round duct reducer, the duct funnel, the
+  offset duct adapter and the round-to-rectangle vent adapter.
+- Pythocrates/openscad-models - CC0-1.0 (Pythocrates; CC0 1.0 Universal public
+  domain dedication) - https://github.com/Pythocrates/openscad-models - commit
+  85e20833292a19d51bc617a6ea98f308ad541cb9. The garage ventilation grille, the
+  satellite speaker wall mount, the shower rail mount, the curtain rod caps, the
+  hinge tolerance test and the shared lock-plate module, plus the upstream
+  LICENSE. These sources include the separately vendored BOSL library.
+- AuroraRoboticsLab/Concrete - Unlicense (AuroraRoboticsLab, released into the
+  public domain) - https://github.com/AuroraRoboticsLab/Concrete - commit
+  fc6bf17038d55c76fa27962c94933f6064fc3324. The self-contained ASTM C39 concrete
+  cylinder mold and the honeycomb concrete mold, plus the upstream LICENSE.
+- HarkonenBade/parametric_hinge - MIT (Copyright (c) 2022 Tom) -
+  https://github.com/HarkonenBade/parametric_hinge - commit
+  6195704fe34b5f249a3a067f1808ea0c467b46e3. The self-contained parametric
+  print-in-place hinge library plus the upstream LICENSE.
+- lgg1303/parametric-openscad-generators - MIT (Copyright (c) 2026 Lourenço
+  Guerreiro) - https://github.com/lgg1303/parametric-openscad-generators -
+  commit e91cfac6a96dfe2513489d62b670d768c19f7378. The mounting plate generator
+  and the shared toolbox module it includes, plus the upstream LICENSE.
 
 
 OpenSCAD bootstrap attribution
