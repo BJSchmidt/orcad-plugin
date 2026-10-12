@@ -323,6 +323,70 @@
       "license": "BSD-3-Clause",
       "repository": "https://github.com/rafaelmartins/pcb-enclosure",
       "author": "Rafael G. Martins"
+    },
+    "marble-run-jhpieper": {
+      "label": "Marble Run (jhpieper)",
+      "root": "vendor/jhpieper-marble-run-64b8f620",
+      "revision": "64b8f62091775c56ffcdbe276b6a8cbad95581f7",
+      "license": "MIT",
+      "repository": "https://github.com/jhpieper/marble-run",
+      "author": "Jan Pieper (jhpieper)"
+    },
+    "openscad-dice-models-nemon": {
+      "label": "OpenSCAD Dice Models (nemon-)",
+      "root": "vendor/nemon-openscad-dice-models-be03f70f",
+      "revision": "be03f70f7edbb7c6bcef9ddbcbd91f3776314178",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/nemon-/openscad-dice-models",
+      "author": "nemon- and contributors (public domain dedication)"
+    },
+    "dice-tower-hirthwork": {
+      "label": "Dice Tower (hirthwork)",
+      "root": "vendor/hirthwork-dice-tower-c130e05a",
+      "revision": "c130e05a22bc602768cc8ff1bd7e2e4a515f9d32",
+      "license": "BSD-2-Clause",
+      "repository": "https://github.com/hirthwork/dice-tower.scad",
+      "author": "hirthwork and the dice-tower.scad contributors"
+    },
+    "fidget-spinner-sharpcoder": {
+      "label": "Fidget Spinner (SharpCoder)",
+      "root": "vendor/sharpcoder-fidget-spinner-5e67c0e7",
+      "revision": "5e67c0e739bd8ffbd109217d7b5a329b4d2b9692",
+      "license": "MIT",
+      "repository": "https://github.com/SharpCoder/fidget-spinner",
+      "author": "Joshua Cole (SharpCoder)"
+    },
+    "brick-lib-qubolino": {
+      "label": "brick_lib (qubolino)",
+      "root": "vendor/qubolino-brick-lib-95a3c865",
+      "revision": "95a3c86563aa40bf221b019271b683dfa048077f",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/qubolino/brick_lib",
+      "author": "qubolino and contributors (public domain dedication)"
+    },
+    "technic-scad-cfinke": {
+      "label": "Technic.scad (cfinke)",
+      "root": "vendor/cfinke-technic-scad-41f17a46",
+      "revision": "41f17a4696b582850097a2e3779348bc27c87f47",
+      "license": "MIT",
+      "repository": "https://github.com/cfinke/Technic.scad",
+      "author": "Christopher Finke (cfinke)"
+    },
+    "puzzlecad": {
+      "label": "puzzlecad (aaron-siegel)",
+      "root": "vendor/aaron-siegel-puzzlecad-2ba064c5",
+      "revision": "2ba064c51e8b8c0018a34d96776b33625c938602",
+      "license": "MIT",
+      "repository": "https://github.com/aaron-siegel/puzzlecad",
+      "author": "Aaron Siegel (aaron-siegel)"
+    },
+    "3d-inserts-christianlutz": {
+      "label": "3D Inserts (ChristianLutz)",
+      "root": "vendor/christianlutz-3d-inserts-5a9976a9",
+      "revision": "5a9976a9469ad90ece2e94347ef616120302cd17",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/ChristianLutz/3d-inserts",
+      "author": "Christian Lutz and contributors (public domain dedication)"
     }
   },
   "quality_profiles": {
@@ -24054,6 +24118,1463 @@
           "params": {
             "standoff_count": 6,
             "standoff_pitch": 14
+          }
+        }
+      ]
+    },
+    "marble_run_straight": {
+      "label": "Marble run straight track",
+      "short": "Straight track",
+      "category": "Toys & Games",
+      "icon": "sphere",
+      "source": "objects/wrappers/marble_run_straight.scad",
+      "description": "Straight magnetic marble-run track: a 9 mm channel with 10 x 2 mm magnet pockets along the base, so printed pieces snap together end to end.",
+      "tags": [
+        "marble run",
+        "track",
+        "magnetic",
+        "marble",
+        "toy",
+        "ball run"
+      ],
+      "parameters": [
+        {
+          "variable": "length",
+          "label": "Length",
+          "type": "integer",
+          "default": 140,
+          "min": 50,
+          "max": 500,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Track length; upstream suggests 50 + N x 30 mm so the magnet pockets line up."
+        },
+        {
+          "variable": "magnet_radius",
+          "label": "Magnet pocket radius",
+          "type": "number",
+          "default": 5.5,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "help": "Radius of the pocket for a 10 x 2 mm magnet; about 5 mm gives a push fit.",
+          "group": "Magnets"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Short track",
+          "description": "50 mm starter piece.",
+          "params": {
+            "length": 50
+          }
+        },
+        {
+          "name": "Long track",
+          "description": "200 mm straight run.",
+          "params": {
+            "length": 200
+          }
+        },
+        {
+          "name": "Push-fit magnets",
+          "params": {
+            "magnet_radius": 5
+          }
+        }
+      ]
+    },
+    "marble_run_curve": {
+      "label": "Marble run curve",
+      "short": "Curved track",
+      "category": "Toys & Games",
+      "icon": "sphere",
+      "source": "objects/wrappers/marble_run_curve.scad",
+      "description": "Quarter-circle magnetic marble-run corner, so a printed track can turn 90 degrees and keep the same magnet spacing.",
+      "tags": [
+        "marble run",
+        "curve",
+        "corner",
+        "magnetic",
+        "marble",
+        "toy"
+      ],
+      "parameters": [
+        {
+          "variable": "magnet_radius",
+          "label": "Magnet pocket radius",
+          "type": "number",
+          "default": 5.5,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "help": "Radius of the pocket for a 10 x 2 mm magnet; about 5 mm gives a push fit.",
+          "group": "Magnets"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Push-fit magnets",
+          "params": {
+            "magnet_radius": 5
+          }
+        }
+      ]
+    },
+    "marble_run_funnel": {
+      "label": "Marble run funnel",
+      "short": "Marble funnel",
+      "category": "Toys & Games",
+      "icon": "sphere",
+      "source": "objects/wrappers/marble_run_funnel.scad",
+      "description": "Funnel that drops a marble onto a track below. The magnet pockets line up with the straight and curved tracks.",
+      "tags": [
+        "marble run",
+        "funnel",
+        "drop",
+        "magnetic",
+        "marble",
+        "toy"
+      ],
+      "parameters": [
+        {
+          "variable": "magnet_radius",
+          "label": "Magnet pocket radius",
+          "type": "number",
+          "default": 5.5,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Magnets"
+        },
+        {
+          "variable": "inner_bottom_radius",
+          "label": "Inner bottom radius",
+          "type": "number",
+          "default": 10,
+          "min": 6,
+          "max": 14,
+          "step": 1,
+          "unit": "mm",
+          "help": "Radius of the narrow mouth the marble drops through.",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "inner_top_radius",
+          "label": "Inner top radius",
+          "type": "number",
+          "default": 31,
+          "min": 20,
+          "max": 45,
+          "step": 1,
+          "unit": "mm",
+          "help": "Radius of the wide funnel opening.",
+          "group": "Dimensions"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wide funnel",
+          "params": {
+            "inner_top_radius": 40
+          }
+        },
+        {
+          "name": "Narrow drop",
+          "params": {
+            "inner_top_radius": 24,
+            "inner_bottom_radius": 8
+          }
+        }
+      ]
+    },
+    "dice_d4": {
+      "label": "Polyhedral die D4",
+      "short": "D4 die",
+      "category": "Toys & Games",
+      "icon": "cube",
+      "source": "objects/wrappers/dice_d4.scad",
+      "description": "Four-sided die built as the intersection of four rotated boxes, so every face is a true equilateral triangle. It prints without supports and is numbered by hand or in the slicer.",
+      "tags": [
+        "dice",
+        "d4",
+        "tetrahedron",
+        "tabletop",
+        "rpg",
+        "game"
+      ],
+      "parameters": [
+        {
+          "variable": "dice_size",
+          "label": "Edge length",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "help": "Edge length of the tetrahedron.",
+          "group": "Dimensions"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard 10 mm",
+          "params": {
+            "dice_size": 10
+          }
+        },
+        {
+          "name": "Large 20 mm",
+          "params": {
+            "dice_size": 20
+          }
+        }
+      ]
+    },
+    "dice_antiprism": {
+      "label": "Antiprism polyhedral die",
+      "short": "Antiprism die",
+      "category": "Toys & Games",
+      "icon": "cube",
+      "source": "objects/wrappers/dice_antiprism.scad",
+      "description": "Even-sided die cut from rings of rotated boxes: three to eight sides per ring gives a D6, D8, D10, D12, D14 or D16.",
+      "tags": [
+        "dice",
+        "d6",
+        "d8",
+        "d10",
+        "d12",
+        "d16",
+        "tabletop",
+        "rpg",
+        "game"
+      ],
+      "parameters": [
+        {
+          "variable": "dice_size",
+          "label": "Die width",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "dice_sides_per_ring",
+          "label": "Sides per ring",
+          "type": "integer",
+          "default": 5,
+          "min": 3,
+          "max": 8,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Each ring adds two faces, so five per ring is a D10.",
+          "options": [
+            {
+              "value": 3,
+              "label": "D6"
+            },
+            {
+              "value": 4,
+              "label": "D8"
+            },
+            {
+              "value": 5,
+              "label": "D10"
+            },
+            {
+              "value": 6,
+              "label": "D12"
+            },
+            {
+              "value": 7,
+              "label": "D14"
+            },
+            {
+              "value": 8,
+              "label": "D16"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "D6",
+          "params": {
+            "dice_sides_per_ring": 3
+          }
+        },
+        {
+          "name": "D8",
+          "params": {
+            "dice_sides_per_ring": 4
+          }
+        },
+        {
+          "name": "D10",
+          "params": {
+            "dice_sides_per_ring": 5
+          }
+        },
+        {
+          "name": "D12",
+          "params": {
+            "dice_sides_per_ring": 6
+          }
+        },
+        {
+          "name": "D16",
+          "params": {
+            "dice_sides_per_ring": 8
+          }
+        }
+      ]
+    },
+    "dice_d12": {
+      "label": "Polyhedral die D12",
+      "short": "D12 die",
+      "category": "Toys & Games",
+      "icon": "cube",
+      "source": "objects/wrappers/dice_d12.scad",
+      "description": "Regular dodecahedral twelve-sided die, cut from intersecting rotated boxes so all twelve pentagonal faces are equal.",
+      "tags": [
+        "dice",
+        "d12",
+        "dodecahedron",
+        "tabletop",
+        "rpg",
+        "game"
+      ],
+      "parameters": [
+        {
+          "variable": "dice_size",
+          "label": "Die width",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard 10 mm",
+          "params": {
+            "dice_size": 10
+          }
+        },
+        {
+          "name": "Large 20 mm",
+          "params": {
+            "dice_size": 20
+          }
+        }
+      ]
+    },
+    "dice_d20": {
+      "label": "Polyhedral die D20",
+      "short": "D20 die",
+      "category": "Toys & Games",
+      "icon": "cube",
+      "source": "objects/wrappers/dice_d20.scad",
+      "description": "Regular icosahedral twenty-sided die, the classic tabletop D20, cut from two rings of rotated boxes.",
+      "tags": [
+        "dice",
+        "d20",
+        "icosahedron",
+        "tabletop",
+        "rpg",
+        "game"
+      ],
+      "parameters": [
+        {
+          "variable": "dice_size",
+          "label": "Die width",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard 10 mm",
+          "params": {
+            "dice_size": 10
+          }
+        },
+        {
+          "name": "Large 20 mm",
+          "params": {
+            "dice_size": 20
+          }
+        }
+      ]
+    },
+    "dice_tower": {
+      "label": "Spiral dice tower",
+      "short": "Dice tower",
+      "category": "Toys & Games",
+      "icon": "play",
+      "source": "objects/wrappers/dice_tower.scad",
+      "description": "Round dice tower with an internal spiral staircase and random rocks, so a rolled die tumbles down and out of the arched doorway.",
+      "tags": [
+        "dice tower",
+        "dice",
+        "tabletop",
+        "rpg",
+        "game",
+        "tower"
+      ],
+      "parameters": [
+        {
+          "variable": "tower_radius",
+          "label": "Tower radius",
+          "type": "number",
+          "default": 50,
+          "min": 25,
+          "max": 120,
+          "step": 5,
+          "unit": "mm",
+          "help": "Outer radius of the tower walls, including the brick ring.",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "wall_thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 4,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "arc_height",
+          "label": "Arch height",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 100,
+          "step": 5,
+          "unit": "mm",
+          "help": "Height of the internal spiral arc.",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "details_multiplier",
+          "label": "Detail multiplier",
+          "type": "integer",
+          "default": 1,
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "group": "Quality",
+          "help": "Scales the facet count of the bricks and staircase; 1 keeps the render under a minute."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Fine detail",
+          "description": "Triple the facet count; slower but smoother.",
+          "params": {
+            "details_multiplier": 3
+          }
+        },
+        {
+          "name": "Tall arch",
+          "params": {
+            "arc_height": 60
+          }
+        },
+        {
+          "name": "Big tower",
+          "params": {
+            "tower_radius": 70
+          }
+        }
+      ]
+    },
+    "fidget_spinner": {
+      "label": "Fidget spinner",
+      "short": "Fidget spinner",
+      "category": "Toys & Games",
+      "icon": "top",
+      "source": "objects/wrappers/fidget_spinner.scad",
+      "description": "Three-arm fidget spinner that takes a 608 centre bearing and three 1/4 inch arm bearings; the printed arms spin on the bearing races.",
+      "tags": [
+        "fidget spinner",
+        "toy",
+        "spinner",
+        "bearing",
+        "608",
+        "desk toy"
+      ],
+      "parameters": [
+        {
+          "variable": "BEARING_DIAMETER",
+          "label": "Centre bearing diameter",
+          "type": "number",
+          "default": 28.775,
+          "min": 10,
+          "max": 60,
+          "unit": "mm",
+          "help": "Outer diameter of the centre bearing; 28.8 mm for a standard 608.",
+          "group": "Centre bearing"
+        },
+        {
+          "variable": "BEARING_BORE",
+          "label": "Centre bearing bore",
+          "type": "number",
+          "default": 12.5,
+          "min": 5,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "help": "Inner diameter of the centre bearing; 8 mm for a 608, plus clearance.",
+          "group": "Centre bearing"
+        },
+        {
+          "variable": "BEARING_HEIGHT",
+          "label": "Centre bearing height",
+          "type": "number",
+          "default": 7.9375,
+          "min": 4,
+          "max": 15,
+          "unit": "mm",
+          "help": "Height of the centre bearing; 7 mm for a standard 608.",
+          "group": "Centre bearing"
+        },
+        {
+          "variable": "SPINNER_ARM",
+          "label": "Arm length",
+          "type": "number",
+          "default": 37.1455,
+          "min": 20,
+          "max": 60,
+          "unit": "mm",
+          "help": "Distance from the centre bearing to each arm bearing.",
+          "group": "Arms"
+        },
+        {
+          "variable": "ARM_BEARING_BORE",
+          "label": "Arm bearing bore",
+          "type": "number",
+          "default": 6.35,
+          "min": 2,
+          "max": 12,
+          "step": 0.05,
+          "unit": "mm",
+          "help": "Inner diameter of the arm bearings; 1/4 inch by default.",
+          "group": "Arms"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard 608",
+          "params": {
+            "BEARING_DIAMETER": 28.775,
+            "BEARING_BORE": 12.5,
+            "BEARING_HEIGHT": 7.9375
+          }
+        },
+        {
+          "name": "Long arms",
+          "params": {
+            "SPINNER_ARM": 45
+          }
+        },
+        {
+          "name": "Small bearings",
+          "params": {
+            "ARM_BEARING_BORE": 5
+          }
+        }
+      ]
+    },
+    "lego_panel": {
+      "label": "LEGO wall panel",
+      "short": "Brick panel",
+      "category": "Building",
+      "icon": "brick",
+      "source": "objects/wrappers/lego_panel.scad",
+      "description": "Thin LEGO-compatible wall panel (fence) with studs along the top and a tile base, for walls, balconies and window frames.",
+      "tags": [
+        "lego",
+        "brick",
+        "panel",
+        "wall",
+        "fence",
+        "building",
+        "toy"
+      ],
+      "parameters": [
+        {
+          "variable": "panel_width",
+          "label": "Width",
+          "type": "integer",
+          "default": 6,
+          "min": 2,
+          "max": 16,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "studs"
+        },
+        {
+          "variable": "panel_height",
+          "label": "Height",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "bricks"
+        },
+        {
+          "variable": "panel_sides",
+          "label": "Side walls",
+          "type": "boolean",
+          "default": true,
+          "group": "Details",
+          "help": "Adds the two end walls that close the panel."
+        },
+        {
+          "variable": "panel_top",
+          "label": "Top studs",
+          "type": "boolean",
+          "default": true,
+          "group": "Details",
+          "help": "Adds the row of studs along the top edge."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Window panel",
+          "params": {
+            "panel_width": 4,
+            "panel_height": 2
+          }
+        },
+        {
+          "name": "Tall fence",
+          "params": {
+            "panel_height": 6
+          }
+        }
+      ]
+    },
+    "lego_windscreen": {
+      "label": "LEGO windscreen",
+      "short": "Windscreen",
+      "category": "Building",
+      "icon": "brick",
+      "source": "objects/wrappers/lego_windscreen.scad",
+      "description": "Curved LEGO-compatible windscreen with tile bases top and bottom, sized for car and cockpit models.",
+      "tags": [
+        "lego",
+        "brick",
+        "windscreen",
+        "canopy",
+        "car",
+        "building",
+        "toy"
+      ],
+      "parameters": [
+        {
+          "variable": "windscreen_length",
+          "label": "Length",
+          "type": "integer",
+          "default": 4,
+          "min": 2,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "studs"
+        },
+        {
+          "variable": "windscreen_height_plates",
+          "label": "Height",
+          "type": "integer",
+          "default": 4,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "plates",
+          "help": "Height in plates; three plates make one brick."
+        },
+        {
+          "variable": "windscreen_beam_width",
+          "label": "Beam width",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "unit": "mm",
+          "help": "Thickness of the curved side beams.",
+          "group": "Frame"
+        },
+        {
+          "variable": "windscreen_beam_thickness",
+          "label": "Beam thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Frame"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Small cockpit",
+          "params": {
+            "windscreen_length": 2,
+            "windscreen_height_plates": 2
+          }
+        },
+        {
+          "name": "Wide screen",
+          "params": {
+            "windscreen_length": 8
+          }
+        }
+      ]
+    },
+    "lego_corner_brick": {
+      "label": "LEGO corner brick",
+      "short": "Corner brick",
+      "category": "Building",
+      "icon": "brick",
+      "source": "objects/wrappers/lego_corner_brick.scad",
+      "description": "L-shaped LEGO-compatible corner brick, one stud wide on each arm, for closing the corners of a wall.",
+      "tags": [
+        "lego",
+        "brick",
+        "corner",
+        "building",
+        "toy",
+        "wall"
+      ],
+      "parameters": [
+        {
+          "variable": "corner_length",
+          "label": "Arm length",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "studs"
+        },
+        {
+          "variable": "corner_height_plates",
+          "label": "Height",
+          "type": "integer",
+          "default": 1,
+          "min": 1,
+          "max": 9,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "plates",
+          "help": "One plate is a third of a brick."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Long corner",
+          "params": {
+            "corner_length": 4
+          }
+        },
+        {
+          "name": "Full height",
+          "params": {
+            "corner_height_plates": 3
+          }
+        }
+      ]
+    },
+    "technic_axle": {
+      "label": "Technic axle",
+      "short": "Technic axle",
+      "category": "Technic",
+      "icon": "cylinder",
+      "source": "objects/wrappers/technic_axle.scad",
+      "description": "LEGO Technic-compatible cross axle: the splined profile turns inside liftarm holes and gear axle holes.",
+      "tags": [
+        "technic",
+        "lego",
+        "axle",
+        "cross axle",
+        "toy",
+        "spline"
+      ],
+      "parameters": [
+        {
+          "variable": "axle_length",
+          "label": "Length",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 32,
+          "step": 1,
+          "unit": "studs",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "axle_stop",
+          "label": "End stop",
+          "type": "boolean",
+          "default": false,
+          "group": "Details",
+          "help": "Adds the ridge that stops the axle at the end."
+        },
+        {
+          "variable": "axle_stud",
+          "label": "End stud",
+          "type": "boolean",
+          "default": true,
+          "group": "Details",
+          "help": "Adds a stud at the end of the axle; a stud implies a stop."
+        }
+      ],
+      "presets": [
+        {
+          "name": "4 stud axle",
+          "params": {
+            "axle_length": 4
+          }
+        },
+        {
+          "name": "Axle with stop",
+          "params": {
+            "axle_stop": true
+          }
+        },
+        {
+          "name": "Bare axle",
+          "params": {
+            "axle_stud": false
+          }
+        }
+      ]
+    },
+    "technic_wheel": {
+      "label": "Technic wheel",
+      "short": "Technic wheel",
+      "category": "Technic",
+      "icon": "dial",
+      "source": "objects/wrappers/technic_wheel.scad",
+      "description": "LEGO Technic-compatible wheel (rim) with an axle or pin hub, an optional centre groove and spokes; the Technic tire stretches over it.",
+      "tags": [
+        "technic",
+        "lego",
+        "wheel",
+        "rim",
+        "toy",
+        "tire"
+      ],
+      "parameters": [
+        {
+          "variable": "wheel_diameter",
+          "label": "Diameter",
+          "type": "number",
+          "default": 9.9,
+          "min": 5,
+          "max": 60,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "wheel_width",
+          "label": "Width",
+          "type": "number",
+          "default": 14,
+          "min": 4,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "help": "Width across the tread where the tire sits.",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "wheel_center_groove",
+          "label": "Centre groove",
+          "type": "boolean",
+          "default": true,
+          "group": "Details",
+          "help": "Adds the groove that holds the tire in place."
+        },
+        {
+          "variable": "wheel_pin_hole",
+          "label": "Pin hole hub",
+          "type": "boolean",
+          "default": false,
+          "group": "Details",
+          "help": "Swaps the axle hole for a pin hole."
+        },
+        {
+          "variable": "wheel_spokes",
+          "label": "Spokes",
+          "type": "integer",
+          "default": 6,
+          "min": 0,
+          "max": 24,
+          "step": 1,
+          "group": "Details"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wide truck wheel",
+          "params": {
+            "wheel_diameter": 16,
+            "wheel_width": 20
+          }
+        },
+        {
+          "name": "Pin hub",
+          "params": {
+            "wheel_pin_hole": true
+          }
+        },
+        {
+          "name": "Smooth wheel",
+          "params": {
+            "wheel_spokes": 0,
+            "wheel_center_groove": false
+          }
+        }
+      ]
+    },
+    "technic_tire": {
+      "label": "Technic tire",
+      "short": "Technic tire",
+      "category": "Technic",
+      "icon": "tube",
+      "source": "objects/wrappers/technic_tire.scad",
+      "description": "LEGO Technic-compatible tire: a plain tread ring sized so it stretches over the Technic wheel rim.",
+      "tags": [
+        "technic",
+        "lego",
+        "tire",
+        "tyre",
+        "wheel",
+        "toy",
+        "rubber"
+      ],
+      "parameters": [
+        {
+          "variable": "tire_diameter",
+          "label": "Outer diameter",
+          "type": "number",
+          "default": 24,
+          "min": 10,
+          "max": 80,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "tire_tread_width",
+          "label": "Tread width",
+          "type": "number",
+          "default": 14,
+          "min": 4,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "tire_tread_thickness",
+          "label": "Tread thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Fat tire",
+          "params": {
+            "tire_diameter": 36,
+            "tire_tread_width": 20
+          }
+        },
+        {
+          "name": "Slim tire",
+          "params": {
+            "tire_diameter": 18,
+            "tire_tread_thickness": 2
+          }
+        }
+      ]
+    },
+    "bevel_gear": {
+      "label": "Bevel gear",
+      "short": "Bevel gear",
+      "category": "Mechanical",
+      "icon": "gear",
+      "source": "objects/wrappers/bevel_gear.scad",
+      "description": "Involute bevel gear for right-angle drives, generated by BOSL2's gear library. Set the tooth counts of both gears of a pair so the pitch cones match.",
+      "tags": [
+        "gear",
+        "bevel gear",
+        "mechanical",
+        "drive",
+        "toothed",
+        "toy"
+      ],
+      "parameters": [
+        {
+          "variable": "bevel_teeth",
+          "label": "Teeth",
+          "type": "integer",
+          "default": 20,
+          "min": 8,
+          "max": 60,
+          "step": 1,
+          "group": "Gear"
+        },
+        {
+          "variable": "bevel_mate_teeth",
+          "label": "Mate teeth",
+          "type": "integer",
+          "default": 20,
+          "min": 8,
+          "max": 60,
+          "step": 1,
+          "group": "Gear",
+          "help": "Tooth count of the gear it meshes with."
+        },
+        {
+          "variable": "bevel_pitch",
+          "label": "Circular pitch",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Gear"
+        },
+        {
+          "variable": "bevel_face_width",
+          "label": "Face width",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Gear"
+        },
+        {
+          "variable": "bevel_thickness",
+          "label": "Thickness",
+          "type": "number",
+          "default": 6,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Body"
+        },
+        {
+          "variable": "bevel_backing",
+          "label": "Backing",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Body"
+        },
+        {
+          "variable": "bevel_bottom",
+          "label": "Bottom",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Body"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Steep pair",
+          "params": {
+            "bevel_teeth": 12,
+            "bevel_mate_teeth": 36
+          }
+        },
+        {
+          "name": "Fine pitch",
+          "params": {
+            "bevel_pitch": 3
+          }
+        },
+        {
+          "name": "Wide face",
+          "params": {
+            "bevel_face_width": 8,
+            "bevel_thickness": 10,
+            "bevel_backing": 6
+          }
+        }
+      ]
+    },
+    "ring_gear": {
+      "label": "Internal ring gear",
+      "short": "Ring gear",
+      "category": "Mechanical",
+      "icon": "gear",
+      "source": "objects/wrappers/ring_gear.scad",
+      "description": "Internal (ring) gear whose teeth point inward, so a small pinion can run inside it in a compact gearbox.",
+      "tags": [
+        "gear",
+        "ring gear",
+        "internal gear",
+        "mechanical",
+        "gearbox",
+        "toy"
+      ],
+      "parameters": [
+        {
+          "variable": "ring_teeth",
+          "label": "Teeth",
+          "type": "integer",
+          "default": 30,
+          "min": 12,
+          "max": 80,
+          "step": 1,
+          "group": "Gear"
+        },
+        {
+          "variable": "ring_pitch",
+          "label": "Circular pitch",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Gear"
+        },
+        {
+          "variable": "ring_thickness",
+          "label": "Thickness",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Body"
+        },
+        {
+          "variable": "ring_outer_diameter",
+          "label": "Outer diameter",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 200,
+          "step": 1,
+          "unit": "mm",
+          "help": "Must clear the pitch circle of the tooth count and pitch.",
+          "group": "Body"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Small ring",
+          "params": {
+            "ring_teeth": 20,
+            "ring_outer_diameter": 45
+          }
+        },
+        {
+          "name": "Wide rim",
+          "params": {
+            "ring_thickness": 12,
+            "ring_outer_diameter": 80
+          }
+        }
+      ]
+    },
+    "board_game_card_tray": {
+      "label": "Board game card tray",
+      "short": "Card tray",
+      "category": "Toys & Games",
+      "icon": "box",
+      "source": "objects/wrappers/board_game_card_tray.scad",
+      "description": "Open card tray with three pockets and a scooped spare space, so sleeved cards can be pulled out of a game box.",
+      "tags": [
+        "board game",
+        "insert",
+        "cards",
+        "tray",
+        "organizer",
+        "storage"
+      ],
+      "parameters": [
+        {
+          "variable": "width",
+          "label": "Width",
+          "type": "number",
+          "default": 70,
+          "min": 20,
+          "max": 200,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "height",
+          "label": "Pocket depth",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "help": "Sleeved cards usually need about 65 to 70 mm.",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "outerThickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 5,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Box"
+        },
+        {
+          "variable": "groundThickness",
+          "label": "Base thickness",
+          "type": "number",
+          "default": -1,
+          "min": -1,
+          "max": 5,
+          "step": 0.5,
+          "unit": "mm",
+          "help": "-1 leaves the pockets open at the bottom.",
+          "group": "Box"
+        },
+        {
+          "variable": "pocketSeparatorThickness",
+          "label": "Divider thickness",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Box"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Sleeved cards",
+          "params": {
+            "height": 70
+          }
+        },
+        {
+          "name": "Unsleeved cards",
+          "params": {
+            "height": 50
+          }
+        },
+        {
+          "name": "Closed base",
+          "params": {
+            "groundThickness": 2
+          }
+        }
+      ]
+    },
+    "board_game_token_tray": {
+      "label": "Board game token tray",
+      "short": "Token tray",
+      "category": "Toys & Games",
+      "icon": "box",
+      "source": "objects/wrappers/board_game_token_tray.scad",
+      "description": "Shallow three-pocket tray for game tokens, coins and resources, sized to drop into a box insert.",
+      "tags": [
+        "board game",
+        "insert",
+        "tokens",
+        "tray",
+        "organizer",
+        "storage"
+      ],
+      "parameters": [
+        {
+          "variable": "width",
+          "label": "Width",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 200,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "height",
+          "label": "Tray depth",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 80,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "outerThickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 5,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Box"
+        },
+        {
+          "variable": "pocketSeparatorThickness",
+          "label": "Divider thickness",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Box"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Deep tokens",
+          "params": {
+            "height": 40
+          }
+        },
+        {
+          "name": "Wide tray",
+          "params": {
+            "width": 90
+          }
+        }
+      ]
+    },
+    "burr_puzzle_piece": {
+      "label": "Burr puzzle stick",
+      "short": "Burr stick",
+      "category": "Toys & Games",
+      "icon": "cube",
+      "source": "objects/wrappers/burr_puzzle_piece.scad",
+      "description": "One stick of a six-piece burr puzzle, built from puzzlecad's stick-number notation. Print six different stick numbers to assemble the classic burr.",
+      "tags": [
+        "puzzle",
+        "burr",
+        "puzzle box",
+        "mechanical puzzle",
+        "game",
+        "toy"
+      ],
+      "parameters": [
+        {
+          "variable": "burr_stick",
+          "label": "Stick number",
+          "type": "integer",
+          "default": 975,
+          "min": 100,
+          "max": 9999,
+          "step": 1,
+          "group": "Puzzle",
+          "help": "puzzlecad stick number, for example 975, 1022 or 205."
+        },
+        {
+          "variable": "burr_scale",
+          "label": "Stick scale",
+          "type": "number",
+          "default": 11.15,
+          "min": 5,
+          "max": 30,
+          "step": 0.01,
+          "unit": "mm",
+          "help": "Size of one unit cube of the stick.",
+          "group": "Puzzle"
+        },
+        {
+          "variable": "burr_inset",
+          "label": "Joint inset",
+          "type": "number",
+          "default": 0.07,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.01,
+          "unit": "mm",
+          "help": "Clearance cut around the internal joints.",
+          "group": "Fit"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Stick 975",
+          "params": {
+            "burr_stick": 975
+          }
+        },
+        {
+          "name": "Stick 205",
+          "params": {
+            "burr_stick": 205
+          }
+        },
+        {
+          "name": "Stick 1022",
+          "params": {
+            "burr_stick": 1022
+          }
+        },
+        {
+          "name": "Large scale",
+          "params": {
+            "burr_scale": 15
           }
         }
       ]

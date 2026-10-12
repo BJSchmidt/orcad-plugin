@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Forty-two upstream OpenSCAD libraries are vendored unmodified under
+Fifty upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -237,6 +237,50 @@ THIRD_PARTY_NOTICES.
   Martins) - https://github.com/rafaelmartins/pcb-enclosure - commit
   ce261a389da419c767efd607159fe80f20f16d17. The pcb-enclosure library, its
   assembly example and the upstream LICENSE.
+
+- jhpieper/marble-run - MIT (Copyright (c) 2020 Jan Pieper) -
+  https://github.com/jhpieper/marble-run - commit
+  64b8f62091775c56ffcdbe276b6a8cbad95581f7. The straight, curve and funnel
+  magnetic track sources plus the upstream LICENSE: the marble run tracks of the
+  Toys and Games category.
+- nemon-/openscad-dice-models - CC0-1.0 (nemon-; CC0 1.0 Universal dedicates the
+  work to the public domain) - https://github.com/nemon-/openscad-dice-models -
+  commit be03f70f7edbb7c6bcef9ddbcbd91f3776314178. The D4, D12 and D20 sources
+  and the antiprism dice_2n source plus the upstream LICENSE, used by the
+  polyhedral dice objects.
+- hirthwork/dice-tower.scad - BSD-2-Clause (hirthwork and the dice-tower.scad
+  contributors) - https://github.com/hirthwork/dice-tower.scad - commit
+  c130e05a22bc602768cc8ff1bd7e2e4a515f9d32. The spiral dice tower sources plus
+  the upstream LICENSE. common.scad reads BOSL v1's
+  extrude_2dpath_along_spiral(); that one BSD-2-Clause function is restated in
+  the dice_tower wrapper, because BOSL v1's paths.scad is not vendored.
+- SharpCoder/fidget-spinner - MIT (Copyright (c) 2022 Joshua Cole) -
+  https://github.com/SharpCoder/fidget-spinner - commit
+  5e67c0e739bd8ffbd109217d7b5a329b4d2b9692. The fidget spinner source and the
+  parameters file it includes plus the upstream LICENSE: the three-arm fidget
+  spinner.
+- qubolino/brick_lib - CC0-1.0 (qubolino; CC0 1.0 Universal dedicates the work
+  to the public domain) - https://github.com/qubolino/brick_lib - commit
+  95a3c86563aa40bf221b019271b683dfa048077f. The brick core, globals and the
+  panel, windscreen and corner modules plus the upstream LICENSE: the LEGO
+  compatible wall panel, windscreen and corner brick.
+- cfinke/Technic.scad - MIT (Copyright (c) 2025 Christopher Finke) -
+  https://github.com/cfinke/Technic.scad - commit
+  41f17a4696b582850097a2e3779348bc27c87f47. The single Technic.scad library plus
+  the upstream LICENSE: the axle, wheel and tire. Upstream's gear modules read a
+  CC-BY-NC-SA submodule (chrisspen/gears), which is deliberately not vendored.
+- aaron-siegel/puzzlecad - MIT (puzzlecad is Copyright (c) 2019-2022 Aaron
+  Siegel) - https://github.com/aaron-siegel/puzzlecad - commit
+  2ba064c51e8b8c0018a34d96776b33625c938602. The puzzlecad library include and
+  its ten modules plus the upstream LICENSE and LICENSE-MIT: the burr puzzle
+  stick. The repository's finished puzzle designs are CC-BY-NC-ND and are not
+  vendored.
+- ChristianLutz/3d-inserts - CC0-1.0 (Christian Lutz; CC0 1.0 Universal
+  dedicates the work to the public domain) -
+  https://github.com/ChristianLutz/3d-inserts - commit
+  5a9976a9469ad90ece2e94347ef616120302cd17. The card tray and resources tray
+  sources plus the upstream LICENSE: the board game inserts.
+
 
 OpenSCAD bootstrap attribution
 -------------------------------

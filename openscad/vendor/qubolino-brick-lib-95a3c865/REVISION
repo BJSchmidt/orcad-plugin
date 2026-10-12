@@ -1,0 +1,19 @@
+95a3c86563aa40bf221b019271b683dfa048077f
+
+Upstream: https://github.com/qubolino/brick_lib
+License: CC0-1.0
+Copyright: qubolino and contributors (public domain dedication)
+
+The brick library core plus the panel, windscreen and corner modules, copied verbatim
+from the pinned commit, plus the upstream CC0 LICENSE. brick.scad includes globals.scad
+and the three feature modules use brick.scad. Upstream's remaining module files
+(bracket, calibration, converter, flat, grid, round, slope) and its README are not
+vendored, because the catalog does not expose them.
+
+Files:
+  LICENSE
+  brick.scad
+  corner.scad
+  globals.scad
+  panel.scad
+  windscreen.scad

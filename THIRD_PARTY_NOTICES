@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Forty-two upstream OpenSCAD libraries are vendored unmodified under
+Fifty upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -304,6 +304,81 @@ Pinned at: ce261a389da419c767efd607159fe80f20f16d17
 License:   BSD-3-Clause. Copyright (c) 2020, Rafael G. Martins.
 Vendored:  openscad/vendor/pcb-enclosure-ce261a38/ - the pcb-enclosure library, its
            assembly example and the upstream LICENSE.
+
+jhpieper-marble-run
+-------------------
+Upstream:  https://github.com/jhpieper/marble-run
+Pinned at: 64b8f62091775c56ffcdbe276b6a8cbad95581f7
+License:   MIT. Copyright (c) 2020 Jan Pieper.
+Vendored:  openscad/vendor/jhpieper-marble-run-64b8f620/ - the straight, curve and funnel
+           magnetic track sources plus the upstream LICENSE.
+
+openscad-dice-models (nemon-)
+-----------------------------
+Upstream:  https://github.com/nemon-/openscad-dice-models
+Pinned at: be03f70f7edbb7c6bcef9ddbcbd91f3776314178
+License:   CC0-1.0. nemon-; CC0 1.0 Universal dedicates the work to the public domain,
+           so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/nemon-openscad-dice-models-be03f70f/ - the D4, D12 and D20
+           sources and the antiprism dice_2n source, plus the upstream LICENSE.
+
+dice-tower.scad (hirthwork)
+---------------------------
+Upstream:  https://github.com/hirthwork/dice-tower.scad
+Pinned at: c130e05a22bc602768cc8ff1bd7e2e4a515f9d32
+License:   BSD-2-Clause. hirthwork and the dice-tower.scad contributors.
+Vendored:  openscad/vendor/hirthwork-dice-tower-c130e05a/ - the spiral dice tower
+           sources (tower.scad, steps.scad, bricks.scad, rocks.scad, common.scad)
+           plus the upstream LICENSE. common.scad reads BOSL v1's
+           extrude_2dpath_along_spiral(); the dice_tower wrapper restates that one
+           BSD-2-Clause function, because BOSL v1's paths.scad is not vendored.
+
+fidget-spinner (SharpCoder)
+---------------------------
+Upstream:  https://github.com/SharpCoder/fidget-spinner
+Pinned at: 5e67c0e739bd8ffbd109217d7b5a329b4d2b9692
+License:   MIT. Copyright (c) 2022 Joshua Cole.
+Vendored:  openscad/vendor/sharpcoder-fidget-spinner-5e67c0e7/ - the fidget spinner
+           source and the parameters file it includes, plus the upstream LICENSE.
+
+brick_lib (qubolino)
+--------------------
+Upstream:  https://github.com/qubolino/brick_lib
+Pinned at: 95a3c86563aa40bf221b019271b683dfa048077f
+License:   CC0-1.0. qubolino; CC0 1.0 Universal dedicates the work to the public domain,
+           so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/qubolino-brick-lib-95a3c865/ - the brick core, globals and the
+           panel, windscreen and corner modules, plus the upstream LICENSE.
+
+Technic.scad (cfinke)
+---------------------
+Upstream:  https://github.com/cfinke/Technic.scad
+Pinned at: 41f17a4696b582850097a2e3779348bc27c87f47
+License:   MIT. Copyright (c) 2025 Christopher Finke (cfinke@gmail.com).
+Vendored:  openscad/vendor/cfinke-technic-scad-41f17a46/ - the single Technic.scad
+           library plus the upstream LICENSE: the axle, wheel and tire objects.
+           Upstream's gear modules read a CC-BY-NC-SA git submodule
+           (chrisspen/gears), which is deliberately not vendored.
+
+puzzlecad (aaron-siegel)
+------------------------
+Upstream:  https://github.com/aaron-siegel/puzzlecad
+Pinned at: 2ba064c51e8b8c0018a34d96776b33625c938602
+License:   MIT. puzzlecad is Copyright (c) 2019-2022 Aaron Siegel.
+Vendored:  openscad/vendor/aaron-siegel-puzzlecad-2ba064c5/ - the puzzlecad library
+           include and its ten modules, plus the upstream LICENSE and
+           LICENSE-MIT: the burr puzzle stick. The repository's finished puzzle
+           designs are distributed upstream under CC-BY-NC-ND 3.0 and are not
+           vendored.
+
+3d-inserts (ChristianLutz)
+--------------------------
+Upstream:  https://github.com/ChristianLutz/3d-inserts
+Pinned at: 5a9976a9469ad90ece2e94347ef616120302cd17
+License:   CC0-1.0. Christian Lutz; CC0 1.0 Universal dedicates the work to the public
+           domain, so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/christianlutz-3d-inserts-5a9976a9/ - the card tray and
+           resources tray sources plus the upstream LICENSE.
 
 Third-party frontend notices
 ============================

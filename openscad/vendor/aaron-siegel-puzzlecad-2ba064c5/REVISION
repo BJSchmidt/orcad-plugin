@@ -1,0 +1,27 @@
+2ba064c51e8b8c0018a34d96776b33625c938602
+
+Upstream: https://github.com/aaron-siegel/puzzlecad
+License: MIT
+Copyright: puzzlecad is Copyright (c) 2019-2022 Aaron Siegel
+
+The puzzlecad library (the top-level include file and the ten library modules under
+puzzlecad/), copied verbatim from the pinned commit, plus the upstream LICENSE and the
+LICENSE-MIT copy. The repository's Java and Python tooling, its test and example models
+and the printable puzzle designs under src/main/scad are NOT vendored; those individual
+designs are distributed upstream under CC-BY-NC-ND 3.0 and are not used here. All the
+catalog objects built from this tree use the MIT library code only.
+
+Files:
+  LICENSE
+  LICENSE-MIT
+  puzzlecad.scad
+  puzzlecad/puzzlecad-2d.scad
+  puzzlecad/puzzlecad-boxes.scad
+  puzzlecad/puzzlecad-burr.scad
+  puzzlecad/puzzlecad-burr-stick.scad
+  puzzlecad/puzzlecad-geom.scad
+  puzzlecad/puzzlecad-layout.scad
+  puzzlecad/puzzlecad-notched-stick.scad
+  puzzlecad/puzzlecad-parser.scad
+  puzzlecad/puzzlecad-polyhedra.scad
+  puzzlecad/puzzlecad-util.scad
