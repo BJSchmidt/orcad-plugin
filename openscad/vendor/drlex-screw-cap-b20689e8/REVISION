@@ -1,0 +1,13 @@
+b20689e8980df83e64723eb0649fd49827c9a5b7
+
+Upstream: https://github.com/DrLex0/print3d-customizable-screw-cap
+License: CC-BY-4.0
+Copyright: DrLex (DrLex0)
+
+The parametric screw cap source plus the upstream CC BY 4.0 LICENSE, copied verbatim
+from the pinned commit. The example STLs, images, PDFs and Customizer JSON are not
+vendored.
+
+Files:
+  LICENSE
+  CustomizableScrewCap.scad

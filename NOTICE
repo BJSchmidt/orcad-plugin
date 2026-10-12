@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Eighteen upstream OpenSCAD libraries are vendored unmodified under
+Thirty-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -126,6 +126,63 @@ THIRD_PARTY_NOTICES.
   fin sets and the upstream LICENSE: the Rocketry category. gardena.scad,
   pco-1881.scad, rocket_fins.scad and rocket.scad are not vendored, because
   their include of threadlib needs a library this project does not ship.
+- syncom/openscad-designs - BSD-2-Clause (Copyright (c) 2018 syncom) -
+  https://github.com/syncom/openscad-designs - commit
+  a59bdd24c4ce8c1f0c5b68b7e8989e834bbab0f2. The chopstick dishwasher support
+  and the bucket-with-lid source plus the upstream LICENSE: the kitchen and
+  household objects of the repository.
+- GrimSqueaker/3d_printing_stuff - MIT (Copyright (c) 2024 GrimSqueaker) -
+  https://github.com/GrimSqueaker/3d_printing_stuff - commit
+  0c0236f87645e2a61c8a2b47da3d7a3c7963241e. The two cosmetic organizers and
+  the bathroom shelf hook plus the upstream LICENSE, with the upstream
+  openscad/ layout preserved.
+- rorleth/3dKnickKnacks - MIT (Copyright (c) 2024 rorleth) -
+  https://github.com/rorleth/3dKnickKnacks - commit
+  ddb4514417935098d9ef49307c143d724d5620fe. The twine holder with the
+  threads.scad helper it includes and the one-way drawer insert plus the
+  upstream LICENSE.
+- steinbeck/seifenschale - MIT (Copyright (c) 2026 Christoph Steinbeck) -
+  https://github.com/steinbeck/seifenschale - commit
+  32ecd46741f6dbef2668c223c57e35126b745769. The three-part wall-mounted soap
+  dish plus the upstream LICENSE.
+- nomike/parametric-polyamory-spice-rack - BSD-2-Clause (Copyright 2024
+  nomike) - https://github.com/nomike/parametric-polyamory-spice-rack - commit
+  6c4453ee3bce657b1f61c316182e50c65977350d. The parametric spice rack, the
+  two logo SVGs it imports and the upstream LICENSE.
+- mnp/openscad-scraper - CC0-1.0 (mnp; CC0 1.0 Universal dedicates the work
+  to the public domain) - https://github.com/mnp/openscad-scraper - commit
+  c16e115c34a9f836fd7b2fc484fd064c75f123f8. The kitchen card scraper source
+  plus the upstream CC0 LICENSE.
+- DrLex0/print3D-customizable-sieve - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3D-customizable-sieve - commit
+  deead1a72d78eb6fbb8f1f579690743ac1dc2b27. The parametric sieve source plus
+  the upstream CC BY 4.0 LICENSE; upstream notes the design is based on a
+  sieve by pcstru (Thingiverse thing 341357).
+- DrLex0/print3d-customizable-screw-cap - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-screw-cap - commit
+  b20689e8980df83e64723eb0649fd49827c9a5b7. The parametric screw cap source
+  plus the upstream CC BY 4.0 LICENSE.
+- DrLex0/print3d-customizable-vase-mode-box - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-vase-mode-box - commit
+  5dbc4c92446ab0088dcc5ed080a2b079de8fb012. The parametric vase-mode box and
+  lid source plus the upstream CC BY 4.0 LICENSE.
+- DrLex0/print3d-customizable-latch - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-latch - commit
+  a7dcfe739f461a883e6dc0fc891ec3b19c92b712. The parametric box latch source
+  plus the upstream CC BY 4.0 LICENSE.
+- DrLex0/print3d-customizable-pen-butler - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-pen-butler - commit
+  6450759098871fc7e94b32ce9d2d300c58ce794e. The modular wall/desk holder
+  source plus the upstream CC BY 4.0 LICENSE.
+- rjkorn/Generic_Coaster - MIT (Copyright (c) 2015 Robert Joseph Korn and
+  Open Valley Consulting Corp) - https://github.com/rjkorn/Generic_Coaster -
+  commit 95baec3c1e499c27b99ed1782cb50c9906cad78c. The self-contained
+  circuit-board coaster source plus the upstream LICENSE.
+- mmalecki/composable-organizer - MIT (Copyright (C) 2022 Maciej Małecki) -
+  https://github.com/mmalecki/composable-organizer - commit
+  f01bb2fb5547c58b28208eee58dee0c5305aa73d. The compartment, tray, lid and
+  tray-lid sources with the parameters, sizing, utils and common files they
+  include, plus the upstream LICENSE.
 
 OpenSCAD bootstrap attribution
 -------------------------------

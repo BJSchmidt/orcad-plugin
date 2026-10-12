@@ -1,0 +1,21 @@
+f01bb2fb5547c58b28208eee58dee0c5305aa73d
+
+Upstream: https://github.com/mmalecki/composable-organizer
+License: MIT
+Copyright: Copyright (C) 2022 Maciej Małecki (mmalecki)
+
+The compartment, tray, lid and tray-lid sources with the parameters, sizing, utils and
+common files they include, plus the upstream LICENSE, copied verbatim from the pinned
+commit. The mockup, the build scripts, the documentation images and the Customizer
+JSON are not vendored.
+
+Files:
+  LICENSE
+  common.scad
+  compartment.scad
+  lid.scad
+  parameters.scad
+  sizing.scad
+  tray-lid.scad
+  tray.scad
+  utils.scad

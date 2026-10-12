@@ -1,0 +1,15 @@
+0c0236f87645e2a61c8a2b47da3d7a3c7963241e
+
+Upstream: https://github.com/GrimSqueaker/3d_printing_stuff
+License: MIT
+Copyright: Copyright (c) 2024 GrimSqueaker
+
+The cosmetic box and bathroom shelf hook sources plus the upstream LICENSE, copied
+verbatim from the pinned commit with the upstream openscad/ layout preserved. The
+unrelated models in the repository are not vendored.
+
+Files:
+  LICENSE
+  openscad/Kosmetik_Boxen.scad
+  openscad/Kosmetik_Boxen_flach.scad
+  openscad/einlegeboden_haken.scad

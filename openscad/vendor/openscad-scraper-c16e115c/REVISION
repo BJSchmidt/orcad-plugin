@@ -1,0 +1,12 @@
+c16e115c34a9f836fd7b2fc484fd064c75f123f8
+
+Upstream: https://github.com/mnp/openscad-scraper
+License: CC0-1.0
+Copyright: mnp (CC0 1.0 Universal public domain dedication)
+
+The kitchen card scraper source plus the upstream CC0 LICENSE, copied verbatim from
+the pinned commit. The exported STL and README are not vendored.
+
+Files:
+  LICENSE
+  scraper.scad

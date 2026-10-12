@@ -1,0 +1,12 @@
+a7dcfe739f461a883e6dc0fc891ec3b19c92b712
+
+Upstream: https://github.com/DrLex0/print3d-customizable-latch
+License: CC-BY-4.0
+Copyright: DrLex (DrLex0)
+
+The parametric box latch source plus the upstream CC BY 4.0 LICENSE, copied verbatim
+from the pinned commit. The example STLs and images are not vendored.
+
+Files:
+  LICENSE
+  CustomizableLatch.scad

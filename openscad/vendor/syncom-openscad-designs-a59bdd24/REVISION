@@ -1,0 +1,13 @@
+a59bdd24c4ce8c1f0c5b68b7e8989e834bbab0f2
+
+Upstream: https://github.com/syncom/openscad-designs
+License: BSD-2-Clause
+Copyright: Copyright (c) 2018 syncom
+
+The two kitchen and household model sources plus the upstream LICENSE, copied verbatim
+from the pinned commit. The other model files in the repository are not vendored.
+
+Files:
+  LICENSE
+  bucket_and_lid.scad
+  chopstick_dishwasher_support.scad

@@ -1,0 +1,13 @@
+5dbc4c92446ab0088dcc5ed080a2b079de8fb012
+
+Upstream: https://github.com/DrLex0/print3d-customizable-vase-mode-box
+License: CC-BY-4.0
+Copyright: DrLex (DrLex0)
+
+The parametric vase-mode box and lid source plus the upstream CC BY 4.0 LICENSE,
+copied verbatim from the pinned commit. The example STLs, images and Customizer JSON
+are not vendored.
+
+Files:
+  LICENSE
+  Vase_mode_box.scad

@@ -131,7 +131,112 @@
       "revision": "57f2c9fd475be499aafb2655b12f20a75f135e60",
       "license": "BSD-2-Clause",
       "repository": "https://github.com/adrianschlatter/RocketFins"
-    }  },
+    },
+    "syncom-openscad-designs": {
+      "label": "OpenSCAD Designs (syncom)",
+      "root": "vendor/syncom-openscad-designs-a59bdd24",
+      "revision": "a59bdd24c4ce8c1f0c5b68b7e8989e834bbab0f2",
+      "license": "BSD-2-Clause",
+      "repository": "https://github.com/syncom/openscad-designs",
+      "author": "syncom"
+    },
+    "grimsqueaker-3d-printing": {
+      "label": "3D Printing Stuff (GrimSqueaker)",
+      "root": "vendor/grimsqueaker-3d-printing-0c0236f8",
+      "revision": "0c0236f87645e2a61c8a2b47da3d7a3c7963241e",
+      "license": "MIT",
+      "repository": "https://github.com/GrimSqueaker/3d_printing_stuff",
+      "author": "GrimSqueaker"
+    },
+    "rorleth-3dknickknacks": {
+      "label": "3D KnickKnacks (rorleth)",
+      "root": "vendor/rorleth-3dknickknacks-ddb45144",
+      "revision": "ddb4514417935098d9ef49307c143d724d5620fe",
+      "license": "MIT",
+      "repository": "https://github.com/rorleth/3dKnickKnacks",
+      "author": "rorleth"
+    },
+    "seifenschale": {
+      "label": "Seifenschale (steinbeck)",
+      "root": "vendor/seifenschale-32ecd467",
+      "revision": "32ecd46741f6dbef2668c223c57e35126b745769",
+      "license": "MIT",
+      "repository": "https://github.com/steinbeck/seifenschale",
+      "author": "Christoph Steinbeck"
+    },
+    "spice-rack-nomike": {
+      "label": "Spice Rack (nomike)",
+      "root": "vendor/spice-rack-nomike-6c4453ee",
+      "revision": "6c4453ee3bce657b1f61c316182e50c65977350d",
+      "license": "BSD-2-Clause",
+      "repository": "https://github.com/nomike/parametric-polyamory-spice-rack",
+      "author": "nomike"
+    },
+    "openscad-scraper": {
+      "label": "OpenSCAD Scraper (mnp)",
+      "root": "vendor/openscad-scraper-c16e115c",
+      "revision": "c16e115c34a9f836fd7b2fc484fd064c75f123f8",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/mnp/openscad-scraper",
+      "author": "mnp (CC0 1.0 Universal public domain dedication)"
+    },
+    "drlex-sieve": {
+      "label": "Customizable Sieve (DrLex0)",
+      "root": "vendor/drlex-sieve-deead1a7",
+      "revision": "deead1a72d78eb6fbb8f1f579690743ac1dc2b27",
+      "license": "CC-BY-4.0",
+      "repository": "https://github.com/DrLex0/print3D-customizable-sieve",
+      "author": "DrLex (DrLex0)"
+    },
+    "drlex-screw-cap": {
+      "label": "Customizable Screw Cap (DrLex0)",
+      "root": "vendor/drlex-screw-cap-b20689e8",
+      "revision": "b20689e8980df83e64723eb0649fd49827c9a5b7",
+      "license": "CC-BY-4.0",
+      "repository": "https://github.com/DrLex0/print3d-customizable-screw-cap",
+      "author": "DrLex (DrLex0)"
+    },
+    "drlex-vase-mode-box": {
+      "label": "Vase-Mode Box (DrLex0)",
+      "root": "vendor/drlex-vase-mode-box-5dbc4c92",
+      "revision": "5dbc4c92446ab0088dcc5ed080a2b079de8fb012",
+      "license": "CC-BY-4.0",
+      "repository": "https://github.com/DrLex0/print3d-customizable-vase-mode-box",
+      "author": "DrLex (DrLex0)"
+    },
+    "drlex-latch": {
+      "label": "Customizable Latch (DrLex0)",
+      "root": "vendor/drlex-latch-a7dcfe73",
+      "revision": "a7dcfe739f461a883e6dc0fc891ec3b19c92b712",
+      "license": "CC-BY-4.0",
+      "repository": "https://github.com/DrLex0/print3d-customizable-latch",
+      "author": "DrLex (DrLex0)"
+    },
+    "drlex-pen-butler": {
+      "label": "Pen Butler (DrLex0)",
+      "root": "vendor/drlex-pen-butler-64507590",
+      "revision": "6450759098871fc7e94b32ce9d2d300c58ce794e",
+      "license": "CC-BY-4.0",
+      "repository": "https://github.com/DrLex0/print3d-customizable-pen-butler",
+      "author": "DrLex (DrLex0)"
+    },
+    "generic-coaster": {
+      "label": "Generic Coaster (rjkorn)",
+      "root": "vendor/generic-coaster-95baec3c",
+      "revision": "95baec3c1e499c27b99ed1782cb50c9906cad78c",
+      "license": "MIT",
+      "repository": "https://github.com/rjkorn/Generic_Coaster",
+      "author": "Robert Joseph Korn (rjkorn, Open Valley Consulting Corp)"
+    },
+    "composable-organizer": {
+      "label": "Composable Organizer (mmalecki)",
+      "root": "vendor/composable-organizer-f01bb2fb",
+      "revision": "f01bb2fb5547c58b28208eee58dee0c5305aa73d",
+      "license": "MIT",
+      "repository": "https://github.com/mmalecki/composable-organizer",
+      "author": "Maciej Małecki (mmalecki)"
+    }
+  },
   "quality_profiles": {
     "draft": {
       "fa": 12.0,
@@ -17237,6 +17342,2317 @@
           }
         }
       ]
+    },
+    "chopstick_dishwasher_support": {
+      "label": "Chopstick Dishwasher Support",
+      "short": "Chopstick rest",
+      "category": "Kitchen & bath",
+      "icon": "plate",
+      "source": "vendor/syncom-openscad-designs-a59bdd24/chopstick_dishwasher_support.scad",
+      "description": "Perforated holder that keeps chopsticks upright and separated in a dishwasher utensil basket.",
+      "tags": [
+        "chopstick",
+        "dishwasher",
+        "utensil",
+        "basket",
+        "kitchen",
+        "drain"
+      ],
+      "parameters": [
+        {
+          "variable": "length",
+          "label": "Length",
+          "type": "number",
+          "default": 86,
+          "min": 40,
+          "max": 200,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Length of the perforated plate."
+        },
+        {
+          "variable": "width",
+          "label": "Width",
+          "type": "number",
+          "default": 77.4,
+          "min": 30,
+          "max": 200,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the perforated plate."
+        },
+        {
+          "variable": "height",
+          "label": "Height",
+          "type": "number",
+          "default": 10,
+          "min": 4,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the perforated block."
+        },
+        {
+          "variable": "upper_depth_percentage",
+          "label": "Upper Sink",
+          "type": "number",
+          "default": 0.85,
+          "min": 0.2,
+          "max": 0.99,
+          "step": 0.01,
+          "group": "Style",
+          "help": "How deep the upper recess is cut into the block."
+        },
+        {
+          "variable": "lower_depth_percentage",
+          "label": "Lower Sink",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.05,
+          "group": "Style",
+          "help": "How deep the lower recess is cut into the block."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "86 mm plate for a typical utensil basket.",
+          "params": {}
+        },
+        {
+          "name": "Short",
+          "description": "Compact 60 mm plate.",
+          "params": {
+            "length": 60,
+            "width": 54
+          }
+        },
+        {
+          "name": "Tall",
+          "description": "16 mm block for long chopsticks.",
+          "params": {
+            "height": 16
+          }
+        },
+        {
+          "name": "Deep lower recess",
+          "description": "Cuts more room under the plate.",
+          "params": {
+            "lower_depth_percentage": 0.25
+          }
+        }
+      ]
+    },
+    "bucket_lid": {
+      "label": "Bucket with Lid",
+      "short": "Bucket + lid",
+      "category": "Kitchen & bath",
+      "icon": "cylinder",
+      "source": "vendor/syncom-openscad-designs-a59bdd24/bucket_and_lid.scad",
+      "description": "Round bucket with a matching domed lid and an optional engraved name, printed side by side.",
+      "tags": [
+        "bucket",
+        "lid",
+        "container",
+        "storage",
+        "household"
+      ],
+      "parameters": [
+        {
+          "variable": "outer_radius_bkt",
+          "label": "Outer Radius",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Outer radius of the bucket."
+        },
+        {
+          "variable": "height_bkt",
+          "label": "Height",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 200,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the bucket without the lid."
+        },
+        {
+          "variable": "thickness_bkt",
+          "label": "Wall Thickness",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 15,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Wall thickness of the bucket."
+        },
+        {
+          "variable": "lid_text_id",
+          "label": "Lid Text",
+          "type": "text",
+          "default": "SHANG",
+          "max_length": 12,
+          "max_lines": 1,
+          "rows": 1,
+          "placeholder": "Lid Text",
+          "group": "Text",
+          "help": "Text engraved into the lid."
+        },
+        {
+          "variable": "lid_text_size",
+          "label": "Lid Text Size",
+          "type": "number",
+          "default": 10,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "unit": "mm",
+          "group": "Text",
+          "help": "Size of the engraved lid text."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "50 mm radius bucket with a 60 mm wall.",
+          "params": {}
+        },
+        {
+          "name": "Small pot",
+          "description": "35 mm radius, 42 mm tall.",
+          "params": {
+            "outer_radius_bkt": 35,
+            "height_bkt": 42
+          }
+        },
+        {
+          "name": "Deep bucket",
+          "description": "Tall 100 mm bucket.",
+          "params": {
+            "height_bkt": 100
+          }
+        },
+        {
+          "name": "Thick wall",
+          "description": "8 mm wall for heavier loads.",
+          "params": {
+            "thickness_bkt": 8
+          }
+        }
+      ]
+    },
+    "cosmetic_box_round": {
+      "label": "Cosmetic Box, Round Holes",
+      "short": "Cosmetic box",
+      "category": "Kitchen & bath",
+      "icon": "box",
+      "source": "vendor/grimsqueaker-3d-printing-0c0236f8/openscad/Kosmetik_Boxen.scad",
+      "description": "Open tray with a grid of round holes that holds lipsticks and similar tubes upright in a bathroom cabinet.",
+      "tags": [
+        "cosmetic",
+        "lipstick",
+        "bathroom",
+        "cabinet",
+        "organizer",
+        "tray"
+      ],
+      "parameters": [
+        {
+          "variable": "numRows",
+          "label": "Rows",
+          "type": "integer",
+          "default": 5,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Number of rows of holes."
+        },
+        {
+          "variable": "numCols",
+          "label": "Columns",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Number of columns of holes."
+        },
+        {
+          "variable": "boxHeight",
+          "label": "Height",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the box."
+        },
+        {
+          "variable": "holeDiameter",
+          "label": "Hole Diameter",
+          "type": "number",
+          "default": 23,
+          "min": 8,
+          "max": 60,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Diameter of each tube hole."
+        },
+        {
+          "variable": "outerWall",
+          "label": "Outer Wall",
+          "type": "number",
+          "default": 2,
+          "min": 0.8,
+          "max": 5,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the outer wall."
+        },
+        {
+          "variable": "innerWall",
+          "label": "Inner Wall",
+          "type": "number",
+          "default": 1,
+          "min": 0.4,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the walls between holes."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "2 x 5 holes for thin tubes.",
+          "params": {}
+        },
+        {
+          "name": "Thick tubes",
+          "description": "2 x 4 holes for 28 mm tubes.",
+          "params": {
+            "numRows": 4,
+            "holeDiameter": 28,
+            "boxHeight": 30,
+            "outerWall": 1.5,
+            "innerWall": 1
+          }
+        },
+        {
+          "name": "Wide",
+          "description": "Three columns of holes.",
+          "params": {
+            "numCols": 3
+          }
+        },
+        {
+          "name": "Tall",
+          "description": "70 mm tall box.",
+          "params": {
+            "boxHeight": 70
+          }
+        }
+      ]
+    },
+    "cosmetic_box_flat": {
+      "label": "Cosmetic Box, Flat Holes",
+      "short": "Cosmetic flat",
+      "category": "Kitchen & bath",
+      "icon": "box",
+      "source": "vendor/grimsqueaker-3d-printing-0c0236f8/openscad/Kosmetik_Boxen_flach.scad",
+      "description": "Open tray with rectangular pockets that keeps flat cosmetic boxes and compacts tidy in a bathroom cabinet.",
+      "tags": [
+        "cosmetic",
+        "compact",
+        "bathroom",
+        "cabinet",
+        "organizer",
+        "tray"
+      ],
+      "parameters": [
+        {
+          "variable": "numRows",
+          "label": "Rows",
+          "type": "integer",
+          "default": 5,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Number of rows of pockets."
+        },
+        {
+          "variable": "numCols",
+          "label": "Columns",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Number of columns of pockets."
+        },
+        {
+          "variable": "boxHeight",
+          "label": "Height",
+          "type": "number",
+          "default": 45,
+          "min": 10,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the box."
+        },
+        {
+          "variable": "holeWidth",
+          "label": "Pocket Width",
+          "type": "number",
+          "default": 76,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of each rectangular pocket."
+        },
+        {
+          "variable": "holeHeight",
+          "label": "Pocket Height",
+          "type": "number",
+          "default": 25,
+          "min": 8,
+          "max": 80,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of each rectangular pocket."
+        },
+        {
+          "variable": "outerWall",
+          "label": "Outer Wall",
+          "type": "number",
+          "default": 2,
+          "min": 0.8,
+          "max": 5,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the outer wall."
+        },
+        {
+          "variable": "innerWall",
+          "label": "Inner Wall",
+          "type": "number",
+          "default": 1,
+          "min": 0.4,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the walls between pockets."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "2 x 5 pockets.",
+          "params": {}
+        },
+        {
+          "name": "More rows",
+          "description": "2 x 7 pockets.",
+          "params": {
+            "numRows": 7
+          }
+        },
+        {
+          "name": "Wide pockets",
+          "description": "100 mm wide pockets.",
+          "params": {
+            "holeWidth": 100
+          }
+        },
+        {
+          "name": "Tall",
+          "description": "70 mm tall box.",
+          "params": {
+            "boxHeight": 70
+          }
+        }
+      ]
+    },
+    "bathroom_shelf_hook": {
+      "label": "Bathroom Shelf Hook",
+      "short": "Shelf hook",
+      "category": "Kitchen & bath",
+      "icon": "bracket",
+      "source": "vendor/grimsqueaker-3d-printing-0c0236f8/openscad/einlegeboden_haken.scad",
+      "description": "Spring clip that pins a glass cabinet shelf to its support, holding it in place in a bathroom cabinet.",
+      "tags": [
+        "shelf",
+        "hook",
+        "bathroom",
+        "cabinet",
+        "glass",
+        "clip"
+      ],
+      "parameters": [
+        {
+          "variable": "holder_wall_height",
+          "label": "Body Height",
+          "type": "number",
+          "default": 20,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the clip body."
+        },
+        {
+          "variable": "holder_wall_width",
+          "label": "Body Width",
+          "type": "number",
+          "default": 10,
+          "min": 5,
+          "max": 40,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the clip body."
+        },
+        {
+          "variable": "holder_wall_thickness",
+          "label": "Wall Thickness",
+          "type": "number",
+          "default": 2.25,
+          "min": 1,
+          "max": 6,
+          "step": 0.25,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the clip wall."
+        },
+        {
+          "variable": "holder_L_length",
+          "label": "Reach",
+          "type": "number",
+          "default": 10,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "How far the clip reaches over the shelf."
+        },
+        {
+          "variable": "holder_L_thickness",
+          "label": "Lip Thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 12,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the clamping lip."
+        },
+        {
+          "variable": "pin_diameter",
+          "label": "Pin Diameter",
+          "type": "number",
+          "default": 2.8,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Diameter of the locating pin."
+        },
+        {
+          "variable": "pin_length",
+          "label": "Pin Length",
+          "type": "number",
+          "default": 7,
+          "min": 3,
+          "max": 30,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Length of the locating pin."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "Default clip for a glass shelf.",
+          "params": {}
+        },
+        {
+          "name": "Wide shelf",
+          "description": "Wider, taller clip.",
+          "params": {
+            "holder_wall_height": 26,
+            "holder_wall_width": 12
+          }
+        },
+        {
+          "name": "Long pin",
+          "description": "14 mm locating pin.",
+          "params": {
+            "pin_length": 14
+          }
+        }
+      ]
+    },
+    "twine_holder": {
+      "label": "Twine and Paper Holder",
+      "short": "Twine holder",
+      "category": "Kitchen & bath",
+      "icon": "cylinder",
+      "source": "vendor/rorleth-3dknickknacks-ddb45144/TwineHolder/TwineHolder.scad",
+      "description": "Wall-mounted bracket with a threaded pin that carries a spool of twine, string or paper towel.",
+      "tags": [
+        "twine",
+        "string",
+        "spool",
+        "holder",
+        "wall",
+        "kitchen"
+      ],
+      "parameters": [
+        {
+          "variable": "baseWidth",
+          "label": "Base Width",
+          "type": "number",
+          "default": 75,
+          "min": 40,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the wall plate and base."
+        },
+        {
+          "variable": "baseThickness",
+          "label": "Base Thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the wall plate."
+        },
+        {
+          "variable": "pinLength",
+          "label": "Pin Length",
+          "type": "number",
+          "default": 55,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Length of the spool pin."
+        },
+        {
+          "variable": "pinDiameter",
+          "label": "Pin Diameter",
+          "type": "number",
+          "default": 7,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Diameter of the threaded spool pin."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "75 mm base with a 55 mm pin.",
+          "params": {}
+        },
+        {
+          "name": "Large spool",
+          "description": "100 mm base and 80 mm pin for a big roll.",
+          "params": {
+            "baseWidth": 100,
+            "pinLength": 80,
+            "pinDiameter": 10
+          }
+        },
+        {
+          "name": "Slim base",
+          "description": "2 mm wall plate.",
+          "params": {
+            "baseThickness": 2
+          }
+        }
+      ]
+    },
+    "drawer_insert_peg": {
+      "label": "One-Way Drawer Peg",
+      "short": "Drawer peg",
+      "category": "Kitchen & bath",
+      "icon": "cylinder",
+      "source": "vendor/rorleth-3dknickknacks-ddb45144/OneWayInserts/one way insert.scad",
+      "description": "Rounded peg with a hooked foot that clips into a drilled drawer base to divide or locate items.",
+      "tags": [
+        "drawer",
+        "insert",
+        "peg",
+        "divider",
+        "organizer",
+        "kitchen"
+      ],
+      "parameters": [
+        {
+          "variable": "foot_radius",
+          "label": "Foot Radius",
+          "type": "number",
+          "default": 8,
+          "min": 4,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Radius of the rounded foot."
+        },
+        {
+          "variable": "foot_height",
+          "label": "Overall Height",
+          "type": "number",
+          "default": 20,
+          "min": 8,
+          "max": 60,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the peg above the drawer base."
+        },
+        {
+          "variable": "hook_inner_diameter",
+          "label": "Hook Inner",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 15,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Inner diameter of the locating hook."
+        },
+        {
+          "variable": "hook_outer_diameter",
+          "label": "Hook Outer",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 18,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Outer diameter of the locating hook."
+        },
+        {
+          "variable": "hook_height",
+          "label": "Hook Height",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Height of the hook lip."
+        },
+        {
+          "variable": "hook_gap",
+          "label": "Hook Gap",
+          "type": "number",
+          "default": 0.5,
+          "min": 0.1,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Gap cut through the foot for the hook."
+        },
+        {
+          "variable": "gap_depth_in_foot",
+          "label": "Gap Depth",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "How deep the hook gap runs into the foot."
+        },
+        {
+          "variable": "hooked_plate_thickness",
+          "label": "Plate Thickness",
+          "type": "number",
+          "default": 1,
+          "min": 0.4,
+          "max": 5,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Thickness of the hooked plate."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "8 mm foot, 20 mm tall.",
+          "params": {}
+        },
+        {
+          "name": "Chunky",
+          "description": "Larger peg for deep drawers.",
+          "params": {
+            "foot_radius": 12,
+            "foot_height": 28
+          }
+        },
+        {
+          "name": "Wide gap",
+          "description": "Looser 1 mm hook gap.",
+          "params": {
+            "hook_gap": 1
+          }
+        }
+      ]
+    },
+    "soap_dish": {
+      "label": "Wall-Mounted Soap Dish",
+      "short": "Soap dish",
+      "category": "Kitchen & bath",
+      "icon": "plate",
+      "source": "vendor/seifenschale-32ecd467/seifenschale.scad",
+      "description": "Three-part soap dish: a wall bracket, a lift-out bowl and a draining grate, printed ready to assemble.",
+      "tags": [
+        "soap",
+        "dish",
+        "bathroom",
+        "drain",
+        "wall",
+        "holder"
+      ],
+      "parameters": [
+        {
+          "variable": "rahmen_x",
+          "label": "Frame Width",
+          "type": "number",
+          "default": 110,
+          "min": 60,
+          "max": 200,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the wall bracket frame."
+        },
+        {
+          "variable": "rahmen_y",
+          "label": "Frame Depth",
+          "type": "number",
+          "default": 75,
+          "min": 40,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Depth of the wall bracket frame."
+        },
+        {
+          "variable": "rahmen_z",
+          "label": "Frame Height",
+          "type": "number",
+          "default": 12,
+          "min": 4,
+          "max": 40,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the wall bracket frame."
+        },
+        {
+          "variable": "rahmen_wand",
+          "label": "Frame Wall",
+          "type": "number",
+          "default": 4,
+          "min": 2,
+          "max": 12,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Wall thickness of the bracket frame."
+        },
+        {
+          "variable": "schale_tief",
+          "label": "Bowl Depth",
+          "type": "number",
+          "default": 10,
+          "min": 3,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Internal depth of the soap bowl."
+        },
+        {
+          "variable": "wandplatte_z",
+          "label": "Wall Plate Height",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the adhesive wall plate."
+        },
+        {
+          "variable": "clearance_schale",
+          "label": "Bowl Clearance",
+          "type": "number",
+          "default": 0.3,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Clearance between the bowl and the frame."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "110 x 75 mm frame, 12 mm tall.",
+          "params": {}
+        },
+        {
+          "name": "Small",
+          "description": "Compact 80 x 60 mm frame.",
+          "params": {
+            "rahmen_x": 80,
+            "rahmen_y": 60
+          }
+        },
+        {
+          "name": "Deep bowl",
+          "description": "16 mm deep soap bowl.",
+          "params": {
+            "schale_tief": 16
+          }
+        },
+        {
+          "name": "Short wall plate",
+          "description": "40 mm tall adhesive plate.",
+          "params": {
+            "wandplatte_z": 40
+          }
+        }
+      ]
+    },
+    "spice_rack": {
+      "label": "Parametric Spice Rack",
+      "short": "Spice rack",
+      "category": "Kitchen & bath",
+      "icon": "grid",
+      "source": "vendor/spice-rack-nomike-6c4453ee/parametric-polyamory-spice-rack.scad",
+      "description": "Screw-on spice rack that holds a wooden bar and floor board, sized around the wood you have on hand.",
+      "tags": [
+        "spice",
+        "rack",
+        "kitchen",
+        "shelf",
+        "wall",
+        "storage"
+      ],
+      "parameters": [
+        {
+          "variable": "floor_board_width",
+          "label": "Floor Board Width",
+          "type": "number",
+          "default": 45.5,
+          "min": 20,
+          "max": 120,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the wooden floor board."
+        },
+        {
+          "variable": "floor_width",
+          "label": "Rack Depth",
+          "type": "number",
+          "default": 60,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Depth of the rack from wall to front."
+        },
+        {
+          "variable": "floor_board_height",
+          "label": "Floor Board Height",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the floor board."
+        },
+        {
+          "variable": "side_wall_width",
+          "label": "Side Wall Width",
+          "type": "number",
+          "default": 9,
+          "min": 3,
+          "max": 30,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the side walls."
+        },
+        {
+          "variable": "front_height",
+          "label": "Front Bar Height",
+          "type": "number",
+          "default": 55,
+          "min": 20,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the front bar mounting."
+        },
+        {
+          "variable": "front_width",
+          "label": "Front Bar Width",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the front bar."
+        },
+        {
+          "variable": "back_height",
+          "label": "Back Wall Height",
+          "type": "number",
+          "default": 65,
+          "min": 20,
+          "max": 180,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the back wall."
+        },
+        {
+          "variable": "back_depth",
+          "label": "Back Wall Depth",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 30,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Depth of the back wall."
+        },
+        {
+          "variable": "wall_thickness",
+          "label": "Wall Thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1.5,
+          "max": 12,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Printed wall thickness."
+        },
+        {
+          "variable": "front_bar_width",
+          "label": "Bar Stock Width",
+          "type": "number",
+          "default": 6,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the wooden front bar."
+        },
+        {
+          "variable": "front_bar_height",
+          "label": "Bar Stock Height",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 150,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the wooden front bar."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "Rack for a 45.5 mm floor board.",
+          "params": {}
+        },
+        {
+          "name": "Wide bar",
+          "description": "Thicker front bar, 12 x 70 mm.",
+          "params": {
+            "front_bar_width": 12,
+            "front_bar_height": 70
+          }
+        },
+        {
+          "name": "Deep shelf",
+          "description": "80 mm deep rack.",
+          "params": {
+            "floor_width": 80
+          }
+        }
+      ]
+    },
+    "kitchen_scraper": {
+      "label": "Kitchen Card Scraper",
+      "short": "Kitchen scraper",
+      "category": "Kitchen & bath",
+      "icon": "wrench",
+      "source": "objects/wrappers/kitchen_scraper.scad",
+      "description": "Rounded card scraper with two edge profiles and an engraved label for dough, boards and pans.",
+      "tags": [
+        "scraper",
+        "kitchen",
+        "dough",
+        "card",
+        "tool",
+        "baking"
+      ],
+      "parameters": [
+        {
+          "variable": "scraper_text",
+          "label": "Text",
+          "type": "text",
+          "default": "Kitchen",
+          "max_length": 20,
+          "max_lines": 1,
+          "rows": 1,
+          "placeholder": "Engraving",
+          "group": "Text"
+        },
+        {
+          "variable": "scraper_width",
+          "label": "Width",
+          "type": "number",
+          "default": 100,
+          "min": 40,
+          "max": 200,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the scraper."
+        },
+        {
+          "variable": "scraper_height",
+          "label": "Height",
+          "type": "number",
+          "default": 50,
+          "min": 20,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the scraper."
+        },
+        {
+          "variable": "scraper_thickness",
+          "label": "Thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the scraper."
+        },
+        {
+          "variable": "scraper_text_depth",
+          "label": "Engraving Depth",
+          "type": "number",
+          "default": 0.2,
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Text",
+          "help": "Depth of the engraved text."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "100 x 50 x 3 mm scraper.",
+          "params": {}
+        },
+        {
+          "name": "Wide",
+          "description": "150 x 60 mm scraper.",
+          "params": {
+            "scraper_width": 150,
+            "scraper_height": 60
+          }
+        },
+        {
+          "name": "Deep engraving",
+          "description": "0.6 mm deep lettering.",
+          "params": {
+            "scraper_text_depth": 0.6
+          }
+        }
+      ],
+      "attribution": {
+        "label": "OpenSCAD Scraper (mnp)",
+        "license": "CC0-1.0",
+        "author": "mnp (CC0 1.0 Universal public domain dedication)",
+        "repository": "https://github.com/mnp/openscad-scraper"
+      }
+    },
+    "sieve": {
+      "label": "Parametric Sieve",
+      "short": "Sieve",
+      "category": "Kitchen & bath",
+      "icon": "grid",
+      "source": "vendor/drlex-sieve-deead1a7/sieve.scad",
+      "description": "Round or square sieve with a parametric mesh, useful as a kitchen strainer, filter or garden riddle.",
+      "tags": [
+        "sieve",
+        "strainer",
+        "filter",
+        "kitchen",
+        "mesh",
+        "garden"
+      ],
+      "parameters": [
+        {
+          "variable": "outer_diameter",
+          "label": "Diameter",
+          "type": "number",
+          "default": 40,
+          "min": 10,
+          "max": 250,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Outer diameter of the sieve."
+        },
+        {
+          "variable": "strand_width",
+          "label": "Strand Width",
+          "type": "number",
+          "default": 0.4,
+          "min": 0.1,
+          "max": 10,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of each mesh strand."
+        },
+        {
+          "variable": "strand_thickness",
+          "label": "Strand Thickness",
+          "type": "number",
+          "default": 0.4,
+          "min": 0.1,
+          "max": 5,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of each mesh strand."
+        },
+        {
+          "variable": "gap_size",
+          "label": "Gap Size",
+          "type": "number",
+          "default": 0.8,
+          "min": 0.1,
+          "max": 10,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Open gap between the strands."
+        },
+        {
+          "variable": "rim_thickness",
+          "label": "Rim Thickness",
+          "type": "number",
+          "default": 1.7,
+          "min": 0.3,
+          "max": 5,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the outer rim."
+        },
+        {
+          "variable": "rim_height",
+          "label": "Rim Height",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 50,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the outer rim."
+        },
+        {
+          "variable": "taper",
+          "label": "Taper",
+          "type": "number",
+          "default": 1,
+          "min": 1,
+          "max": 3,
+          "step": 0.01,
+          "group": "Style",
+          "help": "How much the sieve flares towards the rim."
+        },
+        {
+          "variable": "grid_rotation",
+          "label": "Grid Rotation",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 90,
+          "step": 1,
+          "unit": "&deg;",
+          "group": "Style",
+          "help": "Rotation of the mesh grid."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "40 mm round sieve.",
+          "params": {}
+        },
+        {
+          "name": "Fine mesh",
+          "description": "Tighter strands and gaps.",
+          "params": {
+            "strand_width": 0.3,
+            "gap_size": 0.5
+          }
+        },
+        {
+          "name": "Large strainer",
+          "description": "80 mm sieve for pasta and vegetables.",
+          "params": {
+            "outer_diameter": 80
+          }
+        },
+        {
+          "name": "Coarse",
+          "description": "2 mm gaps for garden use.",
+          "params": {
+            "gap_size": 2
+          }
+        }
+      ]
+    },
+    "screw_cap": {
+      "label": "Parametric Screw Cap",
+      "short": "Screw cap",
+      "category": "Kitchen & bath",
+      "icon": "cylinder",
+      "source": "vendor/drlex-screw-cap-b20689e8/CustomizableScrewCap.scad",
+      "description": "Threaded screw cap or lid for tubes, jars and bottles, with optional ribs and a hole for a spout.",
+      "tags": [
+        "cap",
+        "lid",
+        "screw",
+        "thread",
+        "bottle",
+        "kitchen"
+      ],
+      "parameters": [
+        {
+          "variable": "Thread_OD",
+          "label": "Thread Diameter",
+          "type": "number",
+          "default": 12,
+          "min": 5,
+          "max": 80,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Outer diameter of the thread."
+        },
+        {
+          "variable": "Thread_Pitch",
+          "label": "Thread Pitch",
+          "type": "number",
+          "default": 1.25,
+          "min": 0.2,
+          "max": 5,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Pitch of the thread."
+        },
+        {
+          "variable": "Thread_Length",
+          "label": "Thread Length",
+          "type": "number",
+          "default": 7,
+          "min": 2,
+          "max": 30,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Length of the threaded section."
+        },
+        {
+          "variable": "Wall_Thick_1",
+          "label": "Upper Wall",
+          "type": "number",
+          "default": 1.2,
+          "min": 1,
+          "max": 6,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the upper wall."
+        },
+        {
+          "variable": "Wall_Thick_2",
+          "label": "Lower Wall",
+          "type": "number",
+          "default": 1.2,
+          "min": 1,
+          "max": 6,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the lower wall."
+        },
+        {
+          "variable": "Bottom",
+          "label": "Bottom Thickness",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the cap bottom."
+        },
+        {
+          "variable": "Extra_Length",
+          "label": "Extra Length",
+          "type": "number",
+          "default": 0.5,
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Extra length added above the thread."
+        },
+        {
+          "variable": "Bevel",
+          "label": "Bevel",
+          "type": "number",
+          "default": 0.5,
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Style",
+          "help": "Bevel on the top edge."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "12 mm cap with a 1.25 mm pitch.",
+          "params": {}
+        },
+        {
+          "name": "Wide cap",
+          "description": "30 mm jar lid.",
+          "params": {
+            "Thread_OD": 30,
+            "Thread_Pitch": 2,
+            "Thread_Length": 10
+          }
+        },
+        {
+          "name": "Short",
+          "description": "Compact 4 mm thread.",
+          "params": {
+            "Thread_Length": 4
+          }
+        }
+      ]
+    },
+    "vase_mode_box": {
+      "label": "Vase-Mode Box",
+      "short": "Vase-mode box",
+      "category": "Kitchen & bath",
+      "icon": "box",
+      "source": "vendor/drlex-vase-mode-box-5dbc4c92/Vase_mode_box.scad",
+      "description": "Thin-walled spiral-vase-mode box and lid, sized to hold small parts, pencils or kitchen odds and ends.",
+      "tags": [
+        "box",
+        "lid",
+        "vase",
+        "spiral",
+        "storage",
+        "household"
+      ],
+      "parameters": [
+        {
+          "variable": "width",
+          "label": "Width",
+          "type": "number",
+          "default": 50,
+          "min": 10,
+          "max": 250,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Outer width of the box."
+        },
+        {
+          "variable": "depth",
+          "label": "Depth",
+          "type": "number",
+          "default": 25,
+          "min": 10,
+          "max": 250,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Outer depth of the box."
+        },
+        {
+          "variable": "height",
+          "label": "Height",
+          "type": "number",
+          "default": 70,
+          "min": 5,
+          "max": 250,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the box."
+        },
+        {
+          "variable": "lid",
+          "label": "Lid Height",
+          "type": "number",
+          "default": 25,
+          "min": 1,
+          "max": 50,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Height of the lid."
+        },
+        {
+          "variable": "tolerance",
+          "label": "Lid Tolerance",
+          "type": "number",
+          "default": 0.1,
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Clearance between the box and the lid."
+        },
+        {
+          "variable": "wall",
+          "label": "Wall Thickness",
+          "type": "number",
+          "default": 0.6,
+          "min": 0.2,
+          "max": 2,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Single-wall thickness for vase mode."
+        },
+        {
+          "variable": "corner",
+          "label": "Corner Radius",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 125,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Style",
+          "help": "Corner radius, 0 keeps sharp corners."
+        },
+        {
+          "variable": "cylinder_segments",
+          "label": "Cylinder Segments",
+          "type": "integer",
+          "default": 64,
+          "min": 3,
+          "max": 128,
+          "step": 1,
+          "group": "Style",
+          "help": "Number of segments on round shapes."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "50 x 25 x 70 mm box.",
+          "params": {}
+        },
+        {
+          "name": "Tall",
+          "description": "150 mm tall box with a 40 mm lid.",
+          "params": {
+            "height": 150,
+            "lid": 40
+          }
+        },
+        {
+          "name": "Rounded",
+          "description": "10 mm corner radius.",
+          "params": {
+            "corner": 10
+          }
+        },
+        {
+          "name": "Wide",
+          "description": "120 x 80 mm footprint.",
+          "params": {
+            "width": 120,
+            "depth": 80
+          }
+        }
+      ]
+    },
+    "box_latch": {
+      "label": "Parametric Box Latch",
+      "short": "Box latch",
+      "category": "Kitchen & bath",
+      "icon": "fit",
+      "source": "vendor/drlex-latch-a7dcfe73/CustomizableLatch.scad",
+      "description": "Snap latch that keeps a cardboard box or storage bin closed, with printable hook, cap and backing plates.",
+      "tags": [
+        "latch",
+        "clip",
+        "box",
+        "storage",
+        "household",
+        "closure"
+      ],
+      "parameters": [
+        {
+          "variable": "size",
+          "label": "Latch Size",
+          "type": "number",
+          "default": 35,
+          "min": 20,
+          "max": 100,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Overall length of the latch."
+        },
+        {
+          "variable": "base_thick",
+          "label": "Base Thickness",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 10,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the backing plates."
+        },
+        {
+          "variable": "hook_adj",
+          "label": "Hook Adjustment",
+          "type": "number",
+          "default": 0,
+          "min": -1,
+          "max": 1,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Fine adjustment of the hook reach."
+        },
+        {
+          "variable": "cap_adj",
+          "label": "Cap Adjustment",
+          "type": "number",
+          "default": 0,
+          "min": -0.5,
+          "max": 0.5,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Fine adjustment of the cap fit."
+        },
+        {
+          "variable": "hole_gap",
+          "label": "Hole Gap",
+          "type": "number",
+          "default": 0.15,
+          "min": 0,
+          "max": 0.3,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Clearance in the pivot holes."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "35 mm latch with a 1 mm base.",
+          "params": {}
+        },
+        {
+          "name": "Large",
+          "description": "60 mm latch for bigger boxes.",
+          "params": {
+            "size": 60
+          }
+        },
+        {
+          "name": "Loose fit",
+          "description": "More clearance on a thicker base.",
+          "params": {
+            "base_thick": 2,
+            "hole_gap": 0.25,
+            "cap_adj": 0.2
+          }
+        }
+      ]
+    },
+    "modular_holder": {
+      "label": "Modular Utensil Holder",
+      "short": "Modular holder",
+      "category": "Kitchen & bath",
+      "icon": "folder",
+      "source": "vendor/drlex-pen-butler-64507590/PenButller.scad",
+      "description": "Wall or desk holder with a row of grip slots and modular connectors for pens, brushes or kitchen utensils.",
+      "tags": [
+        "holder",
+        "utensil",
+        "pen",
+        "wall",
+        "modular",
+        "organizer"
+      ],
+      "parameters": [
+        {
+          "variable": "numSlots",
+          "label": "Slots",
+          "type": "integer",
+          "default": 4,
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Number of tool slots."
+        },
+        {
+          "variable": "maxPenDia",
+          "label": "Slot Diameter",
+          "type": "number",
+          "default": 13,
+          "min": 10,
+          "max": 20,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Diameter of the largest tool it holds."
+        },
+        {
+          "variable": "outerWidth",
+          "label": "Holder Width",
+          "type": "number",
+          "default": 70,
+          "min": 40,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Overall width of the holder."
+        },
+        {
+          "variable": "holeDiameter",
+          "label": "Mounting Hole",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 5,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Diameter of the screw holes, 0 for none."
+        },
+        {
+          "variable": "modularTolerance",
+          "label": "Modular Tolerance",
+          "type": "number",
+          "default": 0.1,
+          "min": 0,
+          "max": 0.3,
+          "step": 0.01,
+          "unit": "mm",
+          "group": "Fit",
+          "help": "Clearance in the modular connectors."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "Four slots up to 13 mm.",
+          "params": {}
+        },
+        {
+          "name": "Thick handles",
+          "description": "Bigger slots for kitchen tools.",
+          "params": {
+            "maxPenDia": 18,
+            "outerWidth": 90
+          }
+        },
+        {
+          "name": "Six slots",
+          "description": "Wider holder with six slots.",
+          "params": {
+            "numSlots": 6,
+            "outerWidth": 90
+          }
+        }
+      ]
+    },
+    "circuit_coaster": {
+      "label": "Circuit Board Coaster",
+      "short": "Circuit coaster",
+      "category": "Kitchen & bath",
+      "icon": "chip",
+      "source": "vendor/generic-coaster-95baec3c/GenericCoaster.scad",
+      "description": "Drink coaster shaped like a circuit board, with four corner feet that keep it off the table.",
+      "tags": [
+        "coaster",
+        "drink",
+        "circuit",
+        "kitchen",
+        "table",
+        "geek"
+      ],
+      "parameters": [
+        {
+          "variable": "wallT",
+          "label": "Rim Thickness",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Thickness of the coaster rim."
+        },
+        {
+          "variable": "boardW",
+          "label": "Recess Width",
+          "type": "number",
+          "default": 70.5,
+          "min": 30,
+          "max": 150,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Width of the recessed board area."
+        },
+        {
+          "variable": "boardH",
+          "label": "Recess Height",
+          "type": "number",
+          "default": 51.4,
+          "min": 30,
+          "max": 150,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Depth of the recessed board area."
+        },
+        {
+          "variable": "boardD",
+          "label": "Recess Depth",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 10,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Depth of the board recess."
+        },
+        {
+          "variable": "holeW",
+          "label": "Foot Spacing X",
+          "type": "number",
+          "default": 63.95,
+          "min": 20,
+          "max": 140,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Horizontal spacing of the feet."
+        },
+        {
+          "variable": "holeH",
+          "label": "Foot Spacing Y",
+          "type": "number",
+          "default": 40.5,
+          "min": 20,
+          "max": 140,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Vertical spacing of the feet."
+        },
+        {
+          "variable": "pinD",
+          "label": "Foot Diameter",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Diameter of the corner feet."
+        },
+        {
+          "variable": "pinL",
+          "label": "Foot Length",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "How far the feet protrude."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "70.5 x 51.4 mm circuit coaster.",
+          "params": {}
+        },
+        {
+          "name": "Large",
+          "description": "100 x 70 mm coaster.",
+          "params": {
+            "boardW": 100,
+            "boardH": 70,
+            "holeW": 90,
+            "holeH": 60
+          }
+        },
+        {
+          "name": "Thick",
+          "description": "Thicker rim and board.",
+          "params": {
+            "boardD": 5,
+            "wallT": 3
+          }
+        }
+      ]
+    },
+    "organizer_compartment": {
+      "label": "Organizer Compartment",
+      "short": "Organizer box",
+      "category": "Kitchen & bath",
+      "icon": "bin",
+      "source": "objects/wrappers/organizer_compartment.scad",
+      "description": "Modular 20 mm-grid compartment that clips to matching trays and lids to build a drawer organizer.",
+      "tags": [
+        "organizer",
+        "drawer",
+        "compartment",
+        "modular",
+        "storage",
+        "kitchen"
+      ],
+      "parameters": [
+        {
+          "variable": "compartment_x",
+          "label": "Units X",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Width in 20 mm units."
+        },
+        {
+          "variable": "compartment_y",
+          "label": "Units Y",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Depth in 20 mm units."
+        },
+        {
+          "variable": "compartment_z",
+          "label": "Units Z",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Height in 20 mm units."
+        },
+        {
+          "variable": "compartment_hinge",
+          "label": "Lid Hinge",
+          "type": "boolean",
+          "default": true,
+          "group": "Style",
+          "help": "Adds the hinge the matching lid clips onto."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "2 x 3 x 2 units with a hinge.",
+          "params": {}
+        },
+        {
+          "name": "Small",
+          "description": "Single-unit cube.",
+          "params": {
+            "compartment_x": 1,
+            "compartment_y": 1,
+            "compartment_z": 1
+          }
+        },
+        {
+          "name": "Wide",
+          "description": "4 x 2 units, 2 units tall.",
+          "params": {
+            "compartment_x": 4,
+            "compartment_y": 2
+          }
+        },
+        {
+          "name": "Open",
+          "description": "No lid hinge on top.",
+          "params": {
+            "compartment_hinge": false
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Composable Organizer (mmalecki)",
+        "license": "MIT",
+        "author": "Maciej Małecki (mmalecki)",
+        "repository": "https://github.com/mmalecki/composable-organizer"
+      }
+    },
+    "organizer_tray": {
+      "label": "Organizer Tray",
+      "short": "Organizer tray",
+      "category": "Kitchen & bath",
+      "icon": "plate",
+      "source": "objects/wrappers/organizer_tray.scad",
+      "description": "Tray that holds a run of modular compartments, with optional raised walls to keep the row together.",
+      "tags": [
+        "organizer",
+        "tray",
+        "drawer",
+        "modular",
+        "storage",
+        "kitchen"
+      ],
+      "parameters": [
+        {
+          "variable": "tray_x",
+          "label": "Units X",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Tray length in 20 mm units."
+        },
+        {
+          "variable": "tray_y",
+          "label": "Units Y",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Tray width in 20 mm units."
+        },
+        {
+          "variable": "tray_z",
+          "label": "Units Z",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Tray height in 20 mm units."
+        },
+        {
+          "variable": "tray_walls",
+          "label": "Raised Walls",
+          "type": "boolean",
+          "default": true,
+          "group": "Style",
+          "help": "Adds a wall around the tray rim."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "3 x 2 units with walls.",
+          "params": {}
+        },
+        {
+          "name": "Open",
+          "description": "Flat tray without raised walls.",
+          "params": {
+            "tray_walls": false
+          }
+        },
+        {
+          "name": "Long",
+          "description": "Six-unit tray.",
+          "params": {
+            "tray_x": 6
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Composable Organizer (mmalecki)",
+        "license": "MIT",
+        "author": "Maciej Małecki (mmalecki)",
+        "repository": "https://github.com/mmalecki/composable-organizer"
+      }
+    },
+    "organizer_lid": {
+      "label": "Organizer Lid",
+      "short": "Organizer lid",
+      "category": "Kitchen & bath",
+      "icon": "plate",
+      "source": "objects/wrappers/organizer_lid.scad",
+      "description": "Hinged lid that snaps onto a matching modular compartment to close it for travel or stacking.",
+      "tags": [
+        "organizer",
+        "lid",
+        "drawer",
+        "modular",
+        "storage",
+        "kitchen"
+      ],
+      "parameters": [
+        {
+          "variable": "lid_x",
+          "label": "Units X",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Lid length in 20 mm units."
+        },
+        {
+          "variable": "lid_y",
+          "label": "Units Y",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Lid width in 20 mm units."
+        },
+        {
+          "variable": "lid_z",
+          "label": "Units Z",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Lid height in 20 mm units."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "3 x 2 units.",
+          "params": {}
+        },
+        {
+          "name": "Wide",
+          "description": "5 x 3 units.",
+          "params": {
+            "lid_x": 5,
+            "lid_y": 3
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Composable Organizer (mmalecki)",
+        "license": "MIT",
+        "author": "Maciej Małecki (mmalecki)",
+        "repository": "https://github.com/mmalecki/composable-organizer"
+      }
+    },
+    "organizer_tray_lid": {
+      "label": "Organizer Tray Lid",
+      "short": "Organizer tray lid",
+      "category": "Kitchen & bath",
+      "icon": "plate",
+      "source": "objects/wrappers/organizer_tray_lid.scad",
+      "description": "Close-fitting lid for a modular organizer tray, with an optional finger notch to lift it off.",
+      "tags": [
+        "organizer",
+        "lid",
+        "tray",
+        "drawer",
+        "modular",
+        "storage"
+      ],
+      "parameters": [
+        {
+          "variable": "tray_lid_x",
+          "label": "Units X",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Lid length in 20 mm units."
+        },
+        {
+          "variable": "tray_lid_y",
+          "label": "Units Y",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Lid width in 20 mm units."
+        },
+        {
+          "variable": "tray_lid_z",
+          "label": "Units Z",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Dimensions",
+          "help": "Lid height in 20 mm units."
+        },
+        {
+          "variable": "tray_lid_notch",
+          "label": "Finger Notch",
+          "type": "boolean",
+          "default": true,
+          "group": "Style",
+          "help": "Cuts a finger notch into the lid edge."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Standard",
+          "description": "3 x 2 units with a notch.",
+          "params": {}
+        },
+        {
+          "name": "No notch",
+          "description": "Plain lid edge.",
+          "params": {
+            "tray_lid_notch": false
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Composable Organizer (mmalecki)",
+        "license": "MIT",
+        "author": "Maciej Małecki (mmalecki)",
+        "repository": "https://github.com/mmalecki/composable-organizer"
+      }
     }
   }
 }

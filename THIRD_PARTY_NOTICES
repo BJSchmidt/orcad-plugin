@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Eighteen upstream OpenSCAD libraries are vendored unmodified under
+Thirty-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -90,6 +90,118 @@ Vendored:  openscad/vendor/rackstack-8e296e93/ - the 99 OpenSCAD sources under
            upstream LICENSE. Excluded: misc/bomAnimations.scad, whose upstream
            includes are broken, the rbuild.py generator and the STL/media
            assets. Supplies every rack case, tray, plate and panel model.
+
+syncom/openscad-designs
+-----------------------
+Upstream:  https://github.com/syncom/openscad-designs
+Pinned at: a59bdd24c4ce8c1f0c5b68b7e8989e834bbab0f2
+License:   BSD-2-Clause. Copyright (c) 2018 syncom.
+Vendored:  openscad/vendor/syncom-openscad-designs-a59bdd24/ - the chopstick
+dishwasher support and the bucket-with-lid source plus the upstream LICENSE.
+
+grimsqueaker-3d-printing (GrimSqueaker)
+---------------------------------------
+Upstream:  https://github.com/GrimSqueaker/3d_printing_stuff
+Pinned at: 0c0236f87645e2a61c8a2b47da3d7a3c7963241e
+License:   MIT. Copyright (c) 2024 GrimSqueaker.
+Vendored:  openscad/vendor/grimsqueaker-3d-printing-0c0236f8/ - the two
+cosmetic box modules and the bathroom shelf hook, with the upstream openscad/
+layout preserved, plus the upstream LICENSE.
+
+rorleth-3dknickknacks (rorleth)
+-------------------------------
+Upstream:  https://github.com/rorleth/3dKnickKnacks
+Pinned at: ddb4514417935098d9ef49307c143d724d5620fe
+License:   MIT. Copyright (c) 2024 rorleth.
+Vendored:  openscad/vendor/rorleth-3dknickknacks-ddb45144/ - the TwineHolder
+source with the threads.scad helper it includes and the one-way drawer insert,
+plus the upstream LICENSE.
+
+seifenschale (steinbeck)
+------------------------
+Upstream:  https://github.com/steinbeck/seifenschale
+Pinned at: 32ecd46741f6dbef2668c223c57e35126b745769
+License:   MIT. Copyright (c) 2026 Christoph Steinbeck.
+Vendored:  openscad/vendor/seifenschale-32ecd467/ - the three-part
+wall-mounted soap dish source and the upstream LICENSE.
+
+spice-rack-nomike (nomike)
+--------------------------
+Upstream:  https://github.com/nomike/parametric-polyamory-spice-rack
+Pinned at: 6c4453ee3bce657b1f61c316182e50c65977350d
+License:   BSD-2-Clause. Copyright 2024 nomike.
+Vendored:  openscad/vendor/spice-rack-nomike-6c4453ee/ - the parametric spice
+rack source, the heart-icon.svg and infinity.svg graphics it imports, and the
+upstream LICENSE.
+
+openscad-scraper (mnp)
+----------------------
+Upstream:  https://github.com/mnp/openscad-scraper
+Pinned at: c16e115c34a9f836fd7b2fc484fd064c75f123f8
+License:   CC0-1.0. mnp; CC0 1.0 Universal dedicates the work to the public
+domain, so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/openscad-scraper-c16e115c/ - the kitchen card
+scraper source and the upstream CC0 LICENSE.
+
+drlex-sieve (DrLex0)
+--------------------
+Upstream:  https://github.com/DrLex0/print3D-customizable-sieve
+Pinned at: deead1a72d78eb6fbb8f1f579690743ac1dc2b27
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-sieve-deead1a7/ - the parametric sieve source
+and the upstream CC BY 4.0 LICENSE. Upstream notes the design is based on a
+sieve by pcstru (Thingiverse thing 341357).
+
+drlex-screw-cap (DrLex0)
+------------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-screw-cap
+Pinned at: b20689e8980df83e64723eb0649fd49827c9a5b7
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-screw-cap-b20689e8/ - the parametric screw
+cap source and the upstream CC BY 4.0 LICENSE.
+
+drlex-vase-mode-box (DrLex0)
+----------------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-vase-mode-box
+Pinned at: 5dbc4c92446ab0088dcc5ed080a2b079de8fb012
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-vase-mode-box-5dbc4c92/ - the parametric
+vase-mode box and lid source and the upstream CC BY 4.0 LICENSE.
+
+drlex-latch (DrLex0)
+--------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-latch
+Pinned at: a7dcfe739f461a883e6dc0fc891ec3b19c92b712
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-latch-a7dcfe73/ - the parametric box latch
+source and the upstream CC BY 4.0 LICENSE.
+
+drlex-pen-butler (DrLex0)
+-------------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-pen-butler
+Pinned at: 6450759098871fc7e94b32ce9d2d300c58ce794e
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-pen-butler-64507590/ - the modular wall/desk
+holder source and the upstream CC BY 4.0 LICENSE.
+
+generic-coaster (rjkorn)
+------------------------
+Upstream:  https://github.com/rjkorn/Generic_Coaster
+Pinned at: 95baec3c1e499c27b99ed1782cb50c9906cad78c
+License:   MIT. Copyright (c) 2015 Robert Joseph Korn and Open Valley
+Consulting Corp.
+Vendored:  openscad/vendor/generic-coaster-95baec3c/ - the self-contained
+circuit-board coaster source and the upstream LICENSE.
+
+composable-organizer (mmalecki)
+-------------------------------
+Upstream:  https://github.com/mmalecki/composable-organizer
+Pinned at: f01bb2fb5547c58b28208eee58dee0c5305aa73d
+License:   MIT. Copyright (C) 2022 Maciej Małecki.
+Vendored:  openscad/vendor/composable-organizer-f01bb2fb/ - the compartment,
+tray, lid and tray-lid sources with the parameters, sizing, utils and common
+files they include, plus the upstream LICENSE. The archived mockup, build
+scripts and documentation images are not vendored.
 
 Third-party frontend notices
 ============================
