@@ -587,6 +587,62 @@
       "license": "MIT",
       "repository": "https://github.com/groverlab/giguere-3D-periodic-table",
       "author": "William H. Grover"
+    },
+    "azdle-printables": {
+      "label": "Printables (azdle)",
+      "root": "vendor/azdle-printables-158c8e86",
+      "revision": "158c8e86016c82332b5d6116dfd015b9a48a9479",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/azdle/printables",
+      "author": "Patrick Barrett"
+    },
+    "doofdoofsf-3dmodels": {
+      "label": "3DModels (doofdoofsf)",
+      "root": "vendor/doofdoofsf-3dmodels-a5786829",
+      "revision": "a578682933dc96ad7aa6fd8c17d36a4025e6ffc4",
+      "license": "MIT",
+      "repository": "https://github.com/doofdoofsf/3DModels",
+      "author": "John Quinn"
+    },
+    "elliotf-reprap-household-misc": {
+      "label": "RepRap household misc (elliotf)",
+      "root": "vendor/elliotf-reprap-household-misc-c353c8ac",
+      "revision": "c353c8acee63b75c19fc63be89bb2649d56aa580",
+      "license": "MIT",
+      "repository": "https://github.com/elliotf/reprap-household-misc",
+      "author": "Elliot Foster"
+    },
+    "filippyrek-scad-3d-print-models": {
+      "label": "SCAD 3D Print Models (FilipPyrek)",
+      "root": "vendor/filippyrek-scad-3d-print-models-cd4852ad",
+      "revision": "cd4852ada0d325ef4035a643f75cb316f5efab61",
+      "license": "MIT",
+      "repository": "https://github.com/FilipPyrek/scad-3d-print-models",
+      "author": "Filip Pýrek"
+    },
+    "lumpyscad": {
+      "label": "lumpyscad (elliotf)",
+      "root": "vendor/lumpyscad-49526b23",
+      "revision": "49526b23fca8ba0142f5a139c6be3033836b76a9",
+      "license": "MIT",
+      "repository": "https://github.com/elliotf/lumpyscad",
+      "author": "Elliot Foster"
+    },
+    "mjseabright-lampshades": {
+      "label": "Vase-mode lampshades (mjseabright)",
+      "root": "vendor/mjseabright-lampshades-5c20d701",
+      "revision": "5c20d7018cca118b88825590cf27469256e557ff",
+      "license": "MIT",
+      "repository": "https://github.com/mjseabright/lampshades",
+      "author": "Matthew Seabright"
+    },
+    "xoob-parametric-picture-frame": {
+      "label": "Parametric picture frame (xoob)",
+      "root": "vendor/xoob-parametric-picture-frame-84e8314b",
+      "revision": "84e8314b4b4b4bd4673b1428c5e8d4ab8b3b4f49",
+      "license": "MIT",
+      "repository": "https://github.com/xoob/parametric-picture-frame",
+      "author": "Alexander Brausewetter"
     }
   },
   "quality_profiles": {
@@ -34133,6 +34189,2280 @@
         "author": "William H. Grover",
         "repository": "https://github.com/groverlab/giguere-3D-periodic-table"
       }
+    },
+    "tealight_rack": {
+      "label": "Tealight Storage Tray",
+      "short": "Tealight tray",
+      "category": "Lighting",
+      "icon": "plate",
+      "source": "vendor/azdle-printables-158c8e86/unsorted/tealight-rack.scad",
+      "description": "Drawer tray that shelves a stack of tealights on their sides: rows of round candle wells cut into a plain block, so the candles cannot roll away.",
+      "tags": [
+        "tealight",
+        "candle",
+        "tea light",
+        "tray",
+        "storage",
+        "holder",
+        "drawer"
+      ],
+      "parameters": [
+        {
+          "variable": "candlerows",
+          "label": "Rows",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "group": "Tray",
+          "help": "Rows of candles across the tray."
+        },
+        {
+          "variable": "candlecols",
+          "label": "Candles per row",
+          "type": "integer",
+          "default": 12,
+          "min": 4,
+          "max": 20,
+          "step": 1,
+          "group": "Tray",
+          "help": "Candles along the tray."
+        },
+        {
+          "variable": "candledia",
+          "label": "Candle diameter",
+          "type": "number",
+          "default": 38,
+          "min": 25,
+          "max": 60,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Candles",
+          "help": "38 mm fits a standard tealight."
+        },
+        {
+          "variable": "candleheight",
+          "label": "Candle height",
+          "type": "number",
+          "default": 13.6,
+          "min": 8,
+          "max": 30,
+          "step": 0.2,
+          "unit": "mm",
+          "group": "Candles",
+          "help": "Also the depth of each well."
+        },
+        {
+          "variable": "depthpercent",
+          "label": "Seating depth",
+          "type": "number",
+          "default": 30,
+          "min": 20,
+          "max": 80,
+          "step": 5,
+          "unit": "%",
+          "group": "Tray",
+          "help": "How much of the candle diameter sits inside the tray."
+        },
+        {
+          "variable": "minwall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1.5,
+          "max": 8,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Tray",
+          "help": "Material between the wells and the outside."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Single row",
+          "description": "One row of twelve tealights for a shallow drawer.",
+          "params": {
+            "candlerows": 1,
+            "candlecols": 12
+          }
+        },
+        {
+          "name": "Deep wells",
+          "description": "Seats the candles halfway into the tray.",
+          "params": {
+            "depthpercent": 50
+          }
+        },
+        {
+          "name": "Votive candles",
+          "description": "Fatter, taller candles in the same tray.",
+          "params": {
+            "candledia": 42,
+            "candleheight": 20
+          }
+        }
+      ]
+    },
+    "marker_rack": {
+      "label": "Whiteboard Marker Rack",
+      "short": "Marker rack",
+      "category": "Decor & desk",
+      "icon": "tube",
+      "source": "vendor/azdle-printables-158c8e86/unsorted/marker-rack.scad",
+      "description": "Wall rack for dry-wipe markers and a board eraser: three round wells hold the pens and a slot at the end takes the eraser.",
+      "tags": [
+        "marker",
+        "pen",
+        "holder",
+        "desk",
+        "whiteboard",
+        "eraser",
+        "wall",
+        "office"
+      ],
+      "parameters": [
+        {
+          "variable": "w_body",
+          "label": "Rack length",
+          "type": "number",
+          "default": 75,
+          "min": 40,
+          "max": 150,
+          "step": 5,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "wall",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1.5,
+          "max": 8,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "d_marker",
+          "label": "Marker diameter",
+          "type": "number",
+          "default": 21,
+          "min": 10,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Markers",
+          "help": "Diameter of the markers the wells are sized for."
+        },
+        {
+          "variable": "h_eraser",
+          "label": "Eraser slot height",
+          "type": "number",
+          "default": 33,
+          "min": 15,
+          "max": 70,
+          "step": 1,
+          "unit": "mm",
+          "group": "Eraser"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Slim markers",
+          "description": "Thin fineliners instead of whiteboard pens.",
+          "params": {
+            "d_marker": 16,
+            "wall": 3
+          }
+        },
+        {
+          "name": "Chunky markers",
+          "params": {
+            "d_marker": 26,
+            "wall": 5
+          }
+        }
+      ]
+    },
+    "honeycomb_pods": {
+      "label": "Honeycomb Wall Pods",
+      "short": "Honeycomb pods",
+      "category": "Decor & desk",
+      "icon": "grid",
+      "source": "vendor/azdle-printables-158c8e86/honeycomb-honeycomb/honeycomb-honeycomb.scad",
+      "description": "Parametric honeycomb grid of hexagonal pods: a snap-fit wall organiser, or a single cell printed as a honeycomb coaster.",
+      "tags": [
+        "honeycomb",
+        "hexagon",
+        "pods",
+        "wall",
+        "organizer",
+        "storage",
+        "coaster",
+        "modular"
+      ],
+      "parameters": [
+        {
+          "variable": "x",
+          "label": "Pods across",
+          "type": "integer",
+          "default": 2,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "group": "Grid"
+        },
+        {
+          "variable": "y",
+          "label": "Pods down",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "group": "Grid"
+        },
+        {
+          "variable": "di",
+          "label": "Pod inside diameter",
+          "type": "number",
+          "default": 20,
+          "min": 12,
+          "max": 60,
+          "step": 1,
+          "unit": "mm",
+          "group": "Pods",
+          "help": "Measured flat to flat, like the hexagon it is."
+        },
+        {
+          "variable": "di_notch",
+          "label": "Notch diameter",
+          "type": "number",
+          "default": 22,
+          "min": 14,
+          "max": 66,
+          "step": 1,
+          "unit": "mm",
+          "group": "Pods",
+          "help": "Opening at the back of the pod, for the snap-in peg."
+        },
+        {
+          "variable": "cell_wall",
+          "label": "Cell wall",
+          "type": "number",
+          "default": 1.8,
+          "min": 1,
+          "max": 5,
+          "step": 0.2,
+          "unit": "mm",
+          "group": "Pods",
+          "help": "Half the wall between neighbouring pods."
+        },
+        {
+          "variable": "cell_depth",
+          "label": "Pod depth",
+          "type": "number",
+          "default": 8,
+          "min": 4,
+          "max": 30,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Pods"
+        },
+        {
+          "variable": "front_bevel",
+          "label": "Mouth bevel",
+          "type": "number",
+          "default": 0.5,
+          "min": 0,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Pods"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Coaster",
+          "description": "A flat three by three mat.",
+          "params": {
+            "x": 3,
+            "y": 3,
+            "cell_depth": 6
+          }
+        },
+        {
+          "name": "Wall panel",
+          "params": {
+            "x": 4,
+            "y": 5,
+            "di": 26,
+            "cell_depth": 12
+          }
+        }
+      ]
+    },
+    "rope_swirl_shade": {
+      "label": "Rope Swirl Lampshade",
+      "short": "Rope swirl",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "vendor/mjseabright-lampshades-5c20d701/rope_swirl/rope_swirl_large.scad",
+      "description": "Vase-mode lampshade whose wall is a rope of spiralling rings, with a bulb-adaptor hole in the centre and three foot-mounting holes.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "lamp",
+        "lighting",
+        "vase mode",
+        "spiral",
+        "rope",
+        "decor"
+      ],
+      "parameters": [
+        {
+          "variable": "height",
+          "label": "Height",
+          "type": "number",
+          "default": 120,
+          "min": 60,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "layer_height",
+          "label": "Cross-section spacing",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Shade",
+          "help": "Distance between the stacked outlines; match your layer height for a print."
+        },
+        {
+          "variable": "main_diameter",
+          "label": "Diameter",
+          "type": "number",
+          "default": 140,
+          "min": 60,
+          "max": 400,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "circle_diameter",
+          "label": "Rope thickness",
+          "type": "number",
+          "default": 12,
+          "min": 4,
+          "max": 40,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Rope"
+        },
+        {
+          "variable": "circle_sides",
+          "label": "Rope sides",
+          "type": "integer",
+          "default": 8,
+          "min": 3,
+          "max": 24,
+          "step": 1,
+          "group": "Rope",
+          "help": "Sides of the rope's cross-section: 8 prints a faceted rope, more sides make it rounder."
+        },
+        {
+          "variable": "spiral_radius",
+          "label": "Spiral radius",
+          "type": "number",
+          "default": 5,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Rope"
+        },
+        {
+          "variable": "swell",
+          "label": "Belly swell",
+          "type": "number",
+          "default": 15,
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "unit": "mm",
+          "group": "Shade",
+          "help": "How far the middle of the shade bulges past its ends."
+        },
+        {
+          "variable": "divs_per_circle",
+          "label": "Ropes around",
+          "type": "integer",
+          "default": 36,
+          "min": 8,
+          "max": 96,
+          "step": 4,
+          "group": "Rope"
+        },
+        {
+          "variable": "orbit_deg_per_mm",
+          "label": "Orbit per layer",
+          "type": "number",
+          "default": 3,
+          "min": -60,
+          "max": 60,
+          "step": 0.5,
+          "unit": "deg",
+          "group": "Twist",
+          "help": "How far each rope travels around the shade per millimetre of height."
+        },
+        {
+          "variable": "spin_deg_per_mm",
+          "label": "Spin per layer",
+          "type": "number",
+          "default": 12,
+          "min": -60,
+          "max": 60,
+          "step": 0.5,
+          "unit": "deg",
+          "group": "Twist",
+          "help": "How far each rope spins in place per millimetre of height."
+        },
+        {
+          "variable": "center_hole_diameter",
+          "label": "Centre hole",
+          "type": "number",
+          "default": 40,
+          "min": 0,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "group": "Mounting",
+          "help": "Bulb-adaptor hole; 0 leaves the top solid."
+        },
+        {
+          "variable": "foot_hole_diameter",
+          "label": "Foot hole diameter",
+          "type": "number",
+          "default": 4.5,
+          "min": 0,
+          "max": 12,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Mounting"
+        },
+        {
+          "variable": "foot_hole_radius",
+          "label": "Foot hole radius",
+          "type": "number",
+          "default": 55,
+          "min": 0,
+          "max": 200,
+          "step": 5,
+          "unit": "mm",
+          "group": "Mounting"
+        },
+        {
+          "variable": "num_feet",
+          "label": "Foot holes",
+          "type": "integer",
+          "default": 3,
+          "min": 0,
+          "max": 12,
+          "step": 1,
+          "group": "Mounting"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Tall drum",
+          "params": {
+            "height": 200,
+            "main_diameter": 160
+          }
+        },
+        {
+          "name": "Desk lamp",
+          "params": {
+            "height": 80,
+            "main_diameter": 110,
+            "center_hole_diameter": 30
+          }
+        },
+        {
+          "name": "Tight rope",
+          "params": {
+            "circle_diameter": 8,
+            "divs_per_circle": 48
+          }
+        }
+      ]
+    },
+    "turbine_shade": {
+      "label": "Turbine Lampshade",
+      "short": "Turbine shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "vendor/mjseabright-lampshades-5c20d701/turbine/turbine_large.scad",
+      "description": "Vase-mode lampshade shaped like a ring of twisting turbine blades, with a bulb-adaptor hole and one foot-mounting hole per blade.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "turbine",
+        "blade",
+        "lamp",
+        "lighting",
+        "vase mode",
+        "decor"
+      ],
+      "parameters": [
+        {
+          "variable": "height",
+          "label": "Height",
+          "type": "number",
+          "default": 120,
+          "min": 60,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "layer_height",
+          "label": "Cross-section spacing",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "main_diameter",
+          "label": "Blade ring diameter",
+          "type": "number",
+          "default": 90,
+          "min": 40,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Blades"
+        },
+        {
+          "variable": "divs_per_circle",
+          "label": "Blades",
+          "type": "integer",
+          "default": 3,
+          "min": 2,
+          "max": 12,
+          "step": 1,
+          "group": "Blades"
+        },
+        {
+          "variable": "blade_sides",
+          "label": "Blade sides",
+          "type": "integer",
+          "default": 5,
+          "min": 3,
+          "max": 12,
+          "step": 1,
+          "group": "Blades"
+        },
+        {
+          "variable": "circle_radius",
+          "label": "Blade radius",
+          "type": "number",
+          "default": 45,
+          "min": 10,
+          "max": 150,
+          "step": 5,
+          "unit": "mm",
+          "group": "Blades"
+        },
+        {
+          "variable": "blade_swell",
+          "label": "Blade swell",
+          "type": "number",
+          "default": 25,
+          "min": 0,
+          "max": 80,
+          "step": 1,
+          "unit": "mm",
+          "group": "Blades",
+          "help": "How far each blade bulges out over the height."
+        },
+        {
+          "variable": "blade_rotations",
+          "label": "Blade spins",
+          "type": "number",
+          "default": 1,
+          "min": -3,
+          "max": 3,
+          "step": 0.25,
+          "unit": "Full turns of each blade; negative spins the other way.",
+          "group": "Twist"
+        },
+        {
+          "variable": "twist_variation",
+          "label": "Twist variation",
+          "type": "number",
+          "default": 0.5,
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+          "unit": "0 twists at a constant rate, 1 nearly stands still at the ends.",
+          "group": "Twist"
+        },
+        {
+          "variable": "center_hole_diameter",
+          "label": "Centre hole",
+          "type": "number",
+          "default": 40,
+          "min": 0,
+          "max": 120,
+          "step": 1,
+          "unit": "mm",
+          "group": "Mounting"
+        },
+        {
+          "variable": "foot_hole_diameter",
+          "label": "Foot hole diameter",
+          "type": "number",
+          "default": 4.5,
+          "min": 0,
+          "max": 12,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Mounting"
+        },
+        {
+          "variable": "foot_hole_radius",
+          "label": "Foot hole radius",
+          "type": "number",
+          "default": 55,
+          "min": 0,
+          "max": 200,
+          "step": 5,
+          "unit": "mm",
+          "group": "Mounting"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Six blades",
+          "params": {
+            "divs_per_circle": 6,
+            "circle_radius": 35
+          }
+        },
+        {
+          "name": "Fast twist",
+          "params": {
+            "blade_rotations": 2,
+            "twist_variation": 0.8
+          }
+        },
+        {
+          "name": "Tall shade",
+          "params": {
+            "height": 220,
+            "main_diameter": 110
+          }
+        }
+      ]
+    },
+    "pineapple_shade": {
+      "label": "Pineapple Lampshade",
+      "short": "Pineapple shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "objects/wrappers/mjseabright_pineapple_shade.scad",
+      "description": "Vase-mode lampshade covered in pineapple petals that swell around the middle, printed as a single spiral wall. Upstream mounts it by gluing a printed bulb adaptor into the closed base; that adaptor is not vendored here.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "pineapple",
+        "petal",
+        "lamp",
+        "lighting",
+        "vase mode",
+        "decor"
+      ],
+      "parameters": [
+        {
+          "variable": "pineapple_height",
+          "label": "Height",
+          "type": "number",
+          "default": 100,
+          "min": 60,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "pineapple_layer_height",
+          "label": "Cross-section spacing",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "pineapple_diameter",
+          "label": "Diameter",
+          "type": "number",
+          "default": 120,
+          "min": 60,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "pineapple_divs",
+          "label": "Petals around",
+          "type": "integer",
+          "default": 36,
+          "min": 8,
+          "max": 120,
+          "step": 4,
+          "group": "Petals"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Fine petals",
+          "params": {
+            "pineapple_divs": 60,
+            "pineapple_diameter": 140
+          }
+        },
+        {
+          "name": "Desk size",
+          "params": {
+            "pineapple_height": 80,
+            "pineapple_diameter": 100
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Vase-mode lampshades (mjseabright)",
+        "license": "MIT",
+        "author": "Matthew Seabright",
+        "repository": "https://github.com/mjseabright/lampshades"
+      }
+    },
+    "golfball_shade": {
+      "label": "Golfball Lampshade",
+      "short": "Golfball shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "objects/wrappers/mjseabright_golfball_shade.scad",
+      "description": "Vase-mode lampshade dimpled like a golf ball: rows of spherical dimples cut into a barrel that swells past its waist. Upstream mounts it by gluing a printed bulb adaptor into the closed base; that adaptor is not vendored here.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "golf ball",
+        "dimples",
+        "lamp",
+        "lighting",
+        "vase mode"
+      ],
+      "parameters": [
+        {
+          "variable": "golfball_height",
+          "label": "Height",
+          "type": "number",
+          "default": 60,
+          "min": 40,
+          "max": 250,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "golfball_layer_height",
+          "label": "Cross-section spacing",
+          "type": "number",
+          "default": 2.0,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Shade",
+          "help": "Distance between the stacked outlines. Keep it coarse: the preview has to evaluate every subtractive dimple, and a fine spacing makes it very slow."
+        },
+        {
+          "variable": "golfball_diameter",
+          "label": "Waist diameter",
+          "type": "number",
+          "default": 100,
+          "min": 40,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "golfball_swell",
+          "label": "Belly swell",
+          "type": "number",
+          "default": 30,
+          "min": 0,
+          "max": 80,
+          "step": 1,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "golfball_dimple_spacing",
+          "label": "Dimple row spacing",
+          "type": "number",
+          "default": 12,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Dimples"
+        },
+        {
+          "variable": "golfball_dimples",
+          "label": "Dimples per row",
+          "type": "integer",
+          "default": 24,
+          "min": 8,
+          "max": 96,
+          "step": 4,
+          "group": "Dimples"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Big dimples",
+          "params": {
+            "golfball_dimple_spacing": 16,
+            "golfball_dimples": 16
+          }
+        },
+        {
+          "name": "Wider belly",
+          "params": {
+            "golfball_diameter": 120,
+            "golfball_swell": 45
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Vase-mode lampshades (mjseabright)",
+        "license": "MIT",
+        "author": "Matthew Seabright",
+        "repository": "https://github.com/mjseabright/lampshades"
+      }
+    },
+    "fish_tail_shade": {
+      "label": "Fish Tail Lampshade",
+      "short": "Fish tail shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "objects/wrappers/mjseabright_fish_tail_shade.scad",
+      "description": "Vase-mode lampshade tiled with overlapping scale rings that twist as they climb, printed as one spiral wall. Upstream mounts it by gluing a printed bulb adaptor into the closed base; that adaptor is not vendored here.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "scales",
+        "fish",
+        "lamp",
+        "lighting",
+        "vase mode",
+        "decor"
+      ],
+      "parameters": [
+        {
+          "variable": "fish_tail_height",
+          "label": "Height",
+          "type": "number",
+          "default": 100,
+          "min": 60,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "fish_tail_layer_height",
+          "label": "Cross-section spacing",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "fish_tail_diameter",
+          "label": "Ring diameter",
+          "type": "number",
+          "default": 90,
+          "min": 40,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "fish_tail_divs",
+          "label": "Scale pairs around",
+          "type": "integer",
+          "default": 24,
+          "min": 8,
+          "max": 72,
+          "step": 4,
+          "group": "Scales"
+        },
+        {
+          "variable": "fish_tail_scale_diameter",
+          "label": "Scale size",
+          "type": "number",
+          "default": 42,
+          "min": 10,
+          "max": 120,
+          "step": 2,
+          "unit": "mm",
+          "group": "Scales"
+        },
+        {
+          "variable": "fish_tail_swell",
+          "label": "Belly swell",
+          "type": "number",
+          "default": 18,
+          "min": 0,
+          "max": 80,
+          "step": 1,
+          "unit": "mm",
+          "group": "Shade"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Fine scales",
+          "params": {
+            "fish_tail_divs": 48,
+            "fish_tail_scale_diameter": 30
+          }
+        },
+        {
+          "name": "Big scales",
+          "params": {
+            "fish_tail_divs": 16,
+            "fish_tail_scale_diameter": 60
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Vase-mode lampshades (mjseabright)",
+        "license": "MIT",
+        "author": "Matthew Seabright",
+        "repository": "https://github.com/mjseabright/lampshades"
+      }
+    },
+    "rotated_star_shade": {
+      "label": "Rotated Star Lampshade",
+      "short": "Star shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "objects/wrappers/mjseabright_rotated_star_shade.scad",
+      "description": "Vase-mode lampshade built from two triangle stars that twist in opposite directions as they rise. Upstream mounts it by gluing a printed bulb adaptor into the closed base; that adaptor is not vendored here.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "star",
+        "triangle",
+        "lamp",
+        "lighting",
+        "vase mode",
+        "decor"
+      ],
+      "parameters": [
+        {
+          "variable": "star_height",
+          "label": "Height",
+          "type": "number",
+          "default": 100,
+          "min": 60,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "star_layer_height",
+          "label": "Cross-section spacing",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.2,
+          "max": 3,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "star_radius",
+          "label": "Star radius",
+          "type": "number",
+          "default": 60,
+          "min": 30,
+          "max": 200,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Tall twist",
+          "params": {
+            "star_height": 180
+          }
+        },
+        {
+          "name": "Wide star",
+          "params": {
+            "star_height": 80,
+            "star_radius": 90
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Vase-mode lampshades (mjseabright)",
+        "license": "MIT",
+        "author": "Matthew Seabright",
+        "repository": "https://github.com/mjseabright/lampshades"
+      }
+    },
+    "picture_frame_scoop": {
+      "label": "Reverse-Ogee Picture Frame",
+      "short": "Scoop frame",
+      "category": "Decor & desk",
+      "icon": "front",
+      "source": "objects/wrappers/xoob_picture_frame_scoop.scad",
+      "description": "Picture frame generated around a painting: a reverse-ogee scoop moulding with relief ornament, split into bed-sized pieces joined by press-fit dovetails.",
+      "tags": [
+        "picture frame",
+        "frame",
+        "photo",
+        "canvas",
+        "wall",
+        "decor",
+        "ornate",
+        "dovetail"
+      ],
+      "parameters": [
+        {
+          "variable": "painting_width",
+          "label": "Painting width",
+          "type": "number",
+          "default": 330,
+          "min": 300,
+          "max": 1200,
+          "step": 10,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "painting_height",
+          "label": "Painting height",
+          "type": "number",
+          "default": 330,
+          "min": 300,
+          "max": 1200,
+          "step": 10,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "painting_thickness",
+          "label": "Painting thickness",
+          "type": "number",
+          "default": 12,
+          "min": 6,
+          "max": 40,
+          "step": 1,
+          "unit": "mm",
+          "group": "Painting",
+          "help": "Canvas or stretcher depth that the rabbet has to swallow."
+        },
+        {
+          "variable": "lip_overlap",
+          "label": "Front lip overlap",
+          "type": "number",
+          "default": 10,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "fit_clearance",
+          "label": "Slack per side",
+          "type": "number",
+          "default": 4,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "profile_style",
+          "label": "Moulding profile",
+          "type": "text",
+          "default": "reverse_ogee",
+          "max_length": 24,
+          "max_lines": 1,
+          "rows": 1,
+          "group": "Moulding",
+          "placeholder": "reverse_ogee",
+          "help": "Upstream's cross-section name. Only reverse_ogee renders here: the ogee scroll band needs upstream heightmap PNGs that are not vendored."
+        },
+        {
+          "variable": "frame_scale",
+          "label": "Moulding scale",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.05,
+          "group": "Moulding",
+          "help": "Scales the moulding with the painting size; 1.0 is 5.4% of the diagonal."
+        },
+        {
+          "variable": "ornament_enable",
+          "label": "Relief ornament",
+          "type": "boolean",
+          "default": true,
+          "group": "Ornament",
+          "help": "Carve the scalloped relief into the moulding."
+        },
+        {
+          "variable": "ornament_depth",
+          "label": "Ornament depth",
+          "type": "number",
+          "default": 2.6,
+          "min": 1,
+          "max": 4,
+          "step": 0.2,
+          "unit": "mm",
+          "group": "Ornament"
+        },
+        {
+          "variable": "ornament_period_target",
+          "label": "Ornament repeat",
+          "type": "number",
+          "default": 80,
+          "min": 24,
+          "max": 80,
+          "step": 2,
+          "unit": "mm",
+          "group": "Ornament"
+        },
+        {
+          "variable": "bed_margin",
+          "label": "Bed keep-out",
+          "type": "number",
+          "default": 20,
+          "min": 0,
+          "max": 40,
+          "step": 2.5,
+          "unit": "mm",
+          "group": "Printing",
+          "help": "Margin upstream leaves around the printer bed when it picks the segment lengths."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Large canvas",
+          "params": {
+            "painting_width": 600,
+            "painting_height": 450
+          }
+        },
+        {
+          "name": "Deep relief",
+          "params": {
+            "ornament_depth": 3.6,
+            "ornament_period_target": 60
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Parametric picture frame (xoob)",
+        "license": "MIT",
+        "author": "Alexander Brausewetter",
+        "repository": "https://github.com/xoob/parametric-picture-frame"
+      }
+    },
+    "picture_frame_stepped": {
+      "label": "Stepped Picture Frame",
+      "short": "Stepped frame",
+      "category": "Decor & desk",
+      "icon": "grid",
+      "source": "objects/wrappers/xoob_picture_frame_stepped.scad",
+      "description": "Picture frame with a stepped ripple moulding and a fine engraved meander band, generated around a painting and split into dovetailed bed-sized pieces.",
+      "tags": [
+        "picture frame",
+        "frame",
+        "photo",
+        "canvas",
+        "wall",
+        "decor",
+        "stepped",
+        "dovetail"
+      ],
+      "parameters": [
+        {
+          "variable": "painting_width",
+          "label": "Painting width",
+          "type": "number",
+          "default": 330,
+          "min": 300,
+          "max": 1200,
+          "step": 10,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "painting_height",
+          "label": "Painting height",
+          "type": "number",
+          "default": 330,
+          "min": 300,
+          "max": 1200,
+          "step": 10,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "painting_thickness",
+          "label": "Painting thickness",
+          "type": "number",
+          "default": 20,
+          "min": 6,
+          "max": 40,
+          "step": 1,
+          "unit": "mm",
+          "group": "Painting",
+          "help": "Canvas or stretcher depth that the rabbet has to swallow."
+        },
+        {
+          "variable": "lip_overlap",
+          "label": "Front lip overlap",
+          "type": "number",
+          "default": 10,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "fit_clearance",
+          "label": "Slack per side",
+          "type": "number",
+          "default": 4,
+          "min": 0,
+          "max": 10,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Painting"
+        },
+        {
+          "variable": "profile_style",
+          "label": "Moulding profile",
+          "type": "text",
+          "default": "ripple",
+          "max_length": 24,
+          "max_lines": 1,
+          "rows": 1,
+          "group": "Moulding",
+          "placeholder": "ripple",
+          "help": "Upstream's cross-section name. Only ripple renders here: the ogee styles need upstream heightmap PNGs or a much wider moulding than this catalog offers."
+        },
+        {
+          "variable": "frame_scale",
+          "label": "Moulding scale",
+          "type": "number",
+          "default": 1.0,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.05,
+          "group": "Moulding",
+          "help": "Scales the moulding with the painting size; 1.0 is 5.4% of the diagonal."
+        },
+        {
+          "variable": "ornament_enable",
+          "label": "Meander engraving",
+          "type": "boolean",
+          "default": true,
+          "group": "Ornament"
+        },
+        {
+          "variable": "ornament_depth",
+          "label": "Ornament depth",
+          "type": "number",
+          "default": 2.6,
+          "min": 1,
+          "max": 4,
+          "step": 0.2,
+          "unit": "mm",
+          "group": "Ornament"
+        },
+        {
+          "variable": "ornament_period_target",
+          "label": "Ornament repeat",
+          "type": "number",
+          "default": 42,
+          "min": 24,
+          "max": 80,
+          "step": 2,
+          "unit": "mm",
+          "group": "Ornament"
+        },
+        {
+          "variable": "bed_margin",
+          "label": "Bed keep-out",
+          "type": "number",
+          "default": 20,
+          "min": 0,
+          "max": 40,
+          "step": 2.5,
+          "unit": "mm",
+          "group": "Printing"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Large canvas",
+          "params": {
+            "painting_width": 600,
+            "painting_height": 450
+          }
+        },
+        {
+          "name": "Dense meander",
+          "params": {
+            "ornament_period_target": 28
+          }
+        }
+      ],
+      "attribution": {
+        "label": "Parametric picture frame (xoob)",
+        "license": "MIT",
+        "author": "Alexander Brausewetter",
+        "repository": "https://github.com/xoob/parametric-picture-frame"
+      }
+    },
+    "coaster_square": {
+      "label": "Square Table Coasters",
+      "short": "Table coasters",
+      "category": "Decor & desk",
+      "icon": "plate",
+      "source": "vendor/doofdoofsf-3dmodels-a5786829/table_coasters/coaster.scad",
+      "description": "Four rounded coasters printed in one row: a shallow plinth inside a rim that keeps condensation off the table.",
+      "tags": [
+        "coaster",
+        "drink",
+        "glass",
+        "table",
+        "kitchen",
+        "decor",
+        "set",
+        "condensation"
+      ],
+      "parameters": [
+        {
+          "variable": "hole_x",
+          "label": "Glass recess width",
+          "type": "number",
+          "default": 21,
+          "min": 8,
+          "max": 60,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "hole_y",
+          "label": "Glass recess depth",
+          "type": "number",
+          "default": 21,
+          "min": 8,
+          "max": 60,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "flange",
+          "label": "Rim width",
+          "type": "number",
+          "default": 25,
+          "min": 10,
+          "max": 60,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "thickness",
+          "label": "Plinth thickness",
+          "type": "number",
+          "default": 2.5,
+          "min": 1.2,
+          "max": 6,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "hole_depth",
+          "label": "Recess depth",
+          "type": "number",
+          "default": 5,
+          "min": 1,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "foot_depth",
+          "label": "Foot depth",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.6,
+          "max": 6,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "radius",
+          "label": "Corner radius",
+          "type": "number",
+          "default": 1,
+          "min": 0.2,
+          "max": 8,
+          "step": 0.2,
+          "unit": "mm",
+          "group": "Coaster"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Pint glasses",
+          "params": {
+            "hole_x": 40,
+            "hole_y": 40,
+            "flange": 25
+          }
+        },
+        {
+          "name": "Espresso cups",
+          "params": {
+            "hole_x": 30,
+            "hole_y": 30,
+            "flange": 18,
+            "thickness": 2
+          }
+        }
+      ]
+    },
+    "fancy_coaster": {
+      "label": "Interlocking Round Coaster",
+      "short": "Interlock coaster",
+      "category": "Decor & desk",
+      "icon": "plate",
+      "source": "objects/wrappers/doofdoofsf_fancy_coaster.scad",
+      "description": "One large round coaster printed as two halves that lock together with a dovetail arrow joint, so it fits a small build plate.",
+      "tags": [
+        "coaster",
+        "drink",
+        "table",
+        "dovetail",
+        "joint",
+        "puzzle",
+        "decor"
+      ],
+      "parameters": [
+        {
+          "variable": "coaster_size",
+          "label": "Coaster diameter",
+          "type": "number",
+          "default": 120,
+          "min": 60,
+          "max": 200,
+          "step": 5,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "coaster_thickness",
+          "label": "Thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1.5,
+          "max": 8,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Coaster"
+        },
+        {
+          "variable": "coaster_gap",
+          "label": "Halves clearance",
+          "type": "number",
+          "default": 10,
+          "min": 2,
+          "max": 30,
+          "step": 1,
+          "unit": "mm",
+          "group": "Layout",
+          "help": "Gap between the two halves on the bed."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Thin halves",
+          "params": {
+            "coaster_thickness": 2
+          }
+        },
+        {
+          "name": "Big coaster",
+          "params": {
+            "coaster_size": 160
+          }
+        }
+      ],
+      "attribution": {
+        "label": "3DModels (doofdoofsf)",
+        "license": "MIT",
+        "author": "John Quinn",
+        "repository": "https://github.com/doofdoofsf/3DModels"
+      }
+    },
+    "flower_charger_pot": {
+      "label": "Flower Charger Planter",
+      "short": "Charger planter",
+      "category": "Decor & desk",
+      "icon": "cube",
+      "source": "vendor/doofdoofsf-3dmodels-a5786829/flower_charger/flower_pot.scad",
+      "description": "Square planter modelled on the flower-charger saucer: a rounded tapered base carrying a hollow rim, with a cable shaft through the middle.",
+      "tags": [
+        "planter",
+        "pot",
+        "plant",
+        "flower",
+        "charger",
+        "decor",
+        "desk",
+        "indoor"
+      ],
+      "parameters": [
+        {
+          "variable": "pot_base_size",
+          "label": "Base size",
+          "type": "number",
+          "default": 60,
+          "min": 30,
+          "max": 150,
+          "step": 5,
+          "unit": "mm",
+          "group": "Planter"
+        },
+        {
+          "variable": "shaft_radius",
+          "label": "Shaft radius",
+          "type": "number",
+          "default": 5.5,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Shaft",
+          "help": "Radius of the cable or stem that passes through the planter."
+        },
+        {
+          "variable": "hole_scale",
+          "label": "Shaft clearance",
+          "type": "number",
+          "default": 1.04,
+          "min": 1,
+          "max": 1.5,
+          "step": 0.01,
+          "unit": "Multiplier on the shaft radius; 1.04 is a loose fit.",
+          "group": "Shaft"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Herb pot",
+          "params": {
+            "pot_base_size": 45
+          }
+        },
+        {
+          "name": "Large planter",
+          "params": {
+            "pot_base_size": 110,
+            "shaft_radius": 8
+          }
+        }
+      ]
+    },
+    "sphere_light_shade": {
+      "label": "Spherical Light Shade",
+      "short": "Sphere shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "vendor/doofdoofsf-3dmodels-a5786829/light_shade/light_shade.scad",
+      "description": "Hollow sphere cut with two openings so a bulb holder reaches inside and the light spills downwards and to one side.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "sphere",
+        "ball",
+        "lamp",
+        "lighting",
+        "decor"
+      ],
+      "parameters": [
+        {
+          "variable": "outside_dia",
+          "label": "Diameter",
+          "type": "number",
+          "default": 144,
+          "min": 60,
+          "max": 300,
+          "step": 2,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "wall_thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 2,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Shade"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Large globe",
+          "params": {
+            "outside_dia": 220,
+            "wall_thickness": 2.5
+          }
+        },
+        {
+          "name": "Small globe",
+          "params": {
+            "outside_dia": 100
+          }
+        }
+      ]
+    },
+    "fluted_shade": {
+      "label": "Fluted Open-Top Shade",
+      "short": "Fluted shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "vendor/elliotf-reprap-household-misc-c353c8ac/lampshade/open_top_fluted.scad",
+      "description": "Vase-mode lampshade: a single-perimeter cone rising from the bulb collar to a wide fluted rim, printed open at the top so the bulb stays visible.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "fluted",
+        "cone",
+        "vase mode",
+        "lamp",
+        "lighting"
+      ],
+      "parameters": [
+        {
+          "variable": "extrusion_width",
+          "label": "Extrusion width",
+          "type": "number",
+          "default": 0.5,
+          "min": 0.2,
+          "max": 1.2,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Printing"
+        },
+        {
+          "variable": "extrusion_height",
+          "label": "Layer height",
+          "type": "number",
+          "default": 0.3,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Printing",
+          "help": "Layer height the shade is drawn around; it sets the thickness of the base ring and the top rim."
+        },
+        {
+          "variable": "perimeters",
+          "label": "Perimeters",
+          "type": "integer",
+          "default": 1,
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "group": "Printing",
+          "help": "1 is a vase-mode single wall; more perimeters thicken the shade."
+        },
+        {
+          "variable": "resolution",
+          "label": "Segments",
+          "type": "integer",
+          "default": 72,
+          "min": 24,
+          "max": 192,
+          "step": 8,
+          "group": "Printing"
+        },
+        {
+          "variable": "shade_height",
+          "label": "Shade height",
+          "type": "number",
+          "default": 125,
+          "min": 40,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "shade_top_diam",
+          "label": "Top diameter",
+          "type": "number",
+          "default": 190,
+          "min": 60,
+          "max": 400,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "shade_base_inner_diam",
+          "label": "Base opening",
+          "type": "number",
+          "default": 70,
+          "min": 20,
+          "max": 200,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Shade",
+          "help": "Inner diameter of the opening at the base, where the bulb holder passes through."
+        },
+        {
+          "variable": "collar_outer_diam",
+          "label": "Collar diameter",
+          "type": "number",
+          "default": 99.5,
+          "min": 30,
+          "max": 200,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Collar"
+        },
+        {
+          "variable": "collar_height",
+          "label": "Collar height",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 15,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Collar",
+          "help": "Height of the collar ring that sits on the bulb holder."
+        },
+        {
+          "variable": "collar_hole_diam",
+          "label": "Collar opening",
+          "type": "number",
+          "default": 36,
+          "min": 10,
+          "max": 100,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Collar",
+          "help": "Hole for the bulb holder."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wide drum",
+          "params": {
+            "shade_top_diam": 240,
+            "shade_height": 90
+          }
+        },
+        {
+          "name": "Slim cone",
+          "params": {
+            "shade_top_diam": 150,
+            "shade_height": 120
+          }
+        }
+      ]
+    },
+    "dome_shade": {
+      "label": "Enclosed Dome Shade",
+      "short": "Dome shade",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "vendor/elliotf-reprap-household-misc-c353c8ac/lampshade/enclosed_and_more_dim.scad",
+      "description": "Enclosed lampshade: a stretched spherical dome closed over the bulb, with a solid wall and a cable cut at the top.",
+      "tags": [
+        "lampshade",
+        "shade",
+        "dome",
+        "sphere",
+        "lamp",
+        "lighting",
+        "enclosed"
+      ],
+      "parameters": [
+        {
+          "variable": "extrusion_width",
+          "label": "Extrusion width",
+          "type": "number",
+          "default": 0.5,
+          "min": 0.2,
+          "max": 1.2,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Printing"
+        },
+        {
+          "variable": "extrusion_height",
+          "label": "Layer height",
+          "type": "number",
+          "default": 0.3,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Printing",
+          "help": "Layer height the shade is drawn around; it sets the thickness of the base ring and the top rim."
+        },
+        {
+          "variable": "perimeters",
+          "label": "Perimeters",
+          "type": "integer",
+          "default": 12,
+          "min": 1,
+          "max": 24,
+          "step": 1,
+          "group": "Printing",
+          "help": "Wall thickness follows from the perimeter count."
+        },
+        {
+          "variable": "resolution",
+          "label": "Segments",
+          "type": "integer",
+          "default": 72,
+          "min": 24,
+          "max": 192,
+          "step": 8,
+          "group": "Printing"
+        },
+        {
+          "variable": "shade_height",
+          "label": "Shade height",
+          "type": "number",
+          "default": 160,
+          "min": 50,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "shade_top_diam",
+          "label": "Dome diameter",
+          "type": "number",
+          "default": 140,
+          "min": 60,
+          "max": 300,
+          "step": 5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "shade_base_inner_diam",
+          "label": "Base opening",
+          "type": "number",
+          "default": 70,
+          "min": 20,
+          "max": 200,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Shade",
+          "help": "Inner diameter of the opening at the base, where the bulb holder passes through."
+        },
+        {
+          "variable": "shade_base_inner_diam",
+          "label": "Base opening",
+          "type": "number",
+          "default": 70,
+          "min": 20,
+          "max": 200,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Shade"
+        },
+        {
+          "variable": "sphere_scale",
+          "label": "Dome stretch",
+          "type": "number",
+          "default": 1.75,
+          "min": 1,
+          "max": 3,
+          "step": 0.05,
+          "unit": "How far the sphere is stretched upwards.",
+          "group": "Shade"
+        },
+        {
+          "variable": "collar_outer_diam",
+          "label": "Collar diameter",
+          "type": "number",
+          "default": 99.5,
+          "min": 30,
+          "max": 200,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Collar"
+        },
+        {
+          "variable": "collar_height",
+          "label": "Collar height",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 15,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Collar",
+          "help": "Height of the collar ring that sits on the bulb holder."
+        },
+        {
+          "variable": "collar_hole_diam",
+          "label": "Collar opening",
+          "type": "number",
+          "default": 36,
+          "min": 10,
+          "max": 100,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Collar"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Rounder dome",
+          "params": {
+            "sphere_scale": 2.5
+          }
+        },
+        {
+          "name": "Tall drum",
+          "params": {
+            "shade_height": 220,
+            "shade_top_diam": 180
+          }
+        }
+      ]
+    },
+    "desk_bookend": {
+      "label": "Rounded Bookend",
+      "short": "Bookend",
+      "category": "Decor & desk",
+      "icon": "bracket",
+      "source": "vendor/elliotf-reprap-household-misc-c353c8ac/shelves/book_end.scad",
+      "description": "Desk bookend that holds a row of books upright: a flat base slides under the books and a rounded upright with a reinforcing rib stands against them, printed as one piece.",
+      "tags": [
+        "bookend",
+        "books",
+        "shelf",
+        "desk",
+        "office",
+        "holder",
+        "library"
+      ],
+      "parameters": [
+        {
+          "variable": "wall_thickness",
+          "label": "Rib size",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 4,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Dimensions",
+          "help": "Size of the ribs that stiffen the upright; it also sets how far apart they sit."
+        },
+        {
+          "variable": "resolution",
+          "label": "Segments",
+          "type": "integer",
+          "default": 64,
+          "min": 16,
+          "max": 160,
+          "step": 8,
+          "group": "Printing"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Chunky",
+          "params": {
+            "wall_thickness": 1.6
+          }
+        },
+        {
+          "name": "Fine curves",
+          "params": {
+            "resolution": 128
+          }
+        }
+      ]
+    },
+    "self_watering_planter": {
+      "label": "Self-Watering Planter",
+      "short": "Watering pot",
+      "category": "Decor & desk",
+      "icon": "cube",
+      "source": "vendor/elliotf-reprap-household-misc-c353c8ac/garden/bottom_watering_pot.scad",
+      "description": "Six-inch planter with a water reservoir under the soil and a ring of feeding slots, so the roots drink from the bottom.",
+      "tags": [
+        "planter",
+        "pot",
+        "plant",
+        "self-watering",
+        "reservoir",
+        "garden",
+        "indoor"
+      ],
+      "parameters": [
+        {
+          "variable": "wall_thickness",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 1.8,
+          "min": 0.6,
+          "max": 6,
+          "step": 0.2,
+          "unit": "mm",
+          "group": "Dimensions"
+        },
+        {
+          "variable": "extrude_width",
+          "label": "Extrusion width",
+          "type": "number",
+          "default": 0.6,
+          "min": 0.2,
+          "max": 1.2,
+          "step": 0.05,
+          "unit": "mm",
+          "group": "Printing"
+        },
+        {
+          "variable": "resolution",
+          "label": "Segments",
+          "type": "integer",
+          "default": 128,
+          "min": 32,
+          "max": 384,
+          "step": 16,
+          "group": "Printing"
+        },
+        {
+          "variable": "debug",
+          "label": "Pad preview",
+          "type": "boolean",
+          "default": false,
+          "group": "Printing",
+          "help": "Upstream's development preview of the two extruded profiles; leave off for the printable planter."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Finer mesh",
+          "params": {
+            "resolution": 192,
+            "wall_thickness": 2.4
+          }
+        },
+        {
+          "name": "Pad preview",
+          "params": {
+            "debug": true
+          }
+        }
+      ]
+    },
+    "lithophane_lamp": {
+      "label": "Lithophane Lamp Cover",
+      "short": "Lithophane lamp",
+      "category": "Lighting",
+      "icon": "sphere",
+      "source": "vendor/filippyrek-scad-3d-print-models-cd4852ad/lithophane lamp/lithophane lamp.scad",
+      "description": "Two-piece cover that wraps a round lithophane into a desk lamp: a spherical shell with a cable hole plus the matching cap.",
+      "tags": [
+        "lithophane",
+        "lamp",
+        "lighting",
+        "shade",
+        "photo",
+        "decor",
+        "desk",
+        "cover"
+      ],
+      "parameters": [
+        {
+          "variable": "lithophaneDiameter",
+          "label": "Lithophane diameter",
+          "type": "number",
+          "default": 110,
+          "min": 40,
+          "max": 200,
+          "step": 5,
+          "unit": "mm",
+          "group": "Lithophane"
+        },
+        {
+          "variable": "lithophaneMinThick",
+          "label": "Minimum thickness",
+          "type": "number",
+          "default": 1,
+          "min": 0.4,
+          "max": 2,
+          "step": 0.1,
+          "unit": "mm",
+          "group": "Lithophane"
+        },
+        {
+          "variable": "lithophaneMaxThick",
+          "label": "Maximum thickness",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 6,
+          "step": 0.2,
+          "unit": "mm",
+          "group": "Lithophane"
+        },
+        {
+          "variable": "lithophaneBorderThickness",
+          "label": "Border thickness",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Lithophane"
+        },
+        {
+          "variable": "coverHeight",
+          "label": "Collar height",
+          "type": "number",
+          "default": 20,
+          "min": 5,
+          "max": 60,
+          "step": 1,
+          "unit": "mm",
+          "group": "Cover"
+        },
+        {
+          "variable": "coverSphereHeight",
+          "label": "Cover height",
+          "type": "number",
+          "default": 70,
+          "min": 20,
+          "max": 200,
+          "step": 5,
+          "unit": "mm",
+          "group": "Cover"
+        },
+        {
+          "variable": "enableCableHole",
+          "label": "Cable hole",
+          "type": "boolean",
+          "default": true,
+          "group": "Cover"
+        },
+        {
+          "variable": "cableDiameter",
+          "label": "Cable diameter",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 20,
+          "step": 0.5,
+          "unit": "mm",
+          "group": "Cover"
+        },
+        {
+          "variable": "renderQuality",
+          "label": "Segments",
+          "type": "integer",
+          "default": 100,
+          "min": 20,
+          "max": 360,
+          "step": 20,
+          "group": "Printing"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Large photo",
+          "params": {
+            "lithophaneDiameter": 150,
+            "coverSphereHeight": 90
+          }
+        },
+        {
+          "name": "No cable hole",
+          "params": {
+            "enableCableHole": false,
+            "coverHeight": 12
+          }
+        }
+      ]
     }
   }
 }

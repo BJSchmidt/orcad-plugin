@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Seventy-five upstream OpenSCAD libraries are vendored unmodified under
+Eighty-two upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -652,6 +652,83 @@ License:   MIT. Copyright (c) 2022 William H. Grover.
 Vendored:  openscad/vendor/giguere-periodic-table-c1b07199/ - giguere3d.scad, the
            3D-printable periodic table of the elements, plus the upstream LICENSE.
            The reference PDF and photographs are not vendored.
+
+azdle-printables (azdle/printables)
+-----------------------------------
+Upstream:  https://github.com/azdle/printables
+Pinned at: 158c8e86016c82332b5d6116dfd015b9a48a9479
+License:   CC0-1.0. Copyright is waived by Patrick Barrett under the CC0 1.0
+           Universal public domain dedication.
+Vendored:  openscad/vendor/azdle-printables-158c8e86/ - the tealight storage
+           tray, the whiteboard marker rack and the honeycomb wall/coaster grid,
+           plus the upstream LICENSE. Two desk organizers and the honeycomb
+           pods are rendered from this tree; the rest of the collection is not
+           vendored.
+
+doofdoofsf-3dmodels (doofdoofsf/3DModels)
+-----------------------------------------
+Upstream:  https://github.com/doofdoofsf/3DModels
+Pinned at: a578682933dc96ad7aa6fd8c17d36a4025e6ffc4
+License:   MIT. Copyright (c) 2021 John Quinn.
+Vendored:  openscad/vendor/doofdoofsf-3dmodels-a5786829/ - the square table
+           coasters, the interlocking fancy coaster, the spherical light shade
+           and the flower-charger planter with the rounding helper the coasters
+           include, plus the upstream LICENSE. The other models in the
+           collection are not vendored.
+
+elliotf-reprap-household-misc (elliotf/reprap-household-misc)
+-------------------------------------------------------------
+Upstream:  https://github.com/elliotf/reprap-household-misc
+Pinned at: c353c8acee63b75c19fc63be89bb2649d56aa580
+License:   MIT. Copyright (c) 2014 Elliot Foster.
+Vendored:  openscad/vendor/elliotf-reprap-household-misc-c353c8ac/ - the fluted
+           and enclosed vase-mode lampshades, the ribbed bookend and the
+           self-watering planter, with the two geometry helpers they include,
+           plus the upstream LICENSE. The bookend and the planter also include
+           the author's lumpyscad helper library, which is vendored separately.
+
+filippyrek-scad-3d-print-models (FilipPyrek/scad-3d-print-models)
+-----------------------------------------------------------------
+Upstream:  https://github.com/FilipPyrek/scad-3d-print-models
+Pinned at: cd4852ada0d325ef4035a643f75cb316f5efab61
+License:   MIT. Copyright (c) 2020 Filip Pýrek.
+Vendored:  openscad/vendor/filippyrek-scad-3d-print-models-cd4852ad/ - the
+           two-part lithophane lamp cover, which wraps a round lithophane into
+           a desk lamp, plus the upstream LICENSE. The aquaponics and aquawall
+           models are not vendored.
+
+lumpyscad (elliotf/lumpyscad)
+-----------------------------
+Upstream:  https://github.com/elliotf/lumpyscad
+Pinned at: 49526b23fca8ba0142f5a139c6be3033836b76a9
+License:   MIT. Copyright (c) 2021 Elliot Foster.
+Vendored:  openscad/vendor/lumpyscad-49526b23/ - the single lib.scad of
+           reusable helper modules that the ribbed bookend and the
+           self-watering planter include, kept inside a lumpyscad/ directory
+           because those models address it as <lumpyscad/lib.scad>, plus the
+           upstream LICENSE. The upstream README is not vendored.
+
+mjseabright-lampshades (mjseabright/lampshades)
+-----------------------------------------------
+Upstream:  https://github.com/mjseabright/lampshades
+Pinned at: 5c20d7018cca118b88825590cf27469256e557ff
+License:   MIT. Copyright (c) 2022 Matthew Seabright.
+Vendored:  openscad/vendor/mjseabright-lampshades-5c20d701/ - the six shade
+           shapes the catalog exposes (rope swirl, turbine, pineapple,
+           golfball, fish tail and rotated star) with the geometry helper and
+           the adapter mounting helpers they use, plus the upstream LICENSE.
+           The remaining shades, the feet and adaptor parts, the render scripts
+           and the image assets are not vendored.
+
+xoob-parametric-picture-frame (xoob/parametric-picture-frame)
+-------------------------------------------------------------
+Upstream:  https://github.com/xoob/parametric-picture-frame
+Pinned at: 84e8314b4b4b4bd4673b1428c5e8d4ab8b3b4f49
+License:   MIT. Copyright (c) 2026 Alexander Brausewetter.
+Vendored:  openscad/vendor/xoob-parametric-picture-frame-84e8314b/ - the frame
+           generator with its profile, segmentation, ornament and clip helper
+           files, plus the upstream LICENSE. The build scripts and the story
+           images are not vendored.
 
 Third-party frontend notices
 ============================

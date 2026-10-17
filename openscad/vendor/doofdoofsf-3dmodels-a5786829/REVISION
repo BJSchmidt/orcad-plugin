@@ -1,0 +1,19 @@
+a578682933dc96ad7aa6fd8c17d36a4025e6ffc4
+
+Upstream: https://github.com/doofdoofsf/3DModels
+License: MIT
+Copyright: Copyright (c) 2021 John Quinn
+
+A personal collection of printable models. The table coaster, the dovetailed
+fancy coaster, the spherical light shade and the flower-charger planter with
+the rounding helper it includes plus the upstream LICENSE are vendored verbatim
+from the pinned commit; the other models in the collection are not vendored.
+
+Files:
+  LICENSE
+  lib/rounding.scad
+  table_coasters/coaster.scad
+  fancy_joint/coaster.scad
+  light_shade/light_shade.scad
+  flower_charger/definitions.scad
+  flower_charger/flower_pot.scad

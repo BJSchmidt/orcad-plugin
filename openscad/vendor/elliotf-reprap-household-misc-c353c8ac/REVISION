@@ -1,0 +1,21 @@
+c353c8acee63b75c19fc63be89bb2649d56aa580
+
+Upstream: https://github.com/elliotf/reprap-household-misc
+License: MIT
+Copyright: Copyright (c) 2014 Elliot Foster
+
+Household objects modelled for a RepRap printer. The two vase-mode lampshades,
+the fluted bookend, the self-watering planter and the little geometry helper
+library they use plus the upstream LICENSE are vendored verbatim from the
+pinned commit. The bookend and the planter include the author's lumpyscad
+helper library, which is vendored separately; the rest of this collection is
+not vendored.
+
+Files:
+  LICENSE
+  lib/util.scad
+  lampshade/util.scad
+  lampshade/open_top_fluted.scad
+  lampshade/enclosed_and_more_dim.scad
+  shelves/book_end.scad
+  garden/bottom_watering_pot.scad

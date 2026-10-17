@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Seventy-five upstream OpenSCAD libraries are vendored unmodified under
+Eighty-two upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -420,6 +420,42 @@ THIRD_PARTY_NOTICES.
   Grover) - https://github.com/groverlab/giguere-3D-periodic-table - commit
   c1b07199ec36a11a75f1a7bd54531bfbe12365ae. The 3D-printable periodic table of
   the elements plus the upstream LICENSE.
+- azdle/printables - CC0-1.0 (Copyright (c) Patrick Barrett; CC0 1.0
+  Universal public domain dedication) - https://github.com/azdle/printables -
+  commit 158c8e86016c82332b5d6116dfd015b9a48a9479. The tealight storage tray,
+  the whiteboard marker rack and the honeycomb wall/coaster grid that the desk
+  organizers and the honeycomb pods are rendered from plus the upstream
+  LICENSE.
+- doofdoofsf/3DModels - MIT (Copyright (c) 2021 John Quinn) -
+  https://github.com/doofdoofsf/3DModels - commit
+  a578682933dc96ad7aa6fd8c17d36a4025e6ffc4. The square table coasters, the
+  interlocking fancy coaster, the spherical light shade and the flower-charger
+  planter, with the rounding helper the coasters include, plus the upstream
+  LICENSE.
+- elliotf/reprap-household-misc - MIT (Copyright (c) 2014 Elliot Foster) -
+  https://github.com/elliotf/reprap-household-misc - commit
+  c353c8acee63b75c19fc63be89bb2649d56aa580. The fluted and enclosed vase-mode
+  lampshades, the ribbed bookend and the self-watering planter, with the two
+  geometry helpers they include, plus the upstream LICENSE.
+- FilipPyrek/scad-3d-print-models - MIT (Copyright (c) 2020 Filip Pýrek) -
+  https://github.com/FilipPyrek/scad-3d-print-models - commit
+  cd4852ada0d325ef4035a643f75cb316f5efab61. The two-part lithophane lamp cover
+  that wraps a round lithophane into a desk lamp plus the upstream LICENSE.
+- elliotf/lumpyscad - MIT (Copyright (c) 2021 Elliot Foster) -
+  https://github.com/elliotf/lumpyscad - commit
+  49526b23fca8ba0142f5a139c6be3033836b76a9. The shared helper library that the
+  bookend and the self-watering planter include, kept in the `lumpyscad/`
+  directory layout upstream expects, plus the upstream LICENSE.
+- mjseabright/lampshades - MIT (Copyright (c) 2022 Matthew Seabright) -
+  https://github.com/mjseabright/lampshades - commit
+  5c20d7018cca118b88825590cf27469256e557ff. Six vase-mode lampshades (rope
+  swirl, turbine, pineapple, golfball, fish tail and rotated star) and the
+  geometry and mounting helpers they use plus the upstream LICENSE.
+- xoob/parametric-picture-frame - MIT (Copyright (c) 2026 Alexander
+  Brausewetter) - https://github.com/xoob/parametric-picture-frame - commit
+  84e8314b4b4b4bd4673b1428c5e8d4ab8b3b4f49. The parametric ornate picture
+  frame generator with its profile, segmentation, ornament and clip files plus
+  the upstream LICENSE.
 
 
 OpenSCAD bootstrap attribution

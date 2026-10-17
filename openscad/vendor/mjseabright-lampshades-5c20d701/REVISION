@@ -1,0 +1,24 @@
+5c20d7018cca118b88825590cf27469256e557ff
+
+Upstream: https://github.com/mjseabright/lampshades
+License: MIT
+Copyright: Copyright (c) 2022 Matthew Seabright
+
+Decorative parametric lampshades, printed in vase mode one perimeter layer at a
+time. The geometry helper and the adapter mounting helpers plus the six shade
+shapes the catalog exposes are vendored verbatim from the pinned commit; the
+remaining shades, the feet and adaptor parts, the render scripts and the image
+assets are not vendored.
+
+Files:
+  LICENSE
+  geometry_functions.scad
+  mounting_functions.scad
+  rope_swirl/rope_swirl.scad
+  rope_swirl/rope_swirl_large.scad
+  turbine/turbine.scad
+  turbine/turbine_large.scad
+  pineapple/pineapple.scad
+  golfball/golfball.scad
+  fish_tail/fish_tail.scad
+  rotated_star/rotated_star.scad

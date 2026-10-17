@@ -1,0 +1,19 @@
+84e8314b4b4b4bd4673b1428c5e8d4ab8b3b4f49
+
+Upstream: https://github.com/xoob/parametric-picture-frame
+License: MIT
+Copyright: Copyright (c) 2026 Alexander Brausewetter
+
+Parametric ornate picture frame, generated around a frameless canvas painting
+and split into bed-sized dovetailed segments. The generator, its profile,
+segmentation, ornament and clip helper files plus the upstream LICENSE are
+vendored verbatim from the pinned commit; the build scripts and the story
+images are not vendored.
+
+Files:
+  LICENSE
+  parametric-picture-frame.scad
+  lib/profiles.scad
+  lib/segmentation.scad
+  lib/ornament.scad
+  lib/clips.scad

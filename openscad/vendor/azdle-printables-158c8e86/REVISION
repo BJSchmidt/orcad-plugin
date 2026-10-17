@@ -1,0 +1,16 @@
+158c8e86016c82332b5d6116dfd015b9a48a9479
+
+Upstream: https://github.com/azdle/printables
+License: CC0-1.0
+Copyright: Patrick Barrett (CC0 1.0 Universal public domain dedication)
+
+Small household and desk printables, each a self-contained script. The tealight
+rack, the marker rack and the honeycomb wall/coaster grid plus the upstream CC0
+LICENSE are vendored verbatim from the pinned commit; the rest of the
+collection is not vendored.
+
+Files:
+  LICENSE
+  unsorted/tealight-rack.scad
+  unsorted/marker-rack.scad
+  honeycomb-honeycomb/honeycomb-honeycomb.scad
