@@ -1,0 +1,12 @@
+95baec3c1e499c27b99ed1782cb50c9906cad78c
+
+Upstream: https://github.com/rjkorn/Generic_Coaster
+License: MIT
+Copyright: Copyright (c) 2015 Robert Joseph Korn (rjkorn, Open Valley Consulting Corp)
+
+The self-contained circuit-board coaster source plus the upstream MIT LICENSE, copied
+verbatim from the pinned commit. The repository README is not vendored.
+
+Files:
+  LICENSE
+  GenericCoaster.scad

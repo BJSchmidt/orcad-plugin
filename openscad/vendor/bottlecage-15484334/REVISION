@@ -1,0 +1,16 @@
+15484334e49ac12be6ac3d21a1f48207b739b3df
+
+Upstream: https://github.com/gutschke/bottlecage
+License: CC0-1.0
+Copyright: Markus Gutschke (public domain dedication; the cage recreates Prusa Research's CC0 ASA bottle cage)
+
+A parametric OpenSCAD recreation of the Prusa ASA bicycle bottle cage: the
+adjustable full-size cage with its slotted mount and the compact variant that
+takes narrower bottles and clamps a thinner frame tube. Both sources plus the
+upstream CC0 LICENSE, copied verbatim from the pinned commit. The rendered STL
+exports, photographs and README are not vendored.
+
+Files:
+  LICENSE
+  bottlecage.scad
+  bottlecage-compact.scad

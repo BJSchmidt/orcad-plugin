@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { createBridge } from './bridge.js'
 import { aiReducer, initialAIState } from './ai.js'
-import { OBJECTS, QUALITY, activePreset, applyPreset, categories, groups, isDisabled, presets, restoreParams, resultCounts, searchObjects, setParam, defaults } from './catalog.js'
+import { OBJECTS, QUALITY, activePreset, applyPreset, attributionFor, categories, groups, isDisabled, presets, restoreParams, resultCounts, searchObjects, setParam, defaults } from './catalog.js'
 import { loadSettings, saveSettings } from './storage.js'
 import { SIDEBAR_MAX, SIDEBAR_MIN, clampSidebarWidth } from './sidebar.js'
 import { THUMBNAILS } from './thumbs.js'
@@ -80,6 +80,7 @@ export default function App() {
   const [exports, setExports] = useState([])
   const [engine, setEngine] = useState({ state: bridge.available ? 'connecting' : 'offline' })
   const [toasts, setToasts] = useState([])
+  const [attrib, setAttrib] = useState(null) // { key, rect } of the card whose credit popover is open
   const viewport = useRef(null)
   const nextId = useRef(1)
   const latestPreview = useRef(0)
@@ -93,6 +94,29 @@ export default function App() {
   const objectPresets = presets(objectKey)
   const activeName = activePreset(objectKey, params)
   const chips = [ALL, ...categories()]
+
+  // A credit popover closes on Escape, on a click outside itself and on scroll
+  // (the icon's viewport rect would go stale), and when the list is filtered.
+  useEffect(() => {
+    if (!attrib) return undefined
+    const close = (event) => {
+      if (event.type === 'keydown') { if (event.key === 'Escape') setAttrib(null); return }
+      if (event.type === 'scroll') { setAttrib(null); return }
+      const node = event.target instanceof Element ? event.target : null
+      if (node?.closest('.object-attrib') || node?.closest('.attrib-popover')) return
+      setAttrib(null)
+    }
+    window.addEventListener('keydown', close)
+    window.addEventListener('mousedown', close)
+    window.addEventListener('scroll', close, true)
+    return () => {
+      window.removeEventListener('keydown', close)
+      window.removeEventListener('mousedown', close)
+      window.removeEventListener('scroll', close, true)
+    }
+  }, [attrib])
+
+  useEffect(() => { setAttrib(null) }, [query, category])
 
   const notify = useCallback((kind, message) => {
     const id = nextId.current++
@@ -350,20 +374,38 @@ export default function App() {
                 </div>
                 <div className="object-scroll" role="group" aria-label="Models" tabIndex={0}>
                   <div className="object-list">
-                    {visibleObjects.map((key) => (
-                      <button key={key} type="button" className={`object-card${key === objectKey ? ' is-active' : ''}`}
-                        aria-pressed={key === objectKey} onClick={() => setObjectKey(key)}
-                        title={`${OBJECTS[key].label} - ${OBJECTS[key].description}`}>
-                        <span className="object-thumb">
-                          {THUMBNAILS[key] && <img src={THUMBNAILS[key]} alt="" loading="lazy" />}
-                        </span>
-                        <span className="object-body">
-                          <span className="object-name">{OBJECTS[key].short || OBJECTS[key].label}</span>
-                          <span className="object-cat">{OBJECTS[key].category}</span>
-                          {OBJECTS[key].description && <span className="object-desc">{OBJECTS[key].description}</span>}
-                        </span>
-                      </button>
-                    ))}
+                    {visibleObjects.map((key) => {
+                      const credit = attributionFor(OBJECTS[key])
+                      return (
+                        <div key={key} className="object-cell">
+                          <button type="button" className={`object-card${key === objectKey ? ' is-active' : ''}`}
+                            aria-pressed={key === objectKey} onClick={() => { setObjectKey(key); setAttrib(null) }}
+                            title={`${OBJECTS[key].label} - ${OBJECTS[key].description}`}>
+                            <span className="object-thumb">
+                              {THUMBNAILS[key] && <img src={THUMBNAILS[key]} alt="" loading="lazy" />}
+                            </span>
+                            <span className="object-body">
+                              <span className="object-name">{OBJECTS[key].short || OBJECTS[key].label}</span>
+                              <span className="object-cat">{OBJECTS[key].category}</span>
+                              {OBJECTS[key].description && <span className="object-desc">{OBJECTS[key].description}</span>}
+                            </span>
+                          </button>
+                          {credit && (
+                            <button type="button" className="object-attrib"
+                              aria-expanded={attrib?.key === key}
+                              aria-label={`Credits for ${OBJECTS[key].label}`}
+                              title={`Credit: ${credit.label}${credit.license ? ` (${credit.license})` : ''}`}
+                              onClick={(event) => {
+                                event.stopPropagation()
+                                const rect = event.currentTarget.getBoundingClientRect()
+                                setAttrib((open) => (open && open.key === key ? null : { key, rect }))
+                              }}>
+                              <Icon name="info" size={13} />
+                            </button>
+                          )}
+                        </div>
+                      )
+                    })}
                     {!visibleObjects.length && (
                       <p className="muted empty-search">No models match{query.trim() ? ` “${query.trim()}”` : ` the “${category}” category`}.</p>
                     )}
@@ -568,6 +610,28 @@ export default function App() {
           </section>
         </aside>
       </main>
+
+      {attrib && (() => {
+        const spec = OBJECTS[attrib.key]
+        const credit = spec && attributionFor(spec)
+        if (!credit) return null
+        const width = Math.min(280, globalThis.innerWidth - 16)
+        const left = Math.max(8, Math.min(attrib.rect.left, globalThis.innerWidth - width - 8))
+        const top = Math.min(attrib.rect.bottom + 6, globalThis.innerHeight - 130)
+        return (
+          <div className="attrib-popover" role="dialog" aria-label={`Credits for ${spec.label}`} style={{ left, top, width }}>
+            <p className="attrib-title">{spec.label}</p>
+            <p className="attrib-line">{credit.label}{credit.author ? ` · ${credit.author}` : ''}</p>
+            {credit.license && <p className="attrib-line">License: {credit.license}</p>}
+            {credit.repository && (
+              <a className="attrib-link" href={credit.repository} target="_blank" rel="noreferrer noopener">{credit.repository}</a>
+            )}
+            <button type="button" className="icon-btn attrib-close" aria-label="Close credits" onClick={() => setAttrib(null)}>
+              <Icon name="close" size={14} />
+            </button>
+          </div>
+        )
+      })()}
 
       <div className="toasts" aria-live="polite">
         {toasts.map((toast) => (

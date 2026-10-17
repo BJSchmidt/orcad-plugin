@@ -1,0 +1,14 @@
+a61c9b8b7ff592d6fb3c37d25efe519f10cd26c8
+
+Upstream: https://github.com/AssaadMH/servo-brake-actuator
+License: MIT
+Copyright: Copyright (c) 2026 Lassaad Mahmoudi
+
+Servo brake-cable drum: a V-sheave drum that captures a standard 4-arm servo horn in a pocket
+and pulls two brake cables over 180 degrees of servo travel. The upstream LICENSE is copied
+verbatim from the pinned commit. The print/ duplicate, the worm-wheel study, the generated STL
+files, the render scripts and the documentation images are not vendored.
+
+Files:
+  LICENSE
+  design/servo_brake_drum.scad

@@ -1,0 +1,16 @@
+5e67c0e739bd8ffbd109217d7b5a329b4d2b9692
+
+Upstream: https://github.com/SharpCoder/fidget-spinner
+License: MIT
+Copyright: Copyright (c) 2022 Joshua Cole
+
+The three-arm fidget spinner source and its parameters file, copied verbatim from the
+pinned commit, plus the upstream MIT LICENSE. Upstream's standalone pin, sun-gear,
+planet-gear and scratchpad sources and its STL exports are not vendored. The
+fidget_spinner wrapper declares the same bearing and arm variables before including
+fidget-spinner.scad, whose top level renders the assembled spinner.
+
+Files:
+  LICENSE
+  src/fidget-spinner.scad
+  src/parameters.scad

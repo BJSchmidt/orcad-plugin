@@ -1,0 +1,17 @@
+be03f70f7edbb7c6bcef9ddbcbd91f3776314178
+
+Upstream: https://github.com/nemon-/openscad-dice-models
+License: CC0-1.0
+Copyright: nemon- and contributors (public domain dedication)
+
+The four polyhedral die sources copied verbatim from the pinned commit, plus the
+upstream CC0 LICENSE. The repository's PNG previews and exported STL file are not
+vendored. Each file's top-level loop is not executed by the wrappers, which import
+the dice_4, dice_12, dice_20 and dice_2n modules and call them with catalog values.
+
+Files:
+  LICENSE
+  dice2n.scad
+  dice4.scad
+  dice12.scad
+  dice20.scad

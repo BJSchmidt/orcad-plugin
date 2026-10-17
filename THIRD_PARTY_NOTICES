@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Eighteen upstream OpenSCAD libraries are vendored unmodified under
+Ninety-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -90,6 +90,763 @@ Vendored:  openscad/vendor/rackstack-8e296e93/ - the 99 OpenSCAD sources under
            upstream LICENSE. Excluded: misc/bomAnimations.scad, whose upstream
            includes are broken, the rbuild.py generator and the STL/media
            assets. Supplies every rack case, tray, plate and panel model.
+
+syncom/openscad-designs
+-----------------------
+Upstream:  https://github.com/syncom/openscad-designs
+Pinned at: a59bdd24c4ce8c1f0c5b68b7e8989e834bbab0f2
+License:   BSD-2-Clause. Copyright (c) 2018 syncom.
+Vendored:  openscad/vendor/syncom-openscad-designs-a59bdd24/ - the chopstick
+dishwasher support and the bucket-with-lid source plus the upstream LICENSE.
+
+grimsqueaker-3d-printing (GrimSqueaker)
+---------------------------------------
+Upstream:  https://github.com/GrimSqueaker/3d_printing_stuff
+Pinned at: 0c0236f87645e2a61c8a2b47da3d7a3c7963241e
+License:   MIT. Copyright (c) 2024 GrimSqueaker.
+Vendored:  openscad/vendor/grimsqueaker-3d-printing-0c0236f8/ - the two
+cosmetic box modules and the bathroom shelf hook, with the upstream openscad/
+layout preserved, plus the upstream LICENSE.
+
+rorleth-3dknickknacks (rorleth)
+-------------------------------
+Upstream:  https://github.com/rorleth/3dKnickKnacks
+Pinned at: ddb4514417935098d9ef49307c143d724d5620fe
+License:   MIT. Copyright (c) 2024 rorleth.
+Vendored:  openscad/vendor/rorleth-3dknickknacks-ddb45144/ - the TwineHolder
+source with the threads.scad helper it includes and the one-way drawer insert,
+plus the upstream LICENSE.
+
+seifenschale (steinbeck)
+------------------------
+Upstream:  https://github.com/steinbeck/seifenschale
+Pinned at: 32ecd46741f6dbef2668c223c57e35126b745769
+License:   MIT. Copyright (c) 2026 Christoph Steinbeck.
+Vendored:  openscad/vendor/seifenschale-32ecd467/ - the three-part
+wall-mounted soap dish source and the upstream LICENSE.
+
+spice-rack-nomike (nomike)
+--------------------------
+Upstream:  https://github.com/nomike/parametric-polyamory-spice-rack
+Pinned at: 6c4453ee3bce657b1f61c316182e50c65977350d
+License:   BSD-2-Clause. Copyright 2024 nomike.
+Vendored:  openscad/vendor/spice-rack-nomike-6c4453ee/ - the parametric spice
+rack source, the heart-icon.svg and infinity.svg graphics it imports, and the
+upstream LICENSE.
+
+openscad-scraper (mnp)
+----------------------
+Upstream:  https://github.com/mnp/openscad-scraper
+Pinned at: c16e115c34a9f836fd7b2fc484fd064c75f123f8
+License:   CC0-1.0. mnp; CC0 1.0 Universal dedicates the work to the public
+domain, so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/openscad-scraper-c16e115c/ - the kitchen card
+scraper source and the upstream CC0 LICENSE.
+
+drlex-sieve (DrLex0)
+--------------------
+Upstream:  https://github.com/DrLex0/print3D-customizable-sieve
+Pinned at: deead1a72d78eb6fbb8f1f579690743ac1dc2b27
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-sieve-deead1a7/ - the parametric sieve source
+and the upstream CC BY 4.0 LICENSE. Upstream notes the design is based on a
+sieve by pcstru (Thingiverse thing 341357).
+
+drlex-screw-cap (DrLex0)
+------------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-screw-cap
+Pinned at: b20689e8980df83e64723eb0649fd49827c9a5b7
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-screw-cap-b20689e8/ - the parametric screw
+cap source and the upstream CC BY 4.0 LICENSE.
+
+drlex-vase-mode-box (DrLex0)
+----------------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-vase-mode-box
+Pinned at: 5dbc4c92446ab0088dcc5ed080a2b079de8fb012
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-vase-mode-box-5dbc4c92/ - the parametric
+vase-mode box and lid source and the upstream CC BY 4.0 LICENSE.
+
+drlex-latch (DrLex0)
+--------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-latch
+Pinned at: a7dcfe739f461a883e6dc0fc891ec3b19c92b712
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-latch-a7dcfe73/ - the parametric box latch
+source and the upstream CC BY 4.0 LICENSE.
+
+drlex-pen-butler (DrLex0)
+-------------------------
+Upstream:  https://github.com/DrLex0/print3d-customizable-pen-butler
+Pinned at: 6450759098871fc7e94b32ce9d2d300c58ce794e
+License:   CC-BY-4.0. Copyright DrLex (DrLex0).
+Vendored:  openscad/vendor/drlex-pen-butler-64507590/ - the modular wall/desk
+holder source and the upstream CC BY 4.0 LICENSE.
+
+generic-coaster (rjkorn)
+------------------------
+Upstream:  https://github.com/rjkorn/Generic_Coaster
+Pinned at: 95baec3c1e499c27b99ed1782cb50c9906cad78c
+License:   MIT. Copyright (c) 2015 Robert Joseph Korn and Open Valley
+Consulting Corp.
+Vendored:  openscad/vendor/generic-coaster-95baec3c/ - the self-contained
+circuit-board coaster source and the upstream LICENSE.
+
+composable-organizer (mmalecki)
+-------------------------------
+Upstream:  https://github.com/mmalecki/composable-organizer
+Pinned at: f01bb2fb5547c58b28208eee58dee0c5305aa73d
+License:   MIT. Copyright (C) 2022 Maciej Małecki.
+Vendored:  openscad/vendor/composable-organizer-f01bb2fb/ - the compartment,
+tray, lid and tray-lid sources with the parameters, sizing, utils and common
+files they include, plus the upstream LICENSE. The archived mockup, build
+scripts and documentation images are not vendored.
+
+BOSL2 (BelfrySCAD)
+------------------
+Upstream:  https://github.com/BelfrySCAD/BOSL2
+Pinned at: 0c6f402bcb9ca968b7e623024335b55325635083
+License:   BSD-2-Clause. Copyright (c) 2017-2019 Revar Desmera.
+Vendored:  openscad/vendor/belfryscad-bosl2-0c6f402b/ - the top-level .scad
+           modules that std.scad pulls in, plus the upstream LICENSE and
+           README.md. The examples, tests, images, resources, scripts and
+           tutorials directories are not vendored. The bench dog, sanding
+           block, drill guide, caliper stand, screw organizer, spring clamp,
+           slider jig and dovetail jig wrappers are built on it.
+
+JointSCAD (HopefulLlama)
+------------------------
+Upstream:  https://github.com/HopefulLlama/JointSCAD
+Pinned at: 447888065b30721267db6011faeaf8e4e95ee5ff
+License:   MIT. Copyright (c) 2017 Jonathan Law.
+Vendored:  openscad/vendor/jointscad-44788806/ - the eight dist/ joint modules
+           plus the upstream LICENSE and README.md. Supplies the finger,
+           dovetail, dowel, mortise-and-tenon, scarf and bridle joint wrappers.
+
+openscad-connectors (adgaudio)
+------------------------------
+Upstream:  https://github.com/adgaudio/OpenSCAD_connectors
+Pinned at: 643a09d799a0d3bd2e2380c02aa46a0dc9c6f62a
+License:   MIT. Copyright (c) 2017 Alex Gaudio.
+Vendored:  openscad/vendor/openscad-connectors-643a09d7/ - the connector, grid,
+           repeat-grid and default files with the corner-bracket, t-joint and
+           endcap modules, plus the upstream LICENSE and README.md.
+
+opengrid-scad (mikeydotio)
+--------------------------
+Upstream:  https://github.com/mikeydotio/opengrid-scad
+Pinned at: 894a731f0dc6f487639dca8a91b6a3c8dfb76e8e
+License:   CC-BY-4.0. Copyright (c) 2025 Mikey Ward (mikeydotio).
+Vendored:  openscad/vendor/opengrid-scad-894a731f/ - the openGrid peg and snap
+           sources plus the upstream LICENSE and README.md. Supplies the
+           openGrid peg and openGrid snap objects.
+
+pantorouter-tenon-template (FozzTexx)
+-------------------------------------
+Upstream:  https://github.com/FozzTexx/pantorouter_tenon_template
+Pinned at: eccd45775104de24f1480a478f650d34205d00a7
+License:   CC0-1.0. Chris Osborn (FozzTexx); CC0 1.0 Universal dedicates the
+           work to the public domain, so no attribution is required - it is
+           given here anyway.
+Vendored:  openscad/vendor/pantorouter-tenon-eccd4577/ - the single Tenons.scad
+           template plus the upstream LICENSE and README.md.
+
+martmaiste-openscad-models
+--------------------------
+Upstream:  https://github.com/martmaiste/openscad-models
+Pinned at: aded4de5c1acc0ebccb86c1b22a341fbd7724e3a
+License:   MIT. Copyright (c) 2023 martmaiste.
+Vendored:  openscad/vendor/martmaiste-openscad-models-aded4de5/ - the cable comb, DIN
+           rail clip, WeMos Mini holder, energy-meter cover, D-Fruit USB hub holder,
+           USB cap, RJ45 boot and headphone hook sources plus the upstream LICENSE.
+
+nas-rack (istergiou)
+--------------------
+Upstream:  https://github.com/istergiou/nas-rack
+Pinned at: 8c5f15827c6c871172a4fa9bb259b6e4f21044e4
+License:   Apache-2.0. Copyright Ilias Stergiou (istergiou), 2017; the Apache License
+Vendored:  openscad/vendor/nas-rack-8c5f1582/ - the rack_item module, the Raspberry Pi
+           drive carrier and the upstream Apache-2.0 LICENSE. The drive tray, SATA
+           adapter caddy and connector lock wrappers and the Pi drive tray object are
+           built on it.
+
+fabz (otakup0pe)
+----------------
+Upstream:  https://github.com/otakup0pe/fabz
+Pinned at: 4efbc18e0bd137458d6a9b36da6c5f44e644c0de
+License:   CC0-1.0. Jonathan Freedman (otakup0pe); CC0 1.0 Universal dedicates the
+Vendored:  openscad/vendor/fabz-4efbc18e/ - the fan_grille.scad model and the upstream
+           CC0 LICENSE: the press-fit shelf fan grille object.
+
+nilskrause-cad
+--------------
+Upstream:  https://github.com/NilsKrause/cad
+Pinned at: 9c4d69e98e561e542ef9ca178dcafcef96db9b38
+License:   MIT. Copyright (c) 2023 NilsKrause.
+Vendored:  openscad/vendor/nilskrause-cad-9c4d69e9/ - the ESP8266 devboard case, the
+           adapter-board and connector-pin sources it includes, the micro-SD holder
+           source and the upstream LICENSE.
+
+pkoehlers-rpi-case
+------------------
+Upstream:  https://github.com/pkoehlers/rpi-case-openscad
+Pinned at: a19a32e5932638bef0882c65189a3dbc5447e313
+License:   MIT. Copyright (c) 2021 pkoehlers.
+Vendored:  openscad/vendor/pkoehlers-rpi-case-a19a32e5/ - the rpi_case.scad Raspberry
+           Pi 3/4 case model and the upstream LICENSE. The model descends from George
+           Onoufriou's RavenSCAD Raspberry Pi 4 case, credited in its source header.
+
+pcb-enclosure (rafaelmartins)
+-----------------------------
+Upstream:  https://github.com/rafaelmartins/pcb-enclosure
+Pinned at: ce261a389da419c767efd607159fe80f20f16d17
+License:   BSD-3-Clause. Copyright (c) 2020, Rafael G. Martins.
+Vendored:  openscad/vendor/pcb-enclosure-ce261a38/ - the pcb-enclosure library, its
+           assembly example and the upstream LICENSE.
+
+jhpieper-marble-run
+-------------------
+Upstream:  https://github.com/jhpieper/marble-run
+Pinned at: 64b8f62091775c56ffcdbe276b6a8cbad95581f7
+License:   MIT. Copyright (c) 2020 Jan Pieper.
+Vendored:  openscad/vendor/jhpieper-marble-run-64b8f620/ - the straight, curve and funnel
+           magnetic track sources plus the upstream LICENSE.
+
+openscad-dice-models (nemon-)
+-----------------------------
+Upstream:  https://github.com/nemon-/openscad-dice-models
+Pinned at: be03f70f7edbb7c6bcef9ddbcbd91f3776314178
+License:   CC0-1.0. nemon-; CC0 1.0 Universal dedicates the work to the public domain,
+           so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/nemon-openscad-dice-models-be03f70f/ - the D4, D12 and D20
+           sources and the antiprism dice_2n source, plus the upstream LICENSE.
+
+dice-tower.scad (hirthwork)
+---------------------------
+Upstream:  https://github.com/hirthwork/dice-tower.scad
+Pinned at: c130e05a22bc602768cc8ff1bd7e2e4a515f9d32
+License:   BSD-2-Clause. hirthwork and the dice-tower.scad contributors.
+Vendored:  openscad/vendor/hirthwork-dice-tower-c130e05a/ - the spiral dice tower
+           sources (tower.scad, steps.scad, bricks.scad, rocks.scad, common.scad)
+           plus the upstream LICENSE. common.scad reads BOSL v1's
+           extrude_2dpath_along_spiral(); the dice_tower wrapper restates that one
+           BSD-2-Clause function, because BOSL v1's paths.scad is not vendored.
+
+fidget-spinner (SharpCoder)
+---------------------------
+Upstream:  https://github.com/SharpCoder/fidget-spinner
+Pinned at: 5e67c0e739bd8ffbd109217d7b5a329b4d2b9692
+License:   MIT. Copyright (c) 2022 Joshua Cole.
+Vendored:  openscad/vendor/sharpcoder-fidget-spinner-5e67c0e7/ - the fidget spinner
+           source and the parameters file it includes, plus the upstream LICENSE.
+
+brick_lib (qubolino)
+--------------------
+Upstream:  https://github.com/qubolino/brick_lib
+Pinned at: 95a3c86563aa40bf221b019271b683dfa048077f
+License:   CC0-1.0. qubolino; CC0 1.0 Universal dedicates the work to the public domain,
+           so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/qubolino-brick-lib-95a3c865/ - the brick core, globals and the
+           panel, windscreen and corner modules, plus the upstream LICENSE.
+
+Technic.scad (cfinke)
+---------------------
+Upstream:  https://github.com/cfinke/Technic.scad
+Pinned at: 41f17a4696b582850097a2e3779348bc27c87f47
+License:   MIT. Copyright (c) 2025 Christopher Finke (cfinke@gmail.com).
+Vendored:  openscad/vendor/cfinke-technic-scad-41f17a46/ - the single Technic.scad
+           library plus the upstream LICENSE: the axle, wheel and tire objects.
+           Upstream's gear modules read a CC-BY-NC-SA git submodule
+           (chrisspen/gears), which is deliberately not vendored.
+
+puzzlecad (aaron-siegel)
+------------------------
+Upstream:  https://github.com/aaron-siegel/puzzlecad
+Pinned at: 2ba064c51e8b8c0018a34d96776b33625c938602
+License:   MIT. puzzlecad is Copyright (c) 2019-2022 Aaron Siegel.
+Vendored:  openscad/vendor/aaron-siegel-puzzlecad-2ba064c5/ - the puzzlecad library
+           include and its ten modules, plus the upstream LICENSE and
+           LICENSE-MIT: the burr puzzle stick. The repository's finished puzzle
+           designs are distributed upstream under CC-BY-NC-ND 3.0 and are not
+           vendored.
+
+3d-inserts (ChristianLutz)
+--------------------------
+Upstream:  https://github.com/ChristianLutz/3d-inserts
+Pinned at: 5a9976a9469ad90ece2e94347ef616120302cd17
+License:   CC0-1.0. Christian Lutz; CC0 1.0 Universal dedicates the work to the public
+           domain, so no attribution is required - it is given here anyway.
+Vendored:  openscad/vendor/christianlutz-3d-inserts-5a9976a9/ - the card tray and
+           resources tray sources plus the upstream LICENSE.
+
+holgerlembke-openscad-modelle
+-----------------------------
+Upstream:  https://github.com/holgerlembke/OpenSCAD-Modelle
+Pinned at: b48f4ea0a3c11ae1b0e538a567b954c682798d5b
+License:   MIT. Copyright (c) 2021 Holger Lembke.
+Vendored:  openscad/vendor/holgerlembke-openscad-modelle-b48f4ea0/ - the eight
+           printer-accessory models (spoolholder.scad, spoolholder3.scad,
+           ender3v3kefilamentguide.scad, ender3v3kefilamentguide2.scad,
+           Bed_Levelling.scad, Schaberklingenhalter.scad, Kabel Knickschutz.scad,
+           halteklammer.scad) plus the upstream LICENSE.
+
+splice3d (dmhernandez2525)
+--------------------------
+Upstream:  https://github.com/dmhernandez2525/splice3d
+Pinned at: 1b9233f1b07b923ec7b08eaba5db74e2b7fa6790
+License:   MIT. Copyright (c) 2026 Splice3D Contributors.
+Vendored:  openscad/vendor/splice3d-1b9233f1/ - the shared common.scad library
+           and the spool holder, filament guide, guide jig, tool accessory and
+           cable management cad sources under hardware/f1_1/cad and
+           hardware/f1_4/cad, plus the upstream LICENSE. Upstream's layout is
+           kept so the relative `use <../../f1_1/cad/common.scad>` includes
+           resolve.
+
+gchristopher-3dprinting
+-----------------------
+Upstream:  https://github.com/gchristopher/3dprinting
+Pinned at: 8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf
+License:   Apache-2.0. Copyright (c) 2015-2017 Gregg Christopher.
+Vendored:  openscad/vendor/gchristopher-3dprinting-8fdb722c/ - the five Rostock
+           MAX V2 "Single-Dual Wider Effector Platform" sources (dual_tool_holder,
+           dual_tool_clamp, fan_shroud_bottom, wider_effector_platform and
+           effector_constants), flat under rostock-effector/, plus the upstream
+           LICENSE. Every file carries upstream's own "This file is public
+           domain" header. The repository's "Rostock Max V2 Dual Extruder
+           Holder" sources are not vendored: extruder_holders.scad states it is
+           GPL v3 and that the SeeMeCNC-derived geometry is most likely
+           noncommercial.
+
+ewc3-test-hole-generator (EWC3 Labs)
+------------------------------------
+Upstream:  https://github.com/ewc3labs/ewc3-test-hole-generator
+Pinned at: c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b
+License:   MIT. Copyright (c) 2026 EWC3 Labs.
+Vendored:  openscad/vendor/ewc3-test-hole-generator-c4b7bfdc/ - the current
+           src/test-hole-generator-v2.scad and the archived rectangular
+           _ARCHIVE/src/test-hole-generator.scad, plus the upstream LICENSE.
+
+bicycle_lights (guillaumechauvat)
+---------------------------------
+Upstream:  https://github.com/guillaumechauvat/bicycle_lights
+Pinned at: 4d7effa69b957d27221d2b94aad71b3463367253
+License:   MIT. Copyright (c) 2021 Guillaume Chauvat.
+Vendored:  openscad/vendor/bicycle-lights-4d7effa6/ - the five light housings under
+           Housings/ (the two front-light generations, the rear light, the
+           three-cell 18650 battery box and the handlebar switch holder) plus
+           the upstream LICENSE. Supplies the Cycling light-holder objects. The
+           Arduino firmware and the acrylic lens script are not vendored.
+
+cycling-wall-rack (Slashgear)
+-----------------------------
+Upstream:  https://github.com/Slashgear/cycling-wall-rack
+Pinned at: 3ca19cc7ca0962809868cbd203be34b1a6f0e98a
+License:   MIT. Copyright (c) 2026 Antoine CARON.
+Vendored:  openscad/vendor/cycling-wall-rack-3ca19cc7/ - the four scad/ parts of the
+           wall-mounted bike accessory rack (wall bracket, glasses holder,
+           tray and S-hook) plus the upstream LICENSE, keeping upstream's scad/
+           layout. The rendered STL exports, images and documentation are not
+           vendored, and neither is the shoes holder.
+
+GoProScad (ridercz)
+-------------------
+Upstream:  https://github.com/ridercz/GoProScad
+Pinned at: 98c0161e58d4d912481cdf280b573563e221b2a7
+License:   MIT. Copyright (c) 2021 Michal Altair Valasek.
+Vendored:  openscad/vendor/ridercz-gopro-98c0161e/ - GoPro.scad (the male and female
+           quick-release connectors and the M5 screw handle) with the
+           extension-arm and phone-holder samples, plus the upstream LICENSE,
+           keeping upstream's Samples/ layout. The samples that need the
+           separate A2D library are not vendored. The handlebar clamp and the
+           screw handle are catalog objects built as wrappers around the
+           vendored modules.
+
+connector-adapter (justcoding-dev)
+----------------------------------
+Upstream:  https://github.com/justcoding-dev/connector-adapter
+Pinned at: 80e4636ed2176e46106b748a2c26215a2e372f75
+License:   MIT. Copyright (c) 2021 regenschein71.
+Vendored:  openscad/vendor/connector-adapter-80e4636e/ - the connector-adapter.scad
+           generator and the upstream LICENSE.
+
+bottlecage (gutschke)
+---------------------
+Upstream:  https://github.com/gutschke/bottlecage
+Pinned at: 15484334e49ac12be6ac3d21a1f48207b739b3df
+License:   CC0-1.0. Markus Gutschke; CC0 1.0 Universal dedicates the work to the
+           public domain, so no attribution is required - it is given here
+           anyway. The cage recreates Prusa Research's CC0 ASA bottle cage.
+Vendored:  openscad/vendor/bottlecage-15484334/ - the standard slotted bottle cage and
+           the compact cage plus the upstream CC0 LICENSE.
+
+triathlon-bike (jolatechno)
+---------------------------
+Upstream:  https://github.com/jolatechno/triathlon-bike
+Pinned at: 1e55632a064bcac4068acec52910953fb0f49271
+License:   MIT. Copyright (c) 2020 joseph touzet.
+Vendored:  openscad/vendor/triathlon-bike-1e55632a/ - the gel clip, the brake spacer
+           and the two-bolt saddle bottle holder with the upstream LICENSE,
+           keeping upstream's per-part directories. The derailleur,
+           chain-catcher, bar-end shifter, electronic-shifting and aerodrink
+           sources, the images and the README are not vendored.
+
+clip-openscad (Standard Cyborg)
+-------------------------------
+Upstream:  https://github.com/StandardCyborg/clip-openscad
+Pinned at: 789c87dc951308470e7d9229527f154c237fb95e
+License:   MIT. Copyright (c) 2022 Standard Cyborg.
+Vendored:  openscad/vendor/clip-openscad-789c87dc/ - the car rear-view-mirror phone
+           clip: components/assembly.scad and the constants, phone, mirror and
+           rounded-cube files it uses, plus the upstream LICENSE, keeping
+           upstream's components/ layout. The per-device dimension tables and
+           the archived clips are not vendored. The catalog object is a
+           wrapper that restates upstream's iPhone XS geometry with the device
+           size as a parameter.
+
+corrugated-pipe-clamp (agjendem)
+--------------------------------
+Upstream:  https://github.com/agjendem/corrugated-pipe-clamp
+Pinned at: f85ac05dca676f67dd6591add7f6e5ab35981062
+License:   MIT. Copyright (c) 2026 agjendem.
+Vendored:  openscad/vendor/corrugated-pipe-clamp-f85ac05d/ - the clamp, snap
+           collar, corner elbow, clear corner elbow, corner bend and panel
+           spigot sources for corrugated electrical conduit, the shared
+           corrugation, brim and thread helpers they include, and the upstream
+           LICENSE. The render and dimension helpers, the build scripts, the
+           JSON dimension dumps and the images are not vendored.
+
+matrixflow (szrudi)
+-------------------
+Upstream:  https://github.com/szrudi/MatrixFlow
+Pinned at: 2938da2202df1a993cda6c920cc9d1d891703236
+License:   MIT. Copyright (c) 2026 Rudi Szabó.
+Vendored:  openscad/vendor/matrixflow-2938da22/ - matrixflow.scad, the
+           self-contained sweep engine that morphs between round and
+           rectangular duct cross-sections, plus the upstream LICENSE. The
+           MakerWorld example wrappers and the archived adapter are not
+           vendored.
+
+pythocrates-openscad-models (Pythocrates)
+-----------------------------------------
+Upstream:  https://github.com/Pythocrates/openscad-models
+Pinned at: 85e20833292a19d51bc617a6ea98f308ad541cb9
+License:   CC0-1.0. Pythocrates dedicates the work to the public domain.
+Vendored:  openscad/vendor/pythocrates-openscad-models-85e20833/ - the garage
+           ventilation grille, the satellite speaker wall mount, the shower
+           rail mount, the curtain rod caps, the hinge tolerance test and the
+           shared lock-plate module, plus the upstream LICENSE. These sources
+           include the separately vendored BOSL library.
+
+aurora-concrete (AuroraRoboticsLab)
+-----------------------------------
+Upstream:  https://github.com/AuroraRoboticsLab/Concrete
+Pinned at: fc6bf17038d55c76fa27962c94933f6064fc3324
+License:   Unlicense. AuroraRoboticsLab released the work into the public
+           domain.
+Vendored:  openscad/vendor/aurora-concrete-fc6bf170/ - the self-contained ASTM
+           C39 concrete cylinder mold and the honeycomb concrete mold, plus the
+           upstream LICENSE. The AVALON printer sources, the BOSL2-dependent
+           block and cinderblock molds, the compression test caps and the STL
+           and PNG exports are not vendored.
+
+parametric-hinge (HarkonenBade)
+-------------------------------
+Upstream:  https://github.com/HarkonenBade/parametric_hinge
+Pinned at: 6195704fe34b5f249a3a067f1808ea0c467b46e3
+License:   MIT. Copyright (c) 2022 Tom.
+Vendored:  openscad/vendor/parametric-hinge-6195704f/ - parametric_hinges.scad,
+           the self-contained print-in-place hinge library, plus the upstream
+           LICENSE. The example and render artifacts are not vendored.
+
+parametric-openscad-generators (lgg1303)
+----------------------------------------
+Upstream:  https://github.com/lgg1303/parametric-openscad-generators
+Pinned at: e91cfac6a96dfe2513489d62b670d768c19f7378
+License:   MIT. Copyright (c) 2026 Lourenço Guerreiro.
+Vendored:  openscad/vendor/parametric-openscad-generators-e91cfac6/ - the
+           mounting plate generator and the shared toolbox module it includes,
+           plus the upstream LICENSE, keeping upstream's Projects/ layout. The
+           progress notebooks, the electronics and flange generators and the
+           enclosure sources are not vendored.
+
+whosawhatsis-geometry (whosawhatsis/Geometry)
+---------------------------------------------
+Upstream:  https://github.com/whosawhatsis/Geometry
+Pinned at: 0aaf3e49385d07b08e03564476bae8124e284138
+License:   CC-BY-4.0. Copyright (c) 2020 Joan Horvath and Rich Cameron; the license
+           requires attribution, which the model cards, NOTICE and README also give.
+Vendored:  openscad/vendor/whosawhatsis-geometry-0aaf3e49/ - the six geometry teaching models
+           (Polygons+Polyhedrons/platonicSolids.scad,
+           Polygons+Polyhedrons/edge_platonic_solids.scad, Nets/platonic_net.scad,
+           Reuleaux/meissner.scad, Reuleaux/reuleaux-n-gon.scad and
+           Gnomon/sun_dial_gnomon.scad), the upstream LICENSE (shipped upstream as
+           LICENSE.md) and README.md, keeping upstream's own directory names. The
+           rest of the Make:Geometry tree is not vendored.
+
+cg-rassin-rocketry (CGrassin/rocketry)
+--------------------------------------
+Upstream:  https://github.com/CGrassin/rocketry
+Pinned at: 7b7783a369f8496e1e0b4fc6bd2372f3161ea0b3
+License:   MIT. Copyright (c) 2020 Charles Grassin.
+Vendored:  openscad/vendor/cg-rassin-rocketry-7b7783a3/ - the Haack-series nose cone library
+           (KeplerMK1_NoseCone.scad, itself based on Garrett Goss's public-domain
+           NOSE CONE LIBRARY) and KeplerMK1_GimbalTestStand.scad plus the upstream
+           LICENSE: the two nose cones and the motor-mount test stand.
+
+erellaz-spider (erellaz/Spider)
+-------------------------------
+Upstream:  https://github.com/erellaz/Spider
+Pinned at: ee9711effbcb949e20f4f52fdde4bbbde37c7574
+License:   MIT. Copyright (c) 2020 erellaz.
+Vendored:  openscad/vendor/erellaz-spider-ee9711ef/ - the three-vane and four-vane
+           secondary-mirror hubs (vane_support_120_degrees_double_v0.scad and
+           vane_support_90_degrees_double_v0.scad) plus the upstream LICENSE.
+
+erellaz-telescope-ring (erellaz/Telescope-ring)
+-----------------------------------------------
+Upstream:  https://github.com/erellaz/Telescope-ring
+Pinned at: aef1b9b51967fc1b24e1891ebd3dfad582100f62
+License:   MIT. Copyright (c) 2023 erellaz.
+Vendored:  openscad/vendor/erellaz-telescope-ring-aef1b9b5/ - Esprit100_ring_v5.scad, the
+           parametric ring that clamps a telescope tube to an equatorial mount, plus
+           the upstream LICENSE.
+
+nikon-diaphot-tmd (wivy1/nikon-diaphot-tmd)
+-------------------------------------------
+Upstream:  https://github.com/wivy1/nikon-diaphot-tmd
+Pinned at: d86aeaaa0edbd100c16ab3f61799bd4820c0d16f
+License:   MIT. Copyright (c) 2026 Will Ivy.
+Vendored:  openscad/vendor/nikon-diaphot-tmd-d86aeaaa/ - the 45 mm filter holder and the
+           universal objective holders with the tapered frame and with clamp tabs
+           (nikon_diaphot_45mm_filter_holder.scad,
+           nikon_diaphot_universal_holder_taper.scad and
+           nikon_diaphot_universal_holder_clamp.scad) plus the upstream LICENSE.
+           The 4x and 10x objective adapters are not vendored.
+
+equatorial-sundial (RyanDMott/equatorial-sundial)
+-------------------------------------------------
+Upstream:  https://github.com/RyanDMott/equatorial-sundial
+Pinned at: 5ece8a9cdabb0969b9534ca3c5d1009226347e4e
+License:   MIT. Copyright (c) 2026 RyanDMott.
+Vendored:  openscad/vendor/equatorial-sundial-5ece8a9c/ - the latitude-adjustable equatorial
+           sundial (equatorial_sundial.scad), the analemma figure-of-eight groove
+           (analemma_groove.scad) and the analemma data table it includes
+           (analemma_2030.scad) plus the upstream LICENSE. The analemma and solar
+           helper scripts and the sample renders are not vendored.
+
+astro-replicas (hongming/OpenSCAD_Astro_Replicas)
+-------------------------------------------------
+Upstream:  https://github.com/hongming/OpenSCAD_Astro_Replicas
+Pinned at: 363b6388f06b337deb8de44bc2d657833eb4cfd6
+License:   MIT. Copyright (c) 2024 Hongming.
+Vendored:  openscad/vendor/astro-replicas-363b6388/ - the Losmandy-style dovetail bar and the
+           dovetail saddle under Accessories/ plus the upstream LICENSE. The camera,
+           mount and lens-cover replicas are not vendored.
+
+giguere-periodic-table (groverlab/giguere-3D-periodic-table)
+------------------------------------------------------------
+Upstream:  https://github.com/groverlab/giguere-3D-periodic-table
+Pinned at: c1b07199ec36a11a75f1a7bd54531bfbe12365ae
+License:   MIT. Copyright (c) 2022 William H. Grover.
+Vendored:  openscad/vendor/giguere-periodic-table-c1b07199/ - giguere3d.scad, the
+           3D-printable periodic table of the elements, plus the upstream LICENSE.
+           The reference PDF and photographs are not vendored.
+
+azdle-printables (azdle/printables)
+-----------------------------------
+Upstream:  https://github.com/azdle/printables
+Pinned at: 158c8e86016c82332b5d6116dfd015b9a48a9479
+License:   CC0-1.0. Copyright is waived by Patrick Barrett under the CC0 1.0
+           Universal public domain dedication.
+Vendored:  openscad/vendor/azdle-printables-158c8e86/ - the tealight storage
+           tray, the whiteboard marker rack and the honeycomb wall/coaster grid,
+           plus the upstream LICENSE. Two desk organizers and the honeycomb
+           pods are rendered from this tree; the rest of the collection is not
+           vendored.
+
+doofdoofsf-3dmodels (doofdoofsf/3DModels)
+-----------------------------------------
+Upstream:  https://github.com/doofdoofsf/3DModels
+Pinned at: a578682933dc96ad7aa6fd8c17d36a4025e6ffc4
+License:   MIT. Copyright (c) 2021 John Quinn.
+Vendored:  openscad/vendor/doofdoofsf-3dmodels-a5786829/ - the square table
+           coasters, the interlocking fancy coaster, the spherical light shade
+           and the flower-charger planter with the rounding helper the coasters
+           include, plus the upstream LICENSE. The other models in the
+           collection are not vendored.
+
+elliotf-reprap-household-misc (elliotf/reprap-household-misc)
+-------------------------------------------------------------
+Upstream:  https://github.com/elliotf/reprap-household-misc
+Pinned at: c353c8acee63b75c19fc63be89bb2649d56aa580
+License:   MIT. Copyright (c) 2014 Elliot Foster.
+Vendored:  openscad/vendor/elliotf-reprap-household-misc-c353c8ac/ - the fluted
+           and enclosed vase-mode lampshades, the ribbed bookend and the
+           self-watering planter, with the two geometry helpers they include,
+           plus the upstream LICENSE. The bookend and the planter also include
+           the author's lumpyscad helper library, which is vendored separately.
+
+filippyrek-scad-3d-print-models (FilipPyrek/scad-3d-print-models)
+-----------------------------------------------------------------
+Upstream:  https://github.com/FilipPyrek/scad-3d-print-models
+Pinned at: cd4852ada0d325ef4035a643f75cb316f5efab61
+License:   MIT. Copyright (c) 2020 Filip Pýrek.
+Vendored:  openscad/vendor/filippyrek-scad-3d-print-models-cd4852ad/ - the
+           two-part lithophane lamp cover, which wraps a round lithophane into
+           a desk lamp, plus the upstream LICENSE. The aquaponics and aquawall
+           models are not vendored.
+
+lumpyscad (elliotf/lumpyscad)
+-----------------------------
+Upstream:  https://github.com/elliotf/lumpyscad
+Pinned at: 49526b23fca8ba0142f5a139c6be3033836b76a9
+License:   MIT. Copyright (c) 2021 Elliot Foster.
+Vendored:  openscad/vendor/lumpyscad-49526b23/ - the single lib.scad of
+           reusable helper modules that the ribbed bookend and the
+           self-watering planter include, kept inside a lumpyscad/ directory
+           because those models address it as <lumpyscad/lib.scad>, plus the
+           upstream LICENSE. The upstream README is not vendored.
+
+mjseabright-lampshades (mjseabright/lampshades)
+-----------------------------------------------
+Upstream:  https://github.com/mjseabright/lampshades
+Pinned at: 5c20d7018cca118b88825590cf27469256e557ff
+License:   MIT. Copyright (c) 2022 Matthew Seabright.
+Vendored:  openscad/vendor/mjseabright-lampshades-5c20d701/ - the six shade
+           shapes the catalog exposes (rope swirl, turbine, pineapple,
+           golfball, fish tail and rotated star) with the geometry helper and
+           the adapter mounting helpers they use, plus the upstream LICENSE.
+           The remaining shades, the feet and adaptor parts, the render scripts
+           and the image assets are not vendored.
+
+xoob-parametric-picture-frame (xoob/parametric-picture-frame)
+-------------------------------------------------------------
+Upstream:  https://github.com/xoob/parametric-picture-frame
+Pinned at: 84e8314b4b4b4bd4673b1428c5e8d4ab8b3b4f49
+License:   MIT. Copyright (c) 2026 Alexander Brausewetter.
+Vendored:  openscad/vendor/xoob-parametric-picture-frame-84e8314b/ - the frame
+           generator with its profile, segmentation, ornament and clip helper
+           files, plus the upstream LICENSE. The build scripts and the story
+           images are not vendored.
+
+aurorascad (AuroraRoboticsLab/AuroraSCAD)
+-----------------------------------------
+Upstream:  https://github.com/AuroraRoboticsLab/AuroraSCAD
+Pinned at: 172751a1c9c6b08e1c89355fcb2926f87f8c0f22
+License:   Unlicense. AuroraRoboticsLab released the work into the public
+           domain, and the upstream README adds that everything in the tree is
+           public domain unless noted otherwise. Dr. Orion Lawlor and the
+           Aurora Robotics Lab contributors.
+Vendored:  openscad/vendor/aurorascad-172751a1/ - the gear, gearbox, motor, Peg
+           Perego gearbox and screw libraries, kept inside an AuroraSCAD/
+           directory because motor.scad addresses its screw module as
+           <../AuroraSCAD/screw.scad>, plus the upstream LICENSE. sprocket.scad
+           is not vendored because its own header derives it from a CC BY-NC
+           sprocket module, upstream's PolyGear/ tree is CC BY-SA 4.0, and the
+           unused bearing.scad is left out.
+
+ball-joint (nohkumado/ball_joint)
+---------------------------------
+Upstream:  https://github.com/nohkumado/ball_joint
+Pinned at: 85720f535a680c4ad389d8090977aec0d98560a9
+License:   CC0-1.0. Gael Lafond; CC0 1.0 Universal dedicates the work to the
+           public domain, so no attribution is required - it is given here
+           anyway. The extra LICENSE.txt records that the model was made for
+           Thingiverse user gaellafond.
+Vendored:  openscad/vendor/ball-joint-85720f53/ - the universal ball joint
+           library with its ball, seat and nut modules, and the
+           helix_extrude.scad module the threads call, plus the upstream CC0
+           LICENSE and LICENSE.txt.
+
+ball-bearing (cblomart/ball-bearing)
+------------------------------------
+Upstream:  https://github.com/cblomart/ball-bearing
+Pinned at: 684fb2fbc9b6d25f5a52746ae384acc393cba5ca
+License:   MIT. Copyright (c) 2016 Blomart Cedric; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/ball-bearing-684fb2fb/ - the parametric deep-groove
+           ball bearing module that turns both races, cuts the groove and
+           places the balls, plus the upstream LICENSE. example.scad is only a
+           usage sample and is not vendored.
+
+cycoidal-gear (cyber-murmel/cycoidal-gear)
+------------------------------------------
+Upstream:  https://github.com/cyber-murmel/cycoidal-gear
+Pinned at: 0295817cdce7bd7979f6dd49b61074673f2aaf50
+License:   MIT. Copyright (c) 2021 marble; the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/cycoidal-gear-0295817c/ - the cycloidal gear profile
+           and the cycloidal disc built from it, plus the upstream LICENSE.
+           nema17-cycloidal-gear.scad is not vendored because it pulls in the
+           NopSCADlib submodule, and the rendered stl/ directory is excluded.
+
+omni-wheel-hub (MomsFriendlyRobotCompany/omni-wheel-hub)
+--------------------------------------------------------
+Upstream:  https://github.com/MomsFriendlyRobotCompany/omni-wheel-hub
+Pinned at: 3a5e25dedb8b6ac991ecb2873b28f15a81473df6
+License:   MIT. Copyright (c) 2020 Kevin J. Walchko; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/omni-wheel-hub-3a5e25de/ - the servo hub, the wheel
+           hub, the cap and the wheel that make up the omni wheel assembly,
+           with the screws.scad module library they use, plus the upstream
+           LICENSE. The pre-rendered STL servo body the assembly can import and
+           the exported stl/ directory are not vendored.
+
+lib-robo-core (dnkorte/lib_robo_core)
+-------------------------------------
+Upstream:  https://github.com/dnkorte/lib_robo_core
+Pinned at: 2e0cc474f5cb7d79298e1dde4e9dfa7ef4528a74
+License:   MIT. Copyright (c) 2024 Don Korte; the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/lib-robo-core-2e0cc474/ - the o-ring drive wheels
+           for D-shaft, round-shaft and TT motors, the shared DonKbot
+           dimensions and the geometry helper libraries they use, plus the
+           upstream LICENSE, kept by bare filename because dkb_core.scad
+           addresses them that way. wedge.scad is deliberately not vendored:
+           torus.scad uses it only from its angle < 360 branch, and the copy in
+           the pinned commit carries a third-party GPL-2.0-or-later header that
+           this repository does not redistribute. The catalog's wheels always
+           ask for full 360 degree tori, so no wedge code is ever reached;
+           OpenSCAD reports the unresolved use as a warning. nut.scad and the
+           photos are not vendored.
+
+donkbot (dnkorte/donkbot)
+-------------------------
+Upstream:  https://github.com/dnkorte/donkbot
+Pinned at: 0cae5346ba4b529f92fe0e24ce445bc7e1d474bb
+License:   MIT. Copyright (c) 2024 Don Korte; the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/donkbot-0cae5346/ - the TT, N20, NEMA 8 and SparkFun
+           stepper chassis plates the catalog exposes, the six dkb_* libraries
+           they include (closing over the separately vendored lib_robo_core
+           tree through OPENSCADPATH) and the camera and sensor support library
+           the N20 plate needs, plus the upstream LICENSE, keeping upstream's
+           openscad_donkbot/ directory. The remaining plate variants, the PCB
+           design files and the images are not vendored.
+
+servo-brake-actuator (AssaadMH/servo-brake-actuator)
+----------------------------------------------------
+Upstream:  https://github.com/AssaadMH/servo-brake-actuator
+Pinned at: a61c9b8b7ff592d6fb3c37d25efe519f10cd26c8
+License:   MIT. Copyright (c) 2026 Lassaad Mahmoudi; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/servo-brake-actuator-a61c9b8b/ - the servo brake-
+           cable drum that captures a four-arm servo horn and pulls two brake
+           cables, plus the upstream LICENSE. The duplicate drum revision under
+           print/, the worm-wheel study, the generated STL files, the render
+           scripts and the documentation images are not vendored.
+
+saxonrah-robot-parts (SaxonRah/OpenSCAD_Robot_Parts)
+----------------------------------------------------
+Upstream:  https://github.com/SaxonRah/OpenSCAD_Robot_Parts
+Pinned at: d9ff23cf4921a707fee2312d5c9c257a9bcd65c9
+License:   MIT. Copyright (c) 2022 Robert Valentine; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/saxonrah-robot-parts-d9ff23cf/ - the servo-type
+           U-bracket that carries a hobby servo and a bearing on its axle, plus
+           the upstream LICENSE. The pre-rendered STL and the pictures
+           directory are not vendored.
 
 Third-party frontend notices
 ============================

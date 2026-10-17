@@ -1,0 +1,20 @@
+aded4de5c1acc0ebccb86c1b22a341fbd7724e3a
+
+Upstream: https://github.com/martmaiste/openscad-models
+License: MIT
+Copyright: Copyright (c) 2023 martmaiste
+
+The eight standalone OpenSCAD models below, copied verbatim from the pinned commit,
+with the upstream LICENSE. The repository's generated README gallery, PNG previews
+and the other non-electronics models are not vendored.
+
+Files:
+  LICENSE
+  Cable-Comb/Cable-Comb.scad
+  DIN-Mount/DIN-Mount.scad
+  DIN-Mount/WeMos-Mini.scad
+  DIN-Mount/Serial-Energy-Meter-PCB-Cover.scad
+  D-Fruit-USB-HUB-Holder/D-Fruit-USB-HUB-Holder.scad
+  USB-Cap/USB-Cap.scad
+  RJ45-Plug/RJ45-Plug.scad
+  Headphone-Hook/Headphone-Hook.scad

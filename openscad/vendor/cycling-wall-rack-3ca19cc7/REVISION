@@ -1,0 +1,18 @@
+3ca19cc7ca0962809868cbd203be34b1a6f0e98a
+
+Upstream: https://github.com/Slashgear/cycling-wall-rack
+License: MIT
+Copyright: Copyright (c) 2026 Antoine CARON
+
+The wall-mounted bike accessory rack: the wall bracket that holds a 24 mm wooden
+dowel, the rod-mounted glasses holder and tray, and the S-hook, plus the
+upstream LICENSE. Copied verbatim from the pinned commit, keeping upstream's
+scad/ layout. The rendered STL exports, images and documentation are not
+vendored.
+
+Files:
+  LICENSE
+  scad/wall_mount_bracket.scad
+  scad/s_hook.scad
+  scad/tray.scad
+  scad/glasses_holder.scad

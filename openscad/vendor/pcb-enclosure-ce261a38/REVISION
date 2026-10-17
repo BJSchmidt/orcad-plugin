@@ -1,0 +1,12 @@
+ce261a389da419c767efd607159fe80f20f16d17
+
+Upstream: https://github.com/rafaelmartins/pcb-enclosure
+License: BSD-3-Clause
+Copyright: Copyright (c) 2020, Rafael G. Martins
+
+The pcb-enclosure library, its assembly/example file and the upstream LICENSE.
+
+Files:
+  LICENSE
+  pcb-enclosure.scad
+  pcb-enclosure-test.scad

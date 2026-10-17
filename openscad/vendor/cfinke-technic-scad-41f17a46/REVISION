@@ -1,0 +1,15 @@
+41f17a4696b582850097a2e3779348bc27c87f47
+
+Upstream: https://github.com/cfinke/Technic.scad
+License: MIT
+Copyright: Copyright (c) 2025 Christopher Finke (cfinke@gmail.com)
+
+The single upstream library file, copied verbatim from the pinned commit, plus the
+upstream MIT LICENSE. Upstream's customizers, examples, images and Makefile are not
+vendored. The axle, wheel and tire modules are catalog objects. Upstream's gear modules
+read a git submodule (chrisspen/gears) that is licensed CC-BY-NC-SA and is therefore not
+vendored, so this tree exposes no gear object.
+
+Files:
+  LICENSE
+  Technic.scad

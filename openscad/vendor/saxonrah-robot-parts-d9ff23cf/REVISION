@@ -1,0 +1,13 @@
+d9ff23cf4921a707fee2312d5c9c257a9bcd65c9
+
+Upstream: https://github.com/SaxonRah/OpenSCAD_Robot_Parts
+License: MIT
+Copyright: Copyright (c) 2022 Robert Valentine
+
+Programmatic robot parts: the U-bracket that carries a standard hobby servo and a bearing on
+its axle. The upstream LICENSE is copied verbatim from the pinned commit. The pre-rendered STL
+and the pictures directory are not vendored.
+
+Files:
+  LICENSE
+  Robot_U_Bracket_ServoType.scad

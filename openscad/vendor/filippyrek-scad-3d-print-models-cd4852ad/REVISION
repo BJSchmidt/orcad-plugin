@@ -1,0 +1,14 @@
+cd4852ada0d325ef4035a643f75cb316f5efab61
+
+Upstream: https://github.com/FilipPyrek/scad-3d-print-models
+License: MIT
+Copyright: Copyright (c) 2020 Filip Pýrek
+
+A small collection of OpenSCAD models. The lithophane lamp cover, which prints
+in two halves around a round lithophane, plus the upstream LICENSE are vendored
+verbatim from the pinned commit; the aquaponics and aquawall models are not
+vendored.
+
+Files:
+  LICENSE
+  lithophane lamp/lithophane lamp.scad

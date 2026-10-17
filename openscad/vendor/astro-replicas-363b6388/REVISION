@@ -1,0 +1,14 @@
+363b6388f06b337deb8de44bc2d657833eb4cfd6
+
+Upstream: https://github.com/hongming/OpenSCAD_Astro_Replicas
+License: MIT
+Copyright: Copyright (c) 2024 Hongming
+
+The Losmandy-style dovetail bar and the dovetail saddle that carry a telescope
+tube on an equatorial mount, copied verbatim from the pinned commit. The camera,
+mount and lens-cover replicas are not vendored.
+
+Files:
+  LICENSE
+  Accessories/dovetail_bar.scad
+  Accessories/dovetail_saddle.scad

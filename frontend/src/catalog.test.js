@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { OBJECTS, OBJECT_KEYS, activePreset, applyPreset, categories, checkValue, defaults, groups, isDisabled, objectMatches, presetList, presetMatches, presets, restoreParams, resultCounts, searchObjects, setParam } from './catalog.js'
+import { OBJECTS, OBJECT_KEYS, activePreset, applyPreset, attributionFor, categories, checkValue, defaults, groups, isDisabled, objectMatches, presetList, presetMatches, presets, restoreParams, resultCounts, searchObjects, setParam } from './catalog.js'
 
 test('every default passes the client-side check', () => {
   for (const key of OBJECT_KEYS) {
@@ -8,6 +8,18 @@ test('every default passes the client-side check', () => {
     for (const param of OBJECTS[key].parameters) assert.equal(checkValue(param, values[param.variable]), null, `${key}.${param.variable}`)
     assert.ok(groups(key).length > 0)
   }
+})
+
+test('vendored models carry a credit, originals and unlabelled sources do not', () => {
+  const vendored = OBJECT_KEYS.find((key) => OBJECTS[key].source.startsWith('vendor/'))
+  assert.ok(vendored, 'expected at least one vendored object')
+  const credit = attributionFor(OBJECTS[vendored])
+  assert.ok(credit.label && credit.license, vendored)
+  assert.equal(attributionFor(OBJECTS.box), null)
+  assert.equal(attributionFor({ source: 'objects/plain.scad' }), null)
+  assert.equal(attributionFor(null), null)
+  assert.deepEqual(attributionFor({ source: 'objects/wrapped.scad', attribution: { label: 'Someone', license: 'CC-BY-4.0' } }),
+    { label: 'Someone', license: 'CC-BY-4.0', author: '', repository: '' })
 })
 
 test('checkValue mirrors backend range, step, type and option rules', () => {

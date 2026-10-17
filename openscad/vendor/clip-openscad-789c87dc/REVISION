@@ -1,0 +1,20 @@
+789c87dc951308470e7d9229527f154c237fb95e
+
+Upstream: https://github.com/StandardCyborg/clip-openscad
+License: MIT
+Copyright: Copyright (c) 2022 Standard Cyborg
+
+The parametric car rear-view-mirror phone clip: assembly.scad builds the clip
+and its two cutouts, and the constants, phone, mirror and rounded-cube files
+hold the shared values and primitives it uses, plus the upstream LICENSE.
+Copied verbatim from the pinned commit, keeping upstream's components/ layout.
+The per-device dimension tables, the archived clips and the README are not
+vendored.
+
+Files:
+  LICENSE
+  components/assembly.scad
+  components/constants.scad
+  components/mirror.scad
+  components/phone.scad
+  components/rounded-cube.scad

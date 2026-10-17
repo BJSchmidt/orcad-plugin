@@ -1,0 +1,14 @@
+7b7783a369f8496e1e0b4fc6bd2372f3161ea0b3
+
+Upstream: https://github.com/CGrassin/rocketry
+License: MIT
+Copyright: Copyright (c) 2020 Charles Grassin
+
+The Haack-series nose cone library (itself based on Garrett Goss's public-domain
+NOSE CONE LIBRARY) and the gimbal test stand, copied verbatim from the pinned
+commit. The other 3D models in the repository are not vendored.
+
+Files:
+  LICENSE
+  3D_models/KeplerMK1_NoseCone.scad
+  3D_models/KeplerMK1_GimbalTestStand.scad

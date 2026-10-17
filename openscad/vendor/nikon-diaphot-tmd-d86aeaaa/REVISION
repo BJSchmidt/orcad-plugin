@@ -1,0 +1,16 @@
+d86aeaaa0edbd100c16ab3f61799bd4820c0d16f
+
+Upstream: https://github.com/wivy1/nikon-diaphot-tmd
+License: MIT
+Copyright: Copyright (c) 2026 Will Ivy
+
+Optics holders for the Nikon Diaphot TMD inverted microscope, copied verbatim
+from the pinned commit: the 45 mm filter holder, the universal objective holder
+with a tapered frame and the universal holder with clamp tabs. The 4x and 10x
+objective adapters are not vendored.
+
+Files:
+  LICENSE
+  3d_printing_files/nikon_diaphot_45mm_filter_holder.scad
+  3d_printing_files/nikon_diaphot_universal_holder_taper.scad
+  3d_printing_files/nikon_diaphot_universal_holder_clamp.scad

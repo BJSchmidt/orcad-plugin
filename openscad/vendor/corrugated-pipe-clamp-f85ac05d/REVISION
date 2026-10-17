@@ -1,0 +1,23 @@
+f85ac05dca676f67dd6591add7f6e5ab35981062
+
+Upstream: https://github.com/agjendem/corrugated-pipe-clamp
+License: MIT
+Copyright: Copyright (c) 2026 agjendem
+
+The parametric clamp, collar and fitting sources for corrugated electrical conduit
+plus the shared corrugation, brim and thread helpers they include, and the upstream
+LICENSE, copied verbatim from the pinned commit. The render and dimension helper
+scripts, the build/render shell scripts, the JSON dimension dumps and the images are
+not vendored.
+
+Files:
+  LICENSE
+  brim.scad
+  corner_bend.scad
+  corner_elbow.scad
+  corner_elbow_clear.scad
+  corrugation.scad
+  panel_spigot.scad
+  pipe_clamp.scad
+  snap_collar.scad
+  thread.scad

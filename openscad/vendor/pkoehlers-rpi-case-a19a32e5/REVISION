@@ -1,0 +1,13 @@
+a19a32e5932638bef0882c65189a3dbc5447e313
+
+Upstream: https://github.com/pkoehlers/rpi-case-openscad
+License: MIT
+Copyright: Copyright (c) 2021 pkoehlers
+
+The rpi_case.scad Raspberry Pi 3/4 case model and the upstream LICENSE. The model
+is a development of George Onoufriou's RavenSCAD Raspberry Pi 4 case, credited in
+the source header and in NOTICE.
+
+Files:
+  LICENSE
+  rpi_case.scad

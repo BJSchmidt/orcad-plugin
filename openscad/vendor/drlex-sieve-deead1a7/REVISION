@@ -1,0 +1,13 @@
+deead1a72d78eb6fbb8f1f579690743ac1dc2b27
+
+Upstream: https://github.com/DrLex0/print3D-customizable-sieve
+License: CC-BY-4.0
+Copyright: DrLex (DrLex0)
+
+The parametric sieve source plus the upstream CC BY 4.0 LICENSE, copied verbatim from
+the pinned commit. The example STLs, images and Customizer JSON are not vendored.
+Upstream notes the design is based on a sieve by pcstru (Thingiverse thing 341357).
+
+Files:
+  LICENSE
+  sieve.scad

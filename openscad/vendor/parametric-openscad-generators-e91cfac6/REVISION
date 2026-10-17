@@ -1,0 +1,16 @@
+e91cfac6a96dfe2513489d62b670d768c19f7378
+
+Upstream: https://github.com/lgg1303/parametric-openscad-generators
+License: MIT
+Copyright: Copyright (c) 2026 Lourenço Guerreiro
+
+The mounting plate generator and the shared toolbox module it includes, plus the
+upstream LICENSE, copied verbatim from the pinned commit. Upstream's own relative
+`use <../toolbox.scad>` is preserved, so the two files keep that layout. The
+progress notebooks, the electronics and flange generators and the enclosure
+sources are not vendored.
+
+Files:
+  LICENSE
+  Projects/Mounting_plate_generator_parametric.scad
+  toolbox.scad

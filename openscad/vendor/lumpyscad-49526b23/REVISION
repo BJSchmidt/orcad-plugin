@@ -1,0 +1,14 @@
+49526b23fca8ba0142f5a139c6be3033836b76a9
+
+Upstream: https://github.com/elliotf/lumpyscad
+License: MIT
+Copyright: Copyright (c) 2021 Elliot Foster
+
+Reusable OpenSCAD helper modules by the author of reprap-household-misc. The
+single lib.scad is vendored verbatim inside a lumpyscad/ directory, because the
+models that include it address it as `<lumpyscad/lib.scad>`, exactly the layout
+upstream expects. The upstream README is not vendored.
+
+Files:
+  LICENSE
+  lumpyscad/lib.scad

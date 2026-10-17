@@ -1,0 +1,12 @@
+6450759098871fc7e94b32ce9d2d300c58ce794e
+
+Upstream: https://github.com/DrLex0/print3d-customizable-pen-butler
+License: CC-BY-4.0
+Copyright: DrLex (DrLex0)
+
+The modular wall/desk holder source plus the upstream CC BY 4.0 LICENSE, copied
+verbatim from the pinned commit. The documentation images are not vendored.
+
+Files:
+  LICENSE
+  PenButller.scad

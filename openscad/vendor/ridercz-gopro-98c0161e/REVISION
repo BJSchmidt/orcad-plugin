@@ -1,0 +1,20 @@
+98c0161e58d4d912481cdf280b573563e221b2a7
+
+Upstream: https://github.com/ridercz/GoProScad
+License: MIT
+Copyright: Copyright (c) 2021 Michal Altair Valasek
+
+Altair's GoPro mount library (the male and female quick-release connectors and
+the M5 screw handle) with two of the upstream samples: the extension arm and
+the phone holder, plus the upstream LICENSE. Copied verbatim from the pinned
+commit, keeping upstream's Samples/ layout so each sample's
+`include <../GoPro.scad>` still resolves. The screw-handle sample, the samples
+that need the separate A2D library, the STL exports, the workspace file and the
+code of conduct are not vendored. The screw handle is exposed as a catalog
+object through a wrapper around gopro_screw_handle().
+
+Files:
+  LICENSE
+  GoPro.scad
+  Samples/extension_arm.scad
+  Samples/phone_holder.scad

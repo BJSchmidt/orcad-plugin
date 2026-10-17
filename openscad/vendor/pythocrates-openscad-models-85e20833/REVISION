@@ -1,0 +1,21 @@
+85e20833292a19d51bc617a6ea98f308ad541cb9
+
+Upstream: https://github.com/Pythocrates/openscad-models
+License: CC0-1.0
+Copyright: Pythocrates (CC0 1.0 Universal public domain dedication)
+
+The household model sources used by the catalog: the garage ventilation grille,
+the satellite speaker wall mount, the shower rail mount, the curtain rod caps, the
+hinge tolerance test and the shared lock-plate module, plus the upstream LICENSE,
+copied verbatim from the pinned commit. These files use the BOSL library, which is
+already vendored separately as bosl-4ce427a8. The rest of the repository is not
+vendored.
+
+Files:
+  LICENSE
+  curtain_rod_caps/curtain_rod_caps.scad
+  garage_ventilation_grille/grille.scad
+  lock_plate/lock_plate.iscad
+  loudspeaker_wall_mount/wall_mount.scad
+  shower_curtain_adapter/rail_mount.scad
+  tolerances/hinges.scad

@@ -1,0 +1,15 @@
+ddb4514417935098d9ef49307c143d724d5620fe
+
+Upstream: https://github.com/rorleth/3dKnickKnacks
+License: MIT
+Copyright: Copyright (c) 2024 rorleth
+
+The twine holder (with the threads.scad helper it includes) and the one-way insert
+plus the upstream LICENSE, copied verbatim from the pinned commit. The other models
+in the repository are not vendored.
+
+Files:
+  LICENSE
+  OneWayInserts/one way insert.scad
+  TwineHolder/TwineHolder.scad
+  TwineHolder/threads.scad

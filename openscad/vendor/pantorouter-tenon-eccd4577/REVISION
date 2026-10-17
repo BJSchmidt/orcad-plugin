@@ -1,0 +1,14 @@
+eccd45775104de24f1480a478f650d34205d00a7
+
+Upstream: https://github.com/FozzTexx/pantorouter_tenon_template
+License: CC0-1.0
+Copyright: Chris Osborn (FozzTexx); CC0 1.0 Universal dedication
+
+The single Tenons.scad template with the upstream LICENSE and
+README.md, copied verbatim from the pinned commit. The wrapper re-hosts its
+top-level layout so the template dimensions stay parametric.
+
+Files:
+  LICENSE
+  README.md
+  Tenons.scad

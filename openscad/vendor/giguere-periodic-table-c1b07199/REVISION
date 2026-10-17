@@ -1,0 +1,13 @@
+c1b07199ec36a11a75f1a7bd54531bfbe12365ae
+
+Upstream: https://github.com/groverlab/giguere-3D-periodic-table
+License: MIT
+Copyright: Copyright (c) 2022 William H. Grover
+
+The 3D-printable periodic table of the elements, copied verbatim from the
+pinned commit. The PDF and photograph in the upstream repository are not
+vendored.
+
+Files:
+  LICENSE
+  giguere3d.scad

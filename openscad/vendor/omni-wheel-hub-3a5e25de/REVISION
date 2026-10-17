@@ -1,0 +1,15 @@
+3a5e25dedb8b6ac991ecb2873b28f15a81473df6
+
+Upstream: https://github.com/MomsFriendlyRobotCompany/omni-wheel-hub
+License: MIT
+Copyright: Copyright (c) 2020 Kevin J. Walchko
+
+Servo hub and wheel hub for a 60 mm omni wheel on a serial-bus servo, plus the screws.scad
+module library servo-hub.scad uses. The upstream LICENSE is copied verbatim from the pinned
+commit. The lib/*.stl servo models and the pre-rendered stl/ directory are excluded, so the
+wrapper renders the printed hubs only.
+
+Files:
+  LICENSE
+  screws.scad
+  servo-hub.scad

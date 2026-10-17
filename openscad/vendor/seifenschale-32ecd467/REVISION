@@ -1,0 +1,12 @@
+32ecd46741f6dbef2668c223c57e35126b745769
+
+Upstream: https://github.com/steinbeck/seifenschale
+License: MIT
+Copyright: Copyright (c) 2026 Christoph Steinbeck
+
+The wall-mounted three-part soap dish plus the upstream LICENSE, copied verbatim
+from the pinned commit. The tests, docs and image assets are not vendored.
+
+Files:
+  LICENSE
+  seifenschale.scad

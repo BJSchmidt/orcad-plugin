@@ -1,0 +1,26 @@
+8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf
+
+Upstream: https://github.com/gchristopher/3dprinting
+License: Apache-2.0
+Copyright: Copyright (c) 2015-2017 Gregg Christopher
+
+The five "Rostock Max V2 Single-Dual Wider Effector Platform" sources below, copied
+verbatim from the pinned commit with the upstream LICENSE. Upstream keeps them in a
+directory whose name contains spaces; they are vendored together under rostock-effector/
+so the wrapper can address the tree without spaces, and the five files stay in one
+directory because they `include <effector_constants.scad>` next to themselves. Every
+file carries upstream's own "This file is public domain" header, which is compatible
+with the repository's Apache-2.0 LICENSE.
+
+The repository's "Rostock Max V2 Dual Extruder Holder" sources are deliberately NOT
+vendored: extruder_holders.scad states "This file is GPL v3" and notes the SeeMeCNC
+designs are "most likely noncommercial use", and extruder_holders.scad and
+filament_wire_guide.scad depend on it.
+
+Files:
+  LICENSE
+  rostock-effector/dual_tool_clamp.scad
+  rostock-effector/dual_tool_holder.scad
+  rostock-effector/effector_constants.scad
+  rostock-effector/fan_shroud_bottom.scad
+  rostock-effector/wider_effector_platform.scad

@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Eighteen upstream OpenSCAD libraries are vendored unmodified under
+Ninety-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -126,6 +126,387 @@ THIRD_PARTY_NOTICES.
   fin sets and the upstream LICENSE: the Rocketry category. gardena.scad,
   pco-1881.scad, rocket_fins.scad and rocket.scad are not vendored, because
   their include of threadlib needs a library this project does not ship.
+- syncom/openscad-designs - BSD-2-Clause (Copyright (c) 2018 syncom) -
+  https://github.com/syncom/openscad-designs - commit
+  a59bdd24c4ce8c1f0c5b68b7e8989e834bbab0f2. The chopstick dishwasher support
+  and the bucket-with-lid source plus the upstream LICENSE: the kitchen and
+  household objects of the repository.
+- GrimSqueaker/3d_printing_stuff - MIT (Copyright (c) 2024 GrimSqueaker) -
+  https://github.com/GrimSqueaker/3d_printing_stuff - commit
+  0c0236f87645e2a61c8a2b47da3d7a3c7963241e. The two cosmetic organizers and
+  the bathroom shelf hook plus the upstream LICENSE, with the upstream
+  openscad/ layout preserved.
+- rorleth/3dKnickKnacks - MIT (Copyright (c) 2024 rorleth) -
+  https://github.com/rorleth/3dKnickKnacks - commit
+  ddb4514417935098d9ef49307c143d724d5620fe. The twine holder with the
+  threads.scad helper it includes and the one-way drawer insert plus the
+  upstream LICENSE.
+- steinbeck/seifenschale - MIT (Copyright (c) 2026 Christoph Steinbeck) -
+  https://github.com/steinbeck/seifenschale - commit
+  32ecd46741f6dbef2668c223c57e35126b745769. The three-part wall-mounted soap
+  dish plus the upstream LICENSE.
+- nomike/parametric-polyamory-spice-rack - BSD-2-Clause (Copyright 2024
+  nomike) - https://github.com/nomike/parametric-polyamory-spice-rack - commit
+  6c4453ee3bce657b1f61c316182e50c65977350d. The parametric spice rack, the
+  two logo SVGs it imports and the upstream LICENSE.
+- mnp/openscad-scraper - CC0-1.0 (mnp; CC0 1.0 Universal dedicates the work
+  to the public domain) - https://github.com/mnp/openscad-scraper - commit
+  c16e115c34a9f836fd7b2fc484fd064c75f123f8. The kitchen card scraper source
+  plus the upstream CC0 LICENSE.
+- DrLex0/print3D-customizable-sieve - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3D-customizable-sieve - commit
+  deead1a72d78eb6fbb8f1f579690743ac1dc2b27. The parametric sieve source plus
+  the upstream CC BY 4.0 LICENSE; upstream notes the design is based on a
+  sieve by pcstru (Thingiverse thing 341357).
+- DrLex0/print3d-customizable-screw-cap - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-screw-cap - commit
+  b20689e8980df83e64723eb0649fd49827c9a5b7. The parametric screw cap source
+  plus the upstream CC BY 4.0 LICENSE.
+- DrLex0/print3d-customizable-vase-mode-box - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-vase-mode-box - commit
+  5dbc4c92446ab0088dcc5ed080a2b079de8fb012. The parametric vase-mode box and
+  lid source plus the upstream CC BY 4.0 LICENSE.
+- DrLex0/print3d-customizable-latch - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-latch - commit
+  a7dcfe739f461a883e6dc0fc891ec3b19c92b712. The parametric box latch source
+  plus the upstream CC BY 4.0 LICENSE.
+- DrLex0/print3d-customizable-pen-butler - CC-BY-4.0 (Copyright DrLex) -
+  https://github.com/DrLex0/print3d-customizable-pen-butler - commit
+  6450759098871fc7e94b32ce9d2d300c58ce794e. The modular wall/desk holder
+  source plus the upstream CC BY 4.0 LICENSE.
+- rjkorn/Generic_Coaster - MIT (Copyright (c) 2015 Robert Joseph Korn and
+  Open Valley Consulting Corp) - https://github.com/rjkorn/Generic_Coaster -
+  commit 95baec3c1e499c27b99ed1782cb50c9906cad78c. The self-contained
+  circuit-board coaster source plus the upstream LICENSE.
+- mmalecki/composable-organizer - MIT (Copyright (C) 2022 Maciej Małecki) -
+  https://github.com/mmalecki/composable-organizer - commit
+  f01bb2fb5547c58b28208eee58dee0c5305aa73d. The compartment, tray, lid and
+  tray-lid sources with the parameters, sizing, utils and common files they
+  include, plus the upstream LICENSE.
+- BelfrySCAD/BOSL2 - BSD-2-Clause (Copyright (c) 2017-2019 Revar Desmera) -
+  https://github.com/BelfrySCAD/BOSL2 - commit
+  0c6f402bcb9ca968b7e623024335b55325635083. The top-level BOSL2 modules that
+  std.scad pulls in, plus the upstream LICENSE and README. The bench dog,
+  sanding block, drill guide, caliper stand, screw organizer, spring clamp,
+  slider jig and dovetail jig wrappers are built on it.
+- HopefulLlama/JointSCAD - MIT (Copyright (c) 2017 Jonathan Law) -
+  https://github.com/HopefulLlama/JointSCAD - commit
+  447888065b30721267db6011faeaf8e4e95ee5ff. The eight dist/ joint modules plus
+  the upstream LICENSE and README: the finger, dovetail, dowel,
+  mortise-and-tenon, scarf and bridle joint wrappers.
+- adgaudio/OpenSCAD_connectors - MIT (Copyright (c) 2017 Alex Gaudio) -
+  https://github.com/adgaudio/OpenSCAD_connectors - commit
+  643a09d799a0d3bd2e2380c02aa46a0dc9c6f62a. The connector, grid and default
+  files with the t-joint, endcap and corner-bracket modules plus the upstream
+  LICENSE and README.
+- mikeydotio/opengrid-scad - CC-BY-4.0 (Copyright (c) 2025 Mikey Ward) -
+  https://github.com/mikeydotio/opengrid-scad - commit
+  894a731f0dc6f487639dca8a91b6a3c8dfb76e8e. The openGrid wall-system peg and
+  snap sources plus the upstream LICENSE and README, used by the openGrid peg
+  and openGrid snap objects.
+- FozzTexx/pantorouter_tenon_template - CC0-1.0 (Chris Osborn; CC0 1.0
+  Universal dedication) - https://github.com/FozzTexx/pantorouter_tenon_template
+  - commit eccd45775104de24f1480a478f650d34205d00a7. The single Tenons.scad
+  template plus the upstream LICENSE and README.
+
+- martmaiste/openscad-models - MIT (Copyright (c) 2023 martmaiste) -
+  https://github.com/martmaiste/openscad-models - commit
+  aded4de5c1acc0ebccb86c1b22a341fbd7724e3a. The cable comb, DIN rail clip,
+  WeMos Mini holder, energy-meter cover, D-Fruit USB hub holder, USB cap, RJ45
+  boot and headphone hook sources plus the upstream LICENSE.
+- istergiou/nas-rack - Apache-2.0 (Copyright Ilias Stergiou, 2017) -
+  https://github.com/istergiou/nas-rack - commit
+  8c5f15827c6c871172a4fa9bb259b6e4f21044e4. The NAS rack_item module and the
+  Raspberry Pi drive carrier plus the upstream Apache-2.0 LICENSE: the drive
+  tray, SATA adapter caddy, connector lock and Pi drive tray objects.
+- otakup0pe/fabz - CC0-1.0 (Jonathan Freedman (otakup0pe); CC0 1.0 Universal
+  public domain dedication) - https://github.com/otakup0pe/fabz - commit
+  4efbc18e0bd137458d6a9b36da6c5f44e644c0de. The fan_grille.scad model plus the
+  upstream CC0 LICENSE: the press-fit shelf fan grille.
+- NilsKrause/cad - MIT (Copyright (c) 2023 NilsKrause) -
+  https://github.com/NilsKrause/cad - commit
+  9c4d69e98e561e542ef9ca178dcafcef96db9b38. The ESP8266 devboard case, the
+  adapter-board and connector-pin models it includes, the micro-SD holder
+  source plus the upstream LICENSE.
+- pkoehlers/rpi-case-openscad - MIT (Copyright (c) 2021 pkoehlers) -
+  https://github.com/pkoehlers/rpi-case-openscad - commit
+  a19a32e5932638bef0882c65189a3dbc5447e313. The rpi_case.scad Raspberry Pi 3/4
+  case model plus the upstream LICENSE. The model descends from George
+  Onoufriou's RavenSCAD Pi 4 case, credited in its source header.
+- rafaelmartins/pcb-enclosure - BSD-3-Clause (Copyright (c) 2020, Rafael G.
+  Martins) - https://github.com/rafaelmartins/pcb-enclosure - commit
+  ce261a389da419c767efd607159fe80f20f16d17. The pcb-enclosure library, its
+  assembly example and the upstream LICENSE.
+
+- jhpieper/marble-run - MIT (Copyright (c) 2020 Jan Pieper) -
+  https://github.com/jhpieper/marble-run - commit
+  64b8f62091775c56ffcdbe276b6a8cbad95581f7. The straight, curve and funnel
+  magnetic track sources plus the upstream LICENSE: the marble run tracks of the
+  Toys and Games category.
+- nemon-/openscad-dice-models - CC0-1.0 (nemon-; CC0 1.0 Universal dedicates the
+  work to the public domain) - https://github.com/nemon-/openscad-dice-models -
+  commit be03f70f7edbb7c6bcef9ddbcbd91f3776314178. The D4, D12 and D20 sources
+  and the antiprism dice_2n source plus the upstream LICENSE, used by the
+  polyhedral dice objects.
+- hirthwork/dice-tower.scad - BSD-2-Clause (hirthwork and the dice-tower.scad
+  contributors) - https://github.com/hirthwork/dice-tower.scad - commit
+  c130e05a22bc602768cc8ff1bd7e2e4a515f9d32. The spiral dice tower sources plus
+  the upstream LICENSE. common.scad reads BOSL v1's
+  extrude_2dpath_along_spiral(); that one BSD-2-Clause function is restated in
+  the dice_tower wrapper, because BOSL v1's paths.scad is not vendored.
+- SharpCoder/fidget-spinner - MIT (Copyright (c) 2022 Joshua Cole) -
+  https://github.com/SharpCoder/fidget-spinner - commit
+  5e67c0e739bd8ffbd109217d7b5a329b4d2b9692. The fidget spinner source and the
+  parameters file it includes plus the upstream LICENSE: the three-arm fidget
+  spinner.
+- qubolino/brick_lib - CC0-1.0 (qubolino; CC0 1.0 Universal dedicates the work
+  to the public domain) - https://github.com/qubolino/brick_lib - commit
+  95a3c86563aa40bf221b019271b683dfa048077f. The brick core, globals and the
+  panel, windscreen and corner modules plus the upstream LICENSE: the LEGO
+  compatible wall panel, windscreen and corner brick.
+- cfinke/Technic.scad - MIT (Copyright (c) 2025 Christopher Finke) -
+  https://github.com/cfinke/Technic.scad - commit
+  41f17a4696b582850097a2e3779348bc27c87f47. The single Technic.scad library plus
+  the upstream LICENSE: the axle, wheel and tire. Upstream's gear modules read a
+  CC-BY-NC-SA submodule (chrisspen/gears), which is deliberately not vendored.
+- aaron-siegel/puzzlecad - MIT (puzzlecad is Copyright (c) 2019-2022 Aaron
+  Siegel) - https://github.com/aaron-siegel/puzzlecad - commit
+  2ba064c51e8b8c0018a34d96776b33625c938602. The puzzlecad library include and
+  its ten modules plus the upstream LICENSE and LICENSE-MIT: the burr puzzle
+  stick. The repository's finished puzzle designs are CC-BY-NC-ND and are not
+  vendored.
+- ChristianLutz/3d-inserts - CC0-1.0 (Christian Lutz; CC0 1.0 Universal
+  dedicates the work to the public domain) -
+  https://github.com/ChristianLutz/3d-inserts - commit
+  5a9976a9469ad90ece2e94347ef616120302cd17. The card tray and resources tray
+  sources plus the upstream LICENSE: the board game inserts.
+- holgerlembke/OpenSCAD-Modelle - MIT (Copyright (c) 2021 Holger Lembke) -
+  https://github.com/holgerlembke/OpenSCAD-Modelle - commit
+  b48f4ea0a3c11ae1b0e538a567b954c682798d5b. The eight printer-accessory models
+  (two shelf spool holders, two Ender 3 V3 KE filament guides, the bed-level
+  test, the scraper blade handle, the cable strain relief and the V-slot clamp)
+  plus the upstream LICENSE.
+- dmhernandez2525/splice3d - MIT (Copyright (c) 2026 Splice3D Contributors) -
+  https://github.com/dmhernandez2525/splice3d - commit
+  1b9233f1b07b923ec7b08eaba5db74e2b7fa6790. The shared common.scad library and
+  the spool holder, filament guide, guide jig, tool holder and cable management
+  cad sources plus the upstream LICENSE, kept in upstream's own
+  hardware/f1_1/cad and hardware/f1_4/cad layout.
+- gchristopher/3dprinting - Apache-2.0 (Copyright (c) 2015-2017 Gregg
+  Christopher) - https://github.com/gchristopher/3dprinting - commit
+  8fdb722ced4222dcd4c2eab56f08b1f3aade0aaf. The five Rostock MAX V2 effector
+  platform sources (dual hot-end plate, top clamp, fan shroud and wider platform)
+  plus the upstream LICENSE; each file carries upstream's own public-domain
+  header. The repository's GPL-v3 dual extruder holder is not vendored.
+- ewc3labs/ewc3-test-hole-generator - MIT (Copyright (c) 2026 EWC3 Labs) -
+  https://github.com/ewc3labs/ewc3-test-hole-generator - commit
+  c4b7bfdcafb22f276b4a8f03ce6b62be92850e9b. The two parametric test-hole plate
+  generators (the current trapezoid/rectangle V2 and the archived rectangular
+  V1) plus the upstream LICENSE.
+- guillaumechauvat/bicycle_lights - MIT (Copyright (c) 2021 Guillaume Chauvat) -
+  https://github.com/guillaumechauvat/bicycle_lights - commit
+  4d7effa69b957d27221d2b94aad71b3463367253. The five bicycle light housings
+  under Housings/ - the first- and second-generation front light, the rear
+  light, the three-cell 18650 battery box and the handlebar switch holder -
+  plus the upstream LICENSE. They carry the handlebar clamp that the Cycling
+  light-holder objects are built on. The Arduino firmware and the acrylic lens
+  script are not vendored.
+- Slashgear/cycling-wall-rack - MIT (Copyright (c) 2026 Antoine CARON) -
+  https://github.com/Slashgear/cycling-wall-rack - commit
+  3ca19cc7ca0962809868cbd203be34b1a6f0e98a. The wall-mounted bike accessory
+  rack under scad/: the wall bracket, the rod-mounted glasses holder and tray
+  and the S-hook, plus the upstream LICENSE. The rendered STL exports, images
+  and documentation are not vendored; the shoes holder is not vendored either.
+- ridercz/GoProScad - MIT (Copyright (c) 2021 Michal Altair Valasek) -
+  https://github.com/ridercz/GoProScad - commit
+  98c0161e58d4d912481cdf280b573563e221b2a7. Altair's GoPro mount library
+  (GoPro.scad: the male and female quick-release connectors and the M5 screw
+  handle) with the extension-arm and phone-holder samples, plus the upstream
+  LICENSE, keeping upstream's Samples/ layout. The samples that need the
+  separate A2D library are not vendored. The handlebar clamp and the screw
+  handle are exposed as wrappers around the vendored modules.
+- justcoding-dev/connector-adapter - MIT (Copyright (c) 2021 regenschein71) -
+  https://github.com/justcoding-dev/connector-adapter - commit
+  80e4636ed2176e46106b748a2c26215a2e372f75. The configurable GoPro-style
+  connector adapter plus the upstream LICENSE.
+- gutschke/bottlecage - CC0-1.0 (Markus Gutschke; CC0 1.0 Universal dedicates
+  the work to the public domain, and the cage recreates Prusa Research's
+  CC0 ASA bottle cage) - https://github.com/gutschke/bottlecage - commit
+  15484334e49ac12be6ac3d21a1f48207b739b3df. The standard slotted bottle cage
+  and the compact cage plus the upstream CC0 LICENSE.
+- jolatechno/triathlon-bike - MIT (Copyright (c) 2020 joseph touzet) -
+  https://github.com/jolatechno/triathlon-bike - commit
+  1e55632a064bcac4068acec52910953fb0f49271. Three of the aero-bar accessories:
+  the gel clip, the brake spacer and the two-bolt saddle bottle holder, plus
+  the upstream LICENSE, keeping upstream's per-part directories. The
+  derailleur, chain-catcher, bar-end shifter, electronic-shifting and
+  aerodrink sources are not vendored.
+- StandardCyborg/clip-openscad - MIT (Copyright (c) 2022 Standard Cyborg) -
+  https://github.com/StandardCyborg/clip-openscad - commit
+  789c87dc951308470e7d9229527f154c237fb95e. The car rear-view-mirror phone
+  clip: the assembly module and the constants, phone, mirror and rounded-cube
+  files it uses, plus the upstream LICENSE, keeping upstream's components/
+  layout. The per-device dimension tables and the archived clips are not
+  vendored; the clip is exposed through a wrapper that restates the geometry
+  with the device size as a parameter.
+- agjendem/corrugated-pipe-clamp - MIT (Copyright (c) 2026 agjendem) -
+  https://github.com/agjendem/corrugated-pipe-clamp - commit
+  f85ac05dca676f67dd6591add7f6e5ab35981062. The parametric clamp, snap collar,
+  corner elbow, clear corner elbow, corner bend and panel spigot for corrugated
+  electrical conduit, plus the shared corrugation, brim and thread helpers they
+  include and the upstream LICENSE.
+- szrudi/MatrixFlow - MIT (Copyright (c) 2026 Rudi Szabó) -
+  https://github.com/szrudi/MatrixFlow - commit
+  2938da2202df1a993cda6c920cc9d1d891703236. The self-contained MatrixFlow sweep
+  engine plus the upstream LICENSE: the round duct reducer, the duct funnel, the
+  offset duct adapter and the round-to-rectangle vent adapter.
+- Pythocrates/openscad-models - CC0-1.0 (Pythocrates; CC0 1.0 Universal public
+  domain dedication) - https://github.com/Pythocrates/openscad-models - commit
+  85e20833292a19d51bc617a6ea98f308ad541cb9. The garage ventilation grille, the
+  satellite speaker wall mount, the shower rail mount, the curtain rod caps, the
+  hinge tolerance test and the shared lock-plate module, plus the upstream
+  LICENSE. These sources include the separately vendored BOSL library.
+- AuroraRoboticsLab/Concrete - Unlicense (AuroraRoboticsLab, released into the
+  public domain) - https://github.com/AuroraRoboticsLab/Concrete - commit
+  fc6bf17038d55c76fa27962c94933f6064fc3324. The self-contained ASTM C39 concrete
+  cylinder mold and the honeycomb concrete mold, plus the upstream LICENSE.
+- HarkonenBade/parametric_hinge - MIT (Copyright (c) 2022 Tom) -
+  https://github.com/HarkonenBade/parametric_hinge - commit
+  6195704fe34b5f249a3a067f1808ea0c467b46e3. The self-contained parametric
+  print-in-place hinge library plus the upstream LICENSE.
+- lgg1303/parametric-openscad-generators - MIT (Copyright (c) 2026 Lourenço
+  Guerreiro) - https://github.com/lgg1303/parametric-openscad-generators -
+  commit e91cfac6a96dfe2513489d62b670d768c19f7378. The mounting plate generator
+  and the shared toolbox module it includes, plus the upstream LICENSE.
+- whosawhatsis/Geometry - CC-BY-4.0 (Copyright (c) 2020 Joan Horvath and Rich
+  Cameron; the license requires attribution, which is also given on the model
+  cards) - https://github.com/whosawhatsis/Geometry - commit
+  0aaf3e49385d07b08e03564476bae8124e284138. Six geometry teaching models from
+  the book Make:Geometry (the Platonic solid set, a solid sized by its edge, a
+  folding Platonic net, a Meissner/Reuleaux tetrahedron, a Reuleaux polygon
+  with its enclosure and a sundial gnomon) plus the upstream LICENSE and
+  README, with upstream's own directory names.
+- CGrassin/rocketry - MIT (Copyright (c) 2020 Charles Grassin) -
+  https://github.com/CGrassin/rocketry - commit
+  7b7783a369f8496e1e0b4fc6bd2372f3161ea0b3. The Haack-series nose cone library
+  (based on Garrett Goss's public-domain NOSE CONE LIBRARY) and the gimbal test
+  stand plus the upstream LICENSE: the two rocket nose cones and the
+  motor-mount test stand.
+- erellaz/Spider - MIT (Copyright (c) 2020 erellaz) -
+  https://github.com/erellaz/Spider - commit
+  ee9711effbcb949e20f4f52fdde4bbbde37c7574. The three-vane and four-vane
+  secondary-mirror hubs for a Newtonian telescope spider plus the upstream
+  LICENSE.
+- erellaz/Telescope-ring - MIT (Copyright (c) 2023 erellaz) -
+  https://github.com/erellaz/Telescope-ring - commit
+  aef1b9b51967fc1b24e1891ebd3dfad582100f62. The parametric ring that clamps a
+  telescope tube to an equatorial mount plus the upstream LICENSE.
+- wivy1/nikon-diaphot-tmd - MIT (Copyright (c) 2026 Will Ivy) -
+  https://github.com/wivy1/nikon-diaphot-tmd - commit
+  d86aeaaa0edbd100c16ab3f61799bd4820c0d16f. The 45 mm filter holder and the
+  universal objective holders (tapered and clamped) for the Nikon Diaphot TMD
+  stage frame plus the upstream LICENSE.
+- RyanDMott/equatorial-sundial - MIT (Copyright (c) 2026 RyanDMott) -
+  https://github.com/RyanDMott/equatorial-sundial - commit
+  5ece8a9cdabb0969b9534ca3c5d1009226347e4e. The educational equatorial sundial
+  and the analemma figure-of-eight groove with its data table plus the upstream
+  LICENSE.
+- hongming/OpenSCAD_Astro_Replicas - MIT (Copyright (c) 2024 Hongming) -
+  https://github.com/hongming/OpenSCAD_Astro_Replicas - commit
+  363b6388f06b337deb8de44bc2d657833eb4cfd6. The Losmandy-style dovetail bar
+  and the dovetail saddle that carry a telescope tube plus the upstream
+  LICENSE.
+- groverlab/giguere-3D-periodic-table - MIT (Copyright (c) 2022 William H.
+  Grover) - https://github.com/groverlab/giguere-3D-periodic-table - commit
+  c1b07199ec36a11a75f1a7bd54531bfbe12365ae. The 3D-printable periodic table of
+  the elements plus the upstream LICENSE.
+- azdle/printables - CC0-1.0 (Copyright (c) Patrick Barrett; CC0 1.0
+  Universal public domain dedication) - https://github.com/azdle/printables -
+  commit 158c8e86016c82332b5d6116dfd015b9a48a9479. The tealight storage tray,
+  the whiteboard marker rack and the honeycomb wall/coaster grid that the desk
+  organizers and the honeycomb pods are rendered from plus the upstream
+  LICENSE.
+- doofdoofsf/3DModels - MIT (Copyright (c) 2021 John Quinn) -
+  https://github.com/doofdoofsf/3DModels - commit
+  a578682933dc96ad7aa6fd8c17d36a4025e6ffc4. The square table coasters, the
+  interlocking fancy coaster, the spherical light shade and the flower-charger
+  planter, with the rounding helper the coasters include, plus the upstream
+  LICENSE.
+- elliotf/reprap-household-misc - MIT (Copyright (c) 2014 Elliot Foster) -
+  https://github.com/elliotf/reprap-household-misc - commit
+  c353c8acee63b75c19fc63be89bb2649d56aa580. The fluted and enclosed vase-mode
+  lampshades, the ribbed bookend and the self-watering planter, with the two
+  geometry helpers they include, plus the upstream LICENSE.
+- FilipPyrek/scad-3d-print-models - MIT (Copyright (c) 2020 Filip Pýrek) -
+  https://github.com/FilipPyrek/scad-3d-print-models - commit
+  cd4852ada0d325ef4035a643f75cb316f5efab61. The two-part lithophane lamp cover
+  that wraps a round lithophane into a desk lamp plus the upstream LICENSE.
+- elliotf/lumpyscad - MIT (Copyright (c) 2021 Elliot Foster) -
+  https://github.com/elliotf/lumpyscad - commit
+  49526b23fca8ba0142f5a139c6be3033836b76a9. The shared helper library that the
+  bookend and the self-watering planter include, kept in the `lumpyscad/`
+  directory layout upstream expects, plus the upstream LICENSE.
+- mjseabright/lampshades - MIT (Copyright (c) 2022 Matthew Seabright) -
+  https://github.com/mjseabright/lampshades - commit
+  5c20d7018cca118b88825590cf27469256e557ff. Six vase-mode lampshades (rope
+  swirl, turbine, pineapple, golfball, fish tail and rotated star) and the
+  geometry and mounting helpers they use plus the upstream LICENSE.
+- xoob/parametric-picture-frame - MIT (Copyright (c) 2026 Alexander
+  Brausewetter) - https://github.com/xoob/parametric-picture-frame - commit
+  84e8314b4b4b4bd4673b1428c5e8d4ab8b3b4f49. The parametric ornate picture
+  frame generator with its profile, segmentation, ornament and clip files plus
+  the upstream LICENSE.
+- AuroraRoboticsLab/AuroraSCAD - Unlicense (public domain dedication by Dr.
+  Orion Lawlor and the Aurora Robotics Lab contributors) -
+  https://github.com/AuroraRoboticsLab/AuroraSCAD - commit
+  172751a1c9c6b08e1c89355fcb2926f87f8c0f22. The gear, gearbox, motor, Peg
+  Perego gearbox and screw libraries, kept inside the AuroraSCAD/ directory
+  motor.scad's include path expects, plus the upstream LICENSE. sprocket.scad
+  (CC BY-NC derived), PolyGear/ (CC BY-SA 4.0) and the unused bearing.scad are
+  not vendored.
+- nohkumado/ball_joint - CC0-1.0 (public domain dedication by Gael Lafond) -
+  https://github.com/nohkumado/ball_joint - commit
+  85720f535a680c4ad389d8090977aec0d98560a9. The universal ball joint library
+  (ball, seat and nut) and the helix_extrude.scad module its threads use, plus
+  the upstream LICENSE and LICENSE.txt.
+- cblomart/ball-bearing - MIT (Copyright (c) 2016 Blomart Cedric) -
+  https://github.com/cblomart/ball-bearing - commit
+  684fb2fbc9b6d25f5a52746ae384acc393cba5ca. The parametric deep-groove ball
+  bearing module plus the upstream LICENSE; the usage sample is not vendored.
+- cyber-murmel/cycoidal-gear - MIT (Copyright (c) 2021 marble) -
+  https://github.com/cyber-murmel/cycoidal-gear - commit
+  0295817cdce7bd7979f6dd49b61074673f2aaf50. The cycloidal gear and cycloidal
+  disc library plus the upstream LICENSE. The NopSCADlib-dependent NEMA 17
+  variant and the rendered STL files are not vendored.
+- MomsFriendlyRobotCompany/omni-wheel-hub - MIT (Copyright (c) 2020 Kevin J.
+  Walchko) - https://github.com/MomsFriendlyRobotCompany/omni-wheel-hub -
+  commit 3a5e25dedb8b6ac991ecb2873b28f15a81473df6. The servo hub, the wheel
+  hub and the screws.scad module library they use, plus the upstream LICENSE.
+  The imported servo STL and the pre-rendered STL files are not vendored.
+- dnkorte/lib_robo_core - MIT (Copyright (c) 2024 Don Korte) -
+  https://github.com/dnkorte/lib_robo_core - commit
+  2e0cc474f5cb7d79298e1dde4e9dfa7ef4528a74. The o-ring drive wheels with the
+  shared dimensions and the geometry helpers they use, plus the upstream
+  LICENSE. wedge.scad, which torus.scad calls only for partial tori, carries a
+  third-party GPL-2.0-or-later header and is deliberately left out; the wheels
+  always ask for full tori, so no wedge code is reached.
+- dnkorte/donkbot - MIT (Copyright (c) 2024 Don Korte) -
+  https://github.com/dnkorte/donkbot - commit
+  0cae5346ba4b529f92fe0e24ce445bc7e1d474bb. The TT, N20, NEMA 8 and SparkFun
+  stepper chassis plates with the dkb_* libraries they include and the camera
+  support library the N20 plate needs, plus the upstream LICENSE, keeping
+  upstream's openscad_donkbot/ directory.
+- AssaadMH/servo-brake-actuator - MIT (Copyright (c) 2026 Lassaad Mahmoudi) -
+  https://github.com/AssaadMH/servo-brake-actuator - commit
+  a61c9b8b7ff592d6fb3c37d25efe519f10cd26c8. The servo brake-cable drum plus
+  the upstream LICENSE. The duplicate of the drum under print/, the worm-wheel
+  study, the generated STL files and the documentation images are not
+  vendored.
+- SaxonRah/OpenSCAD_Robot_Parts - MIT (Copyright (c) 2022 Robert Valentine) -
+  https://github.com/SaxonRah/OpenSCAD_Robot_Parts - commit
+  d9ff23cf4921a707fee2312d5c9c257a9bcd65c9. The servo-type U-bracket plus the
+  upstream LICENSE. The pre-rendered STL and the pictures are not vendored.
+
 
 OpenSCAD bootstrap attribution
 -------------------------------

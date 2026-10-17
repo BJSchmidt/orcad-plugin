@@ -1,0 +1,15 @@
+6c4453ee3bce657b1f61c316182e50c65977350d
+
+Upstream: https://github.com/nomike/parametric-polyamory-spice-rack
+License: BSD-2-Clause
+Copyright: Copyright 2024 nomike
+
+The parametric spice rack, the two SVG graphics it imports for its logo, and the
+upstream LICENSE, copied verbatim from the pinned commit. The print instructions,
+photos and the STL generator submodule are not vendored.
+
+Files:
+  LICENSE
+  heart-icon.svg
+  infinity.svg
+  parametric-polyamory-spice-rack.scad

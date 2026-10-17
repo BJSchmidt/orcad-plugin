@@ -1,0 +1,14 @@
+ee9711effbcb949e20f4f52fdde4bbbde37c7574
+
+Upstream: https://github.com/erellaz/Spider
+License: MIT
+Copyright: Copyright (c) 2020 erellaz
+
+The three-vane and four-vane secondary-mirror support bodies for a Newtonian
+telescope spider, copied verbatim from the pinned commit. The single-vane and
+plain-base variants are not vendored.
+
+Files:
+  LICENSE
+  vane_support_120_degrees_double_v0.scad
+  vane_support_90_degrees_double_v0.scad

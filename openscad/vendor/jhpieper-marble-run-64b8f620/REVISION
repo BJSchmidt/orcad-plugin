@@ -1,0 +1,16 @@
+64b8f62091775c56ffcdbe276b6a8cbad95581f7
+
+Upstream: https://github.com/jhpieper/marble-run
+License: MIT
+Copyright: Copyright (c) 2020 Jan Pieper
+
+Three self-contained magnetic marble-run track files, copied verbatim from the pinned
+commit, plus the upstream MIT LICENSE. Upstream's other track pieces, its STL exports,
+images and README are not vendored. Straight-extrude.scad, curve.scad and funnel.scad
+are catalog objects; the wrapper feeds them the catalog's -D values.
+
+Files:
+  LICENSE
+  openscad/curve.scad
+  openscad/funnel.scad
+  openscad/straight-extrude.scad

@@ -1,0 +1,22 @@
+447888065b30721267db6011faeaf8e4e95ee5ff
+
+Upstream: https://github.com/HopefulLlama/JointSCAD
+License: MIT
+Copyright: Copyright (c) 2017 Jonathan Law
+
+The eight dist/ joint modules that ship in the release bundle, plus
+the upstream LICENSE and README.md, copied verbatim from the pinned commit.
+The wrapper calls FingerJoint, DovetailJoint, DowelJoint, MortiseAndTenonJoint,
+ScarfJoint and BridleJoint.
+
+Files:
+  LICENSE
+  README.md
+  dist/BridleJoint.scad
+  dist/DovetailJoint.scad
+  dist/DowelJoint.scad
+  dist/FingerJoint.scad
+  dist/JointSCAD.scad
+  dist/MortiseAndTenonJoint.scad
+  dist/ScarfJoint.scad
+  dist/Shoulder.scad

@@ -1,0 +1,15 @@
+5a9976a9469ad90ece2e94347ef616120302cd17
+
+Upstream: https://github.com/ChristianLutz/3d-inserts
+License: CC0-1.0
+Copyright: Christian Lutz and contributors (public domain dedication)
+
+The two self-contained board-game insert sources, copied verbatim from the pinned
+commit, plus the upstream CC0 LICENSE. cards.scad and resources-tray.scad are the
+catalog objects; their top-level geometry runs when the wrapper includes them. The
+repository's faction box and lid sources and its README are not vendored.
+
+Files:
+  LICENSE
+  uprising/cards.scad
+  uprising/resources-tray.scad

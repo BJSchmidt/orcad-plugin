@@ -1,0 +1,19 @@
+c130e05a22bc602768cc8ff1bd7e2e4a515f9d32
+
+Upstream: https://github.com/hirthwork/dice-tower.scad
+License: BSD-2-Clause
+Copyright: hirthwork and the dice-tower.scad contributors
+
+The spiral dice-tower sources copied verbatim from the pinned commit, plus the upstream
+BSD-2-Clause LICENSE. tower.scad is the catalog object; it includes steps.scad,
+bricks.scad and rocks.scad, which share common.scad. Upstream's README is not vendored.
+common.scad reads BOSL v1's extrude_2dpath_along_spiral(); because that library file is
+not vendored, the dice_tower wrapper supplies the BSD-2-Clause implementation instead.
+
+Files:
+  LICENSE
+  bricks.scad
+  common.scad
+  rocks.scad
+  steps.scad
+  tower.scad

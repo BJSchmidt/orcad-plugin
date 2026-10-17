@@ -1,0 +1,13 @@
+684fb2fbc9b6d25f5a52746ae384acc393cba5ca
+
+Upstream: https://github.com/cblomart/ball-bearing
+License: MIT
+Copyright: Copyright (c) 2016 Blomart Cedric
+
+Parametric deep-groove ball bearing: the two races, the groove and the ring of balls.
+The upstream LICENSE.md is copied verbatim to LICENSE. example.scad is only a usage sample and
+is not vendored.
+
+Files:
+  LICENSE
+  ball-bearing.scad

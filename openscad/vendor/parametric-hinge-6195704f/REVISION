@@ -1,0 +1,13 @@
+6195704fe34b5f249a3a067f1808ea0c467b46e3
+
+Upstream: https://github.com/HarkonenBade/parametric_hinge
+License: MIT
+Copyright: Copyright (c) 2022 Tom
+
+The self-contained parametric print-in-place hinge library, one file with no
+includes, plus the upstream LICENSE, copied verbatim from the pinned commit. The
+example and render artifacts are not vendored.
+
+Files:
+  LICENSE
+  parametric_hinges.scad

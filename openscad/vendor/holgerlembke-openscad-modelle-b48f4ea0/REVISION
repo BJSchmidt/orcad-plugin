@@ -1,0 +1,20 @@
+b48f4ea0a3c11ae1b0e538a567b954c682798d5b
+
+Upstream: https://github.com/holgerlembke/OpenSCAD-Modelle
+License: MIT
+Copyright: Copyright (c) 2021 Holger Lembke
+
+The eight standalone printer-accessory models below, copied verbatim from the pinned
+commit, with the upstream LICENSE. The other household, workshop and electronics models
+in the repository are not vendored.
+
+Files:
+  LICENSE
+  Bed_Levelling.scad
+  Kabel Knickschutz.scad
+  Schaberklingenhalter.scad
+  ender3v3kefilamentguide.scad
+  ender3v3kefilamentguide2.scad
+  halteklammer.scad
+  spoolholder.scad
+  spoolholder3.scad

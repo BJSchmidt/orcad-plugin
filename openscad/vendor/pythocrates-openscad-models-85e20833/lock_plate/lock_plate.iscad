@@ -1,0 +1,38 @@
+module long_hole(position, radius, length, depth, fn) {
+    translate(position + [0, length / 2, depth / 2]) cylinder(r=radius, h=depth, $fn=fn, center=true);
+    translate(position + [0, -length / 2, depth / 2]) cylinder(r=radius, h=depth, $fn=fn, center=true);
+    translate(position + [0, 0, depth / 2]) cube([2 * radius, length, depth], center=true);
+}
+
+module half_plate(size, cavity_size, offset, cavity, thickenings) {
+    module lateral_long_hole(position) {
+        long_hole(position=position, radius=2.5, length=4, depth=size[2], fn=20);
+    }
+
+    module central_long_hole(position) {
+        long_hole(position=position, radius=2.5, length=7.5, depth=size[2], fn=20);
+    }
+
+    difference() {
+        translate([0, -size[1] / 2, 0]) cube (size);
+        translate([offset, -cavity[1] / 2, size[2] - cavity[2]]) cube (cavity);
+        lateral_long_hole([size[0] - 4.25, 0, 0]);
+        central_long_hole([0, 0, 0]);
+    }
+    translate([offset - 0.625, 0, size[2] + 1]) rotate([0, 0, 0]) cube([1.25, 5, 2], center=true);
+
+    // thickening
+    translate([offset + (cavity[0] - .8 * cavity[0]) / 2, -cavity[1] / 2, 0]) {
+        cube([.8 * cavity[0], thickenings[0], size[2]]);
+    }
+    translate([offset + (cavity[0] - .8 * cavity[0]) / 2, cavity[1] / 2 - thickenings[1], 0]) {
+        cube([.8 * cavity[0], thickenings[1], size[2]]);
+    }
+}
+
+module full_plate(size, offset, cavity, thickenings) {
+    half_plate([size[0] / 2, size[1], size[2]], offset=offset, cavity=cavity, thickenings=thickenings);
+    mirror([1, 0 ,0]) {
+        half_plate([size[0] / 2, size[1], size[2]], offset=offset, cavity=cavity, thickenings=thickenings);
+    }
+}

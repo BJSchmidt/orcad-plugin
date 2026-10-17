@@ -1,0 +1,12 @@
+4efbc18e0bd137458d6a9b36da6c5f44e644c0de
+
+Upstream: https://github.com/otakup0pe/fabz
+License: CC0-1.0
+Copyright: Jonathan Freedman (otakup0pe)
+
+The fan_grille.scad model and the upstream CC0 1.0 LICENSE. CC0 1.0 dedicates
+the work to the public domain, so no attribution is required - it is given here anyway.
+
+Files:
+  LICENSE
+  fan-grille/fan_grille.scad
