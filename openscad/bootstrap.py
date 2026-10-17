@@ -15,6 +15,7 @@ import os
 import platform
 import re
 import shutil
+import ssl
 import stat
 import subprocess
 import sys
@@ -108,6 +109,38 @@ def cache_root(root: str | os.PathLike[str] | None = None) -> Path:
 
 # ---------------------------------------------------------------- download
 
+# Bundled Pythons (OrcaSlicer's included) can point OpenSSL at a CA file from
+# their build machine, so fall back to the bundles the OS itself ships. Remove
+# once https://github.com/OrcaSlicer/OrcaSlicer/issues/16596 is fixed.
+_SYSTEM_CA_FILES = ("/etc/ssl/cert.pem", "/etc/ssl/certs/ca-certificates.crt",
+                    "/etc/pki/tls/certs/ca-bundle.crt", "/etc/ssl/ca-bundle.pem")
+
+
+def tls_context() -> ssl.SSLContext:
+    context = ssl.create_default_context()
+    paths = ssl.get_default_verify_paths()
+    if os.environ.get("SSL_CERT_FILE") or (paths.cafile and os.path.isfile(paths.cafile)):
+        return context
+    try:
+        import certifi  # type: ignore[import-not-found]
+        context.load_verify_locations(certifi.where())
+        return context
+    except (ImportError, OSError, ssl.SSLError):
+        pass
+    for cafile in _SYSTEM_CA_FILES:
+        if os.path.isfile(cafile):
+            try:
+                context.load_verify_locations(cafile)
+                break
+            except (OSError, ssl.SSLError):
+                continue
+    return context
+
+
+def https_open(request: urllib.request.Request | str, timeout: float = NETWORK_TIMEOUT):
+    return urllib.request.urlopen(request, timeout=timeout, context=tls_context())
+
+
 def _fetch(url: str, opener: Callable[..., Any]):
     request = urllib.request.Request(url, headers={"User-Agent": "orcad-plugin"})
     response = opener(request, timeout=NETWORK_TIMEOUT)
@@ -117,7 +150,7 @@ def _fetch(url: str, opener: Callable[..., Any]):
     return response
 
 
-def newest_snapshot(artifact: OpenSCADArtifact, opener: Callable[..., Any] = urllib.request.urlopen) -> OpenSCADArtifact:
+def newest_snapshot(artifact: OpenSCADArtifact, opener: Callable[..., Any] = https_open) -> OpenSCADArtifact:
     """Resolve the newest upstream snapshot matching *artifact* plus its published digest."""
     with _fetch(SNAPSHOT_INDEX, opener) as response:
         index = response.read(8 * 1024 * 1024).decode("utf-8", "replace")
@@ -258,7 +291,7 @@ def _installed(destination: Path) -> Path | None:
 
 
 def ensure_openscad(*, root: str | os.PathLike[str] | None = None, system: str | None = None,
-                    machine: str | None = None, opener: Callable[..., Any] = urllib.request.urlopen) -> Path:
+                    machine: str | None = None, opener: Callable[..., Any] = https_open) -> Path:
     """Return a supported OpenSCAD executable, installing one per user if needed."""
     try:
         existing = discover_openscad()

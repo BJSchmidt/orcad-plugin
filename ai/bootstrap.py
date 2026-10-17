@@ -19,10 +19,10 @@ from pathlib import Path, PurePosixPath
 from typing import Any, Callable
 
 try:
-    from orcad_openscad.bootstrap import cache_root as openscad_cache_root
+    from orcad_openscad.bootstrap import cache_root as openscad_cache_root, https_open
     from orcad_openscad.runner import child_env, popen_flags
 except ImportError:
-    from openscad.bootstrap import cache_root as openscad_cache_root
+    from openscad.bootstrap import cache_root as openscad_cache_root, https_open
     from openscad.runner import child_env, popen_flags
 
 NODE_VERSION = "24.21.0"
@@ -262,7 +262,7 @@ def _installed(root: Path, artifact: NodeArtifact) -> dict[str, str] | None:
 
 
 def ensure_ai(*, root: str | os.PathLike[str] | None = None, system: str | None = None,
-              machine: str | None = None, opener: Callable[..., Any] = urllib.request.urlopen,
+              machine: str | None = None, opener: Callable[..., Any] = https_open,
               cancel: threading.Event | None = None,
               progress: Callable[[str, float | None], None] | None = None) -> dict[str, str]:
     """Install exact Node/Pi versions, atomically, entirely below the AI data root."""
