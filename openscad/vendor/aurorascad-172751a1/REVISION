@@ -1,0 +1,23 @@
+172751a1c9c6b08e1c89355fcb2926f87f8c0f22
+
+Upstream: https://github.com/AuroraRoboticsLab/AuroraSCAD
+License: Unlicense
+Copyright: Dr. Orion Lawlor (lawlor@alaska.edu) and the Aurora Robotics Lab contributors (Unlicense dedicates the work to the public domain)
+
+The gear, gearbox, motor, Peg Perego gearbox and screw libraries vendored the way upstream's
+own files expect them, under an AuroraSCAD/ directory. motor.scad includes
+<../AuroraSCAD/screw.scad>, so the parent directory has to be named AuroraSCAD. Upstream's
+README states that everything here is released to the public domain unless noted otherwise.
+sprocket.scad is NOT vendored because its header says it derives from a CC BY-NC roller-chain
+sprocket module, and upstream's own PolyGear/ tree (used by gear_poly.scad) is CC BY-SA 4.0,
+so neither is redistributable here. bearing.scad is not vendored either, because none of the
+catalog objects use it and this repository does not carry unused vendored files.
+The upstream Unlicense LICENSE text is copied verbatim from the pinned commit.
+
+Files:
+  AuroraSCAD/gear.scad
+  AuroraSCAD/gearbox.scad
+  AuroraSCAD/motor.scad
+  AuroraSCAD/perego_gearbox.scad
+  AuroraSCAD/screw.scad
+  LICENSE

@@ -1,0 +1,14 @@
+0295817cdce7bd7979f6dd49b61074673f2aaf50
+
+Upstream: https://github.com/cyber-murmel/cycoidal-gear
+License: MIT
+Copyright: Copyright (c) 2021 marble
+
+Library for parametric cycloidal gears and the Cycloidal disc the catalogue exposes. The
+upstream LICENSE is copied verbatim from the pinned commit. nema17-cycloidal-gear.scad is not
+vendored because it pulls in the NopSCADlib submodule, and the stl/ directory is excluded.
+
+Files:
+  LICENSE
+  cycloidal-disc.scad
+  cycloidal-gear.scad

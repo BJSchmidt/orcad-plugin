@@ -1,0 +1,27 @@
+2e0cc474f5cb7d79298e1dde4e9dfa7ef4528a74
+
+Upstream: https://github.com/dnkorte/lib_robo_core
+License: MIT
+Copyright: Copyright (c) 2024 Don Korte
+
+Core library for the DonKbot and Open Robotics Platform parts: the o-ring drive wheels, the
+shared dimensions and the geometry helpers they use. The upstream LICENSE is copied verbatim
+from the pinned commit. nut.scad and the photos are not vendored because nothing in the
+catalog uses them.
+
+wedge.scad is deliberately NOT vendored. torus.scad (from chrisspen/openscad-extra, MIT) uses
+it, but the copy of wedge.scad in the pinned commit carries a third-party header -
+"Copyright 2013 Jonathan Hulka ... GNU General Public License ... version 2 ... or (at your
+option) any later version" - which this repository does not redistribute. torus.scad only
+calls wedge() from its angle < 360 branch; the catalog's wheels always ask for a full 360
+degree torus, so no wedge code is ever reached. OpenSCAD reports the unresolved `use` as a
+WARNING when the wheels are rendered, which is expected and harmless (the render succeeds).
+The four files are vendored the way dkb_core.scad addresses them, by bare filename, so this
+tree's root sits on OPENSCADPATH.
+
+Files:
+  LICENSE
+  core_config_dimensions.scad
+  core_parts_wheels.scad
+  core_robo_functions.scad
+  torus.scad

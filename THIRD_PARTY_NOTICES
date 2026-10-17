@@ -1,7 +1,7 @@
 Vendored OpenSCAD libraries
 ===========================
 
-Eighty-two upstream OpenSCAD libraries are vendored unmodified under
+Ninety-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/`. Each one keeps its upstream LICENSE and a `REVISION` file
 that records the pinned commit, the license, the copyright holder and the
 vendored file list; the same revisions are registered in the `libraries` map
@@ -729,6 +729,124 @@ Vendored:  openscad/vendor/xoob-parametric-picture-frame-84e8314b/ - the frame
            generator with its profile, segmentation, ornament and clip helper
            files, plus the upstream LICENSE. The build scripts and the story
            images are not vendored.
+
+aurorascad (AuroraRoboticsLab/AuroraSCAD)
+-----------------------------------------
+Upstream:  https://github.com/AuroraRoboticsLab/AuroraSCAD
+Pinned at: 172751a1c9c6b08e1c89355fcb2926f87f8c0f22
+License:   Unlicense. AuroraRoboticsLab released the work into the public
+           domain, and the upstream README adds that everything in the tree is
+           public domain unless noted otherwise. Dr. Orion Lawlor and the
+           Aurora Robotics Lab contributors.
+Vendored:  openscad/vendor/aurorascad-172751a1/ - the gear, gearbox, motor, Peg
+           Perego gearbox and screw libraries, kept inside an AuroraSCAD/
+           directory because motor.scad addresses its screw module as
+           <../AuroraSCAD/screw.scad>, plus the upstream LICENSE. sprocket.scad
+           is not vendored because its own header derives it from a CC BY-NC
+           sprocket module, upstream's PolyGear/ tree is CC BY-SA 4.0, and the
+           unused bearing.scad is left out.
+
+ball-joint (nohkumado/ball_joint)
+---------------------------------
+Upstream:  https://github.com/nohkumado/ball_joint
+Pinned at: 85720f535a680c4ad389d8090977aec0d98560a9
+License:   CC0-1.0. Gael Lafond; CC0 1.0 Universal dedicates the work to the
+           public domain, so no attribution is required - it is given here
+           anyway. The extra LICENSE.txt records that the model was made for
+           Thingiverse user gaellafond.
+Vendored:  openscad/vendor/ball-joint-85720f53/ - the universal ball joint
+           library with its ball, seat and nut modules, and the
+           helix_extrude.scad module the threads call, plus the upstream CC0
+           LICENSE and LICENSE.txt.
+
+ball-bearing (cblomart/ball-bearing)
+------------------------------------
+Upstream:  https://github.com/cblomart/ball-bearing
+Pinned at: 684fb2fbc9b6d25f5a52746ae384acc393cba5ca
+License:   MIT. Copyright (c) 2016 Blomart Cedric; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/ball-bearing-684fb2fb/ - the parametric deep-groove
+           ball bearing module that turns both races, cuts the groove and
+           places the balls, plus the upstream LICENSE. example.scad is only a
+           usage sample and is not vendored.
+
+cycoidal-gear (cyber-murmel/cycoidal-gear)
+------------------------------------------
+Upstream:  https://github.com/cyber-murmel/cycoidal-gear
+Pinned at: 0295817cdce7bd7979f6dd49b61074673f2aaf50
+License:   MIT. Copyright (c) 2021 marble; the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/cycoidal-gear-0295817c/ - the cycloidal gear profile
+           and the cycloidal disc built from it, plus the upstream LICENSE.
+           nema17-cycloidal-gear.scad is not vendored because it pulls in the
+           NopSCADlib submodule, and the rendered stl/ directory is excluded.
+
+omni-wheel-hub (MomsFriendlyRobotCompany/omni-wheel-hub)
+--------------------------------------------------------
+Upstream:  https://github.com/MomsFriendlyRobotCompany/omni-wheel-hub
+Pinned at: 3a5e25dedb8b6ac991ecb2873b28f15a81473df6
+License:   MIT. Copyright (c) 2020 Kevin J. Walchko; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/omni-wheel-hub-3a5e25de/ - the servo hub, the wheel
+           hub, the cap and the wheel that make up the omni wheel assembly,
+           with the screws.scad module library they use, plus the upstream
+           LICENSE. The pre-rendered STL servo body the assembly can import and
+           the exported stl/ directory are not vendored.
+
+lib-robo-core (dnkorte/lib_robo_core)
+-------------------------------------
+Upstream:  https://github.com/dnkorte/lib_robo_core
+Pinned at: 2e0cc474f5cb7d79298e1dde4e9dfa7ef4528a74
+License:   MIT. Copyright (c) 2024 Don Korte; the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/lib-robo-core-2e0cc474/ - the o-ring drive wheels
+           for D-shaft, round-shaft and TT motors, the shared DonKbot
+           dimensions and the geometry helper libraries they use, plus the
+           upstream LICENSE, kept by bare filename because dkb_core.scad
+           addresses them that way. wedge.scad is deliberately not vendored:
+           torus.scad uses it only from its angle < 360 branch, and the copy in
+           the pinned commit carries a third-party GPL-2.0-or-later header that
+           this repository does not redistribute. The catalog's wheels always
+           ask for full 360 degree tori, so no wedge code is ever reached;
+           OpenSCAD reports the unresolved use as a warning. nut.scad and the
+           photos are not vendored.
+
+donkbot (dnkorte/donkbot)
+-------------------------
+Upstream:  https://github.com/dnkorte/donkbot
+Pinned at: 0cae5346ba4b529f92fe0e24ce445bc7e1d474bb
+License:   MIT. Copyright (c) 2024 Don Korte; the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/donkbot-0cae5346/ - the TT, N20, NEMA 8 and SparkFun
+           stepper chassis plates the catalog exposes, the six dkb_* libraries
+           they include (closing over the separately vendored lib_robo_core
+           tree through OPENSCADPATH) and the camera and sensor support library
+           the N20 plate needs, plus the upstream LICENSE, keeping upstream's
+           openscad_donkbot/ directory. The remaining plate variants, the PCB
+           design files and the images are not vendored.
+
+servo-brake-actuator (AssaadMH/servo-brake-actuator)
+----------------------------------------------------
+Upstream:  https://github.com/AssaadMH/servo-brake-actuator
+Pinned at: a61c9b8b7ff592d6fb3c37d25efe519f10cd26c8
+License:   MIT. Copyright (c) 2026 Lassaad Mahmoudi; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/servo-brake-actuator-a61c9b8b/ - the servo brake-
+           cable drum that captures a four-arm servo horn and pulls two brake
+           cables, plus the upstream LICENSE. The duplicate drum revision under
+           print/, the worm-wheel study, the generated STL files, the render
+           scripts and the documentation images are not vendored.
+
+saxonrah-robot-parts (SaxonRah/OpenSCAD_Robot_Parts)
+----------------------------------------------------
+Upstream:  https://github.com/SaxonRah/OpenSCAD_Robot_Parts
+Pinned at: d9ff23cf4921a707fee2312d5c9c257a9bcd65c9
+License:   MIT. Copyright (c) 2022 Robert Valentine; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/saxonrah-robot-parts-d9ff23cf/ - the servo-type
+           U-bracket that carries a hobby servo and a bearing on its axle, plus
+           the upstream LICENSE. The pre-rendered STL and the pictures
+           directory are not vendored.
 
 Third-party frontend notices
 ============================

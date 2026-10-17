@@ -1,0 +1,24 @@
+0cae5346ba4b529f92fe0e24ce445bc7e1d474bb
+
+Upstream: https://github.com/dnkorte/donkbot
+License: MIT
+Copyright: Copyright (c) 2024 Don Korte
+
+DonKbot micromouse chassis plates: the TT, N20 and NEMA 8 stepper motor plates, the camera and
+sensor support library the N20 plate needs, and the four dkb_* libraries every plate includes.
+The core_*.scad files are not vendored here - they live in the pinned lib_robo_core tree, and
+OpenSCAD finds them through OPENSCADPATH. The upstream LICENSE is copied verbatim from the
+pinned commit. The PCB fabrication output, photos and maze walls are excluded.
+
+Files:
+  LICENSE
+  openscad_donkbot/dkb_core.scad
+  openscad_donkbot/dkb_lib_parts_boards.scad
+  openscad_donkbot/dkb_lib_parts_camera.scad
+  openscad_donkbot/dkb_lib_parts_motors.scad
+  openscad_donkbot/dkb_lib_parts_switches_batts.scad
+  openscad_donkbot/dkb_lib_plate_components.scad
+  openscad_donkbot/plate_motors_n20.scad
+  openscad_donkbot/plate_motors_step_nema8.scad
+  openscad_donkbot/plate_motors_step_sparkfun.scad
+  openscad_donkbot/plate_motors_tt.scad

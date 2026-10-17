@@ -1,0 +1,16 @@
+85720f535a680c4ad389d8090977aec0d98560a9
+
+Upstream: https://github.com/nohkumado/ball_joint
+License: CC0-1.0
+Copyright: Gael Lafond (CC0 1.0 Universal dedicates the work to the public domain)
+
+Universal ball joint library (ball, seat and nut) plus the helix_extrude.scad module its
+threads call. The repository LICENSE is CC0 1.0 Universal; LICENSE.txt is upstream's own note
+that the model was created for Thingiverse user gaellafond, the same author who dedicated this
+GitHub tree to the public domain. Both notices are copied verbatim from the pinned commit.
+
+Files:
+  LICENSE
+  LICENSE.txt
+  balljoint.scad
+  helix_extrude.scad

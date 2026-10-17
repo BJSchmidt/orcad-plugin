@@ -8,7 +8,7 @@ General Public License, version 3 only (AGPL-3.0-only). See LICENSE.
 
 Vendored OpenSCAD libraries
 ---------------------------
-Eighty-two upstream OpenSCAD libraries are vendored unmodified under
+Ninety-one upstream OpenSCAD libraries are vendored unmodified under
 `openscad/vendor/<name>-<revision>/`. Every tree keeps its upstream `LICENSE`
 and a `REVISION` file naming the pinned commit, the license, the copyright
 holder and the vendored file list, and the same revisions are registered in the
@@ -456,6 +456,56 @@ THIRD_PARTY_NOTICES.
   84e8314b4b4b4bd4673b1428c5e8d4ab8b3b4f49. The parametric ornate picture
   frame generator with its profile, segmentation, ornament and clip files plus
   the upstream LICENSE.
+- AuroraRoboticsLab/AuroraSCAD - Unlicense (public domain dedication by Dr.
+  Orion Lawlor and the Aurora Robotics Lab contributors) -
+  https://github.com/AuroraRoboticsLab/AuroraSCAD - commit
+  172751a1c9c6b08e1c89355fcb2926f87f8c0f22. The gear, gearbox, motor, Peg
+  Perego gearbox and screw libraries, kept inside the AuroraSCAD/ directory
+  motor.scad's include path expects, plus the upstream LICENSE. sprocket.scad
+  (CC BY-NC derived), PolyGear/ (CC BY-SA 4.0) and the unused bearing.scad are
+  not vendored.
+- nohkumado/ball_joint - CC0-1.0 (public domain dedication by Gael Lafond) -
+  https://github.com/nohkumado/ball_joint - commit
+  85720f535a680c4ad389d8090977aec0d98560a9. The universal ball joint library
+  (ball, seat and nut) and the helix_extrude.scad module its threads use, plus
+  the upstream LICENSE and LICENSE.txt.
+- cblomart/ball-bearing - MIT (Copyright (c) 2016 Blomart Cedric) -
+  https://github.com/cblomart/ball-bearing - commit
+  684fb2fbc9b6d25f5a52746ae384acc393cba5ca. The parametric deep-groove ball
+  bearing module plus the upstream LICENSE; the usage sample is not vendored.
+- cyber-murmel/cycoidal-gear - MIT (Copyright (c) 2021 marble) -
+  https://github.com/cyber-murmel/cycoidal-gear - commit
+  0295817cdce7bd7979f6dd49b61074673f2aaf50. The cycloidal gear and cycloidal
+  disc library plus the upstream LICENSE. The NopSCADlib-dependent NEMA 17
+  variant and the rendered STL files are not vendored.
+- MomsFriendlyRobotCompany/omni-wheel-hub - MIT (Copyright (c) 2020 Kevin J.
+  Walchko) - https://github.com/MomsFriendlyRobotCompany/omni-wheel-hub -
+  commit 3a5e25dedb8b6ac991ecb2873b28f15a81473df6. The servo hub, the wheel
+  hub and the screws.scad module library they use, plus the upstream LICENSE.
+  The imported servo STL and the pre-rendered STL files are not vendored.
+- dnkorte/lib_robo_core - MIT (Copyright (c) 2024 Don Korte) -
+  https://github.com/dnkorte/lib_robo_core - commit
+  2e0cc474f5cb7d79298e1dde4e9dfa7ef4528a74. The o-ring drive wheels with the
+  shared dimensions and the geometry helpers they use, plus the upstream
+  LICENSE. wedge.scad, which torus.scad calls only for partial tori, carries a
+  third-party GPL-2.0-or-later header and is deliberately left out; the wheels
+  always ask for full tori, so no wedge code is reached.
+- dnkorte/donkbot - MIT (Copyright (c) 2024 Don Korte) -
+  https://github.com/dnkorte/donkbot - commit
+  0cae5346ba4b529f92fe0e24ce445bc7e1d474bb. The TT, N20, NEMA 8 and SparkFun
+  stepper chassis plates with the dkb_* libraries they include and the camera
+  support library the N20 plate needs, plus the upstream LICENSE, keeping
+  upstream's openscad_donkbot/ directory.
+- AssaadMH/servo-brake-actuator - MIT (Copyright (c) 2026 Lassaad Mahmoudi) -
+  https://github.com/AssaadMH/servo-brake-actuator - commit
+  a61c9b8b7ff592d6fb3c37d25efe519f10cd26c8. The servo brake-cable drum plus
+  the upstream LICENSE. The duplicate of the drum under print/, the worm-wheel
+  study, the generated STL files and the documentation images are not
+  vendored.
+- SaxonRah/OpenSCAD_Robot_Parts - MIT (Copyright (c) 2022 Robert Valentine) -
+  https://github.com/SaxonRah/OpenSCAD_Robot_Parts - commit
+  d9ff23cf4921a707fee2312d5c9c257a9bcd65c9. The servo-type U-bracket plus the
+  upstream LICENSE. The pre-rendered STL and the pictures are not vendored.
 
 
 OpenSCAD bootstrap attribution

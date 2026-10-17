@@ -643,6 +643,78 @@
       "license": "MIT",
       "repository": "https://github.com/xoob/parametric-picture-frame",
       "author": "Alexander Brausewetter"
+    },
+    "aurorascad": {
+      "label": "AuroraSCAD",
+      "root": "vendor/aurorascad-172751a1",
+      "revision": "172751a1c9c6b08e1c89355fcb2926f87f8c0f22",
+      "license": "Unlicense",
+      "repository": "https://github.com/AuroraRoboticsLab/AuroraSCAD",
+      "author": "Dr. Orion Lawlor and the Aurora Robotics Lab"
+    },
+    "ball-joint": {
+      "label": "ball_joint (nohkumado)",
+      "root": "vendor/ball-joint-85720f53",
+      "revision": "85720f535a680c4ad389d8090977aec0d98560a9",
+      "license": "CC0-1.0",
+      "repository": "https://github.com/nohkumado/ball_joint",
+      "author": "Gael Lafond"
+    },
+    "ball-bearing": {
+      "label": "ball-bearing (cblomart)",
+      "root": "vendor/ball-bearing-684fb2fb",
+      "revision": "684fb2fbc9b6d25f5a52746ae384acc393cba5ca",
+      "license": "MIT",
+      "repository": "https://github.com/cblomart/ball-bearing",
+      "author": "Blomart Cédric"
+    },
+    "cycoidal-gear": {
+      "label": "cycoidal-gear (cyber-murmel)",
+      "root": "vendor/cycoidal-gear-0295817c",
+      "revision": "0295817cdce7bd7979f6dd49b61074673f2aaf50",
+      "license": "MIT",
+      "repository": "https://github.com/cyber-murmel/cycoidal-gear",
+      "author": "marble"
+    },
+    "omni-wheel-hub": {
+      "label": "omni-wheel-hub (Walchko)",
+      "root": "vendor/omni-wheel-hub-3a5e25de",
+      "revision": "3a5e25dedb8b6ac991ecb2873b28f15a81473df6",
+      "license": "MIT",
+      "repository": "https://github.com/MomsFriendlyRobotCompany/omni-wheel-hub",
+      "author": "Kevin J. Walchko"
+    },
+    "lib-robo-core": {
+      "label": "lib_robo_core (DonKorte)",
+      "root": "vendor/lib-robo-core-2e0cc474",
+      "revision": "2e0cc474f5cb7d79298e1dde4e9dfa7ef4528a74",
+      "license": "MIT",
+      "repository": "https://github.com/dnkorte/lib_robo_core",
+      "author": "Don Korte"
+    },
+    "donkbot": {
+      "label": "DonKbot (DonKorte)",
+      "root": "vendor/donkbot-0cae5346",
+      "revision": "0cae5346ba4b529f92fe0e24ce445bc7e1d474bb",
+      "license": "MIT",
+      "repository": "https://github.com/dnkorte/donkbot",
+      "author": "Don Korte"
+    },
+    "servo-brake-actuator": {
+      "label": "servo-brake-actuator (AssaadMH)",
+      "root": "vendor/servo-brake-actuator-a61c9b8b",
+      "revision": "a61c9b8b7ff592d6fb3c37d25efe519f10cd26c8",
+      "license": "MIT",
+      "repository": "https://github.com/AssaadMH/servo-brake-actuator",
+      "author": "Lassaad Mahmoudi"
+    },
+    "saxonrah-robot-parts": {
+      "label": "OpenSCAD Robot Parts (SaxonRah)",
+      "root": "vendor/saxonrah-robot-parts-d9ff23cf",
+      "revision": "d9ff23cf4921a707fee2312d5c9c257a9bcd65c9",
+      "license": "MIT",
+      "repository": "https://github.com/SaxonRah/OpenSCAD_Robot_Parts",
+      "author": "Robert Valentine"
     }
   },
   "quality_profiles": {
@@ -36460,6 +36532,2089 @@
           "params": {
             "enableCableHole": false,
             "coverHeight": 12
+          }
+        }
+      ]
+    },
+    "nema17_stepper": {
+      "label": "NEMA 17 stepper motor",
+      "short": "Stepper motor",
+      "category": "Mechanical",
+      "icon": "chip",
+      "source": "objects/wrappers/nema17_stepper.scad",
+      "description": "Solid model of a small electric motor, for clearance and bolt-pattern checks around a mount. A NEMA 17 stepper plus the two brushed cans upstream also ships, with the shaft, the front boss and the ventilation slots.",
+      "tags": [
+        "motor",
+        "stepper",
+        "nema17",
+        "robotics",
+        "actuator",
+        "mechanical",
+        "motion"
+      ],
+      "parameters": [
+        {
+          "variable": "motor_select",
+          "label": "Motor",
+          "type": "integer",
+          "default": 0,
+          "min": 0,
+          "max": 2,
+          "step": 1,
+          "group": "Motor",
+          "options": [
+            {
+              "value": 0,
+              "label": "NEMA 17 stepper"
+            },
+            {
+              "value": 1,
+              "label": "RS-550 brushed"
+            },
+            {
+              "value": 2,
+              "label": "RS-750 brushed"
+            }
+          ],
+          "help": "Upstream ships one parameter set per motor; this picks which one is drawn."
+        },
+        {
+          "variable": "motor_extra_od",
+          "label": "Clearance around body",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "group": "Motor",
+          "unit": "mm",
+          "help": "Extra radius on the body and boss, to model the pocket a mount has to leave."
+        },
+        {
+          "variable": "motor_with_shaft",
+          "label": "Output shaft",
+          "type": "boolean",
+          "default": true,
+          "group": "Features"
+        },
+        {
+          "variable": "motor_with_boss",
+          "label": "Front boss",
+          "type": "boolean",
+          "default": true,
+          "group": "Features",
+          "help": "The raised ring around the shaft on the mounting face."
+        },
+        {
+          "variable": "motor_with_vents",
+          "label": "Vent slots",
+          "type": "boolean",
+          "default": true,
+          "group": "Features",
+          "help": "Vent slots stamped into the mounting face. The NEMA 17 body has none, so this only changes the two brushed motors."
+        }
+      ],
+      "presets": [
+        {
+          "name": "RS-550 brushed can",
+          "description": "The bigger of the two brushed motors.",
+          "params": {
+            "motor_select": 1
+          }
+        },
+        {
+          "name": "RS-750 brushed can",
+          "description": "The largest brushed motor upstream ships.",
+          "params": {
+            "motor_select": 2
+          }
+        },
+        {
+          "name": "Naked stepper",
+          "description": "No shaft and no boss, body only.",
+          "params": {
+            "motor_with_shaft": false,
+            "motor_with_boss": false
+          }
+        },
+        {
+          "name": "1.5 mm cradle clearance",
+          "description": "Swollen body for a printed cradle.",
+          "params": {
+            "motor_extra_od": 1.5
+          }
+        }
+      ]
+    },
+    "planetary_gear_set": {
+      "label": "Planetary gear set",
+      "short": "Planetary set",
+      "category": "Mechanical",
+      "icon": "gear",
+      "source": "objects/wrappers/planetary_gear_set.scad",
+      "description": "Print-in-place planetary gear set drawn as one 2D gear plane: a sun gear, the planets on their orbit and the surrounding ring gear, extruded to the gear height. The ring tooth count always follows the sun and planets, so the train stays in mesh.",
+      "tags": [
+        "gear",
+        "planetary",
+        "gearbox",
+        "reduction",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "planet_pitch",
+          "label": "Circular pitch",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.8,
+          "max": 3,
+          "step": 0.1,
+          "group": "Gearing",
+          "unit": "mm",
+          "help": "Millimetres of pitch circumference per tooth; smaller is finer."
+        },
+        {
+          "variable": "planet_sun_teeth",
+          "label": "Sun teeth",
+          "type": "integer",
+          "default": 12,
+          "min": 8,
+          "max": 24,
+          "step": 1,
+          "group": "Gearing"
+        },
+        {
+          "variable": "planet_planet_teeth",
+          "label": "Planet teeth",
+          "type": "integer",
+          "default": 9,
+          "min": 6,
+          "max": 20,
+          "step": 1,
+          "group": "Gearing"
+        },
+        {
+          "variable": "planet_count",
+          "label": "Planets",
+          "type": "integer",
+          "default": 3,
+          "min": 3,
+          "max": 5,
+          "step": 1,
+          "group": "Gearing",
+          "help": "Planets spaced evenly around the sun."
+        },
+        {
+          "variable": "planet_rim",
+          "label": "Ring rim",
+          "type": "number",
+          "default": 4,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "group": "Gearing",
+          "unit": "mm",
+          "help": "Material outside the ring gear."
+        },
+        {
+          "variable": "planet_height",
+          "label": "Height",
+          "type": "number",
+          "default": 8,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Fine pitch",
+          "description": "0.8 mm pitch for a small, smooth set.",
+          "params": {
+            "planet_pitch": 1
+          }
+        },
+        {
+          "name": "Chunky 12 mm",
+          "description": "Coarse and thick.",
+          "params": {
+            "planet_pitch": 2.5,
+            "planet_height": 12
+          }
+        },
+        {
+          "name": "Four planets",
+          "description": "Spread the load over four planets.",
+          "params": {
+            "planet_count": 4
+          }
+        },
+        {
+          "name": "Big sun",
+          "description": "A 16 tooth sun with 11 tooth planets.",
+          "params": {
+            "planet_sun_teeth": 16,
+            "planet_planet_teeth": 11
+          }
+        }
+      ]
+    },
+    "stepped_planetary_gearbox": {
+      "label": "Stepped planetary gear set",
+      "short": "Stepped planets",
+      "category": "Mechanical",
+      "icon": "gear",
+      "source": "objects/wrappers/stepped_planetary_gearbox.scad",
+      "description": "The planet gears of a two-stage stepped planetary geartrain, printed as one piece. The lower row meshes the input ring and the upper row is a different tooth count on the same orbit radius, so one planet drives both rings and the difference between them is the reduction.",
+      "tags": [
+        "gear",
+        "planetary",
+        "stepped",
+        "gearbox",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "step_planets",
+          "label": "Planets",
+          "type": "integer",
+          "default": 3,
+          "min": 3,
+          "max": 4,
+          "step": 1,
+          "group": "Planets"
+        },
+        {
+          "variable": "step_height",
+          "label": "Row height",
+          "type": "number",
+          "default": 8,
+          "min": 4,
+          "max": 16,
+          "step": 1,
+          "group": "Planets",
+          "unit": "mm"
+        },
+        {
+          "variable": "step_raise",
+          "label": "Lower row rise",
+          "type": "number",
+          "default": 3,
+          "min": 0,
+          "max": 8,
+          "step": 1,
+          "group": "Planets",
+          "unit": "mm",
+          "help": "How far the lower planet row stands above its own height before the upper row starts."
+        },
+        {
+          "variable": "step_pitch",
+          "label": "Circular pitch",
+          "type": "number",
+          "default": 1.5,
+          "min": 0.8,
+          "max": 3,
+          "step": 0.1,
+          "group": "Gearing",
+          "unit": "mm"
+        },
+        {
+          "variable": "step_planet_teeth",
+          "label": "Planet teeth",
+          "type": "integer",
+          "default": 7,
+          "min": 6,
+          "max": 12,
+          "step": 1,
+          "group": "Gearing"
+        },
+        {
+          "variable": "step_sun_teeth",
+          "label": "Input sun teeth",
+          "type": "integer",
+          "default": 12,
+          "min": 8,
+          "max": 20,
+          "step": 1,
+          "group": "Gearing"
+        },
+        {
+          "variable": "step_sun_step",
+          "label": "Extra output sun teeth",
+          "type": "integer",
+          "default": 3,
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "group": "Gearing",
+          "help": "Teeth the output sun gains per planet; this is what offsets the two rows."
+        },
+        {
+          "variable": "step_axle_hole",
+          "label": "Axle hole",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 10,
+          "step": 0.5,
+          "group": "Hardware",
+          "unit": "mm",
+          "help": "Bore through every planet for the carrier pin; larger values lighten the piece."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Steep offset",
+          "description": "Bigger offset between the rows.",
+          "params": {
+            "step_sun_step": 4
+          }
+        },
+        {
+          "name": "Small planets",
+          "description": "Tighter planets for a compact set.",
+          "params": {
+            "step_planet_teeth": 6,
+            "step_sun_teeth": 10
+          }
+        },
+        {
+          "name": "Tall planets",
+          "description": "12 mm rows for a wider face.",
+          "params": {
+            "step_height": 12
+          }
+        },
+        {
+          "name": "Four planets",
+          "description": "Four planets around the same sun.",
+          "params": {
+            "step_planets": 4
+          }
+        }
+      ]
+    },
+    "reduction_gearbox": {
+      "label": "Two-stage reduction gearbox",
+      "short": "Reduction box",
+      "category": "Mechanical",
+      "icon": "gear",
+      "source": "objects/wrappers/reduction_gearbox.scad",
+      "description": "Two-stage reduction gearbox with a ring-gear output: a motor pinion drives a lightened reduction gear, which drives the internal-toothed output ring. Upstream lays the stages out from their tooth counts and pitches and builds the frame that carries every axle.",
+      "tags": [
+        "gear",
+        "gearbox",
+        "reduction",
+        "ring gear",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "gearbox_ring_teeth",
+          "label": "Output ring teeth",
+          "type": "integer",
+          "default": -42,
+          "min": -60,
+          "max": -20,
+          "step": 1,
+          "group": "Output stage",
+          "help": "Negative because an internal ring gear is cut inside its rim."
+        },
+        {
+          "variable": "gearbox_pinion_out",
+          "label": "Output pinion teeth",
+          "type": "integer",
+          "default": 9,
+          "min": 6,
+          "max": 20,
+          "step": 1,
+          "group": "Output stage"
+        },
+        {
+          "variable": "gearbox_pitch_out",
+          "label": "Output pitch",
+          "type": "number",
+          "default": 1.75,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.25,
+          "group": "Output stage",
+          "unit": "mm"
+        },
+        {
+          "variable": "gearbox_axle_out",
+          "label": "Output axle",
+          "type": "number",
+          "default": 8,
+          "min": 3,
+          "max": 12,
+          "step": 0.5,
+          "group": "Output stage",
+          "unit": "mm"
+        },
+        {
+          "variable": "gearbox_gear_teeth",
+          "label": "Input gear teeth",
+          "type": "integer",
+          "default": 58,
+          "min": 30,
+          "max": 80,
+          "step": 1,
+          "group": "Input stage"
+        },
+        {
+          "variable": "gearbox_pinion_in",
+          "label": "Input pinion teeth",
+          "type": "integer",
+          "default": 14,
+          "min": 8,
+          "max": 24,
+          "step": 1,
+          "group": "Input stage"
+        },
+        {
+          "variable": "gearbox_pitch_in",
+          "label": "Input pitch",
+          "type": "number",
+          "default": 0.8,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.1,
+          "group": "Input stage",
+          "unit": "mm"
+        },
+        {
+          "variable": "gearbox_axle_in",
+          "label": "Input axle",
+          "type": "number",
+          "default": 3,
+          "min": 1,
+          "max": 8,
+          "step": 0.5,
+          "group": "Input stage",
+          "unit": "mm"
+        },
+        {
+          "variable": "gearbox_stage_angle",
+          "label": "Stage angle",
+          "type": "number",
+          "default": 90,
+          "min": 0,
+          "max": 360,
+          "step": 45,
+          "group": "Frame",
+          "unit": "deg",
+          "help": "How far the input stage is swung around the output axis."
+        },
+        {
+          "variable": "gearbox_height",
+          "label": "Gear height",
+          "type": "number",
+          "default": 10,
+          "min": 4,
+          "max": 20,
+          "step": 1,
+          "group": "Frame",
+          "unit": "mm"
+        },
+        {
+          "variable": "gearbox_with_frame",
+          "label": "Frame",
+          "type": "boolean",
+          "default": true,
+          "group": "Frame",
+          "help": "Draw the walls, plates and bearing bosses that carry the axles."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Gears only",
+          "description": "Hide the frame to see the train.",
+          "params": {
+            "gearbox_with_frame": false
+          }
+        },
+        {
+          "name": "Input at 45 deg",
+          "description": "Swing the input stage off the output axle.",
+          "params": {
+            "gearbox_stage_angle": 45
+          }
+        },
+        {
+          "name": "Bigger output ring",
+          "description": "A 60 tooth ring at 2.25 mm pitch.",
+          "params": {
+            "gearbox_ring_teeth": -60,
+            "gearbox_pitch_out": 2.25
+          }
+        },
+        {
+          "name": "Taller gears",
+          "description": "14 mm gears in both stages.",
+          "params": {
+            "gearbox_height": 14
+          }
+        }
+      ]
+    },
+    "powerwheels_coupler": {
+      "label": "Ride-on gearbox coupler",
+      "short": "Power Wheels hub",
+      "category": "Mechanical",
+      "icon": "cylinder",
+      "source": "objects/wrappers/powerwheels_coupler.scad",
+      "description": "Coupling block for the cross-shaped output boss of a Peg Perego / Power Wheels ride-on gearbox, with the two 7/8 inch axle-bearing seats behind it. Upstream only provides the negative shape, so the wrapper cuts it out of a round hub.",
+      "tags": [
+        "coupler",
+        "gearbox",
+        "axle",
+        "bearing",
+        "robotics",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "coupler_height",
+          "label": "Horn socket depth",
+          "type": "number",
+          "default": 30,
+          "min": 10,
+          "max": 40,
+          "step": 1,
+          "group": "Fit",
+          "unit": "mm",
+          "help": "How deep the gearbox cross is socketed."
+        },
+        {
+          "variable": "coupler_thickness",
+          "label": "Block thickness",
+          "type": "number",
+          "default": 34,
+          "min": 15,
+          "max": 60,
+          "step": 1,
+          "group": "Fit",
+          "unit": "mm",
+          "help": "Keep this deeper than the socket depth, or the horn breaks through the floor."
+        },
+        {
+          "variable": "coupler_diameter",
+          "label": "Block diameter",
+          "type": "number",
+          "default": 60,
+          "min": 55,
+          "max": 100,
+          "step": 5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "coupler_clearance",
+          "label": "Fit clearance",
+          "type": "number",
+          "default": 0.3,
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "group": "Fit",
+          "unit": "Extra room around the cross and the bearings."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Tight fit",
+          "description": "0.1 mm clearance for a snug coupling.",
+          "params": {
+            "coupler_clearance": 0.1
+          }
+        },
+        {
+          "name": "Thin floor",
+          "description": "32 mm block under a 30 mm socket.",
+          "params": {
+            "coupler_thickness": 32
+          }
+        },
+        {
+          "name": "Deep socket",
+          "description": "36 mm socket in a 40 mm block.",
+          "params": {
+            "coupler_height": 36,
+            "coupler_thickness": 40
+          }
+        },
+        {
+          "name": "Wide flange",
+          "description": "80 mm block for extra fixing points.",
+          "params": {
+            "coupler_diameter": 80
+          }
+        }
+      ]
+    },
+    "ball_joint_ball": {
+      "label": "Ball joint ball",
+      "short": "Ball joint ball",
+      "category": "Mechanical",
+      "icon": "sphere",
+      "source": "objects/wrappers/ball_joint_ball.scad",
+      "description": "The ball half of a universal ball joint: a rounded base and the sphere that snaps into the threaded seat. Upstream scales the base profile from the ball diameter, so the whole piece follows the ball you ask for.",
+      "tags": [
+        "ball joint",
+        "joint",
+        "sphere",
+        "robotics",
+        "linkage",
+        "mechanical",
+        "motion"
+      ],
+      "parameters": [
+        {
+          "variable": "balljoint_ball_dia",
+          "label": "Ball diameter",
+          "type": "number",
+          "default": 17.5,
+          "min": 8,
+          "max": 40,
+          "step": 0.5,
+          "group": "Ball",
+          "unit": "mm"
+        },
+        {
+          "variable": "balljoint_ball_base_dia",
+          "label": "Base diameter",
+          "type": "number",
+          "default": 19,
+          "min": 8,
+          "max": 50,
+          "step": 0.5,
+          "group": "Base",
+          "unit": "mm"
+        },
+        {
+          "variable": "balljoint_ball_base_height",
+          "label": "Base height",
+          "type": "number",
+          "default": 12,
+          "min": 4,
+          "max": 30,
+          "step": 1,
+          "group": "Base",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "10 mm ball",
+          "description": "Small joint for light linkages.",
+          "params": {
+            "balljoint_ball_dia": 10,
+            "balljoint_ball_base_dia": 11,
+            "balljoint_ball_base_height": 7
+          }
+        },
+        {
+          "name": "25 mm ball",
+          "description": "Big joint for a heavy arm.",
+          "params": {
+            "balljoint_ball_dia": 25,
+            "balljoint_ball_base_dia": 27
+          }
+        },
+        {
+          "name": "Wide base",
+          "description": "30 mm base under the same ball.",
+          "params": {
+            "balljoint_ball_base_dia": 30
+          }
+        },
+        {
+          "name": "Tall base",
+          "description": "20 mm base for a deeper grip.",
+          "params": {
+            "balljoint_ball_base_height": 20
+          }
+        }
+      ]
+    },
+    "ball_joint_socket": {
+      "label": "Ball joint socket",
+      "short": "Ball socket",
+      "category": "Mechanical",
+      "icon": "cylinder",
+      "source": "objects/wrappers/ball_joint_socket.scad",
+      "description": "The socket half of a universal ball joint: a threaded cup with the retaining lips and the split that lets it grip the ball. The thread comes from the helix_extrude module shipped beside the library.",
+      "tags": [
+        "ball joint",
+        "joint",
+        "socket",
+        "threaded",
+        "robotics",
+        "linkage",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "balljoint_ball_dia",
+          "label": "Ball diameter",
+          "type": "number",
+          "default": 17.5,
+          "min": 8,
+          "max": 40,
+          "step": 0.5,
+          "group": "Socket",
+          "unit": "mm"
+        },
+        {
+          "variable": "balljoint_seat_walls",
+          "label": "Wall thickness",
+          "type": "number",
+          "default": 1.4,
+          "min": 0.6,
+          "max": 4,
+          "step": 0.2,
+          "group": "Socket",
+          "unit": "mm"
+        },
+        {
+          "variable": "balljoint_thread_tooth_height",
+          "label": "Thread height",
+          "type": "number",
+          "default": 1.71,
+          "min": 0.5,
+          "max": 5,
+          "step": 0.01,
+          "group": "Thread",
+          "unit": "mm"
+        },
+        {
+          "variable": "balljoint_thread_tooth_width",
+          "label": "Thread tooth width",
+          "type": "number",
+          "default": 0.4,
+          "min": 0.1,
+          "max": 2,
+          "step": 0.05,
+          "group": "Thread",
+          "unit": "mm"
+        },
+        {
+          "variable": "balljoint_thread_tooth_base_width",
+          "label": "Thread base width",
+          "type": "number",
+          "default": 2.35,
+          "min": 1,
+          "max": 6,
+          "step": 0.05,
+          "group": "Thread",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Thin walls",
+          "description": "0.8 mm walls for the most flex.",
+          "params": {
+            "balljoint_seat_walls": 0.8
+          }
+        },
+        {
+          "name": "Thick walls",
+          "description": "2.6 mm walls for a stiffer socket.",
+          "params": {
+            "balljoint_seat_walls": 2.6
+          }
+        },
+        {
+          "name": "Coarse thread",
+          "description": "Taller, wider thread teeth.",
+          "params": {
+            "balljoint_thread_tooth_height": 2.2,
+            "balljoint_thread_tooth_width": 0.6
+          }
+        },
+        {
+          "name": "25 mm ball",
+          "description": "Socket for the matching 25 mm ball.",
+          "params": {
+            "balljoint_ball_dia": 25
+          }
+        }
+      ]
+    },
+    "ball_bearing_608": {
+      "label": "Deep-groove ball bearing",
+      "short": "Ball bearing",
+      "category": "Mechanical",
+      "icon": "fit",
+      "source": "objects/wrappers/ball_bearing_608.scad",
+      "description": "Parametric deep-groove ball bearing: both races are turned from the inner and outer diameters, the groove between them is cut with a torus and the ring of balls is placed on the pitch circle. Defaults are a 608 skate bearing.",
+      "tags": [
+        "bearing",
+        "ball bearing",
+        "608",
+        "skate",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "bearing_inner",
+          "label": "Bore",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 40,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "bearing_outer",
+          "label": "Outer diameter",
+          "type": "number",
+          "default": 22,
+          "min": 6,
+          "max": 80,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "bearing_thick",
+          "label": "Thickness",
+          "type": "number",
+          "default": 7,
+          "min": 1,
+          "max": 12,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm",
+          "help": "Race height, and the diameter of the balls between the races. Keep it under half the race width, or the balls will not fit between the races."
+        },
+        {
+          "variable": "bearing_gap",
+          "label": "Groove clearance",
+          "type": "number",
+          "default": 0.2,
+          "min": 0,
+          "max": 0.5,
+          "step": 0.05,
+          "group": "Fit",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "608 skate bearing",
+          "description": "8 x 22 x 7 mm.",
+          "params": {
+            "bearing_inner": 8,
+            "bearing_outer": 22,
+            "bearing_thick": 7
+          }
+        },
+        {
+          "name": "626 miniature",
+          "description": "6 x 19 x 6 mm.",
+          "params": {
+            "bearing_inner": 6,
+            "bearing_outer": 19,
+            "bearing_thick": 6
+          }
+        },
+        {
+          "name": "6001",
+          "description": "12 x 28 x 8 mm.",
+          "params": {
+            "bearing_inner": 12,
+            "bearing_outer": 28,
+            "bearing_thick": 8
+          }
+        },
+        {
+          "name": "Tight groove",
+          "description": "Almost no clearance in the groove.",
+          "params": {
+            "bearing_gap": 0.05
+          }
+        }
+      ]
+    },
+    "cycloidal_disc": {
+      "label": "Cycloidal drive disc",
+      "short": "Cycloidal disc",
+      "category": "Mechanical",
+      "icon": "gear",
+      "source": "objects/wrappers/cycloidal_disc.scad",
+      "description": "Cycloidal disc: the lobed rotor of a cycloidal drive. The epitrochoid outline is offset by the pin radius, and the eccentric bearing bore and the ring of spoke pin holes are cut out of it.",
+      "tags": [
+        "cycloidal",
+        "drive",
+        "gear",
+        "reduction",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "disc_ring_radius",
+          "label": "Pin circle radius",
+          "type": "number",
+          "default": 31.8,
+          "min": 20,
+          "max": 50,
+          "step": 0.2,
+          "group": "Disc",
+          "unit": "mm"
+        },
+        {
+          "variable": "disc_pins",
+          "label": "Ring pins",
+          "type": "integer",
+          "default": 8,
+          "min": 5,
+          "max": 14,
+          "step": 1,
+          "group": "Disc",
+          "help": "The disc is cut with one lobe fewer than this."
+        },
+        {
+          "variable": "disc_eccentricity",
+          "label": "Eccentricity",
+          "type": "number",
+          "default": 2,
+          "min": 0.5,
+          "max": 4,
+          "step": 0.5,
+          "group": "Disc",
+          "unit": "mm",
+          "help": "Offset between the disc centre and the input shaft."
+        },
+        {
+          "variable": "disc_pin_diameter",
+          "label": "Pin diameter",
+          "type": "number",
+          "default": 5,
+          "min": 2,
+          "max": 10,
+          "step": 0.5,
+          "group": "Disc",
+          "unit": "mm"
+        },
+        {
+          "variable": "disc_bearing_od",
+          "label": "Eccentric bearing bore",
+          "type": "number",
+          "default": 16,
+          "min": 8,
+          "max": 30,
+          "step": 1,
+          "group": "Disc",
+          "unit": "mm"
+        },
+        {
+          "variable": "disc_spoke_diameter",
+          "label": "Spoke pin diameter",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Spokes",
+          "unit": "mm"
+        },
+        {
+          "variable": "disc_spoke_radius",
+          "label": "Spoke circle radius",
+          "type": "number",
+          "default": 21,
+          "min": 5,
+          "max": 40,
+          "step": 0.5,
+          "group": "Spokes",
+          "unit": "mm"
+        },
+        {
+          "variable": "disc_spokes",
+          "label": "Spokes",
+          "type": "integer",
+          "default": 7,
+          "min": 4,
+          "max": 10,
+          "step": 1,
+          "group": "Spokes"
+        },
+        {
+          "variable": "disc_steps",
+          "label": "Outline resolution",
+          "type": "number",
+          "default": 180,
+          "min": 60,
+          "max": 360,
+          "step": 30,
+          "group": "Quality",
+          "help": "Points along the epitrochoid; lower is faster and blockier."
+        },
+        {
+          "variable": "disc_thickness",
+          "label": "Thickness",
+          "type": "number",
+          "default": 8,
+          "min": 2,
+          "max": 20,
+          "step": 1,
+          "group": "Dimensions",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "12 pin drive",
+          "description": "More pins for a higher ratio.",
+          "params": {
+            "disc_pins": 12
+          }
+        },
+        {
+          "name": "Thin disc",
+          "description": "5 mm plate for a compact drive.",
+          "params": {
+            "disc_thickness": 5
+          }
+        },
+        {
+          "name": "Draft outline",
+          "description": "90 points, quick to render.",
+          "params": {
+            "disc_steps": 90
+          }
+        },
+        {
+          "name": "Fine outline",
+          "description": "360 points on the lobe.",
+          "params": {
+            "disc_steps": 360
+          }
+        }
+      ]
+    },
+    "omni_wheel_hub": {
+      "label": "Omni wheel hub",
+      "short": "Omni hub",
+      "category": "Mechanical",
+      "icon": "cylinder",
+      "source": "objects/wrappers/omni_wheel_hub.scad",
+      "description": "Hub that bolts a 60 mm omni wheel onto the servo horn side: a 28 mm disc with the lightening cut, the 21 mm bolt circle and the square socket that takes the horn. Upstream draws one fixed size, so the wrapper scales it, flips it and can open the socket into a round bore.",
+      "tags": [
+        "omni wheel",
+        "wheel",
+        "hub",
+        "servo",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "hub_scale",
+          "label": "Scale",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.05,
+          "group": "Dimensions",
+          "unit": "×"
+        },
+        {
+          "variable": "hub_bore",
+          "label": "Centre bore",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 20,
+          "step": 0.5,
+          "group": "Hardware",
+          "unit": "mm",
+          "help": "0 keeps upstream's square servo-horn socket."
+        },
+        {
+          "variable": "hub_flip",
+          "label": "Flip",
+          "type": "boolean",
+          "default": false,
+          "group": "Layout",
+          "help": "Turn the socket over for printing the other face down."
+        }
+      ],
+      "presets": [
+        {
+          "name": "125 %",
+          "description": "Bigger hub for a scaled-up wheel.",
+          "params": {
+            "hub_scale": 1.25
+          }
+        },
+        {
+          "name": "150 %",
+          "description": "Larger still.",
+          "params": {
+            "hub_scale": 1.5
+          }
+        },
+        {
+          "name": "Round 12 mm bore",
+          "description": "Replace the square socket with a round bore.",
+          "params": {
+            "hub_bore": 12
+          }
+        },
+        {
+          "name": "Flipped",
+          "description": "Socket facing down.",
+          "params": {
+            "hub_flip": true
+          }
+        }
+      ]
+    },
+    "lx16a_servo_hub": {
+      "label": "LX-16A servo wheel hub",
+      "short": "LX-16A hub",
+      "category": "Mechanical",
+      "icon": "bracket",
+      "source": "objects/wrappers/lx16a_servo_hub.scad",
+      "description": "Hub that adapts an LX-16A serial-bus servo to a wheel: a servo face plate with the 17 mm and 14 mm hole pairs, a spacer boss and the output stem, plus the omni wheel and its cap if you want the whole assembly.",
+      "tags": [
+        "servo",
+        "hub",
+        "lx-16a",
+        "wheel",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "hub_scale",
+          "label": "Scale",
+          "type": "number",
+          "default": 1,
+          "min": 0.5,
+          "max": 2,
+          "step": 0.05,
+          "group": "Dimensions",
+          "unit": "×"
+        },
+        {
+          "variable": "hub_with_wheel",
+          "label": "Omni wheel",
+          "type": "boolean",
+          "default": true,
+          "group": "Parts",
+          "help": "Add the 60 mm wheel that the hub carries."
+        },
+        {
+          "variable": "hub_with_cap",
+          "label": "Hub cap",
+          "type": "boolean",
+          "default": false,
+          "group": "Parts",
+          "help": "Add the cap that closes the wheel face."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Hub only",
+          "description": "Just the servo adapter.",
+          "params": {
+            "hub_with_wheel": false
+          }
+        },
+        {
+          "name": "Wheel and cap",
+          "description": "Complete assembly with the cap on.",
+          "params": {
+            "hub_with_cap": true
+          }
+        },
+        {
+          "name": "150 %",
+          "description": "Everything 1.5 times bigger.",
+          "params": {
+            "hub_scale": 1.5
+          }
+        }
+      ]
+    },
+    "robot_wheel_tt": {
+      "label": "TT motor o-ring wheel",
+      "short": "TT wheel",
+      "category": "Mechanical",
+      "icon": "cylinder",
+      "source": "objects/wrappers/robot_wheel_tt.scad",
+      "description": "O-ring drive wheel for a yellow-gearbox TT motor: a thin web wheel that traps the o-ring in a torus groove, with the flattened-shaft socket and the screw hole that locks it onto the motor.",
+      "tags": [
+        "wheel",
+        "o-ring",
+        "tt motor",
+        "robot",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "wheel_oring_id",
+          "label": "O-ring inner",
+          "type": "number",
+          "default": 32,
+          "min": 20,
+          "max": 60,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_oring_od",
+          "label": "O-ring outer",
+          "type": "number",
+          "default": 38,
+          "min": 24,
+          "max": 70,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_stretch",
+          "label": "Groove stretch",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 6,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm",
+          "help": "How much the groove stretches the ring, so it stays put."
+        },
+        {
+          "variable": "wheel_thickness",
+          "label": "Wheel thickness",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_screw",
+          "label": "Retaining screw",
+          "type": "integer",
+          "default": 0,
+          "min": 0,
+          "max": 1,
+          "step": 1,
+          "group": "Hardware",
+          "options": [
+            {
+              "value": 0,
+              "label": "M2.5 self-tapping"
+            },
+            {
+              "value": 1,
+              "label": "M3"
+            }
+          ],
+          "help": "Upstream names the screw as text, which -D cannot set, so this picks between the two it knows."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wide o-ring",
+          "description": "24 to 36 mm ring.",
+          "params": {
+            "wheel_oring_id": 24,
+            "wheel_oring_od": 36
+          }
+        },
+        {
+          "name": "M3 set screw",
+          "description": "Tap for an M3 screw.",
+          "params": {
+            "wheel_screw": 1
+          }
+        },
+        {
+          "name": "Thick wheel",
+          "description": "9 mm web for a stiffer wheel.",
+          "params": {
+            "wheel_thickness": 9
+          }
+        },
+        {
+          "name": "Snug ring",
+          "description": "No stretch left in the groove.",
+          "params": {
+            "wheel_stretch": 0
+          }
+        }
+      ]
+    },
+    "robot_wheel_dshaft": {
+      "label": "D-shaft o-ring wheel",
+      "short": "D-shaft wheel",
+      "category": "Mechanical",
+      "icon": "cylinder",
+      "source": "objects/wrappers/robot_wheel_dshaft.scad",
+      "description": "O-ring drive wheel for a motor with a D-flat output shaft: a thin web wheel with the o-ring groove, the split hub that clamps the flat and the centre screw hole. The hub follows the shaft diameter you give it.",
+      "tags": [
+        "wheel",
+        "o-ring",
+        "d-shaft",
+        "robot",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "wheel_oring_id",
+          "label": "O-ring inner",
+          "type": "number",
+          "default": 32,
+          "min": 20,
+          "max": 60,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_oring_od",
+          "label": "O-ring outer",
+          "type": "number",
+          "default": 38,
+          "min": 24,
+          "max": 70,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_stretch",
+          "label": "Groove stretch",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 6,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_thickness",
+          "label": "Wheel thickness",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_shaft",
+          "label": "Shaft diameter",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Hub",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "4 mm shaft",
+          "description": "Clamp hub for a 4 mm D-shaft.",
+          "params": {
+            "wheel_shaft": 4
+          }
+        },
+        {
+          "name": "Thick wheel",
+          "description": "9 mm web for a stiffer wheel.",
+          "params": {
+            "wheel_thickness": 9
+          }
+        },
+        {
+          "name": "Wide o-ring",
+          "description": "24 to 36 mm ring.",
+          "params": {
+            "wheel_oring_id": 24,
+            "wheel_oring_od": 36
+          }
+        },
+        {
+          "name": "Snug ring",
+          "description": "No stretch left in the groove.",
+          "params": {
+            "wheel_stretch": 0
+          }
+        }
+      ]
+    },
+    "robot_wheel_roundshaft": {
+      "label": "Round shaft o-ring wheel",
+      "short": "Round shaft wheel",
+      "category": "Mechanical",
+      "icon": "cylinder",
+      "source": "objects/wrappers/robot_wheel_roundshaft.scad",
+      "description": "O-ring drive wheel for a plain round shaft: the same thin web wheel and o-ring groove, with a plain hub bore and the split that lets the hub grip the shaft.",
+      "tags": [
+        "wheel",
+        "o-ring",
+        "shaft",
+        "robot",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "wheel_oring_id",
+          "label": "O-ring inner",
+          "type": "number",
+          "default": 32,
+          "min": 20,
+          "max": 60,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_oring_od",
+          "label": "O-ring outer",
+          "type": "number",
+          "default": 38,
+          "min": 24,
+          "max": 70,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_stretch",
+          "label": "Groove stretch",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 6,
+          "step": 0.5,
+          "group": "O-ring",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_thickness",
+          "label": "Wheel thickness",
+          "type": "number",
+          "default": 6,
+          "min": 3,
+          "max": 20,
+          "step": 0.5,
+          "group": "Dimensions",
+          "unit": "mm"
+        },
+        {
+          "variable": "wheel_shaft",
+          "label": "Shaft diameter",
+          "type": "number",
+          "default": 3,
+          "min": 2,
+          "max": 8,
+          "step": 0.5,
+          "group": "Hub",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "4 mm shaft",
+          "description": "Grip hub for a 4 mm shaft.",
+          "params": {
+            "wheel_shaft": 4
+          }
+        },
+        {
+          "name": "Thin wheel",
+          "description": "4 mm web for a light wheel.",
+          "params": {
+            "wheel_thickness": 4
+          }
+        },
+        {
+          "name": "Wide o-ring",
+          "description": "24 to 36 mm ring.",
+          "params": {
+            "wheel_oring_id": 24,
+            "wheel_oring_od": 36
+          }
+        },
+        {
+          "name": "Snug ring",
+          "description": "No stretch left in the groove.",
+          "params": {
+            "wheel_stretch": 0
+          }
+        }
+      ]
+    },
+    "tt_motor_plate": {
+      "label": "TT motor robot plate",
+      "short": "TT plate",
+      "category": "Mechanical",
+      "icon": "plate",
+      "source": "objects/wrappers/tt_motor_plate.scad",
+      "description": "Robot chassis plate for two TT gearmotors: the motor sockets, the caster mounts, the line-sensor slot and the accessory bolt pattern, all sized from upstream's shared DonKbot dimensions.",
+      "tags": [
+        "robot",
+        "chassis",
+        "plate",
+        "tt motor",
+        "bracket",
+        "robotics",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "tt_plate_pillar",
+          "label": "Motor pillar height",
+          "type": "number",
+          "default": 35,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm",
+          "help": "How high the motor posts hold the motors above the plate."
+        },
+        {
+          "variable": "tt_plate_caster",
+          "label": "Caster post height",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Low pillars",
+          "description": "20 mm motor posts.",
+          "params": {
+            "tt_plate_pillar": 20
+          }
+        },
+        {
+          "name": "Tall pillars",
+          "description": "50 mm motor posts.",
+          "params": {
+            "tt_plate_pillar": 50
+          }
+        },
+        {
+          "name": "Flush caster",
+          "description": "No caster post.",
+          "params": {
+            "tt_plate_caster": 0
+          }
+        }
+      ]
+    },
+    "n20_motor_plate": {
+      "label": "N20 robot plate",
+      "short": "N20 plate",
+      "category": "Mechanical",
+      "icon": "plate",
+      "source": "objects/wrappers/n20_motor_plate.scad",
+      "description": "Robot chassis plate for N20 gearmotors with encoders: motor sockets, encoder pockets, a time-of-flight sensor tower and the board mounts, all sized from upstream's shared DonKbot dimensions.",
+      "tags": [
+        "robot",
+        "chassis",
+        "plate",
+        "n20 motor",
+        "bracket",
+        "robotics",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "n20_plate_pillar",
+          "label": "Motor pillar height",
+          "type": "number",
+          "default": 30,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "n20_plate_caster",
+          "label": "Caster post height",
+          "type": "number",
+          "default": 2,
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Low pillars",
+          "description": "20 mm motor posts.",
+          "params": {
+            "n20_plate_pillar": 20
+          }
+        },
+        {
+          "name": "Tall pillars",
+          "description": "50 mm motor posts.",
+          "params": {
+            "n20_plate_pillar": 50
+          }
+        },
+        {
+          "name": "Flush caster",
+          "description": "No caster post.",
+          "params": {
+            "n20_plate_caster": 0
+          }
+        }
+      ]
+    },
+    "nema8_motor_plate": {
+      "label": "NEMA 8 robot plate",
+      "short": "NEMA 8 plate",
+      "category": "Mechanical",
+      "icon": "plate",
+      "source": "objects/wrappers/nema8_motor_plate.scad",
+      "description": "Robot chassis plate for two NEMA 8 stepper motors: the square motor sockets, the caster posts and the accessory pattern, all sized from upstream's shared DonKbot dimensions.",
+      "tags": [
+        "robot",
+        "chassis",
+        "plate",
+        "nema 8",
+        "stepper",
+        "robotics",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "nema8_plate_pillar",
+          "label": "Motor pillar height",
+          "type": "number",
+          "default": 29,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "nema8_plate_caster",
+          "label": "Caster post height",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Low pillars",
+          "description": "20 mm motor posts.",
+          "params": {
+            "nema8_plate_pillar": 20
+          }
+        },
+        {
+          "name": "Tall pillars",
+          "description": "50 mm motor posts.",
+          "params": {
+            "nema8_plate_pillar": 50
+          }
+        },
+        {
+          "name": "With caster post",
+          "description": "Add a 6 mm caster post.",
+          "params": {
+            "nema8_plate_caster": 6
+          }
+        }
+      ]
+    },
+    "stepper_driver_plate": {
+      "label": "SparkFun stepper robot plate",
+      "short": "Stepper plate",
+      "category": "Mechanical",
+      "icon": "plate",
+      "source": "objects/wrappers/stepper_driver_plate.scad",
+      "description": "Robot chassis plate for two SparkFun stepper motors: the motor sockets, the driver-board standoffs and the caster posts, all sized from upstream's shared DonKbot dimensions.",
+      "tags": [
+        "robot",
+        "chassis",
+        "plate",
+        "stepper",
+        "driver",
+        "robotics",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "stepper_plate_pillar",
+          "label": "Motor pillar height",
+          "type": "number",
+          "default": 36,
+          "min": 20,
+          "max": 60,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        },
+        {
+          "variable": "stepper_plate_caster",
+          "label": "Caster post height",
+          "type": "number",
+          "default": 0,
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "group": "Plate",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Low pillars",
+          "description": "20 mm motor posts.",
+          "params": {
+            "stepper_plate_pillar": 20
+          }
+        },
+        {
+          "name": "Tall pillars",
+          "description": "50 mm motor posts.",
+          "params": {
+            "stepper_plate_pillar": 50
+          }
+        },
+        {
+          "name": "With caster post",
+          "description": "Add a 6 mm caster post.",
+          "params": {
+            "stepper_plate_caster": 6
+          }
+        }
+      ]
+    },
+    "servo_brake_drum": {
+      "label": "Servo brake cable drum",
+      "short": "Brake drum",
+      "category": "Mechanical",
+      "icon": "dial",
+      "source": "objects/wrappers/servo_brake_drum.scad",
+      "description": "Servo brake-cable drum: a V-sheave that captures a stock four-arm servo horn in a pocket underneath and pulls two cables over part of the servo rotation, one on each side. The cable radius follows the stroke and sweep you ask for.",
+      "tags": [
+        "servo",
+        "drum",
+        "brake",
+        "cable",
+        "sweep",
+        "robotics",
+        "motion",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "HORN_TIP",
+          "label": "Horn tip to tip",
+          "type": "number",
+          "default": 40,
+          "min": 20,
+          "max": 60,
+          "step": 0.5,
+          "group": "Servo horn",
+          "unit": "mm",
+          "help": "Measure this across one pair of arms on your own horn."
+        },
+        {
+          "variable": "HORN_ARM_W",
+          "label": "Horn arm width",
+          "type": "number",
+          "default": 7,
+          "min": 3,
+          "max": 15,
+          "step": 0.5,
+          "group": "Servo horn",
+          "unit": "mm"
+        },
+        {
+          "variable": "HORN_T",
+          "label": "Horn thickness",
+          "type": "number",
+          "default": 4,
+          "min": 1,
+          "max": 10,
+          "step": 0.5,
+          "group": "Servo horn",
+          "unit": "mm"
+        },
+        {
+          "variable": "HORN_BOSS",
+          "label": "Horn boss diameter",
+          "type": "number",
+          "default": 14,
+          "min": 6,
+          "max": 30,
+          "step": 0.5,
+          "group": "Servo horn",
+          "unit": "mm"
+        },
+        {
+          "variable": "STROKE",
+          "label": "Cable stroke",
+          "type": "number",
+          "default": 70,
+          "min": 10,
+          "max": 150,
+          "step": 1,
+          "group": "Geometry",
+          "unit": "mm",
+          "help": "Cable travel wanted; the drum radius is derived from it and the sweep."
+        },
+        {
+          "variable": "SWEEP",
+          "label": "Servo sweep",
+          "type": "number",
+          "default": 180,
+          "min": 30,
+          "max": 360,
+          "step": 5,
+          "group": "Geometry",
+          "unit": "deg"
+        },
+        {
+          "variable": "CABLE_D",
+          "label": "Cable diameter",
+          "type": "number",
+          "default": 1.6,
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "group": "Cable",
+          "unit": "mm",
+          "help": "Brake inner wire, about 1.6 mm on most bikes."
+        },
+        {
+          "variable": "V_DEPTH",
+          "label": "Groove depth",
+          "type": "number",
+          "default": 2.2,
+          "min": 0.5,
+          "max": 6,
+          "step": 0.1,
+          "group": "Cable",
+          "unit": "mm"
+        },
+        {
+          "variable": "POCKET_CLR",
+          "label": "Pocket clearance",
+          "type": "number",
+          "default": 0.4,
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "group": "Fit",
+          "unit": "mm"
+        },
+        {
+          "variable": "SHOW_SLOTS",
+          "label": "Retaining slots",
+          "type": "boolean",
+          "default": true,
+          "group": "Fit",
+          "help": "Radial slots on top that let the wire drop into the groove."
+        }
+      ],
+      "presets": [
+        {
+          "name": "Short 40 mm pull",
+          "description": "Less travel for a rear brake.",
+          "params": {
+            "STROKE": 40
+          }
+        },
+        {
+          "name": "90 degree sweep",
+          "description": "Use less servo rotation for the same pull.",
+          "params": {
+            "SWEEP": 90
+          }
+        },
+        {
+          "name": "Long 100 mm pull",
+          "description": "More travel over 270 degrees.",
+          "params": {
+            "STROKE": 100,
+            "SWEEP": 270
+          }
+        },
+        {
+          "name": "No retaining slots",
+          "description": "Solid top face.",
+          "params": {
+            "SHOW_SLOTS": false
+          }
+        }
+      ]
+    },
+    "servo_u_bracket": {
+      "label": "Servo U bracket",
+      "short": "Servo U bracket",
+      "category": "Mechanical",
+      "icon": "bracket",
+      "source": "objects/wrappers/servo_u_bracket.scad",
+      "description": "U-bracket that carries a standard hobby servo between its cheeks and a bearing on the opposite axle, with a base plate that bolts down. Upstream renders the bracket at top level, so the wrapper includes it and restates the dimensions it exposes.",
+      "tags": [
+        "servo",
+        "bracket",
+        "robot",
+        "joint",
+        "robotics",
+        "mount",
+        "mechanical"
+      ],
+      "parameters": [
+        {
+          "variable": "bracket_width",
+          "label": "Cheek spacing",
+          "type": "number",
+          "default": 55.8,
+          "min": 20,
+          "max": 80,
+          "step": 0.2,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "Distance between the two plates — the servo body plus its mounting ears."
+        },
+        {
+          "variable": "bracket_height",
+          "label": "Height",
+          "type": "number",
+          "default": 25,
+          "min": 10,
+          "max": 60,
+          "step": 1,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "bracket_hub_length",
+          "label": "Axle height",
+          "type": "number",
+          "default": 12.5,
+          "min": 5,
+          "max": 30,
+          "step": 0.5,
+          "group": "Bracket",
+          "unit": "mm",
+          "help": "How far the servo axle sits above the base."
+        },
+        {
+          "variable": "bracket_thickness",
+          "label": "Plate thickness",
+          "type": "number",
+          "default": 2.15,
+          "min": 1,
+          "max": 6,
+          "step": 0.05,
+          "group": "Bracket",
+          "unit": "mm"
+        },
+        {
+          "variable": "bearing_hole",
+          "label": "Bearing seat",
+          "type": "number",
+          "default": 8.15,
+          "min": 3,
+          "max": 20,
+          "step": 0.05,
+          "group": "Hardware",
+          "unit": "mm",
+          "help": "Bore on the cheek opposite the servo."
+        },
+        {
+          "variable": "mounting_hole",
+          "label": "Base hole",
+          "type": "number",
+          "default": 3,
+          "min": 1.5,
+          "max": 8,
+          "step": 0.05,
+          "group": "Hardware",
+          "unit": "mm"
+        }
+      ],
+      "presets": [
+        {
+          "name": "Wide 66 mm",
+          "description": "For a servo with wider mounting ears.",
+          "params": {
+            "bracket_width": 66
+          }
+        },
+        {
+          "name": "Thick plates",
+          "description": "3 mm plates for a stiffer bracket.",
+          "params": {
+            "bracket_thickness": 3
+          }
+        },
+        {
+          "name": "High axle",
+          "description": "20 mm axle height in a 30 mm bracket.",
+          "params": {
+            "bracket_hub_length": 20,
+            "bracket_height": 30
+          }
+        },
+        {
+          "name": "Big bearing",
+          "description": "12 mm bearing seat.",
+          "params": {
+            "bearing_hole": 12
           }
         }
       ]
