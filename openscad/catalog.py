@@ -46,3 +46,76 @@ def defaults(name: str) -> dict[str, Any]:
 
 def source_path(name: str) -> Path:
     return ROOT / object_spec(name)["source"]
+
+
+def credit_for(name: str) -> tuple[str, dict[str, str]] | None:
+    """The credit a model's card shows, and its shared id.
+
+    A model under ``vendor/`` is credited to the library it came from; a model
+    with its own ``attribution`` overrides that. Original models have none.
+    """
+    spec = object_spec(name)
+    explicit = spec.get("attribution") if isinstance(spec.get("attribution"), dict) else None
+    source = str(spec.get("source", ""))
+    library_key = library = None
+    if source.startswith("vendor/"):
+        for key, entry in LIBRARIES.items():
+            if source.startswith(f"{entry['root']}/"):
+                library_key, library = key, entry
+                break
+    if not (explicit or {}).get("label") and library is None:
+        return None
+    credit = {
+        "label": str((explicit or {}).get("label") or (library or {}).get("label", "")),
+        "license": str((explicit or {}).get("license") or (library or {}).get("license", "")),
+        "author": str((explicit or {}).get("author") or (library or {}).get("author", "")),
+        "repository": str((explicit or {}).get("repository") or (library or {}).get("repository", "")),
+    }
+    return (library_key or f"object:{name}"), credit
+
+
+def index_payload() -> dict[str, Any]:
+    """The compact catalog the page ships with: what the model list needs.
+
+    Descriptions and credits yes, parameters and presets no - those arrive one
+    object at a time (``spec_payload``) so the page stays small enough for the
+    host's webview, which takes the whole page in one string.
+    """
+    objects: dict[str, dict[str, Any]] = {}
+    credits: dict[str, dict[str, str]] = {}
+    for name, spec in CATALOG["objects"].items():
+        entry: dict[str, Any] = {
+            "label": spec["label"],
+            "short": spec.get("short", ""),
+            "category": spec.get("category", ""),
+            "description": spec.get("description", ""),
+        }
+        if spec.get("tags"):
+            entry["tags"] = list(spec["tags"])
+        credited = credit_for(name)
+        if credited is not None:
+            credit_id, credit = credited
+            credits.setdefault(credit_id, credit)
+            entry["credit"] = credit_id
+        objects[name] = entry
+    return {"revision": LIBRARY_REVISION, "quality_profiles": QUALITY_PROFILES,
+            "credits": credits, "objects": objects}
+
+
+def spec_payload(name: str) -> dict[str, Any]:
+    """One object's parameters, presets and credit id, sent when it is selected."""
+    spec = object_spec(name)
+    payload: dict[str, Any] = {
+        "label": spec["label"],
+        "short": spec.get("short", ""),
+        "category": spec.get("category", ""),
+        "description": spec.get("description", ""),
+        "parameters": spec.get("parameters", []),
+        "presets": spec.get("presets", []),
+    }
+    if spec.get("tags"):
+        payload["tags"] = list(spec["tags"])
+    credited = credit_for(name)
+    if credited is not None:
+        payload["credit"] = credited[0]
+    return payload

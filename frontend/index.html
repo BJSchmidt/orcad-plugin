@@ -4,9 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OrcaCAD</title>
+    <script>
+      // OrcaSlicer builds the tab from one HTML string and only logs a page that
+      // fails to build, which used to leave an empty white tab with no hint of
+      // why. Report a failed start on the page itself.
+      (function () {
+        function show(message) {
+          if (window.__orcadBooted) return
+          var box = document.getElementById('boot-error')
+          if (!box || !box.hidden) return
+          box.hidden = false
+          box.querySelector('p').textContent = String(message || 'Unknown error')
+        }
+        window.addEventListener('error', function (event) {
+          show(event.message || (event.target && (event.target.src || event.target.href)))
+        })
+        window.addEventListener('unhandledrejection', function (event) {
+          show((event.reason && event.reason.message) || event.reason)
+        })
+      })()
+    </script>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <p class="boot-status">Loading OrcaCAD…</p>
+    </div>
+    <div id="boot-error" class="boot-failure" hidden role="alert">
+      <h2>OrcaCAD could not start</h2>
+      <p></p>
+      <p class="muted">Please report this message, then reload the page.</p>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

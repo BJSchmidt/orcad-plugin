@@ -1,6 +1,6 @@
 <img src="assets/orcad-logo.png" width="96" align="right" alt="OrcaCAD logo">
 
-# OrcaCAD: parametric CAD tab for OrcaSlicer (v0.9.18)
+# OrcaCAD: parametric CAD tab for OrcaSlicer (v0.9.19)
 
 OrcaCAD adds an **OrcaCAD** tab next to Prepare / Preview / Device in OrcaSlicer. It
 lets you pick a parametric model, tune it with live 3D preview, and put it on
@@ -104,6 +104,28 @@ plugin picks the newest snapshot for the platform and verifies it against the
 digest published beside it. The header shows the setup progress. The stable
 OpenSCAD 2021.01 release is too old for the Gridfinity library and is ignored.
 
+### Why the page is small, and what it fetches instead
+
+OrcaSlicer builds a plugin tab from one HTML string and hands that whole string
+to the embedded browser in a single call (`SetPage`, i.e. WebView2
+`NavigateToString` on Windows). That call fails silently above roughly 2 MB and
+the tab then stays empty, so the page that OrcaSlicer receives is kept small -
+about 330 KB plus a 120 KB catalog index - and everything heavy is fetched from
+the plugin while the page runs, over the same bridge the plugin already uses:
+
+| Asked for | What comes back |
+| --- | --- |
+| `spec` | one object's parameters and presets, when it is selected |
+| `thumbs` | the prebuilt previews of the cards that scrolled into view |
+| `viewport` | the Three.js viewer chunk (gzip, about 120 KB), when a render starts |
+
+The catalog index (labels, categories, descriptions and credit ids) still
+travels inside the page, so the model list paints without waiting for a round
+trip. In a folder install the plugin reads the previews and the viewer from
+`frontend/src/thumbs/` and `frontend/dist/viewport.js`; in a single-file
+install it reads them straight out of the embedded archive without unpacking
+them. `packaging/bundle.py --check` fails if the built page grows past 1 MB.
+
 ### AI assistant: setup, authentication, and privacy
 
 On request, **Install pi** provisions official Node.js **24.21.0** (SHA-256
@@ -185,9 +207,9 @@ instead of a tab.
 - **Single file (manual):** `orcad.py` embeds the compiled page, OpenSCAD
   backend/Gridfinity sources, and AI backend code. Put it in
   `<Orca data dir>/orca_plugins/orcad/orcad.py`.
-- **Folder:** `orcad.py` plus `frontend/dist/index.html`, `openscad/`, and `ai/`
-  in the same folder. Files beside `orcad.py` take precedence over embedded
-  copies.
+- **Folder:** `orcad.py` plus `frontend/dist/index.html`,
+  `frontend/dist/viewport.js`, `openscad/`, and `ai/` in the same folder. Files
+  beside `orcad.py` take precedence over embedded copies.
 
 Restart OrcaSlicer and enable **OrcaCAD** in the Plugins dialog. Runtime data
 lives next to the plugin: `exports/` (your files) and `.cache/` (rendered STL
@@ -260,8 +282,11 @@ Layout:
   a catalog object, and the unmodified `vendor/` trees. See
   `openscad/README.md`.
 - `frontend/`: React + Three.js page, built by Vite into one self-contained
-  `dist/index.html`. It uses plain CSS on purpose, because OrcaSlicer injects
-  unlayered element styles that would override `@layer`-based frameworks.
+  `dist/index.html` (the shell OrcaSlicer loads) plus `dist/viewport.js` (the
+  Three.js chunk the page fetches when it needs to draw). It uses plain CSS on
+  purpose, because OrcaSlicer injects unlayered element styles that would
+  override `@layer`-based frameworks. Model previews live in
+  `frontend/src/thumbs/` and are served by the plugin on demand.
 - `packaging/bundle.py`: deterministic release embedding.
 - `assets/`: the app icon (`orcad-logo.png`) and a transparent-background
   mark (`orcad-mark.png`) for light documents.

@@ -1,21 +1,21 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
-import { createBridge } from './bridge.js'
+import { bridge } from './bridge.js'
 import { aiReducer, initialAIState } from './ai.js'
-import { OBJECTS, QUALITY, activePreset, applyPreset, attributionFor, categories, groups, isDisabled, presets, restoreParams, resultCounts, searchObjects, setParam, defaults } from './catalog.js'
+import { activePreset, applyPreset, catalogReady, categories, creditFor, defaults, groups, isDisabled, isLoaded, objectKeys, objectMeta, presets, qualityKeys, restoreParams, resultCounts, searchObjects, setParam, setSpec } from './catalog.js'
 import { loadSettings, saveSettings } from './storage.js'
 import { SIDEBAR_MAX, SIDEBAR_MIN, clampSidebarWidth } from './sidebar.js'
-import { THUMBNAILS } from './thumbs.js'
 import { decodeMesh, meshStats } from './mesh.js'
 import { DEFAULT_EXAMPLE, EXAMPLES } from './examples.js'
 import { copyText } from './clipboard.js'
 import * as fmt from './format.js'
+import { viewportRuntime } from './viewport.js'
+import { Thumb } from './components/Thumb.jsx'
 import { Viewport } from './components/Viewport.jsx'
 import { ParamField } from './components/ParamField.jsx'
 import { CodeEditor } from './components/CodeEditor.jsx'
 import { AiPanel } from './components/AiPanel.jsx'
 import { Icon, Logo } from './components/Icons.jsx'
 
-const bridge = createBridge()
 const QUALITY_LABELS = { draft: 'Draft', balanced: 'Balanced', final: 'Fine' }
 const QUALITY_HINTS = {
   draft: 'Coarse curves, fastest renders',
@@ -28,7 +28,7 @@ const AUTO_RENDER_DELAY = 900
 const VIEW_BUTTONS = [['iso', 'Isometric'], ['front', 'Front'], ['right', 'Right'], ['top', 'Top']]
 
 function exportName(key, params) {
-  const label = OBJECTS[key].label
+  const label = objectMeta(key)?.label || key
   if (params.gridx === undefined) return label
   return `${label} ${params.gridx}x${params.gridy}${params.gridz !== undefined ? `x${params.gridz}` : ''}`
 }
@@ -56,14 +56,17 @@ function EnginePill({ engine, onDetails }) {
 
 export default function App() {
   const saved = useMemo(() => loadSettings(), [])
+  const savedParams = useRef(saved.params && typeof saved.params === 'object' ? saved.params : {})
   const [mode, setMode] = useState(saved.mode === 'code' ? 'code' : 'library')
   const [sidebarWidth, setSidebarWidth] = useState(() => clampSidebarWidth(saved.sidebarWidth, globalThis.innerWidth))
-  const [objectKey, setObjectKey] = useState(OBJECTS[saved.objectKey] ? saved.objectKey : 'gridfinity_bin')
-  const [paramsByObject, setParamsByObject] = useState(() => Object.fromEntries(
-    Object.keys(OBJECTS).map((key) => [key, restoreParams(key, saved.params?.[key])])))
+  const [objectKey, setObjectKey] = useState(() => (objectMeta(saved.objectKey) ? saved.objectKey : objectKeys()[0] || null))
+  // Values are materialised per object, when its specification arrives, instead of
+  // building defaults for all 350 models while the tab is opening.
+  const [paramsByObject, setParamsByObject] = useState({})
+  const [catalogTick, setCatalogTick] = useState(0)
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState(ALL)
-  const [quality, setQuality] = useState(QUALITY.includes(saved.quality) ? saved.quality : 'balanced')
+  const [quality, setQuality] = useState(() => (qualityKeys().includes(saved.quality) ? saved.quality : qualityKeys()[0] || 'balanced'))
   const [format, setFormat] = useState(saved.format === '3mf' ? '3mf' : 'stl')
   const [code, setCode] = useState(typeof saved.code === 'string' && saved.code.trim() ? saved.code : EXAMPLES[DEFAULT_EXAMPLE].code)
   const [aiState, dispatchAI] = useReducer(aiReducer, initialAIState)
@@ -86,14 +89,32 @@ export default function App() {
   const latestPreview = useRef(0)
   const opsRef = useRef({})
 
-  const object = OBJECTS[objectKey]
-  const params = paramsByObject[objectKey]
+  const object = objectKey ? objectMeta(objectKey) : null
+  const params = objectKey ? paramsByObject[objectKey] ?? null : null
+  const loaded = Boolean(objectKey && isLoaded(objectKey))
+  // The panel waits for the merged values, not just the spec: isLoaded() turns
+  // true the moment the reply lands, one render before the effect below has
+  // materialised the values.
+  const ready = params !== null
   const busyOps = Object.values(ops)
   const visibleObjects = searchObjects(query, category)
   const counts = resultCounts(query, category)
   const objectPresets = presets(objectKey)
-  const activeName = activePreset(objectKey, params)
+  const activeName = params ? activePreset(objectKey, params) : null
   const chips = [ALL, ...categories()]
+
+  // The parameters of the selected model, fetched once per object, and its values
+  // seeded from the saved settings - keeping only values still valid for it.
+  useEffect(() => {
+    if (!objectKey || loaded || !bridge.available) return
+    bridge.send({ type: 'spec', id: `spec:${objectKey}`, key: objectKey })
+  }, [objectKey, loaded, catalogTick])
+
+  useEffect(() => {
+    if (!objectKey || !loaded) return
+    setParamsByObject((all) => (all[objectKey] !== undefined ? all
+      : { ...all, [objectKey]: restoreParams(objectKey, savedParams.current[objectKey]) }))
+  }, [objectKey, loaded, catalogTick])
 
   // A credit popover closes on Escape, on a click outside itself and on scroll
   // (the icon's viewport rect would go stale), and when the list is filtered.
@@ -157,6 +178,8 @@ export default function App() {
       setExports((list) => [{ ...msg, time: new Date() }, ...list].slice(0, 12))
       if (op.purpose === 'plate') notify(msg.handoff?.ok ? 'success' : 'error', msg.handoff?.message || 'Exported.')
       else notify('success', `Saved ${msg.filename}`)
+    } else if (msg.type === 'spec') {
+      if (setSpec(msg.key, msg.spec)) setCatalogTick((n) => n + 1)
     } else if (msg.type === 'ai_status') {
       dispatchAI({ type: 'status', status: msg })
     } else if (msg.type === 'ai_event') {
@@ -235,15 +258,19 @@ export default function App() {
 
   // ---- rendering ------------------------------------------------------------
   const source = useCallback(() => (mode === 'library'
-    ? { object: objectKey, params, name: exportName(objectKey, params) }
+    ? (params ? { object: objectKey, params, name: exportName(objectKey, params) } : null)
     : { code, name: 'openscad-model' }), [mode, objectKey, params, code])
 
   const requestPreview = useCallback(() => {
-    if (!bridge.available) return
+    const job = source()
+    if (!bridge.available || !job) return
     const id = nextId.current++
     latestPreview.current = id
     setPending({ id, message: 'Rendering…' })
-    if (!bridge.send({ type: 'render', id, purpose: 'preview', quality, ...source() })) {
+    // The 3D viewer is only needed once something is being rendered, so it loads
+    // while OpenSCAD runs instead of holding up the page.
+    viewportRuntime().catch(() => {})
+    if (!bridge.send({ type: 'render', id, purpose: 'preview', quality, ...job })) {
       setPending(null)
       setError({ message: 'Could not reach the plugin. Reopen the OrcaCAD tab and try again.', fields: {} })
     }
@@ -251,7 +278,7 @@ export default function App() {
 
   // These effects are keyed on the render inputs on purpose (not on requestPreview's identity).
   useEffect(() => {
-    if (mode !== 'library') return undefined
+    if (mode !== 'library' || !params) return undefined
     const timer = setTimeout(requestPreview, PREVIEW_DELAY)
     return () => clearTimeout(timer)
   }, [mode, objectKey, params, quality])
@@ -267,10 +294,15 @@ export default function App() {
   }, [code])
 
   const runOperation = (purpose) => {
+    const job = source()
+    if (!bridge.available || !job) {
+      notify('error', 'Open this page from the OrcaCAD tab in OrcaSlicer to export models.')
+      return
+    }
     const id = nextId.current++
     opsRef.current[id] = { purpose, message: purpose === 'plate' ? 'Sending to plate…' : 'Exporting…' }
     setOps({ ...opsRef.current })
-    if (!bridge.send({ type: 'render', id, purpose, quality, format, ...source() })) {
+    if (!bridge.send({ type: 'render', id, purpose, quality, format, ...job })) {
       delete opsRef.current[id]
       setOps({ ...opsRef.current })
       notify('error', 'Open this page from the OrcaCAD tab in OrcaSlicer to export models.')
@@ -304,10 +336,10 @@ export default function App() {
   }
 
   const renderBlocked = Boolean(error?.fields && Object.keys(error.fields).length) && mode === 'library'
-  const exportDisabled = !bridge.available || renderBlocked
+  const exportDisabled = !bridge.available || renderBlocked || (mode === 'library' && !params)
   const fitKey = mode === 'library' ? objectKey : 'code'
   const stats = preview?.stats
-  const paramLabels = Object.fromEntries(object.parameters.map((p) => [p.variable, p.label]))
+  const paramLabels = Object.fromEntries((object?.parameters || []).map((p) => [p.variable, p.label]))
 
   return (
     <div className="app">
@@ -328,7 +360,7 @@ export default function App() {
         <EnginePill engine={engine} onDetails={() => engine.error && notify('error', engine.error)} />
         <div className="topbar-actions">
           <div className="segmented quality" role="radiogroup" aria-label="Quality">
-            {QUALITY.map((key) => (
+            {qualityKeys().map((key) => (
               <button key={key} type="button" role="radio" aria-checked={quality === key} title={QUALITY_HINTS[key]}
                 className={quality === key ? 'is-active' : ''} onClick={() => setQuality(key)}>{QUALITY_LABELS[key] || key}</button>
             ))}
@@ -375,25 +407,24 @@ export default function App() {
                 <div className="object-scroll" role="group" aria-label="Models" tabIndex={0}>
                   <div className="object-list">
                     {visibleObjects.map((key) => {
-                      const credit = attributionFor(OBJECTS[key])
+                      const meta = objectMeta(key)
+                      const credit = creditFor(key)
                       return (
                         <div key={key} className="object-cell">
                           <button type="button" className={`object-card${key === objectKey ? ' is-active' : ''}`}
                             aria-pressed={key === objectKey} onClick={() => { setObjectKey(key); setAttrib(null) }}
-                            title={`${OBJECTS[key].label} - ${OBJECTS[key].description}`}>
-                            <span className="object-thumb">
-                              {THUMBNAILS[key] && <img src={THUMBNAILS[key]} alt="" loading="lazy" />}
-                            </span>
+                            title={`${meta.label} - ${meta.description}`}>
+                            <Thumb name={key} />
                             <span className="object-body">
-                              <span className="object-name">{OBJECTS[key].short || OBJECTS[key].label}</span>
-                              <span className="object-cat">{OBJECTS[key].category}</span>
-                              {OBJECTS[key].description && <span className="object-desc">{OBJECTS[key].description}</span>}
+                              <span className="object-name">{meta.short || meta.label}</span>
+                              <span className="object-cat">{meta.category}</span>
+                              {meta.description && <span className="object-desc">{meta.description}</span>}
                             </span>
                           </button>
                           {credit && (
                             <button type="button" className="object-attrib"
                               aria-expanded={attrib?.key === key}
-                              aria-label={`Credits for ${OBJECTS[key].label}`}
+                              aria-label={`Credits for ${meta.label}`}
                               title={`Credit: ${credit.label}${credit.license ? ` (${credit.license})` : ''}`}
                               onClick={(event) => {
                                 event.stopPropagation()
@@ -407,7 +438,9 @@ export default function App() {
                       )
                     })}
                     {!visibleObjects.length && (
-                      <p className="muted empty-search">No models match{query.trim() ? ` “${query.trim()}”` : ` the “${category}” category`}.</p>
+                      <p className="muted empty-search">{catalogReady()
+                        ? <>No models match{query.trim() ? ` “${query.trim()}”` : ` the “${category}” category`}.</>
+                        : 'The model library is unavailable. Open the OrcaCAD tab inside OrcaSlicer.'}</p>
                     )}
                   </div>
                 </div>
@@ -415,14 +448,20 @@ export default function App() {
               <div className="sidebar-block params">
                 <div className="section-head">
                   <div>
-                    <h2>{object.label}</h2>
-                    <p className="muted">{object.description}</p>
+                    <h2>{object?.label || 'No model selected'}</h2>
+                    <p className="muted">{object?.description}</p>
                   </div>
-                  <button type="button" className="btn btn-ghost btn-sm" onClick={resetParams} title="Restore default values">
+                  <button type="button" className="btn btn-ghost btn-sm" onClick={resetParams} title="Restore default values"
+                    disabled={!ready}>
                     <Icon name="reset" size={15} /><span>Reset</span>
                   </button>
                 </div>
-                {!!objectPresets.length && (
+                {!ready && (
+                  <p className="muted empty-search">{catalogReady()
+                    ? (bridge.available ? 'Loading this model\u2019s parameters…' : 'Reconnect from OrcaSlicer to load this model\u2019s parameters.')
+                    : 'The model library is unavailable. Open the OrcaCAD tab inside OrcaSlicer.'}</p>
+                )}
+                {ready && !!objectPresets.length && (
                   <section className="preset-block" aria-label="Presets">
                     <h3 className="preset-title">Presets</h3>
                     <div className="preset-row">
@@ -437,7 +476,7 @@ export default function App() {
                     </div>
                   </section>
                 )}
-                {groups(objectKey).map((group, index) => (
+                {ready && groups(objectKey).map((group, index) => (
                   <details key={`${objectKey}-${group.name}`} className="param-group" open={index < 3}>
                     <summary><span>{group.name}</span><Icon name="chevron" size={16} /></summary>
                     <div className="param-list">
@@ -502,8 +541,10 @@ export default function App() {
         )}
 
         <section className="stage" aria-label="Preview">
-          <Viewport ref={viewport} mesh={preview?.mesh || null} fitKey={fitKey} wireframe={view.wireframe}
-            edges={view.edges} grid={view.grid} dimmed={Boolean(error && preview)} />
+          {preview?.mesh ? (
+            <Viewport ref={viewport} mesh={preview.mesh} fitKey={fitKey} wireframe={view.wireframe}
+              edges={view.edges} grid={view.grid} dimmed={Boolean(error)} />
+          ) : null}
           <div className="stage-toolbar glass" role="toolbar" aria-label="View">
             {VIEW_BUTTONS.map(([key, label]) => (
               <button key={key} type="button" className="icon-btn" title={`${label} view`} aria-label={`${label} view`}
@@ -612,8 +653,8 @@ export default function App() {
       </main>
 
       {attrib && (() => {
-        const spec = OBJECTS[attrib.key]
-        const credit = spec && attributionFor(spec)
+        const spec = objectMeta(attrib.key)
+        const credit = spec && creditFor(attrib.key)
         if (!credit) return null
         const width = Math.min(280, globalThis.innerWidth - 16)
         const left = Math.max(8, Math.min(attrib.rect.left, globalThis.innerWidth - width - 8))

@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.9.19 — the tab opens again on slow machines: a 5x smaller page (2026-10-18)
+
+- **The blank tab on slower Windows machines is fixed.** OrcaSlicer builds a
+  plugin tab from one HTML string and hands it to the embedded browser in a
+  single call, and that call fails above roughly 2 MB - the tab then stays
+  empty and only the C++ side logs anything. 0.9.18's page had grown to 1.85 MB
+  and sat inside that failure band. The page is now **336 KB** (plus a 120 KB
+  catalog index) and everything heavy is fetched from the plugin while the page
+  runs.
+- **The model previews are no longer inlined into the page.** All 350 preview
+  PNGs (425 KB of base64) used to be embedded in the HTML. A card now asks for
+  its own preview once it scrolls into view, so the first paint carries none of
+  them and scrolling loads a screenful at a time.
+- **Three.js is no longer in the page either.** The viewer chunk (471 KB, 120 KB
+  gzipped) is fetched over the plugin bridge when a render starts, and it can
+  fall back to plain text for webviews without `DecompressionStream`.
+- **Parameters arrive per object.** The 541 KB parameter/preset catalog used to
+  be inlined with the page; the page now carries only the list itself and pulls
+  one object's parameters when you select it.
+- **First paint is 4-6x faster.** On a CPU-throttled browser the first
+  contentful paint drops from 704 ms to 120 ms at 1x and from 2,780 ms to
+  476 ms at 8x, and the 350-card grid paints in 585 ms instead of 1,255 ms at
+  1x. A page that throws now shows an error panel with the message instead of
+  unmounting to white, and the prebuilt previews and viewer chunk are read from
+  the single-file archive without being unpacked (350 fewer files written on
+  first start).
+
 ## 0.9.18 — 200 more open source models, credited to their authors (2026-10-17)
 
 - **The library more than doubles, from 150 to 350 parametric models.** Ten

@@ -287,6 +287,19 @@ html:root .object-card.is-active {
   overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
 }
 .empty-search { padding: 8px 2px; }
+/* Shown until that card's prebuilt preview arrives from the plugin. */
+.thumb-empty { display: block; width: 80%; height: 80%; border-radius: 10px; background: var(--hover); }
+
+/* The first paint and the "could not start" panel. OrcaSlicer builds the tab from
+   one HTML string and only logs a failure, so the page reports its own. */
+.boot-status { margin: 0; padding: 16px 18px; color: var(--muted); }
+.boot-failure {
+  margin: 24px auto; max-width: 560px; padding: 18px 20px; background: var(--panel);
+  border: 1px solid var(--line-strong); border-radius: var(--radius);
+}
+.boot-failure h2 { margin: 0 0 8px; font-size: 1.1rem; }
+.boot-failure p { margin: 6px 0 12px; word-break: break-word; }
+.boot-failure p.muted { font-size: .82rem; }
 
 .section-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
 .section-head h2 {

@@ -32,3 +32,7 @@ export function createBridge(host = globalThis) {
     },
   }
 }
+
+// One bridge for the page: several small modules (thumbnails, 3D viewport)
+// listen for their own replies without the app having to route every message.
+export const bridge = createBridge()

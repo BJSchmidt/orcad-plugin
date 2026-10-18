@@ -12,9 +12,9 @@ from pathlib import Path
 
 import pytest
 
-from openscad import (CATALOG, BackendError, OpenSCADRunner, backend_args, build_argv, clean_log, defaults,
-                      encode_define, index_stl, probe_openscad, source_path, triangle_count,
-                      validate_parameters, write_3mf)
+from openscad import (CATALOG, BackendError, OpenSCADRunner, backend_args, build_argv, clean_log, credit_for, defaults,
+                      encode_define, index_payload, index_stl, probe_openscad, source_path, spec_payload,
+                      triangle_count, validate_parameters, write_3mf)
 from openscad.catalog import LIBRARIES, LIBRARY_DIRS, LIBRARY_SEARCH_PATH, ROOT
 from openscad.errors import ErrorCode
 from openscad.runner import _failure, child_env
@@ -82,6 +82,51 @@ def test_every_object_documents_itself_and_its_presets_validate():
             assert preset["name"].strip(), name
             assert set(preset["params"]) <= variables, (name, preset["name"])
             assert validate_parameters(name, preset["params"]) == {**defaults(name), **preset["params"]}
+
+
+def test_index_payload_is_the_list_the_page_starts_from():
+    index = index_payload()
+    assert set(index) == {"revision", "quality_profiles", "credits", "objects"}
+    assert set(index["objects"]) == set(CATALOG["objects"])
+    assert index["quality_profiles"] == CATALOG["quality_profiles"]
+    for name, entry in index["objects"].items():
+        assert entry["label"] and entry["category"], name
+        assert isinstance(entry["description"], str)
+        # A card shows a description, not the parameter table: those arrive one
+        # object at a time, or the page would not fit the host's webview.
+        assert "parameters" not in entry and "presets" not in entry and "source" not in entry
+
+
+def test_index_credits_are_shared_by_id_and_resolvable():
+    index = index_payload()
+    credit_ids = {entry["credit"] for entry in index["objects"].values() if "credit" in entry}
+    assert credit_ids <= set(index["credits"])
+    assert 0 < len(credit_ids) < len(index["objects"]), "credits belong to the library, not to each model"
+    for key, credit in index["credits"].items():
+        assert credit["label"] and credit["license"], key
+        assert credit["repository"].startswith("http"), key
+
+
+def test_credit_for_points_at_the_vendored_library():
+    key = next(name for name, entry in CATALOG["objects"].items()
+               if str(entry.get("source", "")).startswith("vendor/"))
+    credit_id, credit = credit_for(key)
+    assert credit_id in LIBRARIES
+    assert credit == {field: LIBRARIES[credit_id].get(field, "")
+                      for field in ("label", "license", "author", "repository")}
+    assert credit_for("box") is None, "a model written for OrcaCAD needs no credit"
+
+
+def test_spec_payload_carries_one_objects_parameters():
+    source = CATALOG["objects"]["nameplate"]
+    spec = spec_payload("nameplate")
+    assert spec["label"] == source["label"] and spec["category"] == source["category"]
+    assert spec["parameters"] == source["parameters"] and spec["presets"] == source["presets"]
+    assert spec_payload("box")["parameters"] == CATALOG["objects"]["box"]["parameters"]
+    with pytest.raises(BackendError):
+        spec_payload("no-such-object")
+    # The whole point of the split: this is a fraction of the catalog.
+    assert len(json.dumps(spec_payload("nameplate"))) < len(json.dumps(CATALOG)) // 20
 
 
 # ---------------------------------------------------------------- libraries

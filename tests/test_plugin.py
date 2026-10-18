@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import base64
 import ctypes
+import gzip
 import hashlib
 import importlib
 import json
@@ -75,6 +76,68 @@ def test_hello_engine_and_malformed_messages(session):
     assert session.handle('{"type": "engine"}')["version"] == "2026.09.22"
     assert session.handle("not json")["type"] == "error"
     assert session.handle({"type": "fly"})["type"] == "error"
+
+
+def test_page_carries_the_catalog_index_and_stays_under_the_budget():
+    page = orcad.page_html()
+    assert len(page.encode("utf-8")) < 1024 * 1024, "the host hands the page to the webview in one string"
+    assert "<head>" in page.split("window.__ORCAD_BOOT__", 1)[0], "the index loads before the app"
+    boot = json.loads(page.split("window.__ORCAD_BOOT__=", 1)[1].split(";</script>", 1)[0])
+    assert boot["version"] == orcad.PLUGIN_VERSION
+    objects = boot["catalog"]["objects"]
+    assert set(objects) == set(scad.CATALOG["objects"])
+    assert boot["catalog"]["credits"]
+
+
+def test_spec_serves_one_objects_parameters_on_demand(session):
+    reply = session.handle({"type": "spec", "id": "spec:box", "key": "box"})
+    assert reply["type"] == "spec" and reply["ok"] is True and reply["id"] == "spec:box" and reply["key"] == "box"
+    spec = reply["spec"]
+    assert spec["label"] and [param["variable"] for param in spec["parameters"]]
+    assert spec["parameters"] == scad.CATALOG["objects"]["box"]["parameters"]
+    missing = session.handle({"type": "spec", "id": 1, "key": "nope"})
+    assert missing["type"] == "spec" and missing["ok"] is False and missing["error"]
+    assert session.handle({"type": "spec", "id": 2, "key": None})["ok"] is False
+
+
+def test_previews_are_served_as_png_for_known_models_only(session):
+    reply = session.handle({"type": "thumbs", "id": "t1", "keys": ["box", "nope", "../catalog.json", 7, "box"]})
+    assert reply["type"] == "thumbs" and reply["id"] == "t1"
+    assert [item["key"] for item in reply["items"]] == ["box", "box"]
+    assert base64.b64decode(reply["items"][0]["png"]).startswith(b"\x89PNG\r\n\x1a\n")
+    assert session.handle({"type": "thumbs", "id": 2})["items"] == []
+    assert session.handle({"type": "thumbs", "id": 3, "keys": "box"})["items"] == []
+
+
+def test_previews_are_capped_per_message(session):
+    keys = list(scad.CATALOG["objects"])[:orcad.MAX_THUMBS_PER_MESSAGE + 5]
+    items = session.handle({"type": "thumbs", "id": 1, "keys": keys})["items"]
+    assert len(items) == orcad.MAX_THUMBS_PER_MESSAGE
+
+
+def test_missing_previews_are_skipped_not_fatal(session, monkeypatch):
+    monkeypatch.setattr(orcad, "payload_bytes", lambda kind, name="": None)
+    reply = session.handle({"type": "thumbs", "id": 1, "keys": ["box"]})
+    assert reply["items"] == []
+
+
+def test_viewport_chunk_arrives_gzipped_or_plain(session):
+    if orcad.payload_bytes("viewport.js") is None:
+        pytest.skip("run the frontend build (npm run build) to produce the viewer chunk")
+    reply = session.handle({"type": "viewport", "id": "v1"})
+    assert reply["type"] == "viewport" and reply["ok"] is True and reply["encoding"] == "gzip"
+    code = gzip.decompress(base64.b64decode(reply["code"])).decode("utf-8")
+    assert "__orcadThree" in code
+    plain = session.handle({"type": "viewport", "id": "v2", "encoding": "plain"})
+    assert plain["encoding"] == "plain" and "__orcadThree" in plain["code"]
+    # The gzipped form is what the page asks for; it has to be worth it.
+    assert len(reply["code"]) < len(plain["code"]) / 2
+
+
+def test_viewport_chunk_reports_a_missing_build(session, monkeypatch):
+    monkeypatch.setattr(orcad, "payload_bytes", lambda kind, name="": None)
+    reply = session.handle({"type": "viewport", "id": None})
+    assert reply["ok"] is False and "3D viewer" in reply["error"]
 
 
 @pytest.mark.parametrize("msg", [
@@ -420,13 +483,17 @@ def test_single_file_install_uses_the_embedded_page_and_backend(tmp_path, monkey
     shutil.copy(Path(orcad.__file__), tmp_path / "orcad.py")
     _redirect_cache(monkeypatch, tmp_path)
     code = ("import orcad, json; s = orcad.Session(print); "
-            "print(json.dumps([orcad.scad.__file__, orcad.page_html()[:15], sorted(orcad.scad.CATALOG['objects'])]))")
+            "print(json.dumps([orcad.scad.__file__, orcad.page_html()[:15], sorted(orcad.scad.CATALOG['objects']), "
+            "len(orcad.thumb_payload('box') or b''), orcad.viewport_payload('gzip') is not None, "
+            "(orcad._BACKEND_ROOT / 'thumbs').exists()]))")
     out = subprocess.run([sys.executable, "-c", code], cwd=tmp_path, capture_output=True, text=True, check=True).stdout
-    module_path, page, objects = json.loads(out.strip().splitlines()[-1])
+    module_path, page, objects, thumb, viewer, extracted = json.loads(out.strip().splitlines()[-1])
     # unpacked into the short per-user cache, not next to the plugin: the cloud install
     # directory is already ~160 characters, and the vendored paths are 93 more
     assert Path(module_path).is_relative_to(orcad._cache_root() / "backend")
     assert page.startswith("<!doctype html>") and "gridfinity_bin" in objects
+    # previews and the viewer are read from the archive, so they are never written out
+    assert thumb > 100 and viewer is True and extracted is False
 
 
 def test_blocked_rename_still_loads_the_backend_from_the_staging_tree(tmp_path, monkeypatch):
@@ -450,7 +517,7 @@ def test_unpackable_backend_reports_the_target_path(monkeypatch, tmp_path):
     monkeypatch.setattr(orcad, "HERE", tmp_path / "plugin")
     monkeypatch.setattr(orcad, "_cache_root", lambda: tmp_path / "cache")
 
-    def too_long(self, path):
+    def too_long(self, path, members=None):
         raise OSError(206, "The filename or extension is too long")
 
     monkeypatch.setattr(orcad.zipfile.ZipFile, "extractall", too_long)

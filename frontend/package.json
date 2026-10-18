@@ -1,7 +1,7 @@
 {
   "name": "orcad-ui",
   "private": true,
-  "version": "0.9.18",
+  "version": "0.9.19",
   "license": "AGPL-3.0-only",
   "type": "module",
   "engines": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --config vite.viewport.config.js",
     "test": "node --test"
   },
   "dependencies": {

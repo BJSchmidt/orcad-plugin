@@ -1,17 +1,88 @@
-import catalog from '../../openscad/catalog.json' with { type: 'json' }
+// Catalog access.
+//
+// The catalog is deliberately *not* part of the page bundle. OrcaSlicer loads a
+// plugin page with SetPage(), which hands the HTML to the webview in one piece
+// and stops working somewhere below 2 MB - the 1 MB catalog plus the 350 model
+// previews pushed the page over that wall and left the tab blank. So the page
+// ships with a compact index (labels, categories, credits) and asks the plugin
+// for one full object specification when an object is selected.
+//
+// A specification is merged into the index entry, so every helper below reads
+// one object record whether the parameters have arrived or not. `isLoaded()`
+// tells them apart.
 
-export const QUALITY = Object.keys(catalog.quality_profiles)
-export const OBJECTS = catalog.objects
-export const OBJECT_KEYS = Object.keys(OBJECTS)
-export const LIBRARY_REVISION = catalog.source.revision
+const EMPTY_INDEX = { objects: {}, credits: {}, quality_profiles: {}, revision: '' }
+
+let INDEX = EMPTY_INDEX
+
+function isObject(value) {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
+}
+
+/** Installs the compact index the plugin injected into the page. */
+export function setCatalog(index) {
+  const objects = {}
+  for (const [key, meta] of Object.entries(index?.objects || {})) {
+    if (isObject(meta)) objects[key] = { ...meta }
+  }
+  INDEX = {
+    objects,
+    credits: isObject(index?.credits) ? { ...index.credits } : {},
+    quality_profiles: isObject(index?.quality_profiles) ? { ...index.quality_profiles } : {},
+    revision: typeof index?.revision === 'string' ? index.revision : '',
+  }
+}
+
+export function catalogReady() {
+  return Object.keys(INDEX.objects).length > 0
+}
+
+export function objectKeys() {
+  return Object.keys(INDEX.objects)
+}
+
+export function objectMeta(key) {
+  return INDEX.objects[key]
+}
+
+/** True once the object's full specification (parameters, presets) has arrived. */
+export function isLoaded(key) {
+  return Array.isArray(INDEX.objects[key]?.parameters)
+}
+
+/** Merges one object specification from the plugin into the index. */
+export function setSpec(key, spec) {
+  if (!isObject(spec)) return null
+  const merged = { ...(INDEX.objects[key] || {}), ...spec }
+  INDEX.objects[key] = merged
+  return merged
+}
+
+export function qualityKeys() {
+  return Object.keys(INDEX.quality_profiles)
+}
+
+export function revision() {
+  return INDEX.revision
+}
+
+export function categories() {
+  return [...new Set(Object.values(INDEX.objects).map((object) => object.category).filter(Boolean))]
+}
+
+/** The credit an object's card points at, or null for the plugin's own models. */
+export function creditFor(key) {
+  const id = INDEX.objects[key]?.credit
+  return id ? INDEX.credits[id] || null : null
+}
 
 export function defaults(key) {
-  return Object.fromEntries((OBJECTS[key]?.parameters || []).map((p) => [p.variable, p.default]))
+  return Object.fromEntries((INDEX.objects[key]?.parameters || []).map((p) => [p.variable, p.default]))
 }
 
 export function groups(key) {
   const result = new Map()
-  for (const param of OBJECTS[key]?.parameters || []) {
+  for (const param of INDEX.objects[key]?.parameters || []) {
     const name = param.group || 'Parameters'
     if (!result.has(name)) result.set(name, [])
     result.get(name).push(param)
@@ -19,32 +90,8 @@ export function groups(key) {
   return [...result].map(([name, params]) => ({ name, params }))
 }
 
-// A model that comes from a vendored library, or that carries an explicit
-// `attribution`, needs credit: its card shows an info button whose popover
-// names the source, its license, the copyright holder and the repository.
-// Original objects written for this plugin have neither and stay unmarked.
-export function attributionFor(object) {
-  if (!object) return null
-  const explicit = object.attribution
-  const source = object.source || ''
-  const library = source.startsWith('vendor/')
-    ? Object.values(catalog.libraries || {}).find((entry) => source.startsWith(`${entry.root}/`))
-    : null
-  if (!explicit?.label && !library) return null
-  return {
-    label: explicit?.label || library.label,
-    license: explicit?.license || library?.license || '',
-    author: explicit?.author || library?.author || '',
-    repository: explicit?.repository || library?.repository || '',
-  }
-}
-
 function normalize(text) {
   return String(text ?? '').trim().toLowerCase().replace(/\s+/g, ' ')
-}
-
-export function categories() {
-  return [...new Set(OBJECT_KEYS.map((key) => OBJECTS[key].category).filter(Boolean))]
 }
 
 // Every word an object can be found by: key, label, category, description, tags.
@@ -59,11 +106,11 @@ export function objectMatches(object, key, query = '', category = 'all') {
 }
 
 export function searchObjects(query = '', category = 'all') {
-  return OBJECT_KEYS.filter((key) => objectMatches(OBJECTS[key], key, query, category))
+  return objectKeys().filter((key) => objectMatches(INDEX.objects[key], key, query, category))
 }
 
 export function resultCounts(query = '', category = 'all') {
-  return { shown: searchObjects(query, category).length, total: OBJECT_KEYS.length }
+  return { shown: searchObjects(query, category).length, total: objectKeys().length }
 }
 
 // Mirrors the backend rules so an obviously bad value never costs a render.
@@ -93,7 +140,7 @@ export function checkValue(param, value) {
 export function restoreParams(key, saved) {
   const result = defaults(key)
   if (!saved || typeof saved !== 'object') return result
-  for (const param of OBJECTS[key]?.parameters || []) {
+  for (const param of INDEX.objects[key]?.parameters || []) {
     const value = saved[param.variable]
     if (value !== undefined && checkValue(param, value) === null) result[param.variable] = value
   }
@@ -102,13 +149,14 @@ export function restoreParams(key, saved) {
 
 // Presets are optional catalog data: [{ name, description?, params: { variable: value } }].
 export function presetList(list) {
-  if (!Array.isArray(list)) return []
-  return list.filter((preset) => preset && typeof preset === 'object'
-    && typeof preset.name === 'string' && preset.name && preset.params && typeof preset.params === 'object')
+  return Array.isArray(list)
+    ? list.filter((preset) => preset && typeof preset === 'object'
+      && typeof preset.name === 'string' && preset.name && preset.params && typeof preset.params === 'object')
+    : []
 }
 
 export function presets(key) {
-  return presetList(OBJECTS[key]?.presets)
+  return presetList(INDEX.objects[key]?.presets)
 }
 
 // Applies known parameter names only; anything unknown or invalid for the parameter is ignored.
@@ -116,7 +164,7 @@ export function presets(key) {
 export function applyPreset(key, values, preset) {
   let next = { ...values }
   if (!preset || typeof preset.params !== 'object') return next
-  for (const param of OBJECTS[key]?.parameters || []) {
+  for (const param of INDEX.objects[key]?.parameters || []) {
     const value = preset.params[param.variable]
     if (value === undefined || checkValue(param, value) !== null) continue
     next = setParam(key, next, param.variable, value)
@@ -140,7 +188,7 @@ export function isDisabled(param, values) {
 // Turning one option on switches off the options it conflicts with.
 export function setParam(key, values, name, value) {
   const next = { ...values, [name]: value }
-  const param = OBJECTS[key]?.parameters.find((p) => p.variable === name)
+  const param = INDEX.objects[key]?.parameters.find((p) => p.variable === name)
   if (value === true) for (const other of param?.conflicts_with || []) next[other] = false
   return next
 }

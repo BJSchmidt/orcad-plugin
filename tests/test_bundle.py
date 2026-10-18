@@ -43,6 +43,25 @@ def test_render_target_fills_every_region_idempotently():
     assert gzip.decompress(base64.b64decode(icon)) == bundle.ICON.read_bytes()
 
 
+def test_archive_carries_the_previews_and_the_viewer():
+    names = set(zipfile.ZipFile(io.BytesIO(bundle.backend_archive())).namelist())
+    previews = {name for name in names if name.startswith("thumbs/")}
+    assert previews == {f"thumbs/{path.name}" for path in bundle.THUMBS.glob("*.png")}
+    assert len(previews) > 300 and "thumbs/box.png" in previews
+    assert "viewport.js" in names, "a single-file install has to ship the viewer chunk"
+
+
+def test_the_page_stays_far_below_the_webview_limit():
+    # OrcaSlicer hands the whole page to the webview in one call (WebView2
+    # NavigateToString), which fails above 2 MB: a page that big shows an empty
+    # tab and only logs on the C++ side. Everything heavy is fetched instead.
+    assert bundle.DIST.is_file(), "run `npm run build` in frontend/"
+    page = bundle.DIST.stat().st_size
+    assert page < bundle.MAX_PAGE_BYTES, f"the page grew to {page // 1024} KB"
+    assert page < bundle.VIEWPORT.stat().st_size, "three.js belongs in the viewer chunk, not in the page"
+    assert not (bundle.DIST.parent / "thumbs").exists(), "previews are served on demand, not bundled into the page"
+
+
 def test_versions_agree():
     plugin = (ROOT / "orcad.py").read_text(encoding="utf-8")
     header = re.search(r'^# version = "([^"]+)"', plugin, re.M).group(1)

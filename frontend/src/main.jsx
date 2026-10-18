@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
+import { ErrorBoundary } from './components/ErrorBoundary.jsx'
+import { setCatalog } from './catalog.js'
 import './style.css'
 
 // OrcaSlicer stamps data-orca-theme (and updates it live); outside the host,
@@ -13,4 +15,12 @@ if (!root.hasAttribute('data-orca-theme')) {
   query?.addEventListener?.('change', apply)
 }
 
-createRoot(document.getElementById('app')).render(<StrictMode><App /></StrictMode>)
+// The plugin injects the compact catalog index (labels, categories, credits)
+// into the page; the object parameters arrive later, one object at a time, when
+// a model is selected. Opened outside OrcaSlicer the index is missing, and the
+// app says so instead of failing.
+setCatalog(globalThis.__ORCAD_BOOT__?.catalog)
+globalThis.__orcadBooted = true
+
+createRoot(document.getElementById('app')).render(
+  <StrictMode><ErrorBoundary><App /></ErrorBoundary></StrictMode>)

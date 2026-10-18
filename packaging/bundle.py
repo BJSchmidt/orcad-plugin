@@ -18,6 +18,7 @@ import base64
 import gzip
 import hashlib
 import io
+import os
 import re
 import shutil
 import subprocess
@@ -30,9 +31,17 @@ ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / "orcad.py"
 FRONTEND = ROOT / "frontend"
 DIST = FRONTEND / "dist" / "index.html"
+# The 3D viewer, built beside the page so three.js stays out of it.
+VIEWPORT = FRONTEND / "dist" / "viewport.js"
+THUMBS = FRONTEND / "src" / "thumbs"
 BACKEND = ROOT / "openscad"
 AI_BACKEND = ROOT / "ai"
 ICON = ROOT / "assets" / "orcad-icon.png"
+# OrcaSlicer builds the tab from one HTML string and hands it to the webview in
+# one go (WebView2 NavigateToString), which refuses content above 2 MB and is
+# unreliable well before that. Keep the page far below it: the catalog, the
+# previews and the viewer are fetched from the plugin at runtime instead.
+MAX_PAGE_BYTES = 1024 * 1024
 REGIONS = {
     "backend": ("# BEGIN EMBEDDED OPENSCAD BACKEND", "# END EMBEDDED OPENSCAD BACKEND", "_EMBEDDED_BACKEND"),
     "frontend": ("# BEGIN BUNDLED FRONTEND", "# END BUNDLED FRONTEND", "_EMBEDDED_FRONTEND"),
@@ -45,23 +54,32 @@ def _blob(data: bytes) -> str:
     return base64.b64encode(gzip.compress(data, compresslevel=9, mtime=0)).decode("ascii")
 
 
-def backend_archive() -> bytes:
-    """Deterministic zip of openscad/ and ai/ (fixed timestamps, sorted names).
+def backend_archive(viewport_js: Path | None = None) -> bytes:
+    """Deterministic zip of everything the plugin ships: the OpenSCAD backend,
+    the AI backend, the prebuilt model previews and the 3D viewer chunk.
 
     The bytes must not depend on the build host: the committed blob is verified
     on Linux, Windows and macOS, and ZipInfo records the creating platform.
     """
-    buffer = io.BytesIO()
-    with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
-        files = (path for package in (BACKEND, AI_BACKEND) for path in package.rglob("*"))
-        for path in sorted(files, key=lambda item: item.relative_to(ROOT).as_posix()):
+    viewer = viewport_js if viewport_js is not None else VIEWPORT
+    files: dict[str, Path] = {}
+    for package in (BACKEND, AI_BACKEND):
+        for path in package.rglob("*"):
             name = path.relative_to(ROOT).as_posix()
             if path.is_file() and not _SKIP.search(name):
-                info = zipfile.ZipInfo(name, date_time=(2020, 1, 1, 0, 0, 0))
-                info.create_system = 3  # Unix; ZipInfo would otherwise record the build host
-                info.external_attr = 0o644 << 16
-                info.compress_type = zipfile.ZIP_DEFLATED
-                archive.writestr(info, path.read_bytes())
+                files[name] = path
+    for path in sorted(THUMBS.glob("*.png")):
+        files[f"thumbs/{path.name}"] = path
+    if viewer.is_file():
+        files["viewport.js"] = viewer
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
+        for name in sorted(files):
+            info = zipfile.ZipInfo(name, date_time=(2020, 1, 1, 0, 0, 0))
+            info.create_system = 3  # Unix; ZipInfo would otherwise record the build host
+            info.external_attr = 0o644 << 16
+            info.compress_type = zipfile.ZIP_DEFLATED
+            archive.writestr(info, files[name].read_bytes())
     return buffer.getvalue()
 
 
@@ -80,8 +98,11 @@ def render_target(text: str, frontend_html: str) -> str:
 def build_frontend(out_dir: Path | None = None) -> None:
     if not (FRONTEND / "node_modules").is_dir():
         raise SystemExit("frontend dependencies are missing; run `cd frontend && npm ci` first")
-    command = ["npm", "run", "build", "--"] + (["--outDir", str(out_dir), "--emptyOutDir"] if out_dir else [])
-    subprocess.run(command, cwd=FRONTEND, check=True, shell=sys.platform == "win32")
+    env = dict(os.environ)
+    if out_dir is not None:  # build the page and the viewer into a scratch directory
+        env["ORCAD_OUT_DIR"] = str(out_dir)
+    subprocess.run(["npm", "run", "build"], cwd=FRONTEND, check=True,
+                   shell=sys.platform == "win32", env=env)
 
 
 def run_tests() -> None:
@@ -123,9 +144,15 @@ def crlf_files() -> list[str]:
 
 def check() -> int:
     with tempfile.TemporaryDirectory() as directory:
-        build_frontend(Path(directory))
-        fresh = (Path(directory) / "index.html").read_text(encoding="utf-8")
+        out_dir = Path(directory)
+        build_frontend(out_dir)
+        fresh = (out_dir / "index.html").read_text(encoding="utf-8")
+        fresh_archive = backend_archive(out_dir / "viewport.js")
     problems = []
+    if len(fresh.encode("utf-8")) > MAX_PAGE_BYTES:
+        problems.append(f"the built page is {len(fresh.encode('utf-8')) // 1024} KB, over the {MAX_PAGE_BYTES // 1024} KB "
+                        "page budget; the host hands it to the webview in one string and stops rendering above 2 MB "
+                        "(see the notes in frontend/src/catalog.js)")
     crlf = crlf_files()
     for name in crlf:
         print(f"error: {name} has CRLF in the working tree, which git hides but the embedded blob keeps; "
@@ -137,7 +164,7 @@ def check() -> int:
         detail = []
         try:
             changed = stale_members(archive_members(embedded_blob(current, "_EMBEDDED_BACKEND")),
-                                    archive_members(backend_archive()))
+                                    archive_members(fresh_archive))
         except (KeyError, zipfile.BadZipFile) as error:
             detail = [f"backend blob unreadable: {error}"]
         else:
@@ -157,7 +184,9 @@ def write() -> None:
     TARGET.write_text(render_target(TARGET.read_text(encoding="utf-8"), DIST.read_text(encoding="utf-8")),
                       encoding="utf-8")
     shutil.rmtree(BACKEND / "__pycache__", ignore_errors=True)
-    print(f"embedded {DIST.relative_to(ROOT)}, openscad/, ai/ and the tab icon into {TARGET.name} "
+    thumbs = len(list(THUMBS.glob("*.png")))
+    print(f"embedded {DIST.relative_to(ROOT)} ({DIST.stat().st_size // 1024} KB), {thumbs} model previews, "
+          f"{VIEWPORT.relative_to(ROOT)}, openscad/, ai/ and the tab icon into {TARGET.name} "
           f"({TARGET.stat().st_size // 1024} KB)")
 
 
