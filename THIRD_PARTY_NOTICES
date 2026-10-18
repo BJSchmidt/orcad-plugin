@@ -91,6 +91,133 @@ Vendored:  openscad/vendor/rackstack-8e296e93/ - the 99 OpenSCAD sources under
            includes are broken, the rbuild.py generator and the STL/media
            assets. Supplies every rack case, tray, plate and panel model.
 
+lego-scad (cfinke)
+------------------
+Upstream:  https://github.com/cfinke/LEGO.scad
+Pinned at: d717ca8e29dbb62f271bf351b35179060eaa744e
+License:   MIT. Copyright (c) 2015 Christopher Finke; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/lego-scad-d717ca8e/ - `LEGO.scad`, plus the
+           upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+open-bricks-technic (jaydee69)
+------------------------------
+Upstream:  https://github.com/jaydee69/open-bricks-technic
+Pinned at: 0465e456fbfa8a12772cc3ba7e4aff3f4cbe2487
+License:   MIT. Copyright (c) 2019 Joerg Dettweiler; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/open-bricks-technic-0465e456/ -
+           `parts/ObtParts.scad`,
+           `parts/axles/../../globals/ObtGlobalConst.scad`,
+           `parts/axles/ObtAxlConst.scad`, `parts/axles/ObtAxlStd.scad`,
+           `parts/axles/ObtAxles.scad`,
+           `parts/connectors/../../globals/ObtGlobalConst.scad`,
+           `parts/connectors/../liftarms/../../globals/ObtGlobalConst.scad`,
+           `parts/connectors/../liftarms/ObtLftCommonDiff.scad` and 37
+           more, plus the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+bosl (revarbat)
+---------------
+Upstream:  https://github.com/revarbat/BOSL
+Pinned at: 4ce427a8a38786e5f74b728c1e33d9fe7d4904d2
+License:   BSD-2-Clause. Copyright (c) 2015-2018 Revar Desmera (revarbat);
+           the notice is in the vendored LICENSE file.
+Vendored:  openscad/vendor/bosl-4ce427a8/ - `BOSL/compat.scad`,
+           `BOSL/constants.scad`, `BOSL/involute_gears.scad`,
+           `BOSL/joiners.scad`, `BOSL/linear_bearings.scad`,
+           `BOSL/masks.scad`, `BOSL/math.scad`, `BOSL/metric_screws.scad`
+           and 6 more, plus the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+round-anything (Irev-Dev)
+-------------------------
+Upstream:  https://github.com/Irev-Dev/Round-Anything
+Pinned at: 061fef7c429628808e847696bb345a9b0ec6e279
+License:   MIT. Copyright 2020 Kurt Hutten; the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/round-anything-061fef7c/ -
+           `MinkowskiRound.scad`, `polyround.scad`, `unionRoundMask.scad`,
+           plus the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+smooth-prim (rcolyer)
+---------------------
+Upstream:  https://github.com/rcolyer/smooth-prim
+Pinned at: 0d0038f984465f3eb0f6026a4d5de2f79d2dcea8
+License:   CC0-1.0. Copyright Ryan A. Colyer (CC0 1.0 Universal dedicates
+           the work to the public domain); the notice is in the vendored
+           LICENSE file.
+Vendored:  openscad/vendor/smooth-prim-0d0038f9/ - `smooth_prim.scad`,
+           plus the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+yapp-box (mrWheel)
+------------------
+Upstream:  https://github.com/mrWheel/YAPP_Box
+Pinned at: f9400c419ef1dea7dc0b3607876989b4f3faa2b7
+License:   MIT. Copyright (c) 2021, 2022, 2023, 2024, 2025 Willem
+           Aandewiel; the notice is in the vendored LICENSE file.
+Vendored:  openscad/vendor/yapp-box-f9400c41/ - `YAPPgenerator_v3.scad`,
+           plus the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+catchnhole (mmalecki)
+---------------------
+Upstream:  https://github.com/mmalecki/catchnhole
+Pinned at: 99428972ca2588f5ce33c0df54d097a14acf7f10
+License:   MIT. Copyright (c) 2024 Maciej Malecki; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/catchnhole-99428972/ - `catchnhole/bolts.json`,
+           `catchnhole/catchnhole.scad`, `catchnhole/nuts.json`, plus the
+           upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+openscad-knobs (mmalecki)
+-------------------------
+Upstream:  https://github.com/mmalecki/openscad-knobs
+Pinned at: ae3344fa8b312a8625ddbf9328a28e71f95183d7
+License:   MIT. Copyright (c) 2024 Maciej Malecki; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/openscad-knobs-ae3344fa/ - `knob.scad`, plus
+           the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+bike-mounts (mmalecki)
+----------------------
+Upstream:  https://github.com/mmalecki/openscad-bicycle-mounts
+Pinned at: 55d636c45ec94d63732bd32591f42083e3099f09
+License:   MIT. Copyright (c) 2024 Maciej Malecki; the notice is in the
+           vendored LICENSE file.
+Vendored:  openscad/vendor/bike-mounts-55d636c4/ - `bottle-cage.scad`,
+           `handlebar.scad`, plus the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+param-case (eclecticc)
+----------------------
+Upstream:  https://github.com/eclecticc/ParametricCase
+Pinned at: b5f1ee43c1db93cac7657c52bcc5a97baa5df7c4
+License:   BSD-2-Clause. Copyright (c) 2018, Nirav Patel; the notice is in
+           the vendored LICENSE file.
+Vendored:  openscad/vendor/param-case-b5f1ee43/ - `defaults.scad`,
+           `fan.scad`, `feet.scad`, `front_panel.scad`, `gpu.scad`,
+           `heatsink.scad`, `mini-itx.scad`, `motherboard.scad` and 4
+           more, plus the upstream LICENSE.
+Supplies: helper modules that other vendored models include.
+
+rocket-fins (adrianschlatter)
+-----------------------------
+Upstream:  https://github.com/adrianschlatter/RocketFins
+Pinned at: 57f2c9fd475be499aafb2655b12f20a75f135e60
+License:   BSD-2-Clause. Copyright (c) 2019, Adrian Schlatter; the notice
+           is in the vendored LICENSE file.
+Vendored:  openscad/vendor/rocket-fins-57f2c9fd/ -
+           `PN1_3_narrow_fins.scad`, `PN2_3_broad_fins.scad`,
+           `PN3_5_narrow_fins.scad`, `fins.scad`, plus the upstream
+           LICENSE.
+Supplies: helper modules that other vendored models include.
+
 syncom/openscad-designs
 -----------------------
 Upstream:  https://github.com/syncom/openscad-designs

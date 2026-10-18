@@ -1,15 +1,17 @@
 <img src="assets/orcad-logo.png" width="96" align="right" alt="OrcaCAD logo">
 
-# OrcaCAD: parametric CAD tab for OrcaSlicer (v0.9.17)
+# OrcaCAD: parametric CAD tab for OrcaSlicer (v0.9.18)
 
 OrcaCAD adds an **OrcaCAD** tab next to Prepare / Preview / Device in OrcaSlicer. It
 lets you pick a parametric model, tune it with live 3D preview, and put it on
 the build plate with one click.
 
-- **Library:** 150 parametric models across 17 categories - Gridfinity,
-  Organization, Cases, Fasteners, Panels, Basics, Building, Technic,
-  Mechanical, Rounded shapes, Smooth shapes, Computer hardware, Rocketry,
-  Rack hardware, Controls and Cycling. Gridfinity comes from
+- **Library:** 350 parametric models across 32 categories - Gridfinity,
+  Organization, Kitchen & bath, Workshop, 3D printing, Cases, Building,
+  Cycling, Technic, Mechanical, Fasteners, Computer hardware, Toys & Games,
+  Lighting, Decor & desk, Electronics, Cable management, Astronomy, Rocketry,
+  Home hardware, Mounts, Plumbing, HVAC, Geometry, Lab, Masonry & concrete,
+  Rounded shapes, Smooth shapes, Panels, Basics, Rack hardware and Controls. Gridfinity comes from
   pinned upstream [Gridfinity Rebuilt](https://github.com/kennetek/gridfinity-rebuilt-openscad)
   source, the rack models from [rackstack](https://github.com/jazwa/rackstack),
   the split-flap parts from [splitflap](https://github.com/scottbez1/splitflap)

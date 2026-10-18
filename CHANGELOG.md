@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.9.18 — 200 more open source models, credited to their authors (2026-10-17)
+
+- **The library more than doubles, from 150 to 350 parametric models.** Ten
+themed batches of twenty cover kitchen & bath, workshop and hand tools,
+electronics and cable management, toys and games, 3D-printer accessories,
+cycling and car mounts, building and HVAC, science and lab, lighting and desk
+decor, and mechanics, robotics and motion. The catalog now spans 32 categories,
+2,003 parameters and 1,018 presets, and every object ships a rendered preview
+thumbnail.
+- **Every new model is a real, pinned upstream OpenSCAD project.** The
+catalog's `libraries` map grew from 18 to **91 vendored trees**: each one keeps
+its upstream `LICENSE` plus a `REVISION` file naming the pinned 40-character
+commit, the license, the copyright holder and the exact vendored file list,
+and `tests/test_backend.py` fails if a tree, a revision or a license ever
+drifts from the catalog. Only permissive licenses are used (MIT,
+BSD-2-Clause, BSD-3-Clause, Apache-2.0, CC0-1.0, CC-BY-4.0, Unlicense).
+- **Model cards credit their upstream project.** Any object whose source lives
+under `vendor/` now shows an info button whose popover names the library, its
+license, its author and its repository; `NOTICE` and `THIRD_PARTY_NOTICES`
+carry one block per vendored tree, and the library table in
+`openscad/README.md` lists all 91 of them.
+- **The attribution files are complete again.** The 91-tree table in
+`openscad/README.md`, `NOTICE` and `THIRD_PARTY_NOTICES` were regenerated from
+the catalog, so the eleven trees that had been vendored without a full notice
+block are documented too, and the root README's category list matches the new
+32-category catalog.
+
 ## 0.9.17 — Nameplate generator, text parameters and clickable model cards (2026-10-10)
 
 - **A new Nameplate object turns typed text into a printable sign.** 43
