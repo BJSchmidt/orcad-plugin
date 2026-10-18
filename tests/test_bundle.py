@@ -43,12 +43,14 @@ def test_render_target_fills_every_region_idempotently():
     assert gzip.decompress(base64.b64decode(icon)) == bundle.ICON.read_bytes()
 
 
-def test_archive_carries_the_previews_and_the_viewer():
+def test_archive_carries_the_previews_the_viewer_and_the_native_fast_path():
     names = set(zipfile.ZipFile(io.BytesIO(bundle.backend_archive())).namelist())
     previews = {name for name in names if name.startswith("thumbs/")}
     assert previews == {f"thumbs/{path.name}" for path in bundle.THUMBS.glob("*.png")}
     assert len(previews) > 300 and "thumbs/box.png" in previews
     assert "viewport.js" in names, "a single-file install has to ship the viewer chunk"
+    shipped = {name for name in names if name.startswith("openscad/native/dist/")}
+    assert len(shipped) == 5, f"every platform's library ships in the archive: {sorted(shipped)}"
 
 
 def test_the_page_stays_far_below_the_webview_limit():

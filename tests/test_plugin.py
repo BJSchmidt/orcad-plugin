@@ -483,17 +483,21 @@ def test_single_file_install_uses_the_embedded_page_and_backend(tmp_path, monkey
     shutil.copy(Path(orcad.__file__), tmp_path / "orcad.py")
     _redirect_cache(monkeypatch, tmp_path)
     code = ("import orcad, json; s = orcad.Session(print); "
+            "native = orcad.scad.mesh.mesh_native; "
             "print(json.dumps([orcad.scad.__file__, orcad.page_html()[:15], sorted(orcad.scad.CATALOG['objects']), "
             "len(orcad.thumb_payload('box') or b''), orcad.viewport_payload('gzip') is not None, "
-            "(orcad._BACKEND_ROOT / 'thumbs').exists()]))")
+            "(orcad._BACKEND_ROOT / 'thumbs').exists(), native.load() is not None, "
+            "str(native.library_path())]))")
     out = subprocess.run([sys.executable, "-c", code], cwd=tmp_path, capture_output=True, text=True, check=True).stdout
-    module_path, page, objects, thumb, viewer, extracted = json.loads(out.strip().splitlines()[-1])
+    module_path, page, objects, thumb, viewer, extracted, native, native_path = json.loads(out.strip().splitlines()[-1])
     # unpacked into the short per-user cache, not next to the plugin: the cloud install
     # directory is already ~160 characters, and the vendored paths are 93 more
     assert Path(module_path).is_relative_to(orcad._cache_root() / "backend")
     assert page.startswith("<!doctype html>") and "gridfinity_bin" in objects
     # previews and the viewer are read from the archive, so they are never written out
     assert thumb > 100 and viewer is True and extracted is False
+    # the C fast path is unpacked with the rest of the backend and loads from there
+    assert native is True and Path(native_path).is_relative_to(orcad._cache_root() / "backend")
 
 
 def test_blocked_rename_still_loads_the_backend_from_the_staging_tree(tmp_path, monkeypatch):

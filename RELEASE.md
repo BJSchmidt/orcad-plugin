@@ -8,12 +8,20 @@ and then publish the GitHub release with the bundled `orcad.py` attached.
 
 ```sh
 cd frontend && npm ci && cd ..
+python3 native/build.py --check          # the C fast path ships inside the plugin; rebuild with `python3 native/build.py`
 python3 packaging/bundle.py --release   # build frontend, embed into orcad.py, run every test
 python3 packaging/check.py              # the CI gate: pytest, then the bundle freshness check
 ```
 
 `--release` runs `python3 -m pytest -q tests` and `npm test`. The OpenSCAD
 render tests skip unless a 2023+ `openscad` is on `PATH`.
+
+`native/build.py --check` needs no compiler: it verifies that every platform's
+library is present, well formed and loadable here. Rebuild the libraries with
+`python3 native/build.py` (needs zig, see `native/README.md`) after changing
+`native/mesh.c`, and never edit a binary by hand - CI loads the committed
+library for each OS it runs on and compares its output against the Python
+implementation.
 
 ## 2. Bump the version
 
@@ -31,9 +39,10 @@ Then add a `## <version> — <title>` section at the top of `CHANGELOG.md`.
 non-zero when it is missing, so a tag without notes fails the release instead of
 publishing an empty description.
 
-Rebuild after every change to `frontend/`, `openscad/`, `ai/` or the version
-header: `python3 packaging/bundle.py`. `--check` in CI compares the committed
-`orcad.py` against a fresh build, so a forgotten rebuild fails the tag.
+Rebuild after every change to `frontend/`, `openscad/`, `ai/`, `native/mesh.c`
+or the version header: `python3 packaging/bundle.py`. `--check` in CI compares
+the committed `orcad.py` against a fresh build, so a forgotten rebuild fails the
+tag.
 
 A release is published only if the whole matrix is green, so run
 `python3 packaging/check.py` (pytest plus the bundle check) before tagging.

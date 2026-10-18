@@ -82,6 +82,12 @@ dependencies** (`dependencies = []`). OpenSCAD is provisioned on first use if
 needed; the AI runtime is optional and downloads only when you choose **Install
 pi** in the Code view.
 
+The one hot loop - deduplicating a rendered model's vertices into a compact
+indexed mesh - also has a small C implementation that ships with the plugin
+(`native/`, 3-50 KB per platform, no dependencies). It turns a 500k-triangle
+model from about a second into 84 ms; if it cannot be loaded for any reason,
+OrcaCAD runs the Python implementation instead, with identical output.
+
 On first start the plugin looks for OpenSCAD 2023 or newer on `PATH`. If it
 finds none, it downloads an official OpenSCAD development snapshot (about 80 MB)
 into OrcaCAD's cache folder, verifies it against a pinned SHA-256 digest, and
@@ -255,9 +261,10 @@ code you trust.
 cd frontend && npm ci && cd ..
 python3 dev/serve.py                 # the real backend + page at http://127.0.0.1:8765/?theme=dark|light
 xvfb-run -a python3 dev/thumbs.py    # re-render the model preview thumbnails
+python3 native/build.py              # rebuild the C fast path for every platform (needs zig)
 python3 packaging/bundle.py          # build the page and embed frontend, openscad/, and ai/
 python3 packaging/bundle.py --check  # CI: fail if frontend/dist or orcad.py is stale
-python3 -m pytest                    # backend, bootstrap, plugin and bundle tests
+python3 -m pytest                    # backend, bootstrap, plugin, native and bundle tests
 (cd frontend && npm test)            # bridge, catalog, mesh and storage tests
 ```
 
@@ -288,6 +295,8 @@ Layout:
   override `@layer`-based frameworks. Model previews live in
   `frontend/src/thumbs/` and are served by the plugin on demand.
 - `packaging/bundle.py`: deterministic release embedding.
+- `native/`: the C mesh fast path and the cross-build script; the libraries it
+  produces live in `openscad/native/dist/` and ship inside the backend.
 - `assets/`: the app icon (`orcad-logo.png`) and a transparent-background
   mark (`orcad-mark.png`) for light documents.
 - `.github/workflows/ci.yml`: tests plus the bundle freshness check; pushing a

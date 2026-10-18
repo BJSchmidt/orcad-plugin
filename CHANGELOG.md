@@ -26,6 +26,12 @@
   unmounting to white, and the prebuilt previews and viewer chunk are read from
   the single-file archive without being unpacked (350 fewer files written on
   first start).
+- **The mesh hot loop is native now.** Turning a rendered STL into a compact
+  indexed mesh took about a millisecond per 1000 triangles in Python - a second
+  of a large render. A small C library (`native/`, 3-50 KB per platform, no
+  dependencies, no libc) does it in 84 ms for a 500k-triangle model, and ships
+  inside the plugin for Linux, Windows and macOS. It is optional by design: if
+  it cannot be loaded, the Python implementation runs with identical output.
 
 ## 0.9.18 — 200 more open source models, credited to their authors (2026-10-17)
 

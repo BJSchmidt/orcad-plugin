@@ -8,6 +8,7 @@ from array import array
 from dataclasses import dataclass
 
 from .errors import BackendError, ErrorCode
+from . import mesh_native
 
 _HEADER = 84
 _RECORD = 50  # normal (12) + three vertices (36) + attribute (2)
@@ -38,6 +39,9 @@ def triangle_count(data: bytes) -> int:
 def index_stl(data: bytes) -> IndexedMesh:
     """Deduplicate vertices by their exact bytes (fast; no float round-trip)."""
     count = triangle_count(data)
+    native = mesh_native.index_stl(data, count)
+    if native is not None:
+        return IndexedMesh(*native)
     lookup: dict[bytes, int] = {}
     raw = bytearray()
     indices = array("I")

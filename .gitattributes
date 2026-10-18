@@ -7,3 +7,6 @@
 *.zip binary
 *.whl binary
 *.ico binary
+*.so binary
+*.dll binary
+*.dylib binary

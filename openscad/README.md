@@ -32,7 +32,9 @@ also embeds it into the single-file plugin.
   exposes that list as `LIBRARY_SEARCH_PATH` and the combined digest of all
   pinned revisions as `LIBRARY_REVISION`.
 - `mesh.py` validates STL output, deduplicates vertices for compact preview
-  meshes, and writes 3MF.
+  meshes, and writes 3MF. `mesh_native.py` loads the optional C fast path for
+  the deduplication (`native/dist/<platform>/`, see `native/README.md`); when it
+  is unavailable the Python loop runs instead, with identical output.
 - `bootstrap.py` installs a verified official OpenSCAD snapshot per user when
   none is on `PATH`. See the main README for the platform table and the
   newest-snapshot fallback.
