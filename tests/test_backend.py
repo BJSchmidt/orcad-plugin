@@ -109,6 +109,27 @@ def test_every_library_is_pinned_to_its_revision_and_keeps_its_license():
         assert spec["repository"] == metadata.get("Upstream", spec["repository"]), key
 
 
+def test_every_vendored_file_listed_in_its_revision_exists():
+    """A tree that only exists in one checkout renders the shipped catalog
+    unreproducible, so every file the REVISION file lists must be on disk."""
+    for key, spec in LIBRARIES.items():
+        tree = LIBRARY_DIRS[key]
+        listed: list[str] = []
+        in_files = False
+        for line in (tree / "REVISION").read_text(encoding="utf-8").splitlines():
+            if line.strip().startswith("Files:"):
+                in_files = True
+                continue
+            if in_files:
+                if line.startswith(("  ", "\t")) and line.strip():
+                    listed.append(line.strip())
+                else:
+                    break
+        assert listed, f"{key} REVISION has no vendored file list"
+        missing = [name for name in listed if not (tree / name).is_file()]
+        assert not missing, f"{key} is missing vendored files: {missing}"
+
+
 def test_every_library_is_reachable_from_the_catalog():
     """Nothing vendored is dead weight, and no object points outside the backend tree."""
     reached = {key: 0 for key in LIBRARIES}
