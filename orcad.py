@@ -6,7 +6,7 @@
 # name = "OrcaCAD"
 # description = "Parametric CAD tab for OrcaSlicer: Gridfinity bins and baseplates, basic shapes and an OpenSCAD code editor with live 3D preview and one-click Send to plate."
 # author = "Yazdan"
-# version = "0.9.20"
+# version = "0.9.21"
 # license = "AGPL-3.0-only"
 # ///
 """OrcaCAD - parametric CAD tab for OrcaSlicer (Pages capability).
@@ -48,7 +48,7 @@ from collections import deque
 from pathlib import Path
 from typing import Any, Callable
 
-PLUGIN_VERSION = "0.9.20"
+PLUGIN_VERSION = "0.9.21"
 HERE = Path(__file__).resolve().parent
 EXPORTS_DIR = HERE / "exports"
 CACHE_DIR = HERE / ".cache"
@@ -200,37 +200,79 @@ def _cache_root() -> Path:
     return Path(base) / "orcad"
 
 
-def _load_backend():
-    """Import the bundled OpenSCAD backend under a private module name (plugins share one interpreter)."""
+def _backend_blob() -> bytes:
+    return base64.b64decode(_EMBEDDED_BACKEND) if _EMBEDDED_BACKEND else b""
+
+
+def _backend_problem(blob: bytes, root: Path) -> str | None:
+    """None when `root` is a complete unpack of `blob`, otherwise the reason it is not.
+
+    A half-written tree is the worst state the plugin can be in: the package
+    imports far enough to look present, fails on a module that never finished
+    being written, and - because the first file the import touches is there -
+    is never unpacked again. Size checks are cheap, so they run on every start.
+    """
+    if not (root / _BACKEND_MARKER).is_file():
+        return "the unpack never finished"
+    with zipfile.ZipFile(io.BytesIO(gzip.decompress(blob))) as archive:
+        for info in archive.infolist():
+            if info.is_dir() or _PAYLOAD_MEMBER.search(info.filename):
+                continue
+            path = root / info.filename
+            if not path.is_file():
+                return f"{info.filename} is missing"
+            if path.stat().st_size != info.file_size:
+                return (f"{info.filename} is {path.stat().st_size} bytes "
+                        f"instead of {info.file_size}")
+    return None
+
+
+def _unpack_backend(blob: bytes, root: Path) -> Path:
+    """Unpack `blob` into `root`, completely or not at all, and return where it landed."""
+    staging = root.with_name(root.name + f".{os.getpid()}.tmp")
+    shutil.rmtree(staging, ignore_errors=True)
+    try:
+        with zipfile.ZipFile(io.BytesIO(gzip.decompress(blob))) as archive:
+            for name in archive.namelist():
+                if name.startswith(("/", "\\")) or ".." in Path(name).parts:
+                    raise RuntimeError("invalid embedded backend path")
+            # The previews, the viewer chunk and the native libraries are only
+            # read, and reading them straight from the archive costs one
+            # decompress instead of writing 350 files the antivirus then has to
+            # scan - a freshly written DLL is the one it holds a lock on.
+            members = [info for info in archive.infolist()
+                       if not _PAYLOAD_MEMBER.search(info.filename)]
+            archive.extractall(staging, members=members)
+            for info in members:
+                path = staging / info.filename
+                if not info.is_dir() and path.stat().st_size != info.file_size:
+                    raise RuntimeError(f"{info.filename} did not unpack completely")
+        # Written last, and only after every file was checked: its presence is
+        # what tells the next start that this tree can be trusted.
+        (staging / _BACKEND_MARKER).write_text(str(len(members)), encoding="utf-8")
+    except OSError as exc:  # a full disk, a locked path, an over-long name
+        shutil.rmtree(staging, ignore_errors=True)
+        raise RuntimeError(f"could not unpack the embedded backend into {staging}: {exc}") from exc
+    except Exception:
+        shutil.rmtree(staging, ignore_errors=True)
+        raise
+    try:
+        staging.rename(root)
+    except OSError:
+        if (root / _BACKEND_MARKER).is_file():
+            shutil.rmtree(staging, ignore_errors=True)  # another process won the race
+        else:
+            return staging  # rename blocked (Windows locks); the staging tree is complete
+    return root
+
+
+def _import_backend(root: Path):
     global _BACKEND_ROOT
-    root = HERE
-    if not (root / "openscad" / "__init__.py").is_file():
-        blob = base64.b64decode(_EMBEDDED_BACKEND)
-        root = _cache_root() / "backend" / hashlib.sha256(blob).hexdigest()[:16]
-        if not (root / "openscad" / "__init__.py").is_file():
-            staging = root.with_name(root.name + f".{os.getpid()}.tmp")
-            shutil.rmtree(staging, ignore_errors=True)
-            try:
-                with zipfile.ZipFile(io.BytesIO(gzip.decompress(blob))) as archive:
-                    for name in archive.namelist():
-                        if name.startswith(("/", "\\")) or ".." in Path(name).parts:
-                            raise RuntimeError("invalid embedded backend path")
-                    # The previews and the viewer chunk are only ever read, and
-                    # reading them straight from the archive costs one decompress
-                    # instead of writing 350 files the antivirus then has to scan.
-                    archive.extractall(staging, members=[info for info in archive.infolist()
-                                                        if not _PAYLOAD_MEMBER.search(info.filename)])
-            except OSError as exc:  # a full disk, a locked path, an over-long name
-                shutil.rmtree(staging, ignore_errors=True)
-                raise RuntimeError(f"could not unpack the embedded backend into {staging}: {exc}") from exc
-            try:
-                staging.rename(root)
-            except OSError:
-                if (root / "openscad" / "__init__.py").is_file():
-                    shutil.rmtree(staging, ignore_errors=True)  # another process won the race
-                else:
-                    root = staging  # rename blocked (Windows locks); the staging tree is complete
     _BACKEND_ROOT = root
+    # A failed import leaves the module it was building behind, so a retry would
+    # silently reuse the very submodule that was broken. Drop them all first.
+    for name in [n for n in sys.modules if n == "orcad_openscad" or n.startswith("orcad_openscad.")]:
+        del sys.modules[name]
     package = root / "openscad"
     spec = importlib.util.spec_from_file_location(
         "orcad_openscad", package / "__init__.py", submodule_search_locations=[str(package)])
@@ -238,6 +280,44 @@ def _load_backend():
     sys.modules["orcad_openscad"] = module
     spec.loader.exec_module(module)
     return module
+
+
+def _load_backend():
+    """Import the bundled OpenSCAD backend under a private module name (plugins share one interpreter)."""
+    blob = _backend_blob()
+    if (HERE / "openscad" / "__init__.py").is_file():
+        root = HERE  # a folder install has the backend beside the plugin
+    else:
+        cache = _cache_root() / "backend" / hashlib.sha256(blob).hexdigest()[:16]
+        problem = _backend_problem(blob, cache)
+        if problem is not None:
+            if (cache / _BACKEND_MARKER).is_file():
+                print(f"orcad: unpacking the backend again: {problem}", file=sys.stderr)
+            shutil.rmtree(cache, ignore_errors=True)  # a tree that failed the check must not survive
+            root = _unpack_backend(blob, cache)
+        else:
+            root = cache
+    try:
+        return _import_backend(root)
+    except Exception as exc:
+        if not blob:
+            raise
+        # Whatever is on disk cannot be imported - an old tree, a quarantined
+        # file - and it would fail on every later start too. Unpack the copy
+        # that travels inside the plugin again and import that instead. The
+        # user's own plugin folder is never touched, only the cache.
+        print(f"orcad: {type(exc).__name__}: {exc} - unpacking the plugin's own backend copy again",
+              file=sys.stderr)
+        cache = _cache_root() / "backend" / hashlib.sha256(blob).hexdigest()[:16]
+        shutil.rmtree(cache, ignore_errors=True)
+        for stale in cache.parent.glob(cache.name + ".*.tmp"):
+            shutil.rmtree(stale, ignore_errors=True)
+        return _import_backend(_unpack_backend(blob, cache))
+
+
+# Written into a freshly unpacked backend, last, once every file has been
+# checked: a tree without it can never be trusted.
+_BACKEND_MARKER = ".orcad-backend"
 
 
 class _MissingBackend:

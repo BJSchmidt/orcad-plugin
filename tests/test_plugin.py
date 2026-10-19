@@ -503,21 +503,107 @@ def test_single_file_install_uses_the_embedded_page_and_backend(tmp_path, monkey
     assert native is True and Path(native_path).is_relative_to(orcad._cache_root() / "native")
 
 
-def test_blocked_rename_still_loads_the_backend_from_the_staging_tree(tmp_path, monkeypatch):
+def test_a_cache_directory_that_cannot_be_vouched_for_is_replaced(tmp_path, monkeypatch):
+    """A leftover directory at our digest path used to be trusted just because it
+    contained openscad/__init__.py; that is how a half-written tree became a
+    permanent import failure on Windows."""
     if not orcad._EMBEDDED_BACKEND:
         pytest.skip("run packaging/bundle.py to embed the release blobs")
     shutil.copy(Path(orcad.__file__), tmp_path / "orcad.py")
     _redirect_cache(monkeypatch, tmp_path)
     digest = hashlib.sha256(base64.b64decode(orcad._EMBEDDED_BACKEND)).hexdigest()[:16]
-    blocked = orcad._cache_root() / "backend" / digest
-    blocked.mkdir(parents=True)
-    (blocked / "in-the-way").write_text("x")  # rename() cannot replace a non-empty directory
-    result = subprocess.run([sys.executable, "-c", "import orcad; print(orcad.scad.__file__)"],
+    stale = orcad._cache_root() / "backend" / digest
+    (stale / "openscad").mkdir(parents=True)
+    (stale / "openscad" / "__init__.py").write_text("from .catalog import credit_for\n", encoding="utf-8")
+    (stale / "openscad" / "catalog.py").write_text("# nothing here\n", encoding="utf-8")
+    result = subprocess.run([sys.executable, "-c", "import orcad; print(len(orcad.scad.CATALOG['objects']))"],
                             cwd=tmp_path, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
-    loaded = Path(result.stdout.strip())
-    assert loaded.parent.parent.name.endswith(".tmp") and loaded.is_relative_to(blocked.parent)
-    assert (blocked / "in-the-way").is_file()
+    assert result.stdout.strip() == "350"
+    assert (stale / orcad._BACKEND_MARKER).is_file()
+    assert "def credit_for" in (stale / "openscad" / "catalog.py").read_text(encoding="utf-8")
+
+
+def _single_file_install(tmp_path, monkeypatch):
+    """A plugin directory holding only orcad.py, and a cache directory of its own."""
+    if not orcad._EMBEDDED_BACKEND:
+        pytest.skip("run packaging/bundle.py to embed the release blobs")
+    shutil.copy(Path(orcad.__file__), tmp_path / "orcad.py")
+    _redirect_cache(monkeypatch, tmp_path)
+    return tmp_path / "orcad.py"
+
+
+def _run_in_install(tmp_path, code):
+    result = subprocess.run([sys.executable, "-c", code], cwd=tmp_path,
+                            capture_output=True, text=True, env={**os.environ}, timeout=300)
+    assert result.returncode == 0, result.stderr
+    return result.stdout
+
+
+def test_a_half_unpacked_backend_is_noticed_and_unpacked_again(tmp_path, monkeypatch):
+    """The Windows report: a new __init__.py next to a catalog.py that never
+    finished being written. Importing that fails on every later start, because
+    the package looks present, so the tree has to be checked before it is used."""
+    _single_file_install(tmp_path, monkeypatch)
+    _run_in_install(tmp_path, "import orcad, json; print(json.dumps([len(orcad.scad.CATALOG['objects']), "
+                               "str(orcad._BACKEND_ROOT)]))")
+    root = Path(json.loads(_run_in_install(tmp_path, "import orcad, json; print(json.dumps(str(orcad._BACKEND_ROOT)))")))
+    catalog = root / "openscad" / "catalog.py"
+    assert catalog.stat().st_size > 1000
+    catalog.write_bytes(b"")  # a truncated write, valid Python, no credit_for
+    out = _run_in_install(tmp_path, "import orcad, json; print(json.dumps(len(orcad.scad.CATALOG['objects'])))")
+    assert json.loads(out) == 350, "a short backend file has to be replaced, not imported"
+    assert catalog.stat().st_size > 1000
+    assert (root / orcad._BACKEND_MARKER).is_file()
+
+
+def test_a_backend_that_imports_badly_is_unpacked_again(tmp_path, monkeypatch):
+    """Same size is not the same file: the import failure has to heal it too."""
+    _single_file_install(tmp_path, monkeypatch)
+    root = Path(json.loads(_run_in_install(tmp_path, "import orcad, json; print(json.dumps(str(orcad._BACKEND_ROOT)))")))
+    catalog = root / "openscad" / "catalog.py"
+    catalog.write_text("#" * catalog.stat().st_size)  # valid Python, no credit_for defined
+    shutil.rmtree(root / "openscad" / "__pycache__", ignore_errors=True)  # nothing compiled to fall back on
+    out = _run_in_install(tmp_path, "import orcad, json; print(json.dumps(len(orcad.scad.CATALOG['objects'])))")
+    assert json.loads(out) == 350
+    assert "def credit_for" in catalog.read_text(encoding="utf-8")
+
+
+def test_a_tree_without_a_completion_marker_is_unpacked_again(tmp_path, monkeypatch):
+    """Trees written by older releases, and any interrupted unpack, are not trusted."""
+    _single_file_install(tmp_path, monkeypatch)
+    root = Path(json.loads(_run_in_install(tmp_path, "import orcad, json; print(json.dumps(str(orcad._BACKEND_ROOT)))")))
+    (root / orcad._BACKEND_MARKER).unlink()
+    out = _run_in_install(tmp_path, "import orcad, json; print(json.dumps(len(orcad.scad.CATALOG['objects'])))")
+    assert json.loads(out) == 350 and (root / orcad._BACKEND_MARKER).is_file()
+
+
+def test_a_broken_folder_install_falls_back_to_the_embedded_copy(tmp_path, monkeypatch):
+    """Never delete what the user installed: import a fresh copy instead."""
+    _single_file_install(tmp_path, monkeypatch)
+    beside = tmp_path / "openscad"
+    beside.mkdir()
+    (beside / "__init__.py").write_text("from .catalog import credit_for\n", encoding="utf-8")
+    (beside / "catalog.py").write_text("# no credit_for here\n", encoding="utf-8")
+    out = _run_in_install(tmp_path, "import orcad, json; print(json.dumps([len(orcad.scad.CATALOG['objects']), "
+                               "str(orcad._BACKEND_ROOT)]))")
+    objects, root = json.loads(out)
+    assert objects == 350 and Path(root).is_relative_to(orcad._cache_root())
+    assert (beside / "catalog.py").read_text(encoding="utf-8") == "# no credit_for here\n"
+
+
+def test_a_locked_cache_directory_still_loads_from_the_staging_tree(monkeypatch, tmp_path):
+    """Windows can refuse to rename onto a locked directory; that must not break the load."""
+    monkeypatch.setattr(orcad, "HERE", tmp_path / "plugin")
+    monkeypatch.setattr(orcad, "_cache_root", lambda: tmp_path / "cache")
+
+    def locked(self, target):
+        raise PermissionError(13, "Access is denied")
+
+    monkeypatch.setattr(orcad.Path, "rename", locked)
+    module = orcad._load_backend()
+    assert module.CATALOG["objects"], "the staging tree is complete, so it must be used"
+    assert Path(module.__file__).parent.parent.name.endswith(".tmp")
 
 
 def test_unpackable_backend_reports_the_target_path(monkeypatch, tmp_path):

@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.9.21 — the backend is checked before it is used (2026-10-18)
+
+- **A half-unpacked backend is no longer permanent.** OrcaCAD unpacks its
+  backend next to the user's data on first start, and the first file the import
+  touches is `openscad/__init__.py` - which the unpack writes early. If that
+  unpack was interrupted (an antivirus, a full disk, OrcaSlicer closed
+  mid-start) the newer code saw the package "already there", imported the part
+  it found, and failed forever after: this is what a Windows machine reported
+  first as "Failed to activate OrcaCAD" (0.9.19) and then as an empty model
+  library naming an `ImportError` (0.9.20). Every unpack is now checked file by
+  file against the plugin's own copy and only marked complete once that passes;
+  a tree that fails the check - or that will not import at all - is unpacked
+  again instead of being used.
+- **A folder install that has gone bad heals itself too.** If the backend beside
+  `orcad.py` cannot be imported, OrcaCAD falls back to unpacking the copy that
+  ships inside the plugin. Nothing the user installed is ever deleted.
+- **Backend problems name the file.** The completion check reports which file was
+  short, missing or unreadable, and that reason reaches the page when a render
+  still cannot work, instead of a bare "unavailable".
+
 ## 0.9.20 — activation can no longer fail (2026-10-18)
 
 - **The plugin now activates even when its bundled backend does not.**
