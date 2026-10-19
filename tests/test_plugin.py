@@ -567,10 +567,14 @@ def test_native_payload_names_stay_inside_the_archive(name):
     assert orcad.payload_bytes("native", name) is None
 
 
+MAGIC = {"linux": b"\x7fELF", "windows": b"MZ", "macos": b"\xcf\xfa\xed\xfe"}
+
+
 def test_the_native_library_is_readable_from_the_payload():
     native = orcad.scad.mesh_native
     data = orcad.payload_bytes("native", f"{native.platform_tag()}/{native.library_name()}")
-    assert data and data[:4] in (b"\x7fELF", b"MZ", b"\xcf\xfa\xed\xfe")
+    magic = MAGIC[native.platform_tag().split("-")[0]]
+    assert data and data.startswith(magic)
 
 
 def test_the_native_library_is_written_out_once_and_reused(tmp_path, monkeypatch):
