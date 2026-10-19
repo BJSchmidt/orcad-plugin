@@ -13,6 +13,7 @@ import random
 import shutil
 import struct
 import sys
+import types
 from array import array
 from pathlib import Path
 
@@ -80,6 +81,7 @@ def loaded() -> ctypes.CDLL:
 def reset_loader(monkeypatch) -> None:
     monkeypatch.setattr(mesh_native, "_tried", False)
     monkeypatch.setattr(mesh_native, "_library", None)
+    monkeypatch.setattr(mesh_native, "_provider", None)  # restored on teardown
 
 
 def test_the_native_path_is_used_here():
@@ -147,9 +149,48 @@ def test_a_library_without_the_expected_symbols_falls_back(monkeypatch):
         def __getattr__(self, name):
             raise AttributeError(name)
 
-    monkeypatch.setattr(mesh_native.ctypes, "CDLL", lambda path: Stub())
+    monkeypatch.setattr(mesh_native, "_import_ctypes", lambda: types.SimpleNamespace(CDLL=lambda path: Stub()))
     reset_loader(monkeypatch)
     assert mesh_native.load() is None
+
+
+def test_an_interpreter_that_forbids_ctypes_falls_back(monkeypatch):
+    """OrcaSlicer's plugin sandbox may deny ctypes outright; that is not fatal."""
+    def forbidden():
+        raise ImportError("ctypes is not available in this interpreter")
+
+    monkeypatch.setattr(mesh_native, "_import_ctypes", forbidden)
+    reset_loader(monkeypatch)
+    data = stl(CASES["grid"])
+    assert mesh_native.load() is None
+    assert mesh_native.library_path() is not None  # the file is there; it is just unusable
+    assert mesh_native.index_stl(data, len(GRID)) is None
+    assert mesh.index_stl(data).positions.tobytes() == python_index(data)[0]
+
+
+def test_the_provider_supplies_the_library_when_it_is_not_on_disk(monkeypatch, tmp_path):
+    """A single-file install writes the library out on demand and hands over the path."""
+    real = DIST / mesh_native.platform_tag() / mesh_native.library_name()
+    written = tmp_path / "elsewhere" / real.name
+    written.parent.mkdir(parents=True)
+    written.write_bytes(real.read_bytes())
+    monkeypatch.setattr(mesh_native, "DIST", tmp_path / "unpacked-nothing")
+    reset_loader(monkeypatch)
+    assert mesh_native.library_path() is None
+    mesh_native.set_provider(lambda tag, name: written)
+    assert mesh_native.library_path() == written
+    data = stl(CASES["cube"])
+    assert mesh_native.index_stl(data, 1) is not None
+
+
+def test_a_provider_that_fails_is_not_fatal(monkeypatch, tmp_path):
+    def broken(tag, name):
+        raise OSError("the cache directory is read-only")
+
+    monkeypatch.setattr(mesh_native, "DIST", tmp_path / "unpacked-nothing")
+    reset_loader(monkeypatch)
+    mesh_native.set_provider(broken)
+    assert mesh_native.library_path() is None and mesh_native.load() is None
 
 
 def test_a_too_small_scratch_table_reports_an_error_instead_of_looping():

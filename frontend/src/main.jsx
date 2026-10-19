@@ -19,7 +19,7 @@ if (!root.hasAttribute('data-orca-theme')) {
 // into the page; the object parameters arrive later, one object at a time, when
 // a model is selected. Opened outside OrcaSlicer the index is missing, and the
 // app says so instead of failing.
-setCatalog(globalThis.__ORCAD_BOOT__?.catalog)
+setCatalog(globalThis.__ORCAD_BOOT__?.catalog, globalThis.__ORCAD_BOOT__?.error)
 globalThis.__orcadBooted = true
 
 createRoot(document.getElementById('app')).render(

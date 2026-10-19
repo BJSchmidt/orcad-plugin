@@ -486,18 +486,21 @@ def test_single_file_install_uses_the_embedded_page_and_backend(tmp_path, monkey
             "native = orcad.scad.mesh.mesh_native; "
             "print(json.dumps([orcad.scad.__file__, orcad.page_html()[:15], sorted(orcad.scad.CATALOG['objects']), "
             "len(orcad.thumb_payload('box') or b''), orcad.viewport_payload('gzip') is not None, "
-            "(orcad._BACKEND_ROOT / 'thumbs').exists(), native.load() is not None, "
-            "str(native.library_path())]))")
+            "(orcad._BACKEND_ROOT / 'thumbs').exists(), (orcad._BACKEND_ROOT / 'openscad/native/dist').exists(), "
+            "native.load() is not None, str(native.library_path())]))")
     out = subprocess.run([sys.executable, "-c", code], cwd=tmp_path, capture_output=True, text=True, check=True).stdout
-    module_path, page, objects, thumb, viewer, extracted, native, native_path = json.loads(out.strip().splitlines()[-1])
+    (module_path, page, objects, thumb, viewer, previews_extracted,
+     native_extracted, native, native_path) = json.loads(out.strip().splitlines()[-1])
     # unpacked into the short per-user cache, not next to the plugin: the cloud install
     # directory is already ~160 characters, and the vendored paths are 93 more
     assert Path(module_path).is_relative_to(orcad._cache_root() / "backend")
     assert page.startswith("<!doctype html>") and "gridfinity_bin" in objects
-    # previews and the viewer are read from the archive, so they are never written out
-    assert thumb > 100 and viewer is True and extracted is False
-    # the C fast path is unpacked with the rest of the backend and loads from there
-    assert native is True and Path(native_path).is_relative_to(orcad._cache_root() / "backend")
+    # previews, the viewer and the native libraries are read from the archive (and the
+    # library is written out only when the mesh fast path is used), so none of them is
+    # unpacked at load time - a DLL written then is what an antivirus locks
+    assert thumb > 100 and viewer is True
+    assert previews_extracted is False and native_extracted is False
+    assert native is True and Path(native_path).is_relative_to(orcad._cache_root() / "native")
 
 
 def test_blocked_rename_still_loads_the_backend_from_the_staging_tree(tmp_path, monkeypatch):
@@ -527,6 +530,60 @@ def test_unpackable_backend_reports_the_target_path(monkeypatch, tmp_path):
     monkeypatch.setattr(orcad.zipfile.ZipFile, "extractall", too_long)
     with pytest.raises(RuntimeError, match="could not unpack the embedded backend"):
         orcad._load_backend()
+
+
+def test_a_backend_that_will_not_load_still_gives_a_page_that_explains(monkeypatch):
+    """OrcaSlicer shows a dead plugin for a failed load: no tab, no message.
+
+    Activating anyway and reporting the reason inside the tab is the difference
+    between a bug report and a mystery."""
+    reason = "OSError: could not unpack the embedded backend into C:/.../orcad: [WinError 32]"
+    monkeypatch.setattr(orcad, "_boot_script", None)
+    monkeypatch.setattr(orcad, "scad", orcad._MissingBackend(reason))
+    page = orcad.page_html()
+    assert page.startswith("<!doctype html>")
+    assert '"error":' in page and "could not unpack the embedded backend" in page
+    assert json.loads(page.split("window.__ORCAD_BOOT__=", 1)[1].split(";</script>", 1)[0])["catalog"]["objects"] == {}
+
+
+def test_the_missing_backend_says_so_wherever_it_is_used():
+    broken = orcad._MissingBackend("ImportError: no ctypes")
+    assert broken.index_payload()["objects"] == {}
+    assert broken.CATALOG["objects"] == {}
+    assert "no ctypes" in broken.openscad_bootstrap_status()["error"]
+    broken.start_openscad_bootstrap(root=None)  # must not raise: registration calls it
+    with pytest.raises(AttributeError, match="backend is unavailable"):
+        broken.OpenSCADRunner
+
+
+def test_the_last_resort_page_cannot_itself_fail():
+    page = orcad._fallback_page(RuntimeError("could not unpack <the> backend"))
+    assert page.startswith("<!doctype html>") and "could not unpack &lt;the&gt; backend" in page
+    assert "OrcaCAD could not start" in page
+
+
+@pytest.mark.parametrize("name", ["", "/etc/passwd", "../../etc/passwd", "linux-aarch64/../../x", "a" * 60 + "/b"])
+def test_native_payload_names_stay_inside_the_archive(name):
+    assert orcad.payload_bytes("native", name) is None
+
+
+def test_the_native_library_is_readable_from_the_payload():
+    native = orcad.scad.mesh_native
+    data = orcad.payload_bytes("native", f"{native.platform_tag()}/{native.library_name()}")
+    assert data and data[:4] in (b"\x7fELF", b"MZ", b"\xcf\xfa\xed\xfe")
+
+
+def test_the_native_library_is_written_out_once_and_reused(tmp_path, monkeypatch):
+    monkeypatch.setattr(orcad, "_cache_root", lambda: tmp_path / "orcad")
+    native = orcad.scad.mesh_native
+    tag, name = native.platform_tag(), native.library_name()
+    written = orcad._native_library(tag, name)
+    assert written == tmp_path / "orcad" / "native" / tag / name and written.is_file()
+    assert written.read_bytes() == orcad.payload_bytes("native", f"{tag}/{name}")
+    stamp = written.stat().st_mtime_ns
+    assert orcad._native_library(tag, name) == written
+    assert written.stat().st_mtime_ns == stamp  # a second render does not rewrite it
+    assert orcad._native_library(tag, "orcad_mesh.nope") is None
 
 
 ICON = Path(__file__).resolve().parents[1] / "assets" / "orcad-icon.png"

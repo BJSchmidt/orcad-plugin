@@ -14,13 +14,16 @@
 const EMPTY_INDEX = { objects: {}, credits: {}, quality_profiles: {}, revision: '' }
 
 let INDEX = EMPTY_INDEX
+// Why the library is empty, when the plugin could say (its backend would not
+// unpack, so no catalog arrived). Shown to the user instead of a blank list.
+let BOOT_ERROR = ''
 
 function isObject(value) {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
 }
 
 /** Installs the compact index the plugin injected into the page. */
-export function setCatalog(index) {
+export function setCatalog(index, error = '') {
   const objects = {}
   for (const [key, meta] of Object.entries(index?.objects || {})) {
     if (isObject(meta)) objects[key] = { ...meta }
@@ -31,6 +34,12 @@ export function setCatalog(index) {
     quality_profiles: isObject(index?.quality_profiles) ? { ...index.quality_profiles } : {},
     revision: typeof index?.revision === 'string' ? index.revision : '',
   }
+  BOOT_ERROR = typeof error === 'string' ? error : ''
+}
+
+/** The reason the library is unavailable, or an empty string. */
+export function catalogError() {
+  return BOOT_ERROR
 }
 
 export function catalogReady() {

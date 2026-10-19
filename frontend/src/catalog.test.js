@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import test from 'node:test'
-import { activePreset, applyPreset, catalogReady, categories, checkValue, creditFor, defaults, groups, isDisabled, isLoaded, objectKeys, objectMeta, objectMatches, presetList, presetMatches, presets, qualityKeys, restoreParams, resultCounts, searchObjects, setCatalog, setParam, setSpec } from './catalog.js'
+import { activePreset, applyPreset, catalogError, catalogReady, categories, checkValue, creditFor, defaults, groups, isDisabled, isLoaded, objectKeys, objectMeta, objectMatches, presetList, presetMatches, presets, qualityKeys, restoreParams, resultCounts, searchObjects, setCatalog, setParam, setSpec } from './catalog.js'
 
 const CATALOG = JSON.parse(readFileSync(new URL('../../openscad/catalog.json', import.meta.url), 'utf8'))
 
@@ -69,6 +69,14 @@ test('catalogReady is false for an empty catalog', () => {
   assert.equal(catalogReady(), false)
   assert.deepEqual(objectKeys(), [])
   assert.deepEqual(categories(), [])
+  install()
+})
+
+test('a boot error travels with the catalog so the page can explain itself', () => {
+  setCatalog(undefined, 'OSError: could not unpack the embedded backend')
+  assert.equal(catalogError(), 'OSError: could not unpack the embedded backend')
+  setCatalog({ objects: { demo: { label: 'Demo' } } }, '')  // a healthy reload clears it
+  assert.equal(catalogError(), '')
   install()
 })
 

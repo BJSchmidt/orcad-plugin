@@ -5,6 +5,7 @@ from .catalog import (CATALOG, LIBRARIES, LIBRARY_DIR, LIBRARY_DIRS, LIBRARY_REV
                       SOURCE_REVISION, credit_for, defaults, index_payload, object_spec, source_path, spec_payload)
 from .errors import BackendError, ErrorCode, ValidationError
 from .mesh import IndexedMesh, index_stl, triangle_count, write_3mf
+from . import mesh_native
 from .runner import (EngineInfo, OpenSCADRunner, RenderResult, backend_args, build_argv, child_env, clean_log,
                      discover_openscad, encode_define, probe_openscad)
 from .validation import validate_parameters

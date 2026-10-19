@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.9.20 — activation can no longer fail (2026-10-18)
+
+- **The plugin now activates even when its bundled backend does not.**
+  OrcaSlicer reports a plugin that fails to load as a dead plugin: no tab at
+  all, and "Failed to activate" with the real traceback buried in a log. That
+  is how 0.9.19 could work everywhere it was tested and still leave a Windows
+  machine without a usable plugin. Anything that goes wrong while unpacking or
+  importing the backend now leaves the plugin active, the tab open, and the
+  reason written on the page instead of in a log.
+- **The native mesh library is written only when it is used.** A single-file
+  install used to unpack it with the rest of the backend, during activation.
+  A DLL written at that moment is exactly the file an antivirus holds a lock
+  on, and a locked file fails the unpack - and a failed unpack used to fail
+  activation. The library is still inside the plugin, but it is written out on
+  the first render that needs it (and reused after that).
+- **`ctypes` is optional now.** The mesh fast path imports it on first use and
+  gives up quietly if the interpreter forbids it, so a sandbox that disallows
+  `ctypes` costs the C speed-up and nothing else. OrcaCAD renders on the
+  Python path either way, byte for byte identically.
+- **A last-resort page.** If building the page itself fails, the tab now shows
+  a short page naming the error instead of staying white. OrcaSlicer calls
+  `get_ui()` once, when the tab is first opened, and only logs a failure, so
+  that one page has to be unable to fail.
+
 ## 0.9.19 — the tab opens again on slow machines: a 5x smaller page (2026-10-18)
 
 - **The blank tab on slower Windows machines is fixed.** OrcaSlicer builds a

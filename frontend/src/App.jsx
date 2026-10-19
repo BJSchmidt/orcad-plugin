@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { bridge } from './bridge.js'
 import { aiReducer, initialAIState } from './ai.js'
-import { activePreset, applyPreset, catalogReady, categories, creditFor, defaults, groups, isDisabled, isLoaded, objectKeys, objectMeta, presets, qualityKeys, restoreParams, resultCounts, searchObjects, setParam, setSpec } from './catalog.js'
+import { activePreset, applyPreset, catalogError, catalogReady, categories, creditFor, defaults, groups, isDisabled, isLoaded, objectKeys, objectMeta, presets, qualityKeys, restoreParams, resultCounts, searchObjects, setParam, setSpec } from './catalog.js'
 import { loadSettings, saveSettings } from './storage.js'
 import { SIDEBAR_MAX, SIDEBAR_MIN, clampSidebarWidth } from './sidebar.js'
 import { decodeMesh, meshStats } from './mesh.js'
@@ -23,6 +23,16 @@ const QUALITY_HINTS = {
   final: 'Smoothest curves, larger files',
 }
 const PREVIEW_DELAY = 250
+
+// The library is empty when the page runs outside OrcaSlicer, or when the
+// plugin's backend could not be unpacked. In the second case the plugin says
+// why, and that is far more useful than "unavailable".
+function missingLibrary() {
+  const reason = catalogError()
+  return reason
+    ? `The model library is unavailable: ${reason}`
+    : 'The model library is unavailable. Open the OrcaCAD tab inside OrcaSlicer.'
+}
 const ALL = 'all'
 const AUTO_RENDER_DELAY = 900
 const VIEW_BUTTONS = [['iso', 'Isometric'], ['front', 'Front'], ['right', 'Right'], ['top', 'Top']]
@@ -440,7 +450,7 @@ export default function App() {
                     {!visibleObjects.length && (
                       <p className="muted empty-search">{catalogReady()
                         ? <>No models match{query.trim() ? ` “${query.trim()}”` : ` the “${category}” category`}.</>
-                        : 'The model library is unavailable. Open the OrcaCAD tab inside OrcaSlicer.'}</p>
+                        : missingLibrary()}</p>
                     )}
                   </div>
                 </div>
@@ -459,7 +469,7 @@ export default function App() {
                 {!ready && (
                   <p className="muted empty-search">{catalogReady()
                     ? (bridge.available ? 'Loading this model\u2019s parameters…' : 'Reconnect from OrcaSlicer to load this model\u2019s parameters.')
-                    : 'The model library is unavailable. Open the OrcaCAD tab inside OrcaSlicer.'}</p>
+                    : missingLibrary()}</p>
                 )}
                 {ready && !!objectPresets.length && (
                   <section className="preset-block" aria-label="Presets">

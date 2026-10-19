@@ -8,7 +8,11 @@ from array import array
 from dataclasses import dataclass
 
 from .errors import BackendError, ErrorCode
-from . import mesh_native
+
+try:  # the native fast path is optional; an embedded interpreter may forbid ctypes
+    from . import mesh_native
+except Exception:  # pragma: no cover - only when the import machinery says no
+    mesh_native = None
 
 _HEADER = 84
 _RECORD = 50  # normal (12) + three vertices (36) + attribute (2)
@@ -39,7 +43,7 @@ def triangle_count(data: bytes) -> int:
 def index_stl(data: bytes) -> IndexedMesh:
     """Deduplicate vertices by their exact bytes (fast; no float round-trip)."""
     count = triangle_count(data)
-    native = mesh_native.index_stl(data, count)
+    native = mesh_native.index_stl(data, count) if mesh_native is not None else None
     if native is not None:
         return IndexedMesh(*native)
     lookup: dict[bytes, int] = {}
